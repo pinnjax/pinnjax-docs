@@ -769,6 +769,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#pinnjax.predict.run_prediction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <code class="doc-symbol doc-symbol-toc doc-symbol-function"></code>&nbsp;run_prediction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#pinnjax.predict.run_prediction_at_time" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -978,6 +989,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#pinnjax.predict.run_prediction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <code class="doc-symbol doc-symbol-toc doc-symbol-function"></code>&nbsp;run_prediction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#pinnjax.predict.run_prediction_at_time" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1107,7 +1129,7 @@ forward pass, and reshapes the result back to the grid layout.</p>
                 <code>grid</code>
             </td>
             <td>
-                  <code><span title="pinnjax.SpatialGrid">SpatialGrid</span></code>
+                  <code><a class="autorefs autorefs-internal" title="            SpatialGrid (pinnjax.SpatialGrid)" href="../grid_api/#pinnjax.grid.SpatialGrid">SpatialGrid</a></code>
             </td>
             <td>
               <div class="doc-md-description">
@@ -1358,7 +1380,7 @@ for each time value and returns a list of prediction arrays.</p>
                 <code>grid</code>
             </td>
             <td>
-                  <code><span title="pinnjax.SpatialGrid">SpatialGrid</span></code>
+                  <code><a class="autorefs autorefs-internal" title="            SpatialGrid (pinnjax.SpatialGrid)" href="../grid_api/#pinnjax.grid.SpatialGrid">SpatialGrid</a></code>
             </td>
             <td>
               <div class="doc-md-description">
@@ -1510,7 +1532,7 @@ spatiotemporal mesh precomputed by the
                 <code>grid</code>
             </td>
             <td>
-                  <code><span title="pinnjax.SpatialGrid">SpatialGrid</span></code>
+                  <code><a class="autorefs autorefs-internal" title="            SpatialGrid (pinnjax.SpatialGrid)" href="../grid_api/#pinnjax.grid.SpatialGrid">SpatialGrid</a></code>
             </td>
             <td>
               <div class="doc-md-description">
@@ -1647,6 +1669,135 @@ spatiotemporal mesh precomputed by the
 <div class="doc doc-object doc-function">
 
 
+<h2 id="pinnjax.predict.run_prediction" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-function"></code>            <span class="doc doc-object-name doc-function-name">run_prediction</span>
+
+
+<a href="#pinnjax.predict.run_prediction" class="headerlink" title="Permanent link">#</a></h2>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">run_prediction</span><span class="p">(</span>
+    <span class="n">model</span><span class="p">:</span> <span class="n">NeuralNetwork</span><span class="p">,</span>
+    <span class="n">domain</span><span class="p">:</span> <span class="n">SpatialDomain</span><span class="p">,</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">fixed_z</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">num_points</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">DEFAULT_GRID_NUM_POINTS</span><span class="p">,</span>
+    <span class="n">num_times</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">DEFAULT_GRID_NUM_TIMES</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">Array</span><span class="p">,</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">RectangularGrid2D</span><span class="p">]</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Run evolution prediction on a 2D slice of the domain.
+Builds a spatiotemporal grid and calls :func:<code>predict_evolution</code>.
+Args:
+    model: Loaded PINN model.
+    domain: Domain (use model.domain if same).
+    fixed_z: Z value for the 2D slice (default: domain.max[2]).
+    num_points: (nx, ny) grid resolution.
+    num_times: Number of time steps.
+Returns:
+    (predictions, grid): predictions shape (num_times, nx, ny), and the grid.</p>
+
+
+            <details class="mkdocstrings-source">
+              <summary>Source code in <code>pinnjax/predict.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">144</span>
+<span class="normal">145</span>
+<span class="normal">146</span>
+<span class="normal">147</span>
+<span class="normal">148</span>
+<span class="normal">149</span>
+<span class="normal">150</span>
+<span class="normal">151</span>
+<span class="normal">152</span>
+<span class="normal">153</span>
+<span class="normal">154</span>
+<span class="normal">155</span>
+<span class="normal">156</span>
+<span class="normal">157</span>
+<span class="normal">158</span>
+<span class="normal">159</span>
+<span class="normal">160</span>
+<span class="normal">161</span>
+<span class="normal">162</span>
+<span class="normal">163</span>
+<span class="normal">164</span>
+<span class="normal">165</span>
+<span class="normal">166</span>
+<span class="normal">167</span>
+<span class="normal">168</span>
+<span class="normal">169</span>
+<span class="normal">170</span>
+<span class="normal">171</span>
+<span class="normal">172</span>
+<span class="normal">173</span>
+<span class="normal">174</span>
+<span class="normal">175</span>
+<span class="normal">176</span>
+<span class="normal">177</span>
+<span class="normal">178</span>
+<span class="normal">179</span>
+<span class="normal">180</span>
+<span class="normal">181</span>
+<span class="normal">182</span>
+<span class="normal">183</span>
+<span class="normal">184</span>
+<span class="normal">185</span>
+<span class="normal">186</span>
+<span class="normal">187</span>
+<span class="normal">188</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">run_prediction</span><span class="p">(</span>
+    <span class="n">model</span><span class="p">:</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">NeuralNetwork</span><span class="p">,</span>
+    <span class="n">domain</span><span class="p">:</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">SpatialDomain</span><span class="p">,</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">fixed_z</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">num_points</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">DEFAULT_GRID_NUM_POINTS</span><span class="p">,</span>
+    <span class="n">num_times</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">DEFAULT_GRID_NUM_TIMES</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">Array</span><span class="p">,</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">RectangularGrid2D</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Run evolution prediction on a 2D slice of the domain.</span>
+<span class="sd">    Builds a spatiotemporal grid and calls :func:`predict_evolution`.</span>
+<span class="sd">    Args:</span>
+<span class="sd">        model: Loaded PINN model.</span>
+<span class="sd">        domain: Domain (use model.domain if same).</span>
+<span class="sd">        fixed_z: Z value for the 2D slice (default: domain.max[2]).</span>
+<span class="sd">        num_points: (nx, ny) grid resolution.</span>
+<span class="sd">        num_times: Number of time steps.</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        (predictions, grid): predictions shape (num_times, nx, ny), and the grid.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">domain</span><span class="p">,</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">SpatialDomain</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+            <span class="s2">&quot;run_prediction requires a SpatialDomain (evolution uses domain.times). &quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;Got </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">domain</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">.&quot;</span>
+        <span class="p">)</span>
+    <span class="k">if</span> <span class="n">domain</span><span class="o">.</span><span class="n">times</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;SpatialDomain has no times; cannot run evolution prediction.&quot;</span><span class="p">)</span>
+    <span class="n">t_min</span><span class="p">,</span> <span class="n">t_max</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">domain</span><span class="o">.</span><span class="n">times</span><span class="o">.</span><span class="n">min</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="n">domain</span><span class="o">.</span><span class="n">times</span><span class="o">.</span><span class="n">max</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">t_max</span> <span class="o">&lt;=</span> <span class="n">t_min</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;Domain time range is non-positive (min=</span><span class="si">{</span><span class="n">t_min</span><span class="si">}</span><span class="s2">, max=</span><span class="si">{</span><span class="n">t_max</span><span class="si">}</span><span class="s2">). &quot;</span>
+            <span class="s2">&quot;Evolution prediction would be constant (e.g. initial condition only).&quot;</span>
+        <span class="p">)</span>
+    <span class="n">time_range</span> <span class="o">=</span> <span class="p">(</span><span class="n">t_min</span><span class="p">,</span> <span class="n">t_max</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">fixed_z</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">fixed_z</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">domain</span><span class="o">.</span><span class="n">max</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+    <span class="n">grid</span> <span class="o">=</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">RectangularGrid2D</span><span class="p">(</span>
+        <span class="n">domain</span><span class="o">=</span><span class="n">domain</span><span class="p">,</span>
+        <span class="n">fixed_coordinates</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;z&quot;</span><span class="p">:</span> <span class="n">fixed_z</span><span class="p">},</span>
+        <span class="n">num_points</span><span class="o">=</span><span class="n">num_points</span><span class="p">,</span>
+        <span class="n">time_range</span><span class="o">=</span><span class="n">time_range</span><span class="p">,</span>
+        <span class="n">num_times</span><span class="o">=</span><span class="n">num_times</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">predictions</span> <span class="o">=</span> <span class="n">predict_evolution</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">grid</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">predictions</span><span class="p">,</span> <span class="n">grid</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
 <h2 id="pinnjax.predict.run_prediction_at_time" class="doc doc-heading">
 <code class="doc-symbol doc-symbol-heading doc-symbol-function"></code>            <span class="doc doc-object-name doc-function-name">run_prediction_at_time</span>
 
@@ -1700,7 +1851,7 @@ spatiotemporal mesh precomputed by the
                 <code>domain</code>
             </td>
             <td>
-                  <code><span title="pinnjax.SpatialDomain">SpatialDomain</span> | None</code>
+                  <code><a class="autorefs autorefs-internal" title="            SpatialDomain (pinnjax.SpatialDomain)" href="../dataclass_api/#pinnjax.dataclass.SpatialDomain">SpatialDomain</a> | None</code>
             </td>
             <td>
               <div class="doc-md-description">
@@ -1927,7 +2078,7 @@ spatiotemporal mesh precomputed by the
                 <code>domain</code>
             </td>
             <td>
-                  <code><span title="pinnjax.SpatialDomain">SpatialDomain</span> | None</code>
+                  <code><a class="autorefs autorefs-internal" title="            SpatialDomain (pinnjax.SpatialDomain)" href="../dataclass_api/#pinnjax.dataclass.SpatialDomain">SpatialDomain</a> | None</code>
             </td>
             <td>
               <div class="doc-md-description">

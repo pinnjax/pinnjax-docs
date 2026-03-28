@@ -861,6 +861,78 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#pinnjax.geometry.DataGeometry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <code class="doc-symbol doc-symbol-toc doc-symbol-class"></code>&nbsp;DataGeometry
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label=" DataGeometry">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pinnjax.geometry.DataGeometry.validate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code>&nbsp;validate
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pinnjax.geometry.DataGeometry.materialize_validation_from_portion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code>&nbsp;materialize_validation_from_portion
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pinnjax.geometry.DataGeometry.test_train_split" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code>&nbsp;test_train_split
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pinnjax.geometry.DataGeometry.to_data_loader" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code>&nbsp;to_data_loader
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pinnjax.geometry.TabularGeometry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <code class="doc-symbol doc-symbol-toc doc-symbol-class"></code>&nbsp;TabularGeometry
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#pinnjax.geometry.ScanGeometry" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1599,6 +1671,78 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#pinnjax.geometry.DataGeometry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <code class="doc-symbol doc-symbol-toc doc-symbol-class"></code>&nbsp;DataGeometry
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label=" DataGeometry">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pinnjax.geometry.DataGeometry.validate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code>&nbsp;validate
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pinnjax.geometry.DataGeometry.materialize_validation_from_portion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code>&nbsp;materialize_validation_from_portion
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pinnjax.geometry.DataGeometry.test_train_split" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code>&nbsp;test_train_split
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pinnjax.geometry.DataGeometry.to_data_loader" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code>&nbsp;to_data_loader
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pinnjax.geometry.TabularGeometry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <code class="doc-symbol doc-symbol-toc doc-symbol-class"></code>&nbsp;TabularGeometry
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#pinnjax.geometry.ScanGeometry" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2195,7 +2339,7 @@ Populated after calling <code>sample()</code>.</p>
                 <span class="s2">&quot;Call .set_loss first.&quot;</span>
             <span class="p">)</span>
             <span class="n">config</span><span class="o">.</span><span class="n">LOGGER</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
-            <span class="k">raise</span> <span class="n">InputError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="n">config</span><span class="o">.</span><span class="n">InputError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">loss_val</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">loss_function</span><span class="p">(</span><span class="n">residuals</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">loss_val</span>
@@ -3190,7 +3334,7 @@ has been bound to this Shape.</p>
             <span class="s2">&quot;Call .set_loss first.&quot;</span>
         <span class="p">)</span>
         <span class="n">config</span><span class="o">.</span><span class="n">LOGGER</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
-        <span class="k">raise</span> <span class="n">InputError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="n">config</span><span class="o">.</span><span class="n">InputError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
 
     <span class="bp">self</span><span class="o">.</span><span class="n">loss_val</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">loss_function</span><span class="p">(</span><span class="n">residuals</span><span class="p">)</span>
     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">loss_val</span>
@@ -10520,6 +10664,863 @@ samples in the current frame's time interval are shown.</p>
 
 
 
+<h2 id="pinnjax.geometry.DataGeometry" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>            <span class="doc doc-object-name doc-class-name">DataGeometry</span>
+
+
+<a href="#pinnjax.geometry.DataGeometry" class="headerlink" title="Permanent link">#</a></h2>
+
+
+    <div class="doc doc-contents ">
+            <p class="doc doc-class-bases">
+              Bases: <code><a class="autorefs autorefs-internal" title="            ComplexShape (pinnjax.geometry.ComplexShape)" href="#pinnjax.geometry.ComplexShape">ComplexShape</a></code>, <code><span title="abc.ABC">ABC</span></code></p>
+
+
+
+
+
+
+
+
+
+
+              <details class="mkdocstrings-source">
+                <summary>Source code in <code>pinnjax/geometry.py</code></summary>
+                <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">3291</span>
+<span class="normal">3292</span>
+<span class="normal">3293</span>
+<span class="normal">3294</span>
+<span class="normal">3295</span>
+<span class="normal">3296</span>
+<span class="normal">3297</span>
+<span class="normal">3298</span>
+<span class="normal">3299</span>
+<span class="normal">3300</span>
+<span class="normal">3301</span>
+<span class="normal">3302</span>
+<span class="normal">3303</span>
+<span class="normal">3304</span>
+<span class="normal">3305</span>
+<span class="normal">3306</span>
+<span class="normal">3307</span>
+<span class="normal">3308</span>
+<span class="normal">3309</span>
+<span class="normal">3310</span>
+<span class="normal">3311</span>
+<span class="normal">3312</span>
+<span class="normal">3313</span>
+<span class="normal">3314</span>
+<span class="normal">3315</span>
+<span class="normal">3316</span>
+<span class="normal">3317</span>
+<span class="normal">3318</span>
+<span class="normal">3319</span>
+<span class="normal">3320</span>
+<span class="normal">3321</span>
+<span class="normal">3322</span>
+<span class="normal">3323</span>
+<span class="normal">3324</span>
+<span class="normal">3325</span>
+<span class="normal">3326</span>
+<span class="normal">3327</span>
+<span class="normal">3328</span>
+<span class="normal">3329</span>
+<span class="normal">3330</span>
+<span class="normal">3331</span>
+<span class="normal">3332</span>
+<span class="normal">3333</span>
+<span class="normal">3334</span>
+<span class="normal">3335</span>
+<span class="normal">3336</span>
+<span class="normal">3337</span>
+<span class="normal">3338</span>
+<span class="normal">3339</span>
+<span class="normal">3340</span>
+<span class="normal">3341</span>
+<span class="normal">3342</span>
+<span class="normal">3343</span>
+<span class="normal">3344</span>
+<span class="normal">3345</span>
+<span class="normal">3346</span>
+<span class="normal">3347</span>
+<span class="normal">3348</span>
+<span class="normal">3349</span>
+<span class="normal">3350</span>
+<span class="normal">3351</span>
+<span class="normal">3352</span>
+<span class="normal">3353</span>
+<span class="normal">3354</span>
+<span class="normal">3355</span>
+<span class="normal">3356</span>
+<span class="normal">3357</span>
+<span class="normal">3358</span>
+<span class="normal">3359</span>
+<span class="normal">3360</span>
+<span class="normal">3361</span>
+<span class="normal">3362</span>
+<span class="normal">3363</span>
+<span class="normal">3364</span>
+<span class="normal">3365</span>
+<span class="normal">3366</span>
+<span class="normal">3367</span>
+<span class="normal">3368</span>
+<span class="normal">3369</span>
+<span class="normal">3370</span>
+<span class="normal">3371</span>
+<span class="normal">3372</span>
+<span class="normal">3373</span>
+<span class="normal">3374</span>
+<span class="normal">3375</span>
+<span class="normal">3376</span>
+<span class="normal">3377</span>
+<span class="normal">3378</span>
+<span class="normal">3379</span>
+<span class="normal">3380</span>
+<span class="normal">3381</span>
+<span class="normal">3382</span>
+<span class="normal">3383</span>
+<span class="normal">3384</span>
+<span class="normal">3385</span>
+<span class="normal">3386</span>
+<span class="normal">3387</span>
+<span class="normal">3388</span>
+<span class="normal">3389</span>
+<span class="normal">3390</span>
+<span class="normal">3391</span>
+<span class="normal">3392</span>
+<span class="normal">3393</span>
+<span class="normal">3394</span>
+<span class="normal">3395</span>
+<span class="normal">3396</span>
+<span class="normal">3397</span>
+<span class="normal">3398</span>
+<span class="normal">3399</span>
+<span class="normal">3400</span>
+<span class="normal">3401</span>
+<span class="normal">3402</span>
+<span class="normal">3403</span>
+<span class="normal">3404</span>
+<span class="normal">3405</span>
+<span class="normal">3406</span>
+<span class="normal">3407</span>
+<span class="normal">3408</span>
+<span class="normal">3409</span>
+<span class="normal">3410</span>
+<span class="normal">3411</span>
+<span class="normal">3412</span>
+<span class="normal">3413</span>
+<span class="normal">3414</span>
+<span class="normal">3415</span>
+<span class="normal">3416</span>
+<span class="normal">3417</span>
+<span class="normal">3418</span>
+<span class="normal">3419</span>
+<span class="normal">3420</span>
+<span class="normal">3421</span>
+<span class="normal">3422</span>
+<span class="normal">3423</span>
+<span class="normal">3424</span>
+<span class="normal">3425</span>
+<span class="normal">3426</span>
+<span class="normal">3427</span>
+<span class="normal">3428</span>
+<span class="normal">3429</span>
+<span class="normal">3430</span>
+<span class="normal">3431</span>
+<span class="normal">3432</span>
+<span class="normal">3433</span>
+<span class="normal">3434</span>
+<span class="normal">3435</span>
+<span class="normal">3436</span>
+<span class="normal">3437</span>
+<span class="normal">3438</span>
+<span class="normal">3439</span>
+<span class="normal">3440</span>
+<span class="normal">3441</span>
+<span class="normal">3442</span>
+<span class="normal">3443</span>
+<span class="normal">3444</span>
+<span class="normal">3445</span>
+<span class="normal">3446</span>
+<span class="normal">3447</span>
+<span class="normal">3448</span>
+<span class="normal">3449</span>
+<span class="normal">3450</span>
+<span class="normal">3451</span>
+<span class="normal">3452</span>
+<span class="normal">3453</span>
+<span class="normal">3454</span>
+<span class="normal">3455</span>
+<span class="normal">3456</span>
+<span class="normal">3457</span>
+<span class="normal">3458</span>
+<span class="normal">3459</span>
+<span class="normal">3460</span>
+<span class="normal">3461</span>
+<span class="normal">3462</span>
+<span class="normal">3463</span>
+<span class="normal">3464</span>
+<span class="normal">3465</span>
+<span class="normal">3466</span>
+<span class="normal">3467</span>
+<span class="normal">3468</span>
+<span class="normal">3469</span>
+<span class="normal">3470</span>
+<span class="normal">3471</span>
+<span class="normal">3472</span>
+<span class="normal">3473</span>
+<span class="normal">3474</span>
+<span class="normal">3475</span>
+<span class="normal">3476</span>
+<span class="normal">3477</span>
+<span class="normal">3478</span>
+<span class="normal">3479</span>
+<span class="normal">3480</span>
+<span class="normal">3481</span>
+<span class="normal">3482</span>
+<span class="normal">3483</span>
+<span class="normal">3484</span>
+<span class="normal">3485</span>
+<span class="normal">3486</span>
+<span class="normal">3487</span>
+<span class="normal">3488</span>
+<span class="normal">3489</span>
+<span class="normal">3490</span>
+<span class="normal">3491</span>
+<span class="normal">3492</span>
+<span class="normal">3493</span>
+<span class="normal">3494</span>
+<span class="normal">3495</span>
+<span class="normal">3496</span>
+<span class="normal">3497</span>
+<span class="normal">3498</span>
+<span class="normal">3499</span>
+<span class="normal">3500</span>
+<span class="normal">3501</span>
+<span class="normal">3502</span>
+<span class="normal">3503</span>
+<span class="normal">3504</span>
+<span class="normal">3505</span>
+<span class="normal">3506</span>
+<span class="normal">3507</span>
+<span class="normal">3508</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">DataGeometry</span><span class="p">(</span><span class="n">ComplexShape</span><span class="p">,</span> <span class="n">ABC</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">inputs</span><span class="p">:</span> <span class="n">Array</span><span class="p">,</span>
+        <span class="n">outputs</span><span class="p">:</span> <span class="n">Array</span><span class="p">,</span>
+        <span class="o">*</span><span class="p">,</span>
+        <span class="n">indices</span><span class="p">:</span> <span class="n">Array</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">portion</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span>
+        <span class="n">materialize_validation_from_portion</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">data_shape</span> <span class="o">=</span> <span class="n">DataShape</span><span class="p">(</span>
+            <span class="n">inputs</span><span class="p">,</span>
+            <span class="n">outputs</span><span class="p">,</span>
+            <span class="n">indices</span><span class="o">=</span><span class="n">indices</span><span class="p">,</span>
+            <span class="n">portion</span><span class="o">=</span><span class="n">portion</span><span class="p">,</span>
+            <span class="n">materialize_validation_from_portion</span><span class="o">=</span><span class="n">materialize_validation_from_portion</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">([</span><span class="n">data_shape</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data_shape</span> <span class="o">=</span> <span class="n">data_shape</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_from_data_shape</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">data_shape</span><span class="p">:</span> <span class="n">DataShape</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DataGeometry</span><span class="p">:</span>
+        <span class="bp">self</span> <span class="o">=</span> <span class="nb">object</span><span class="o">.</span><span class="fm">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">)</span>
+        <span class="n">ComplexShape</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="p">[</span><span class="n">data_shape</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data_shape</span> <span class="o">=</span> <span class="n">data_shape</span>
+        <span class="k">return</span> <span class="bp">self</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">duplicate_data_shape</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">times</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="o">*</span><span class="p">,</span>
+        <span class="n">copy_split</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">pinnjax</span><span class="o">.</span><span class="n">DataShape</span><span class="p">]:</span>
+        <span class="k">if</span> <span class="n">times</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;`times` must be &gt;= 1, got </span><span class="si">{</span><span class="n">times</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+        <span class="n">duplicates</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">pinnjax</span><span class="o">.</span><span class="n">DataShape</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">times</span><span class="p">):</span>
+            <span class="n">ds</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_shape</span><span class="o">.</span><span class="n">clone</span><span class="p">(</span><span class="n">copy_split</span><span class="o">=</span><span class="n">copy_split</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">shapes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ds</span><span class="p">)</span>
+            <span class="n">duplicates</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ds</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">duplicates</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">from_files</span><span class="p">(</span>
+        <span class="bp">cls</span><span class="p">,</span>
+        <span class="n">path</span><span class="p">:</span> <span class="n">Path</span> <span class="o">|</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="o">*</span><span class="p">,</span>
+        <span class="n">input_folder_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+        <span class="n">output_folder_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;output&quot;</span><span class="p">,</span>
+        <span class="n">portion</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span>
+        <span class="n">mat_key</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;groundTruth&quot;</span><span class="p">,</span>
+        <span class="n">resort</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DataGeometry</span><span class="p">:</span>
+        <span class="n">ds</span> <span class="o">=</span> <span class="n">DataShape</span><span class="o">.</span><span class="n">from_files</span><span class="p">(</span>
+            <span class="n">path</span><span class="p">,</span>
+            <span class="n">portion</span><span class="o">=</span><span class="n">portion</span><span class="p">,</span>
+            <span class="n">input_folder_name</span><span class="o">=</span><span class="n">input_folder_name</span><span class="p">,</span>
+            <span class="n">output_folder_name</span><span class="o">=</span><span class="n">output_folder_name</span><span class="p">,</span>
+            <span class="n">mat_key</span><span class="o">=</span><span class="n">mat_key</span><span class="p">,</span>
+            <span class="n">resort</span><span class="o">=</span><span class="n">resort</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_from_data_shape</span><span class="p">(</span><span class="n">ds</span><span class="p">)</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">from_table</span><span class="p">(</span>
+        <span class="bp">cls</span><span class="p">,</span>
+        <span class="n">table</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Path</span> <span class="o">|</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
+        <span class="o">*</span><span class="p">,</span>
+        <span class="n">input_columns</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">int</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span>
+        <span class="n">output_columns</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">int</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span>
+        <span class="n">portion</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span>
+        <span class="n">drop_nulls</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="n">materialize_validation_from_portion</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DataGeometry</span><span class="p">:</span>
+        <span class="n">ds</span> <span class="o">=</span> <span class="n">DataShape</span><span class="o">.</span><span class="n">from_table</span><span class="p">(</span>
+            <span class="n">table</span><span class="p">,</span>
+            <span class="n">input_columns</span><span class="o">=</span><span class="n">input_columns</span><span class="p">,</span>
+            <span class="n">output_columns</span><span class="o">=</span><span class="n">output_columns</span><span class="p">,</span>
+            <span class="n">portion</span><span class="o">=</span><span class="n">portion</span><span class="p">,</span>
+            <span class="n">drop_nulls</span><span class="o">=</span><span class="n">drop_nulls</span><span class="p">,</span>
+            <span class="n">materialize_validation_from_portion</span><span class="o">=</span><span class="n">materialize_validation_from_portion</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_from_data_shape</span><span class="p">(</span><span class="n">ds</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">validate</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">model</span><span class="p">:</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">NeuralNetwork</span><span class="p">,</span>
+        <span class="n">evaluation</span><span class="p">:</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">Evaluation</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Metrics on rows held out by ``portion`` (not in the main tabular pool).</span>
+
+<span class="sd">        If validation was deferred at construction, materializes it when deferred</span>
+<span class="sd">        indices exist. If nothing was held out at construction (e.g. ``portion=1.0``),</span>
+<span class="sd">        logs a warning and returns ``{}`` — calling</span>
+<span class="sd">        [`materialize_validation_from_portion`][pinnjax.DataShape.materialize_validation_from_portion]</span>
+<span class="sd">        cannot create rows after the fact.</span>
+
+<span class="sd">        With ``evaluation=None``, builds a</span>
+<span class="sd">        [`TabularPointwiseEvaluation`][pinnjax.TabularPointwiseEvaluation] and binds validation</span>
+<span class="sd">        rows. If you pass an ``evaluation`` (e.g. the same</span>
+<span class="sd">        [`TabularPointwiseEvaluation`][pinnjax.TabularPointwiseEvaluation] or another tabular</span>
+<span class="sd">        subclass used during training), it is **shallow-copied**, ``.inputs`` and ``.truth`` are</span>
+<span class="sd">        set to the validation arrays, then ``evaluate(model)`` is called so the original instance</span>
+<span class="sd">        is unchanged.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">pinnjax.loss</span><span class="w"> </span><span class="kn">import</span> <span class="n">TabularPointwiseEvaluation</span>
+
+        <span class="n">ds</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_shape</span>
+        <span class="k">if</span> <span class="n">ds</span><span class="o">.</span><span class="n">validation_inputs</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="p">(</span>
+            <span class="n">ds</span><span class="o">.</span><span class="n">_validation_indices</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">ds</span><span class="o">.</span><span class="n">_validation_indices</span><span class="o">.</span><span class="n">size</span> <span class="o">&gt;</span> <span class="mi">0</span>
+        <span class="p">):</span>
+            <span class="n">ds</span><span class="o">.</span><span class="n">materialize_validation_from_portion</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">ds</span><span class="o">.</span><span class="n">validation_inputs</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">ds</span><span class="o">.</span><span class="n">validation_inputs</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">config</span><span class="o">.</span><span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
+                <span class="s2">&quot;All DATA was used in training/testing. Use a portion less than 1.0. &quot;</span>
+                <span class="s2">&quot;Returning empty metrics.&quot;</span><span class="p">,</span>
+            <span class="p">)</span>
+            <span class="k">return</span> <span class="p">{}</span>
+        <span class="k">if</span> <span class="n">evaluation</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">evaluation</span> <span class="o">=</span> <span class="n">TabularPointwiseEvaluation</span><span class="p">()</span>
+            <span class="n">evaluation</span><span class="o">.</span><span class="n">bind_tabular_data</span><span class="p">(</span><span class="n">ds</span><span class="o">.</span><span class="n">validation_inputs</span><span class="p">,</span> <span class="n">ds</span><span class="o">.</span><span class="n">validation_outputs</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">ev</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">evaluation</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">ev</span><span class="p">,</span> <span class="s2">&quot;inputs&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">ev</span><span class="p">,</span> <span class="s2">&quot;truth&quot;</span><span class="p">):</span>
+                <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span>
+                    <span class="s2">&quot;When passing evaluation, it must have .inputs and .truth so &quot;</span>
+                    <span class="s2">&quot;validation rows can be bound (e.g. TabularPointwiseEvaluation or &quot;</span>
+                    <span class="s2">&quot;a tabular Evaluation with the same attributes).&quot;</span>
+                <span class="p">)</span>
+                <span class="n">config</span><span class="o">.</span><span class="n">LOGGER</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+                <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+            <span class="n">ev</span><span class="o">.</span><span class="n">inputs</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">validation_inputs</span>
+            <span class="n">ev</span><span class="o">.</span><span class="n">truth</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">validation_outputs</span>
+            <span class="n">evaluation</span> <span class="o">=</span> <span class="n">ev</span>
+        <span class="n">metrics</span> <span class="o">=</span> <span class="n">evaluation</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">metrics</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+
+    <span class="c1"># Convenience properties - delegate to data_shape</span>
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">inputs</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_shape</span><span class="o">.</span><span class="n">inputs</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">outputs</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_shape</span><span class="o">.</span><span class="n">outputs</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">indices</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_shape</span><span class="o">.</span><span class="n">indices</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">num_data</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_shape</span><span class="o">.</span><span class="n">num_data</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">shape</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_shape</span><span class="o">.</span><span class="n">shape</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">been_split</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_shape</span><span class="o">.</span><span class="n">been_split</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">validation_inputs</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Array</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_shape</span><span class="o">.</span><span class="n">validation_inputs</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">validation_outputs</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Array</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_shape</span><span class="o">.</span><span class="n">validation_outputs</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">materialize_validation_from_portion</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;See [`DataShape.materialize_validation_from_portion`][pinnjax.DataShape.materialize_validation_from_portion].&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data_shape</span><span class="o">.</span><span class="n">materialize_validation_from_portion</span><span class="p">()</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">test_train_split</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">split_percentage</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span>
+        <span class="o">*</span><span class="p">,</span>
+        <span class="n">overwrite</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="n">seed</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>  <span class="c1"># default: config.get_seed() # 100</span>
+        <span class="n">mode</span><span class="p">:</span> <span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;shuffle&quot;</span><span class="p">,</span> <span class="s2">&quot;stratified&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;shuffle&quot;</span><span class="p">,</span>
+        <span class="c1"># stratified mode params</span>
+        <span class="n">consecutive_samples</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>  <span class="c1"># group size</span>
+        <span class="n">train_per_group</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>  <span class="c1"># if None: derived from split_percentage</span>
+        <span class="c1"># what to sort by (grout paper sorts by output/fatigue life)</span>
+        <span class="n">stratify_on</span><span class="p">:</span> <span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;outputs&quot;</span><span class="p">,</span> <span class="s2">&quot;inputs&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;outputs&quot;</span><span class="p">,</span>
+        <span class="n">output_column</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>  <span class="c1"># if outputs is (N, k), which column to sort by</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Delegate to DataShape&#39;s test_train_split&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data_shape</span><span class="o">.</span><span class="n">test_train_split</span><span class="p">(</span>
+            <span class="n">split_percentage</span><span class="o">=</span><span class="n">split_percentage</span><span class="p">,</span>
+            <span class="n">overwrite</span><span class="o">=</span><span class="n">overwrite</span><span class="p">,</span>
+            <span class="n">seed</span><span class="o">=</span><span class="n">seed</span><span class="p">,</span>
+            <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">,</span>
+            <span class="n">consecutive_samples</span><span class="o">=</span><span class="n">consecutive_samples</span><span class="p">,</span>
+            <span class="n">stratify_on</span><span class="o">=</span><span class="n">stratify_on</span><span class="p">,</span>
+            <span class="n">output_column</span><span class="o">=</span><span class="n">output_column</span><span class="p">,</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">to_data_loader</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">batch_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">32</span><span class="p">,</span>
+        <span class="n">shuffle</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="n">train</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="n">pin_memory</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="n">drop_last</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="n">device</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">PyTorchDataLoader</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Defer to DataShape.&quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_shape</span><span class="o">.</span><span class="n">to_data_loader</span><span class="p">(</span>
+            <span class="n">batch_size</span><span class="p">,</span>
+            <span class="n">shuffle</span><span class="p">,</span>
+            <span class="n">train</span><span class="p">,</span>
+            <span class="n">pin_memory</span><span class="p">,</span>
+            <span class="n">drop_last</span><span class="p">,</span>
+            <span class="n">device</span><span class="p">,</span>
+        <span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+              </details>
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="pinnjax.geometry.DataGeometry.validate" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <span class="doc doc-object-name doc-function-name">validate</span>
+
+
+<a href="#pinnjax.geometry.DataGeometry.validate" class="headerlink" title="Permanent link">#</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">validate</span><span class="p">(</span>
+    <span class="n">model</span><span class="p">:</span> <span class="n">NeuralNetwork</span><span class="p">,</span> <span class="n">evaluation</span><span class="p">:</span> <span class="n">Evaluation</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Metrics on rows held out by <code>portion</code> (not in the main tabular pool).</p>
+<p>If validation was deferred at construction, materializes it when deferred
+indices exist. If nothing was held out at construction (e.g. <code>portion=1.0</code>),
+logs a warning and returns <code>{}</code> — calling
+<a class="autorefs autorefs-internal" title="            materialize_validation_from_portion" href="#pinnjax.geometry.DataShape.materialize_validation_from_portion"><code>materialize_validation_from_portion</code></a>
+cannot create rows after the fact.</p>
+<p>With <code>evaluation=None</code>, builds a
+<a class="autorefs autorefs-internal" title="            TabularPointwiseEvaluation" href="../loss_api/#pinnjax.loss.TabularPointwiseEvaluation"><code>TabularPointwiseEvaluation</code></a> and binds validation
+rows. If you pass an <code>evaluation</code> (e.g. the same
+<a class="autorefs autorefs-internal" title="            TabularPointwiseEvaluation" href="../loss_api/#pinnjax.loss.TabularPointwiseEvaluation"><code>TabularPointwiseEvaluation</code></a> or another tabular
+subclass used during training), it is <strong>shallow-copied</strong>, <code>.inputs</code> and <code>.truth</code> are
+set to the validation arrays, then <code>evaluate(model)</code> is called so the original instance
+is unchanged.</p>
+
+
+            <details class="mkdocstrings-source">
+              <summary>Source code in <code>pinnjax/geometry.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">3375</span>
+<span class="normal">3376</span>
+<span class="normal">3377</span>
+<span class="normal">3378</span>
+<span class="normal">3379</span>
+<span class="normal">3380</span>
+<span class="normal">3381</span>
+<span class="normal">3382</span>
+<span class="normal">3383</span>
+<span class="normal">3384</span>
+<span class="normal">3385</span>
+<span class="normal">3386</span>
+<span class="normal">3387</span>
+<span class="normal">3388</span>
+<span class="normal">3389</span>
+<span class="normal">3390</span>
+<span class="normal">3391</span>
+<span class="normal">3392</span>
+<span class="normal">3393</span>
+<span class="normal">3394</span>
+<span class="normal">3395</span>
+<span class="normal">3396</span>
+<span class="normal">3397</span>
+<span class="normal">3398</span>
+<span class="normal">3399</span>
+<span class="normal">3400</span>
+<span class="normal">3401</span>
+<span class="normal">3402</span>
+<span class="normal">3403</span>
+<span class="normal">3404</span>
+<span class="normal">3405</span>
+<span class="normal">3406</span>
+<span class="normal">3407</span>
+<span class="normal">3408</span>
+<span class="normal">3409</span>
+<span class="normal">3410</span>
+<span class="normal">3411</span>
+<span class="normal">3412</span>
+<span class="normal">3413</span>
+<span class="normal">3414</span>
+<span class="normal">3415</span>
+<span class="normal">3416</span>
+<span class="normal">3417</span>
+<span class="normal">3418</span>
+<span class="normal">3419</span>
+<span class="normal">3420</span>
+<span class="normal">3421</span>
+<span class="normal">3422</span>
+<span class="normal">3423</span>
+<span class="normal">3424</span>
+<span class="normal">3425</span>
+<span class="normal">3426</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">validate</span><span class="p">(</span>
+    <span class="bp">self</span><span class="p">,</span>
+    <span class="n">model</span><span class="p">:</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">NeuralNetwork</span><span class="p">,</span>
+    <span class="n">evaluation</span><span class="p">:</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">Evaluation</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Metrics on rows held out by ``portion`` (not in the main tabular pool).</span>
+
+<span class="sd">    If validation was deferred at construction, materializes it when deferred</span>
+<span class="sd">    indices exist. If nothing was held out at construction (e.g. ``portion=1.0``),</span>
+<span class="sd">    logs a warning and returns ``{}`` — calling</span>
+<span class="sd">    [`materialize_validation_from_portion`][pinnjax.DataShape.materialize_validation_from_portion]</span>
+<span class="sd">    cannot create rows after the fact.</span>
+
+<span class="sd">    With ``evaluation=None``, builds a</span>
+<span class="sd">    [`TabularPointwiseEvaluation`][pinnjax.TabularPointwiseEvaluation] and binds validation</span>
+<span class="sd">    rows. If you pass an ``evaluation`` (e.g. the same</span>
+<span class="sd">    [`TabularPointwiseEvaluation`][pinnjax.TabularPointwiseEvaluation] or another tabular</span>
+<span class="sd">    subclass used during training), it is **shallow-copied**, ``.inputs`` and ``.truth`` are</span>
+<span class="sd">    set to the validation arrays, then ``evaluate(model)`` is called so the original instance</span>
+<span class="sd">    is unchanged.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">pinnjax.loss</span><span class="w"> </span><span class="kn">import</span> <span class="n">TabularPointwiseEvaluation</span>
+
+    <span class="n">ds</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_shape</span>
+    <span class="k">if</span> <span class="n">ds</span><span class="o">.</span><span class="n">validation_inputs</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="p">(</span>
+        <span class="n">ds</span><span class="o">.</span><span class="n">_validation_indices</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">ds</span><span class="o">.</span><span class="n">_validation_indices</span><span class="o">.</span><span class="n">size</span> <span class="o">&gt;</span> <span class="mi">0</span>
+    <span class="p">):</span>
+        <span class="n">ds</span><span class="o">.</span><span class="n">materialize_validation_from_portion</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">ds</span><span class="o">.</span><span class="n">validation_inputs</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">ds</span><span class="o">.</span><span class="n">validation_inputs</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">config</span><span class="o">.</span><span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
+            <span class="s2">&quot;All DATA was used in training/testing. Use a portion less than 1.0. &quot;</span>
+            <span class="s2">&quot;Returning empty metrics.&quot;</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="p">{}</span>
+    <span class="k">if</span> <span class="n">evaluation</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">evaluation</span> <span class="o">=</span> <span class="n">TabularPointwiseEvaluation</span><span class="p">()</span>
+        <span class="n">evaluation</span><span class="o">.</span><span class="n">bind_tabular_data</span><span class="p">(</span><span class="n">ds</span><span class="o">.</span><span class="n">validation_inputs</span><span class="p">,</span> <span class="n">ds</span><span class="o">.</span><span class="n">validation_outputs</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">ev</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">evaluation</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">ev</span><span class="p">,</span> <span class="s2">&quot;inputs&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">ev</span><span class="p">,</span> <span class="s2">&quot;truth&quot;</span><span class="p">):</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="s2">&quot;When passing evaluation, it must have .inputs and .truth so &quot;</span>
+                <span class="s2">&quot;validation rows can be bound (e.g. TabularPointwiseEvaluation or &quot;</span>
+                <span class="s2">&quot;a tabular Evaluation with the same attributes).&quot;</span>
+            <span class="p">)</span>
+            <span class="n">config</span><span class="o">.</span><span class="n">LOGGER</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        <span class="n">ev</span><span class="o">.</span><span class="n">inputs</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">validation_inputs</span>
+        <span class="n">ev</span><span class="o">.</span><span class="n">truth</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">validation_outputs</span>
+        <span class="n">evaluation</span> <span class="o">=</span> <span class="n">ev</span>
+    <span class="n">metrics</span> <span class="o">=</span> <span class="n">evaluation</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">metrics</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="pinnjax.geometry.DataGeometry.materialize_validation_from_portion" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <span class="doc doc-object-name doc-function-name">materialize_validation_from_portion</span>
+
+
+<a href="#pinnjax.geometry.DataGeometry.materialize_validation_from_portion" class="headerlink" title="Permanent link">#</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">materialize_validation_from_portion</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>See <a class="autorefs autorefs-internal" title="            materialize_validation_from_portion" href="#pinnjax.geometry.DataShape.materialize_validation_from_portion"><code>DataShape.materialize_validation_from_portion</code></a>.</p>
+
+
+            <details class="mkdocstrings-source">
+              <summary>Source code in <code>pinnjax/geometry.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">3461</span>
+<span class="normal">3462</span>
+<span class="normal">3463</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">materialize_validation_from_portion</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;See [`DataShape.materialize_validation_from_portion`][pinnjax.DataShape.materialize_validation_from_portion].&quot;&quot;&quot;</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">data_shape</span><span class="o">.</span><span class="n">materialize_validation_from_portion</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="pinnjax.geometry.DataGeometry.test_train_split" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <span class="doc doc-object-name doc-function-name">test_train_split</span>
+
+
+<a href="#pinnjax.geometry.DataGeometry.test_train_split" class="headerlink" title="Permanent link">#</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">test_train_split</span><span class="p">(</span>
+    <span class="n">split_percentage</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">overwrite</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">seed</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">mode</span><span class="p">:</span> <span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;shuffle&quot;</span><span class="p">,</span> <span class="s2">&quot;stratified&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;shuffle&quot;</span><span class="p">,</span>
+    <span class="n">consecutive_samples</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>
+    <span class="n">train_per_group</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>
+    <span class="n">stratify_on</span><span class="p">:</span> <span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;outputs&quot;</span><span class="p">,</span> <span class="s2">&quot;inputs&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;outputs&quot;</span><span class="p">,</span>
+    <span class="n">output_column</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Delegate to DataShape's test_train_split</p>
+
+
+            <details class="mkdocstrings-source">
+              <summary>Source code in <code>pinnjax/geometry.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">3465</span>
+<span class="normal">3466</span>
+<span class="normal">3467</span>
+<span class="normal">3468</span>
+<span class="normal">3469</span>
+<span class="normal">3470</span>
+<span class="normal">3471</span>
+<span class="normal">3472</span>
+<span class="normal">3473</span>
+<span class="normal">3474</span>
+<span class="normal">3475</span>
+<span class="normal">3476</span>
+<span class="normal">3477</span>
+<span class="normal">3478</span>
+<span class="normal">3479</span>
+<span class="normal">3480</span>
+<span class="normal">3481</span>
+<span class="normal">3482</span>
+<span class="normal">3483</span>
+<span class="normal">3484</span>
+<span class="normal">3485</span>
+<span class="normal">3486</span>
+<span class="normal">3487</span>
+<span class="normal">3488</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">test_train_split</span><span class="p">(</span>
+    <span class="bp">self</span><span class="p">,</span>
+    <span class="n">split_percentage</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">overwrite</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">seed</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>  <span class="c1"># default: config.get_seed() # 100</span>
+    <span class="n">mode</span><span class="p">:</span> <span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;shuffle&quot;</span><span class="p">,</span> <span class="s2">&quot;stratified&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;shuffle&quot;</span><span class="p">,</span>
+    <span class="c1"># stratified mode params</span>
+    <span class="n">consecutive_samples</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>  <span class="c1"># group size</span>
+    <span class="n">train_per_group</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>  <span class="c1"># if None: derived from split_percentage</span>
+    <span class="c1"># what to sort by (grout paper sorts by output/fatigue life)</span>
+    <span class="n">stratify_on</span><span class="p">:</span> <span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;outputs&quot;</span><span class="p">,</span> <span class="s2">&quot;inputs&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;outputs&quot;</span><span class="p">,</span>
+    <span class="n">output_column</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>  <span class="c1"># if outputs is (N, k), which column to sort by</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Delegate to DataShape&#39;s test_train_split&quot;&quot;&quot;</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">data_shape</span><span class="o">.</span><span class="n">test_train_split</span><span class="p">(</span>
+        <span class="n">split_percentage</span><span class="o">=</span><span class="n">split_percentage</span><span class="p">,</span>
+        <span class="n">overwrite</span><span class="o">=</span><span class="n">overwrite</span><span class="p">,</span>
+        <span class="n">seed</span><span class="o">=</span><span class="n">seed</span><span class="p">,</span>
+        <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">,</span>
+        <span class="n">consecutive_samples</span><span class="o">=</span><span class="n">consecutive_samples</span><span class="p">,</span>
+        <span class="n">stratify_on</span><span class="o">=</span><span class="n">stratify_on</span><span class="p">,</span>
+        <span class="n">output_column</span><span class="o">=</span><span class="n">output_column</span><span class="p">,</span>
+    <span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="pinnjax.geometry.DataGeometry.to_data_loader" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <span class="doc doc-object-name doc-function-name">to_data_loader</span>
+
+
+<a href="#pinnjax.geometry.DataGeometry.to_data_loader" class="headerlink" title="Permanent link">#</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">to_data_loader</span><span class="p">(</span>
+    <span class="n">batch_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">32</span><span class="p">,</span>
+    <span class="n">shuffle</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="n">train</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="n">pin_memory</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">drop_last</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">device</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">device</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">PyTorchDataLoader</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Defer to DataShape.</p>
+
+
+            <details class="mkdocstrings-source">
+              <summary>Source code in <code>pinnjax/geometry.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">3490</span>
+<span class="normal">3491</span>
+<span class="normal">3492</span>
+<span class="normal">3493</span>
+<span class="normal">3494</span>
+<span class="normal">3495</span>
+<span class="normal">3496</span>
+<span class="normal">3497</span>
+<span class="normal">3498</span>
+<span class="normal">3499</span>
+<span class="normal">3500</span>
+<span class="normal">3501</span>
+<span class="normal">3502</span>
+<span class="normal">3503</span>
+<span class="normal">3504</span>
+<span class="normal">3505</span>
+<span class="normal">3506</span>
+<span class="normal">3507</span>
+<span class="normal">3508</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">to_data_loader</span><span class="p">(</span>
+    <span class="bp">self</span><span class="p">,</span>
+    <span class="n">batch_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">32</span><span class="p">,</span>
+    <span class="n">shuffle</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="n">train</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="n">pin_memory</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">drop_last</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">device</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">PyTorchDataLoader</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Defer to DataShape.&quot;&quot;&quot;</span>
+
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_shape</span><span class="o">.</span><span class="n">to_data_loader</span><span class="p">(</span>
+        <span class="n">batch_size</span><span class="p">,</span>
+        <span class="n">shuffle</span><span class="p">,</span>
+        <span class="n">train</span><span class="p">,</span>
+        <span class="n">pin_memory</span><span class="p">,</span>
+        <span class="n">drop_last</span><span class="p">,</span>
+        <span class="n">device</span><span class="p">,</span>
+    <span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="pinnjax.geometry.TabularGeometry" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>            <span class="doc doc-object-name doc-class-name">TabularGeometry</span>
+
+
+<a href="#pinnjax.geometry.TabularGeometry" class="headerlink" title="Permanent link">#</a></h2>
+
+
+    <div class="doc doc-contents ">
+            <p class="doc doc-class-bases">
+              Bases: <code><a class="autorefs autorefs-internal" title="            DataGeometry (pinnjax.geometry.DataGeometry)" href="#pinnjax.geometry.DataGeometry">DataGeometry</a></code></p>
+
+
+
+
+
+
+
+
+
+
+              <details class="mkdocstrings-source">
+                <summary>Source code in <code>pinnjax/geometry.py</code></summary>
+                <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">3511</span>
+<span class="normal">3512</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">TabularGeometry</span><span class="p">(</span><span class="n">DataGeometry</span><span class="p">):</span>
+    <span class="k">pass</span>
+</code></pre></div></td></tr></table></div>
+              </details>
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
 <h2 id="pinnjax.geometry.ScanGeometry" class="doc doc-heading">
 <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>            <span class="doc doc-object-name doc-class-name">ScanGeometry</span>
 
@@ -10529,7 +11530,7 @@ samples in the current frame's time interval are shown.</p>
 
     <div class="doc doc-contents ">
             <p class="doc doc-class-bases">
-              Bases: <code><span title="pinnjax.geometry.DataGeometry">DataGeometry</span></code></p>
+              Bases: <code><a class="autorefs autorefs-internal" title="            DataGeometry (pinnjax.geometry.DataGeometry)" href="#pinnjax.geometry.DataGeometry">DataGeometry</a></code></p>
 
 
 

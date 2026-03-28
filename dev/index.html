@@ -356,10 +356,32 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#windows" class="md-nav__link">
+  <a href="#https" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Windows
+        HTTPS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ssh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SSH
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#windows-install-uv" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Windows: install uv
       
     </span>
   </a>
@@ -934,10 +956,32 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#windows" class="md-nav__link">
+  <a href="#https" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Windows
+        HTTPS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ssh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SSH
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#windows-install-uv" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Windows: install uv
       
     </span>
   </a>
@@ -980,28 +1024,47 @@
   <h1>INSTALL</h1>
 
 <h2 id="installation"><u>Installation </u><a class="headerlink" href="#installation" title="Permanent link">#</a></h2>
-<p>This is currently a <code>private</code> package, therefore in order to access, you'll need to request a personal private key.</p>
-<p>Once received it will be in the form: <code>github_pat_XXXXXX...XXXXXXX</code>. </p>
-<h3 id="windows">Windows<a class="headerlink" href="#windows" title="Permanent link">#</a></h3>
-<p><em>PINN-JAX works on Linux and Mac, but detailed instructions won't be provided.</em></p>
-<p>First, download <code>uv</code> in the Powershell terminal:</p>
-<pre><code class="language-powershell">&gt;&gt;&gt; winget install --id=astral-sh.uv -e
+<p>The package lives in the private repository <strong><code>pinnjax/PINN-JAX</code></strong> under the <strong><code>pinnjax</code></strong> organization. 
+Upon request, and necessity, you will be invited to the organization with <em>read-only</em> access. </p>
+<p>Accept the GitHub invitation and confirm you can open <strong><code>pinnjax/PINN-JAX</code></strong> in the browser before you install.</p>
+<h3 id="https">HTTPS<a class="headerlink" href="#https" title="Permanent link">#</a></h3>
+<p>The first time you use Git against GitHub, your system may open a browser or prompt you to sign in.</p>
+<p><strong>Linux / macOS:</strong></p>
+<pre><code class="language-bash">uv venv --python 3.13
+source .venv/bin/activate
+uv pip install &quot;git+https://github.com/pinnjax/PINN-JAX.git&quot;
 </code></pre>
-<p>Then in the terminal of your preferred IDE:</p>
-<pre><code class="language-powershell">&gt;&gt;&gt; uv venv --python 3.13
-&gt;&gt;&gt; .venv\scripts\activate
-&gt;&gt;&gt; uv pip install &quot;git+https://{YOUR PRIVATE KEY}@github.com/MJRYANDE/pinn-jax.git
+<p><strong>Windows</strong> (PowerShell or your IDE terminal):</p>
+<pre><code class="language-powershell">uv venv --python 3.13
+.\.venv\Scripts\Activate.ps1
+uv pip install &quot;git+https://github.com/pinnjax/PINN-JAX.git&quot;
 </code></pre>
-<p>The most recent version, and all dependencies, of <code>pinn-jax</code> will be installed.</p>
+<h3 id="ssh">SSH<a class="headerlink" href="#ssh" title="Permanent link">#</a></h3>
+<p>Requires an <a href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh">SSH key added to your GitHub account</a>.</p>
+<p><strong>Linux / macOS:</strong></p>
+<pre><code class="language-bash">uv venv --python 3.13
+source .venv/bin/activate
+uv pip install &quot;git+ssh://git@github.com/pinnjax/PINN-JAX.git&quot;
+</code></pre>
+<p><strong>Windows:</strong></p>
+<pre><code class="language-bash">uv venv --python 3.13
+.\.venv\Scripts\Activate.ps1
+uv pip install &quot;git+ssh://git@github.com/pinnjax/PINN-JAX.git&quot;
+</code></pre>
+<h3 id="windows-install-uv">Windows: install <code>uv</code><a class="headerlink" href="#windows-install-uv" title="Permanent link">#</a></h3>
+<p><code>uv</code> is not the only package manager, but it is recommended. </p>
+<p>If you do not have <strong><code>uv</code></strong> yet, in PowerShell:</p>
+<pre><code class="language-bash">winget install --id=astral-sh.uv -e
+</code></pre>
+<p>Then run the <strong>HTTPS</strong> or <strong>SSH</strong> block above.</p>
+<p>The current default branch and all declared dependencies are installed.</p>
 <h2 id="use"><u>Use </u><a class="headerlink" href="#use" title="Permanent link">#</a></h2>
 <p>Same as any other Python package.</p>
 <pre><code class="language-python">import pinnjax
 
 # your code here
-
 </code></pre>
-<p>Refer to <code>API Reference</code> for specifics on the functionality of <code>pinnjax</code>. </p>
-<hr />
+<p>Use <strong>API Reference</strong> for module-level details.</p>
 
 
 
