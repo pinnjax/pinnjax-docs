@@ -1027,6 +1027,7 @@
 <p>The package lives in the private repository <strong><code>pinnjax/PINN-JAX</code></strong> under the <strong><code>pinnjax</code></strong> organization. 
 Upon request, and necessity, you will be invited to the organization with <em>read-only</em> access. </p>
 <p>Accept the GitHub invitation and confirm you can open <strong><code>pinnjax/PINN-JAX</code></strong> in the browser before you install.</p>
+<p>Note: If you require functionality from the <code>dev</code> branch append <code>@dev</code> to the end of the install string.</p>
 <h3 id="https">HTTPS<a class="headerlink" href="#https" title="Permanent link">#</a></h3>
 <p>The first time you use Git against GitHub, your system may open a browser or prompt you to sign in.</p>
 <p><strong>Linux / macOS:</strong></p>
@@ -1049,7 +1050,7 @@ uv pip install &quot;git+ssh://git@github.com/pinnjax/PINN-JAX.git&quot;
 <p><strong>Windows:</strong></p>
 <pre><code class="language-bash">uv venv --python 3.13
 .\.venv\Scripts\Activate.ps1
-uv pip install &quot;git+ssh://git@github.com/pinnjax/PINN-JAX.git&quot;
+uv pip install &quot;git+ssh://git@github.com/pinnjax/PINN-JAX.git@dev&quot;
 </code></pre>
 <h3 id="windows-install-uv">Windows: install <code>uv</code><a class="headerlink" href="#windows-install-uv" title="Permanent link">#</a></h3>
 <p><code>uv</code> is not the only package manager, but it is recommended. </p>
