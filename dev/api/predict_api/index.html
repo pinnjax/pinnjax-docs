@@ -194,6 +194,18 @@
       
     
     
+      <div class="md-header__source">
+        <a href="https://github.com/pinnjax/PINN-JAX" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    pinnjax/PINN-JAX
+  </div>
+</a>
+      </div>
+    
   </nav>
   
 </header>
@@ -278,6 +290,18 @@
     </a>
     PINN-JAX
   </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/pinnjax/PINN-JAX" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    pinnjax/PINN-JAX
+  </div>
+</a>
+    </div>
   
   <ul class="md-nav__list" data-md-scrollfix>
     
@@ -1037,6 +1061,9 @@
                   
 
 
+  
+  
+
 
   <h1>Predicting</h1>
 
@@ -1081,11 +1108,11 @@ and spatiotemporal grids using JAX.</p>
 
 <a href="#pinnjax.predict.predict" class="headerlink" title="Permanent link">#</a></h2>
 <div class="doc-signature highlight"><pre><span></span><code><span class="nf">predict</span><span class="p">(</span>
-    <span class="n">model</span><span class="p">:</span> <span class="n">NeuralNetwork</span><span class="p">,</span>
-    <span class="n">grid</span><span class="p">:</span> <span class="n">SpatialGrid</span><span class="p">,</span>
-    <span class="n">time</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="n">output_index</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Array</span>
+    <span class="n">model</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-internal" title="            NeuralNetwork (pinnjax.NeuralNetwork)" href="../model_api/#pinnjax.model.NeuralNetwork">NeuralNetwork</a></span><span class="p">,</span>
+    <span class="n">grid</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-internal" title="            SpatialGrid (pinnjax.SpatialGrid)" href="../grid_api/#pinnjax.grid.SpatialGrid">SpatialGrid</a></span><span class="p">,</span>
+    <span class="n">time</span><span class="p">:</span> <span class="n"><span title="float">float</span></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">output_index</span><span class="p">:</span> <span class="n"><span title="int">int</span></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="jax.Array">Array</span></span>
 </code></pre></div>
 
     <div class="doc doc-contents ">
@@ -1097,14 +1124,11 @@ time coordinate, evaluates the
 forward pass, and reshapes the result back to the grid layout.</p>
 
 
-<p><span class="doc-section-title">Parameters:</span></p>
-    <table>
+<table>
       <thead>
         <tr>
-          <th>Name</th>
-          <th>Type</th>
-          <th>Description</th>
-          <th>Default</th>
+          <th><span class="doc-section-title">PARAMETER</span></th>
+          <th><span>DESCRIPTION</span></th>
         </tr>
       </thead>
       <tbody>
@@ -1112,110 +1136,124 @@ forward pass, and reshapes the result back to the grid layout.</p>
             <td>
                 <code>model</code>
             </td>
-            <td>
-                  <code><a class="autorefs autorefs-internal" title="            NeuralNetwork (pinnjax.NeuralNetwork)" href="../model_api/#pinnjax.model.NeuralNetwork">NeuralNetwork</a></code>
-            </td>
-            <td>
+            <td class="doc-param-details">
               <div class="doc-md-description">
                 <p>A <a class="autorefs autorefs-internal" title="            NeuralNetwork" href="../model_api/#pinnjax.model.NeuralNetwork"><code>NeuralNetwork</code></a> instance.</p>
               </div>
-            </td>
-            <td>
-                <em>required</em>
+              <p>
+                  <span class="doc-param-annotation">
+                    <b>TYPE:</b>
+                      <code><a class="autorefs autorefs-internal" title="            NeuralNetwork (pinnjax.NeuralNetwork)" href="../model_api/#pinnjax.model.NeuralNetwork">NeuralNetwork</a></code>
+                  </span>
+              </p>
             </td>
           </tr>
           <tr class="doc-section-item">
             <td>
                 <code>grid</code>
             </td>
-            <td>
-                  <code><a class="autorefs autorefs-internal" title="            SpatialGrid (pinnjax.SpatialGrid)" href="../grid_api/#pinnjax.grid.SpatialGrid">SpatialGrid</a></code>
-            </td>
-            <td>
+            <td class="doc-param-details">
               <div class="doc-md-description">
                 <p>A <a class="autorefs autorefs-internal" title="            Grid" href="../grid_api/#pinnjax.grid.Grid"><code>Grid</code></a> containing spatial coordinates.</p>
               </div>
-            </td>
-            <td>
-                <em>required</em>
+              <p>
+                  <span class="doc-param-annotation">
+                    <b>TYPE:</b>
+                      <code><a class="autorefs autorefs-internal" title="            SpatialGrid (pinnjax.SpatialGrid)" href="../grid_api/#pinnjax.grid.SpatialGrid">SpatialGrid</a></code>
+                  </span>
+              </p>
             </td>
           </tr>
           <tr class="doc-section-item">
             <td>
                 <code>time</code>
             </td>
-            <td>
-                  <code><span title="float">float</span> | None</code>
-            </td>
-            <td>
+            <td class="doc-param-details">
               <div class="doc-md-description">
                 <p>Optional scalar time. If provided, the model is evaluated on a
 spatiotemporal mesh. If <code>None</code>, only spatial coordinates are
 used.</p>
               </div>
-            </td>
-            <td>
-                  <code>None</code>
+              <p>
+                  <span class="doc-param-annotation">
+                    <b>TYPE:</b>
+                      <code><span title="float">float</span> | None</code>
+                  </span>
+                  <span class="doc-param-default">
+                    <b>DEFAULT:</b>
+                      <code>None</code>
+                  </span>
+              </p>
             </td>
           </tr>
           <tr class="doc-section-item">
             <td>
                 <code>output_index</code>
             </td>
-            <td>
-                  <code><span title="int">int</span> | None</code>
-            </td>
-            <td>
+            <td class="doc-param-details">
               <div class="doc-md-description">
                 <p>Output component to extract when the model produces
 multi-output predictions.</p>
               </div>
-            </td>
-            <td>
-                  <code>0</code>
+              <p>
+                  <span class="doc-param-annotation">
+                    <b>TYPE:</b>
+                      <code><span title="int">int</span> | None</code>
+                  </span>
+                  <span class="doc-param-default">
+                    <b>DEFAULT:</b>
+                      <code>0</code>
+                  </span>
+              </p>
             </td>
           </tr>
       </tbody>
     </table>
 
 
-    <p><span class="doc-section-title">Returns:</span></p>
-    <table>
+<table>
       <thead>
         <tr>
-<th>Name</th>          <th>Type</th>
-          <th>Description</th>
+          <th><span class="doc-section-title">RETURNS</span></th>
+          <th><span>DESCRIPTION</span></th>
         </tr>
       </thead>
       <tbody>
           <tr class="doc-section-item">
-<td><code>prediction</code></td>            <td>
-                  <code><span title="jax.Array">Array</span></code>
-            </td>
             <td>
+                <code>prediction</code>
+            </td>
+            <td class="doc-returns-details">
               <div class="doc-md-description">
                 <p>Prediction reshaped to match the spatial grid.</p>
               </div>
+                <p>
+                  <span class="doc-returns-annotation">
+                    <b>TYPE:</b>
+                      <code><span title="jax.Array">Array</span></code>
+                  </span>
+                </p>
             </td>
           </tr>
       </tbody>
     </table>
 
 
-<p><span class="doc-section-title">Raises:</span></p>
-    <table>
+<table>
       <thead>
         <tr>
-          <th>Type</th>
-          <th>Description</th>
+          <th><span class="doc-section-title">RAISES</span></th>
+          <th><span>DESCRIPTION</span></th>
         </tr>
       </thead>
       <tbody>
           <tr class="doc-section-item">
             <td>
+              <span class="doc-raises-annotation">
                   <code><span title="ValueError">ValueError</span></code>
+              </span>
             </td>
-            <td>
+            <td class="doc-raises-details">
               <div class="doc-md-description">
                 <p>If <code>output_index</code> does not exist in the model output.</p>
               </div>
@@ -1336,9 +1374,7 @@ multi-output predictions.</p>
 
 
 <a href="#pinnjax.predict.predict_at_times" class="headerlink" title="Permanent link">#</a></h2>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">predict_at_times</span><span class="p">(</span>
-    <span class="n">model</span><span class="p">:</span> <span class="n">NeuralNetwork</span><span class="p">,</span> <span class="n">grid</span><span class="p">:</span> <span class="n">SpatialGrid</span><span class="p">,</span> <span class="n">times</span><span class="p">:</span> <span class="n">Array</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">Array</span><span class="p">]</span>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">predict_at_times</span><span class="p">(</span><span class="n">model</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-internal" title="            NeuralNetwork (pinnjax.NeuralNetwork)" href="../model_api/#pinnjax.model.NeuralNetwork">NeuralNetwork</a></span><span class="p">,</span> <span class="n">grid</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-internal" title="            SpatialGrid (pinnjax.SpatialGrid)" href="../grid_api/#pinnjax.grid.SpatialGrid">SpatialGrid</a></span><span class="p">,</span> <span class="n">times</span><span class="p">:</span> <span class="n"><span title="jax.Array">Array</span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="list">list</span></span><span class="p">[</span><span class="n"><span title="jax.Array">Array</span></span><span class="p">]</span>
 </code></pre></div>
 
     <div class="doc doc-contents ">
@@ -1348,14 +1384,11 @@ multi-output predictions.</p>
 for each time value and returns a list of prediction arrays.</p>
 
 
-<p><span class="doc-section-title">Parameters:</span></p>
-    <table>
+<table>
       <thead>
         <tr>
-          <th>Name</th>
-          <th>Type</th>
-          <th>Description</th>
-          <th>Default</th>
+          <th><span class="doc-section-title">PARAMETER</span></th>
+          <th><span>DESCRIPTION</span></th>
         </tr>
       </thead>
       <tbody>
@@ -1363,71 +1396,76 @@ for each time value and returns a list of prediction arrays.</p>
             <td>
                 <code>model</code>
             </td>
-            <td>
-                  <code><a class="autorefs autorefs-internal" title="            NeuralNetwork (pinnjax.NeuralNetwork)" href="../model_api/#pinnjax.model.NeuralNetwork">NeuralNetwork</a></code>
-            </td>
-            <td>
+            <td class="doc-param-details">
               <div class="doc-md-description">
                 <p>A <a class="autorefs autorefs-internal" title="            NeuralNetwork" href="../model_api/#pinnjax.model.NeuralNetwork"><code>NeuralNetwork</code></a> instance.</p>
               </div>
-            </td>
-            <td>
-                <em>required</em>
+              <p>
+                  <span class="doc-param-annotation">
+                    <b>TYPE:</b>
+                      <code><a class="autorefs autorefs-internal" title="            NeuralNetwork (pinnjax.NeuralNetwork)" href="../model_api/#pinnjax.model.NeuralNetwork">NeuralNetwork</a></code>
+                  </span>
+              </p>
             </td>
           </tr>
           <tr class="doc-section-item">
             <td>
                 <code>grid</code>
             </td>
-            <td>
-                  <code><a class="autorefs autorefs-internal" title="            SpatialGrid (pinnjax.SpatialGrid)" href="../grid_api/#pinnjax.grid.SpatialGrid">SpatialGrid</a></code>
-            </td>
-            <td>
+            <td class="doc-param-details">
               <div class="doc-md-description">
                 <p>A <a class="autorefs autorefs-internal" title="            Grid" href="../grid_api/#pinnjax.grid.Grid"><code>Grid</code></a> defining the spatial domain.</p>
               </div>
-            </td>
-            <td>
-                <em>required</em>
+              <p>
+                  <span class="doc-param-annotation">
+                    <b>TYPE:</b>
+                      <code><a class="autorefs autorefs-internal" title="            SpatialGrid (pinnjax.SpatialGrid)" href="../grid_api/#pinnjax.grid.SpatialGrid">SpatialGrid</a></code>
+                  </span>
+              </p>
             </td>
           </tr>
           <tr class="doc-section-item">
             <td>
                 <code>times</code>
             </td>
-            <td>
-                  <code><span title="jax.Array">Array</span></code>
-            </td>
-            <td>
+            <td class="doc-param-details">
               <div class="doc-md-description">
                 <p>A 1-D JAX array of time values.</p>
               </div>
-            </td>
-            <td>
-                <em>required</em>
+              <p>
+                  <span class="doc-param-annotation">
+                    <b>TYPE:</b>
+                      <code><span title="jax.Array">Array</span></code>
+                  </span>
+              </p>
             </td>
           </tr>
       </tbody>
     </table>
 
 
-    <p><span class="doc-section-title">Returns:</span></p>
-    <table>
+<table>
       <thead>
         <tr>
-<th>Name</th>          <th>Type</th>
-          <th>Description</th>
+          <th><span class="doc-section-title">RETURNS</span></th>
+          <th><span>DESCRIPTION</span></th>
         </tr>
       </thead>
       <tbody>
           <tr class="doc-section-item">
-<td><code>predictions</code></td>            <td>
-                  <code><span title="list">list</span>[<span title="jax.Array">Array</span>]</code>
-            </td>
             <td>
+                <code>predictions</code>
+            </td>
+            <td class="doc-returns-details">
               <div class="doc-md-description">
                 <p>Prediction arrays for each time value.</p>
               </div>
+                <p>
+                  <span class="doc-returns-annotation">
+                    <b>TYPE:</b>
+                      <code><span title="list">list</span>[<span title="jax.Array">Array</span>]</code>
+                  </span>
+                </p>
             </td>
           </tr>
       </tbody>
@@ -1489,7 +1527,7 @@ for each time value and returns a list of prediction arrays.</p>
 
 
 <a href="#pinnjax.predict.predict_evolution" class="headerlink" title="Permanent link">#</a></h2>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">predict_evolution</span><span class="p">(</span><span class="n">model</span><span class="p">:</span> <span class="n">NeuralNetwork</span><span class="p">,</span> <span class="n">grid</span><span class="p">:</span> <span class="n">SpatialGrid</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Array</span>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">predict_evolution</span><span class="p">(</span><span class="n">model</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-internal" title="            NeuralNetwork (pinnjax.NeuralNetwork)" href="../model_api/#pinnjax.model.NeuralNetwork">NeuralNetwork</a></span><span class="p">,</span> <span class="n">grid</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-internal" title="            SpatialGrid (pinnjax.SpatialGrid)" href="../grid_api/#pinnjax.grid.SpatialGrid">SpatialGrid</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="jax.Array">Array</span></span>
 </code></pre></div>
 
     <div class="doc doc-contents ">
@@ -1500,14 +1538,11 @@ spatiotemporal mesh precomputed by the
 <a class="autorefs autorefs-internal" title="            Grid" href="../grid_api/#pinnjax.grid.Grid"><code>Grid</code></a>. The grid must define a temporal range.</p>
 
 
-<p><span class="doc-section-title">Parameters:</span></p>
-    <table>
+<table>
       <thead>
         <tr>
-          <th>Name</th>
-          <th>Type</th>
-          <th>Description</th>
-          <th>Default</th>
+          <th><span class="doc-section-title">PARAMETER</span></th>
+          <th><span>DESCRIPTION</span></th>
         </tr>
       </thead>
       <tbody>
@@ -1515,77 +1550,83 @@ spatiotemporal mesh precomputed by the
             <td>
                 <code>model</code>
             </td>
-            <td>
-                  <code><a class="autorefs autorefs-internal" title="            NeuralNetwork (pinnjax.NeuralNetwork)" href="../model_api/#pinnjax.model.NeuralNetwork">NeuralNetwork</a></code>
-            </td>
-            <td>
+            <td class="doc-param-details">
               <div class="doc-md-description">
                 <p>A <a class="autorefs autorefs-internal" title="            NeuralNetwork" href="../model_api/#pinnjax.model.NeuralNetwork"><code>NeuralNetwork</code></a> instance.</p>
               </div>
-            </td>
-            <td>
-                <em>required</em>
+              <p>
+                  <span class="doc-param-annotation">
+                    <b>TYPE:</b>
+                      <code><a class="autorefs autorefs-internal" title="            NeuralNetwork (pinnjax.NeuralNetwork)" href="../model_api/#pinnjax.model.NeuralNetwork">NeuralNetwork</a></code>
+                  </span>
+              </p>
             </td>
           </tr>
           <tr class="doc-section-item">
             <td>
                 <code>grid</code>
             </td>
-            <td>
-                  <code><a class="autorefs autorefs-internal" title="            SpatialGrid (pinnjax.SpatialGrid)" href="../grid_api/#pinnjax.grid.SpatialGrid">SpatialGrid</a></code>
-            </td>
-            <td>
+            <td class="doc-param-details">
               <div class="doc-md-description">
                 <p>A <a class="autorefs autorefs-internal" title="            Grid" href="../grid_api/#pinnjax.grid.Grid"><code>Grid</code></a> with temporal information
 (<code>has_time == True</code>).</p>
               </div>
-            </td>
-            <td>
-                <em>required</em>
+              <p>
+                  <span class="doc-param-annotation">
+                    <b>TYPE:</b>
+                      <code><a class="autorefs autorefs-internal" title="            SpatialGrid (pinnjax.SpatialGrid)" href="../grid_api/#pinnjax.grid.SpatialGrid">SpatialGrid</a></code>
+                  </span>
+              </p>
             </td>
           </tr>
       </tbody>
     </table>
 
 
-    <p><span class="doc-section-title">Returns:</span></p>
-    <table>
+<table>
       <thead>
         <tr>
-<th>Name</th>          <th>Type</th>
-          <th>Description</th>
+          <th><span class="doc-section-title">RETURNS</span></th>
+          <th><span>DESCRIPTION</span></th>
         </tr>
       </thead>
       <tbody>
           <tr class="doc-section-item">
-<td><code>predictions</code></td>            <td>
-                  <code><span title="jax.Array">Array</span></code>
-            </td>
             <td>
+                <code>predictions</code>
+            </td>
+            <td class="doc-returns-details">
               <div class="doc-md-description">
                 <p>Predictions of shape
 <code>(num_times, *spatial_shape)</code>.</p>
               </div>
+                <p>
+                  <span class="doc-returns-annotation">
+                    <b>TYPE:</b>
+                      <code><span title="jax.Array">Array</span></code>
+                  </span>
+                </p>
             </td>
           </tr>
       </tbody>
     </table>
 
 
-<p><span class="doc-section-title">Raises:</span></p>
-    <table>
+<table>
       <thead>
         <tr>
-          <th>Type</th>
-          <th>Description</th>
+          <th><span class="doc-section-title">RAISES</span></th>
+          <th><span>DESCRIPTION</span></th>
         </tr>
       </thead>
       <tbody>
           <tr class="doc-section-item">
             <td>
+              <span class="doc-raises-annotation">
                   <code><span title="pinnjax.config.InputError">InputError</span></code>
+              </span>
             </td>
-            <td>
+            <td class="doc-raises-details">
               <div class="doc-md-description">
                 <p>If the grid lacks temporal settings.</p>
               </div>
@@ -1675,13 +1716,13 @@ spatiotemporal mesh precomputed by the
 
 <a href="#pinnjax.predict.run_prediction" class="headerlink" title="Permanent link">#</a></h2>
 <div class="doc-signature highlight"><pre><span></span><code><span class="nf">run_prediction</span><span class="p">(</span>
-    <span class="n">model</span><span class="p">:</span> <span class="n">NeuralNetwork</span><span class="p">,</span>
-    <span class="n">domain</span><span class="p">:</span> <span class="n">SpatialDomain</span><span class="p">,</span>
+    <span class="n">model</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-internal" title="            NeuralNetwork (pinnjax.NeuralNetwork)" href="../model_api/#pinnjax.model.NeuralNetwork">NeuralNetwork</a></span><span class="p">,</span>
+    <span class="n">domain</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-internal" title="            SpatialDomain (pinnjax.SpatialDomain)" href="../dataclass_api/#pinnjax.dataclass.SpatialDomain">SpatialDomain</a></span><span class="p">,</span>
     <span class="o">*</span><span class="p">,</span>
-    <span class="n">fixed_z</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="n">num_points</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">DEFAULT_GRID_NUM_POINTS</span><span class="p">,</span>
-    <span class="n">num_times</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">DEFAULT_GRID_NUM_TIMES</span><span class="p">,</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">Array</span><span class="p">,</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">RectangularGrid2D</span><span class="p">]</span>
+    <span class="n">fixed_z</span><span class="p">:</span> <span class="n"><span title="float">float</span></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">num_points</span><span class="p">:</span> <span class="n"><span title="tuple">tuple</span></span><span class="p">[</span><span class="n"><span title="int">int</span></span><span class="p">,</span> <span class="n"><span title="int">int</span></span><span class="p">]</span> <span class="o">=</span> <span class="n"><span title="pinnjax.predict.DEFAULT_GRID_NUM_POINTS">DEFAULT_GRID_NUM_POINTS</span></span><span class="p">,</span>
+    <span class="n">num_times</span><span class="p">:</span> <span class="n"><span title="int">int</span></span> <span class="o">=</span> <span class="n"><span title="pinnjax.predict.DEFAULT_GRID_NUM_TIMES">DEFAULT_GRID_NUM_TIMES</span></span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="tuple">tuple</span></span><span class="p">[</span><span class="n"><span title="jax.Array">Array</span></span><span class="p">,</span> <span class="n"><a class="autorefs autorefs-internal" title="            RectangularGrid2D (pinnjax.RectangularGrid2D)" href="../grid_api/#pinnjax.grid.RectangularGrid2D">RectangularGrid2D</a></span><span class="p">]</span>
 </code></pre></div>
 
     <div class="doc doc-contents ">
@@ -1804,13 +1845,13 @@ Returns:
 
 <a href="#pinnjax.predict.run_prediction_at_time" class="headerlink" title="Permanent link">#</a></h2>
 <div class="doc-signature highlight"><pre><span></span><code><span class="nf">run_prediction_at_time</span><span class="p">(</span>
-    <span class="n">model</span><span class="p">:</span> <span class="n">NeuralNetwork</span><span class="p">,</span>
-    <span class="n">domain</span><span class="p">:</span> <span class="n">SpatialDomain</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="n">time</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span>
+    <span class="n">model</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-internal" title="            NeuralNetwork (pinnjax.NeuralNetwork)" href="../model_api/#pinnjax.model.NeuralNetwork">NeuralNetwork</a></span><span class="p">,</span>
+    <span class="n">domain</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-internal" title="            SpatialDomain (pinnjax.SpatialDomain)" href="../dataclass_api/#pinnjax.dataclass.SpatialDomain">SpatialDomain</a></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">time</span><span class="p">:</span> <span class="n"><span title="float">float</span></span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span>
     <span class="o">*</span><span class="p">,</span>
-    <span class="n">fixed_z</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="n">num_points</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">DEFAULT_GRID_NUM_POINTS</span><span class="p">,</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">Array</span><span class="p">,</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">RectangularGrid2D</span><span class="p">]</span>
+    <span class="n">fixed_z</span><span class="p">:</span> <span class="n"><span title="float">float</span></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">num_points</span><span class="p">:</span> <span class="n"><span title="tuple">tuple</span></span><span class="p">[</span><span class="n"><span title="int">int</span></span><span class="p">,</span> <span class="n"><span title="int">int</span></span><span class="p">]</span> <span class="o">=</span> <span class="n"><span title="pinnjax.predict.DEFAULT_GRID_NUM_POINTS">DEFAULT_GRID_NUM_POINTS</span></span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="tuple">tuple</span></span><span class="p">[</span><span class="n"><span title="jax.Array">Array</span></span><span class="p">,</span> <span class="n"><a class="autorefs autorefs-internal" title="            RectangularGrid2D (pinnjax.RectangularGrid2D)" href="../grid_api/#pinnjax.grid.RectangularGrid2D">RectangularGrid2D</a></span><span class="p">]</span>
 </code></pre></div>
 
     <div class="doc doc-contents ">
@@ -1819,14 +1860,11 @@ Returns:
 <p>Builds a spatial grid and calls :func:<code>predict</code> for one time value.</p>
 
 
-<p><span class="doc-section-title">Parameters:</span></p>
-    <table>
+<table>
       <thead>
         <tr>
-          <th>Name</th>
-          <th>Type</th>
-          <th>Description</th>
-          <th>Default</th>
+          <th><span class="doc-section-title">PARAMETER</span></th>
+          <th><span>DESCRIPTION</span></th>
         </tr>
       </thead>
       <tbody>
@@ -1834,100 +1872,117 @@ Returns:
             <td>
                 <code>model</code>
             </td>
-            <td>
-                  <code><a class="autorefs autorefs-internal" title="            NeuralNetwork (pinnjax.NeuralNetwork)" href="../model_api/#pinnjax.model.NeuralNetwork">NeuralNetwork</a></code>
-            </td>
-            <td>
+            <td class="doc-param-details">
               <div class="doc-md-description">
                 <p>Loaded PINN model.</p>
               </div>
-            </td>
-            <td>
-                <em>required</em>
+              <p>
+                  <span class="doc-param-annotation">
+                    <b>TYPE:</b>
+                      <code><a class="autorefs autorefs-internal" title="            NeuralNetwork (pinnjax.NeuralNetwork)" href="../model_api/#pinnjax.model.NeuralNetwork">NeuralNetwork</a></code>
+                  </span>
+              </p>
             </td>
           </tr>
           <tr class="doc-section-item">
             <td>
                 <code>domain</code>
             </td>
-            <td>
-                  <code><a class="autorefs autorefs-internal" title="            SpatialDomain (pinnjax.SpatialDomain)" href="../dataclass_api/#pinnjax.dataclass.SpatialDomain">SpatialDomain</a> | None</code>
-            </td>
-            <td>
+            <td class="doc-param-details">
               <div class="doc-md-description">
                 <p>Domain (default: model.domain).</p>
               </div>
-            </td>
-            <td>
-                  <code>None</code>
+              <p>
+                  <span class="doc-param-annotation">
+                    <b>TYPE:</b>
+                      <code><a class="autorefs autorefs-internal" title="            SpatialDomain (pinnjax.SpatialDomain)" href="../dataclass_api/#pinnjax.dataclass.SpatialDomain">SpatialDomain</a> | None</code>
+                  </span>
+                  <span class="doc-param-default">
+                    <b>DEFAULT:</b>
+                      <code>None</code>
+                  </span>
+              </p>
             </td>
           </tr>
           <tr class="doc-section-item">
             <td>
                 <code>time</code>
             </td>
-            <td>
-                  <code><span title="float">float</span></code>
-            </td>
-            <td>
+            <td class="doc-param-details">
               <div class="doc-md-description">
                 <p>Time value for the snapshot.</p>
               </div>
-            </td>
-            <td>
-                  <code>0.0</code>
+              <p>
+                  <span class="doc-param-annotation">
+                    <b>TYPE:</b>
+                      <code><span title="float">float</span></code>
+                  </span>
+                  <span class="doc-param-default">
+                    <b>DEFAULT:</b>
+                      <code>0.0</code>
+                  </span>
+              </p>
             </td>
           </tr>
           <tr class="doc-section-item">
             <td>
                 <code>fixed_z</code>
             </td>
-            <td>
-                  <code><span title="float">float</span> | None</code>
-            </td>
-            <td>
+            <td class="doc-param-details">
               <div class="doc-md-description">
                 <p>Z value for the 2D slice (default: domain.max[2]).</p>
               </div>
-            </td>
-            <td>
-                  <code>None</code>
+              <p>
+                  <span class="doc-param-annotation">
+                    <b>TYPE:</b>
+                      <code><span title="float">float</span> | None</code>
+                  </span>
+                  <span class="doc-param-default">
+                    <b>DEFAULT:</b>
+                      <code>None</code>
+                  </span>
+              </p>
             </td>
           </tr>
           <tr class="doc-section-item">
             <td>
                 <code>num_points</code>
             </td>
-            <td>
-                  <code><span title="tuple">tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
-            </td>
-            <td>
+            <td class="doc-param-details">
               <div class="doc-md-description">
                 <p>(nx, ny) grid resolution.</p>
               </div>
-            </td>
-            <td>
-                  <code><span title="pinnjax.predict.DEFAULT_GRID_NUM_POINTS">DEFAULT_GRID_NUM_POINTS</span></code>
+              <p>
+                  <span class="doc-param-annotation">
+                    <b>TYPE:</b>
+                      <code><span title="tuple">tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
+                  </span>
+                  <span class="doc-param-default">
+                    <b>DEFAULT:</b>
+                      <code><span title="pinnjax.predict.DEFAULT_GRID_NUM_POINTS">DEFAULT_GRID_NUM_POINTS</span></code>
+                  </span>
+              </p>
             </td>
           </tr>
       </tbody>
     </table>
 
 
-    <p><span class="doc-section-title">Returns:</span></p>
-    <table>
+<table>
       <thead>
         <tr>
-          <th>Type</th>
-          <th>Description</th>
+          <th><span class="doc-section-title">RETURNS</span></th>
+          <th><span>DESCRIPTION</span></th>
         </tr>
       </thead>
       <tbody>
           <tr class="doc-section-item">
             <td>
-                  <code>(<span title="prediction">prediction</span>, <span title="pinnjax.grid">grid</span>)</code>
+                <span class="doc-returns-annotation">
+                    <code>(<span title="prediction">prediction</span>, <span title="pinnjax.grid">grid</span>)</code>
+                </span>
             </td>
-            <td>
+            <td class="doc-returns-details">
               <div class="doc-md-description">
                 <p>prediction array shape (nx, ny), and the spatial grid.</p>
               </div>
@@ -2031,13 +2086,13 @@ Returns:
 
 <a href="#pinnjax.predict.run_prediction_at_times" class="headerlink" title="Permanent link">#</a></h2>
 <div class="doc-signature highlight"><pre><span></span><code><span class="nf">run_prediction_at_times</span><span class="p">(</span>
-    <span class="n">model</span><span class="p">:</span> <span class="n">NeuralNetwork</span><span class="p">,</span>
-    <span class="n">domain</span><span class="p">:</span> <span class="n">SpatialDomain</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="n">times</span><span class="p">:</span> <span class="n">Array</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">|</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="p">(),</span>
+    <span class="n">model</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-internal" title="            NeuralNetwork (pinnjax.NeuralNetwork)" href="../model_api/#pinnjax.model.NeuralNetwork">NeuralNetwork</a></span><span class="p">,</span>
+    <span class="n">domain</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-internal" title="            SpatialDomain (pinnjax.SpatialDomain)" href="../dataclass_api/#pinnjax.dataclass.SpatialDomain">SpatialDomain</a></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">times</span><span class="p">:</span> <span class="n"><span title="jax.Array">Array</span></span> <span class="o">|</span> <span class="n"><span title="list">list</span></span><span class="p">[</span><span class="n"><span title="float">float</span></span><span class="p">]</span> <span class="o">|</span> <span class="n"><span title="tuple">tuple</span></span><span class="p">[</span><span class="n"><span title="float">float</span></span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="p">(),</span>
     <span class="o">*</span><span class="p">,</span>
-    <span class="n">fixed_z</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="n">num_points</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">DEFAULT_GRID_NUM_POINTS</span><span class="p">,</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="n">Array</span><span class="p">],</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">RectangularGrid2D</span><span class="p">]</span>
+    <span class="n">fixed_z</span><span class="p">:</span> <span class="n"><span title="float">float</span></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">num_points</span><span class="p">:</span> <span class="n"><span title="tuple">tuple</span></span><span class="p">[</span><span class="n"><span title="int">int</span></span><span class="p">,</span> <span class="n"><span title="int">int</span></span><span class="p">]</span> <span class="o">=</span> <span class="n"><span title="pinnjax.predict.DEFAULT_GRID_NUM_POINTS">DEFAULT_GRID_NUM_POINTS</span></span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="tuple">tuple</span></span><span class="p">[</span><span class="n"><span title="list">list</span></span><span class="p">[</span><span class="n"><span title="jax.Array">Array</span></span><span class="p">],</span> <span class="n"><a class="autorefs autorefs-internal" title="            RectangularGrid2D (pinnjax.RectangularGrid2D)" href="../grid_api/#pinnjax.grid.RectangularGrid2D">RectangularGrid2D</a></span><span class="p">]</span>
 </code></pre></div>
 
     <div class="doc doc-contents ">
@@ -2046,14 +2101,11 @@ Returns:
 <p>Builds a spatial grid and calls :func:<code>predict_at_times</code>.</p>
 
 
-<p><span class="doc-section-title">Parameters:</span></p>
-    <table>
+<table>
       <thead>
         <tr>
-          <th>Name</th>
-          <th>Type</th>
-          <th>Description</th>
-          <th>Default</th>
+          <th><span class="doc-section-title">PARAMETER</span></th>
+          <th><span>DESCRIPTION</span></th>
         </tr>
       </thead>
       <tbody>
@@ -2061,100 +2113,117 @@ Returns:
             <td>
                 <code>model</code>
             </td>
-            <td>
-                  <code><a class="autorefs autorefs-internal" title="            NeuralNetwork (pinnjax.NeuralNetwork)" href="../model_api/#pinnjax.model.NeuralNetwork">NeuralNetwork</a></code>
-            </td>
-            <td>
+            <td class="doc-param-details">
               <div class="doc-md-description">
                 <p>Loaded PINN model.</p>
               </div>
-            </td>
-            <td>
-                <em>required</em>
+              <p>
+                  <span class="doc-param-annotation">
+                    <b>TYPE:</b>
+                      <code><a class="autorefs autorefs-internal" title="            NeuralNetwork (pinnjax.NeuralNetwork)" href="../model_api/#pinnjax.model.NeuralNetwork">NeuralNetwork</a></code>
+                  </span>
+              </p>
             </td>
           </tr>
           <tr class="doc-section-item">
             <td>
                 <code>domain</code>
             </td>
-            <td>
-                  <code><a class="autorefs autorefs-internal" title="            SpatialDomain (pinnjax.SpatialDomain)" href="../dataclass_api/#pinnjax.dataclass.SpatialDomain">SpatialDomain</a> | None</code>
-            </td>
-            <td>
+            <td class="doc-param-details">
               <div class="doc-md-description">
                 <p>Domain (default: model.domain).</p>
               </div>
-            </td>
-            <td>
-                  <code>None</code>
+              <p>
+                  <span class="doc-param-annotation">
+                    <b>TYPE:</b>
+                      <code><a class="autorefs autorefs-internal" title="            SpatialDomain (pinnjax.SpatialDomain)" href="../dataclass_api/#pinnjax.dataclass.SpatialDomain">SpatialDomain</a> | None</code>
+                  </span>
+                  <span class="doc-param-default">
+                    <b>DEFAULT:</b>
+                      <code>None</code>
+                  </span>
+              </p>
             </td>
           </tr>
           <tr class="doc-section-item">
             <td>
                 <code>times</code>
             </td>
-            <td>
-                  <code><span title="jax.Array">Array</span> | <span title="list">list</span>[<span title="float">float</span>] | <span title="tuple">tuple</span>[<span title="float">float</span>, ...]</code>
-            </td>
-            <td>
+            <td class="doc-param-details">
               <div class="doc-md-description">
                 <p>Time values (e.g. [0.0, 1.0, 2.0]).</p>
               </div>
-            </td>
-            <td>
-                  <code>()</code>
+              <p>
+                  <span class="doc-param-annotation">
+                    <b>TYPE:</b>
+                      <code><span title="jax.Array">Array</span> | <span title="list">list</span>[<span title="float">float</span>] | <span title="tuple">tuple</span>[<span title="float">float</span>, ...]</code>
+                  </span>
+                  <span class="doc-param-default">
+                    <b>DEFAULT:</b>
+                      <code>()</code>
+                  </span>
+              </p>
             </td>
           </tr>
           <tr class="doc-section-item">
             <td>
                 <code>fixed_z</code>
             </td>
-            <td>
-                  <code><span title="float">float</span> | None</code>
-            </td>
-            <td>
+            <td class="doc-param-details">
               <div class="doc-md-description">
                 <p>Z value for the 2D slice (default: domain.max[2]).</p>
               </div>
-            </td>
-            <td>
-                  <code>None</code>
+              <p>
+                  <span class="doc-param-annotation">
+                    <b>TYPE:</b>
+                      <code><span title="float">float</span> | None</code>
+                  </span>
+                  <span class="doc-param-default">
+                    <b>DEFAULT:</b>
+                      <code>None</code>
+                  </span>
+              </p>
             </td>
           </tr>
           <tr class="doc-section-item">
             <td>
                 <code>num_points</code>
             </td>
-            <td>
-                  <code><span title="tuple">tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
-            </td>
-            <td>
+            <td class="doc-param-details">
               <div class="doc-md-description">
                 <p>(nx, ny) grid resolution.</p>
               </div>
-            </td>
-            <td>
-                  <code><span title="pinnjax.predict.DEFAULT_GRID_NUM_POINTS">DEFAULT_GRID_NUM_POINTS</span></code>
+              <p>
+                  <span class="doc-param-annotation">
+                    <b>TYPE:</b>
+                      <code><span title="tuple">tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
+                  </span>
+                  <span class="doc-param-default">
+                    <b>DEFAULT:</b>
+                      <code><span title="pinnjax.predict.DEFAULT_GRID_NUM_POINTS">DEFAULT_GRID_NUM_POINTS</span></code>
+                  </span>
+              </p>
             </td>
           </tr>
       </tbody>
     </table>
 
 
-    <p><span class="doc-section-title">Returns:</span></p>
-    <table>
+<table>
       <thead>
         <tr>
-          <th>Type</th>
-          <th>Description</th>
+          <th><span class="doc-section-title">RETURNS</span></th>
+          <th><span>DESCRIPTION</span></th>
         </tr>
       </thead>
       <tbody>
           <tr class="doc-section-item">
             <td>
-                  <code>(<span title="predictions">predictions</span>, <span title="pinnjax.grid">grid</span>)</code>
+                <span class="doc-returns-annotation">
+                    <code>(<span title="predictions">predictions</span>, <span title="pinnjax.grid">grid</span>)</code>
+                </span>
             </td>
-            <td>
+            <td class="doc-returns-details">
               <div class="doc-md-description">
                 <p>list of prediction arrays, each shape (nx, ny); and the spatial grid.</p>
               </div>

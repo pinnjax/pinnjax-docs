@@ -192,6 +192,18 @@
       
     
     
+      <div class="md-header__source">
+        <a href="https://github.com/pinnjax/PINN-JAX" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    pinnjax/PINN-JAX
+  </div>
+</a>
+      </div>
+    
   </nav>
   
 </header>
@@ -276,6 +288,18 @@
     </a>
     PINN-JAX
   </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/pinnjax/PINN-JAX" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    pinnjax/PINN-JAX
+  </div>
+</a>
+    </div>
   
   <ul class="md-nav__list" data-md-scrollfix>
     
@@ -1079,6 +1103,9 @@
                   
 
 
+  
+  
+
 
   <h1>Utils</h1>
 
@@ -1128,7 +1155,7 @@ organization for experiments, and common numerical operations.</p>
 
 
 <a href="#pinnjax.utils.create_folder" class="headerlink" title="Permanent link">#</a></h2>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">create_folder</span><span class="p">(</span><span class="n">base_path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Path</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Path</span>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">create_folder</span><span class="p">(</span><span class="n">base_path</span><span class="p">:</span> <span class="n"><span title="str">str</span></span> <span class="o">|</span> <span class="n"><span title="pathlib.Path">Path</span></span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="n"><span title="str">str</span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="pathlib.Path">Path</span></span>
 </code></pre></div>
 
     <div class="doc doc-contents ">
@@ -1136,14 +1163,11 @@ organization for experiments, and common numerical operations.</p>
         <p>Create a folder inside a base path.</p>
 
 
-<p><span class="doc-section-title">Parameters:</span></p>
-    <table>
+<table>
       <thead>
         <tr>
-          <th>Name</th>
-          <th>Type</th>
-          <th>Description</th>
-          <th>Default</th>
+          <th><span class="doc-section-title">PARAMETER</span></th>
+          <th><span>DESCRIPTION</span></th>
         </tr>
       </thead>
       <tbody>
@@ -1151,55 +1175,60 @@ organization for experiments, and common numerical operations.</p>
             <td>
                 <code>base_path</code>
             </td>
-            <td>
-                  <code><span title="str">str</span> | <span title="pathlib.Path">Path</span></code>
-            </td>
-            <td>
+            <td class="doc-param-details">
               <div class="doc-md-description">
                 <p>Base directory in which to create the folder.</p>
               </div>
-            </td>
-            <td>
-                <em>required</em>
+              <p>
+                  <span class="doc-param-annotation">
+                    <b>TYPE:</b>
+                      <code><span title="str">str</span> | <span title="pathlib.Path">Path</span></code>
+                  </span>
+              </p>
             </td>
           </tr>
           <tr class="doc-section-item">
             <td>
                 <code>name</code>
             </td>
-            <td>
-                  <code><span title="str">str</span></code>
-            </td>
-            <td>
+            <td class="doc-param-details">
               <div class="doc-md-description">
                 <p>Name of the folder to create.</p>
               </div>
-            </td>
-            <td>
-                <em>required</em>
+              <p>
+                  <span class="doc-param-annotation">
+                    <b>TYPE:</b>
+                      <code><span title="str">str</span></code>
+                  </span>
+              </p>
             </td>
           </tr>
       </tbody>
     </table>
 
 
-    <p><span class="doc-section-title">Returns:</span></p>
-    <table>
+<table>
       <thead>
         <tr>
-<th>Name</th>          <th>Type</th>
-          <th>Description</th>
+          <th><span class="doc-section-title">RETURNS</span></th>
+          <th><span>DESCRIPTION</span></th>
         </tr>
       </thead>
       <tbody>
           <tr class="doc-section-item">
-<td><code>Path</code></td>            <td>
-                  <code><span title="pathlib.Path">Path</span></code>
-            </td>
             <td>
+                <code>Path</code>
+            </td>
+            <td class="doc-returns-details">
               <div class="doc-md-description">
                 <p>The full path of the created folder.</p>
               </div>
+                <p>
+                  <span class="doc-returns-annotation">
+                    <b>TYPE:</b>
+                      <code><span title="pathlib.Path">Path</span></code>
+                  </span>
+                </p>
             </td>
           </tr>
       </tbody>
@@ -1253,9 +1282,7 @@ organization for experiments, and common numerical operations.</p>
 
 
 <a href="#pinnjax.utils.create_path_folder" class="headerlink" title="Permanent link">#</a></h2>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">create_path_folder</span><span class="p">(</span>
-    <span class="n">starting_path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Path</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">*</span><span class="n">folders</span><span class="p">:</span> <span class="nb">str</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Path</span>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">create_path_folder</span><span class="p">(</span><span class="n">starting_path</span><span class="p">:</span> <span class="n"><span title="str">str</span></span> <span class="o">|</span> <span class="n"><span title="pathlib.Path">Path</span></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">*</span><span class="n">folders</span><span class="p">:</span> <span class="n"><span title="str">str</span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="pathlib.Path">Path</span></span>
 </code></pre></div>
 
     <div class="doc doc-contents ">
@@ -1265,14 +1292,11 @@ organization for experiments, and common numerical operations.</p>
 creates each folder provided in <code>folders</code> inside it, in order.</p>
 
 
-<p><span class="doc-section-title">Parameters:</span></p>
-    <table>
+<table>
       <thead>
         <tr>
-          <th>Name</th>
-          <th>Type</th>
-          <th>Description</th>
-          <th>Default</th>
+          <th><span class="doc-section-title">PARAMETER</span></th>
+          <th><span>DESCRIPTION</span></th>
         </tr>
       </thead>
       <tbody>
@@ -1280,55 +1304,68 @@ creates each folder provided in <code>folders</code> inside it, in order.</p>
             <td>
                 <code>starting_path</code>
             </td>
-            <td>
-                  <code><span title="str">str</span> | <span title="pathlib.Path">Path</span></code>
-            </td>
-            <td>
+            <td class="doc-param-details">
               <div class="doc-md-description">
                 <p>Root directory to start from.</p>
               </div>
-            </td>
-            <td>
-                  <code>None</code>
+              <p>
+                  <span class="doc-param-annotation">
+                    <b>TYPE:</b>
+                      <code><span title="str">str</span> | <span title="pathlib.Path">Path</span></code>
+                  </span>
+                  <span class="doc-param-default">
+                    <b>DEFAULT:</b>
+                      <code>None</code>
+                  </span>
+              </p>
             </td>
           </tr>
           <tr class="doc-section-item">
             <td>
                 <code>*folders</code>
             </td>
-            <td>
-                  <code><span title="str">str</span></code>
-            </td>
-            <td>
+            <td class="doc-param-details">
               <div class="doc-md-description">
                 <p>Additional nested folders to create.</p>
               </div>
-            </td>
-            <td>
-                  <code>()</code>
+              <p>
+                  <span class="doc-param-annotation">
+                    <b>TYPE:</b>
+                      <code><span title="str">str</span></code>
+                  </span>
+                  <span class="doc-param-default">
+                    <b>DEFAULT:</b>
+                      <code>()</code>
+                  </span>
+              </p>
             </td>
           </tr>
       </tbody>
     </table>
 
 
-    <p><span class="doc-section-title">Returns:</span></p>
-    <table>
+<table>
       <thead>
         <tr>
-<th>Name</th>          <th>Type</th>
-          <th>Description</th>
+          <th><span class="doc-section-title">RETURNS</span></th>
+          <th><span>DESCRIPTION</span></th>
         </tr>
       </thead>
       <tbody>
           <tr class="doc-section-item">
-<td><code>Path</code></td>            <td>
-                  <code><span title="pathlib.Path">Path</span></code>
-            </td>
             <td>
+                <code>Path</code>
+            </td>
+            <td class="doc-returns-details">
               <div class="doc-md-description">
                 <p>Path to the deepest created folder.</p>
               </div>
+                <p>
+                  <span class="doc-returns-annotation">
+                    <b>TYPE:</b>
+                      <code><span title="pathlib.Path">Path</span></code>
+                  </span>
+                </p>
             </td>
           </tr>
       </tbody>
@@ -1404,9 +1441,7 @@ creates each folder provided in <code>folders</code> inside it, in order.</p>
 
 
 <a href="#pinnjax.utils.create_model_path" class="headerlink" title="Permanent link">#</a></h2>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">create_model_path</span><span class="p">(</span>
-    <span class="n">starting_path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Path</span> <span class="o">=</span> <span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">(),</span> <span class="o">*</span><span class="n">folders</span><span class="p">:</span> <span class="nb">str</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Path</span>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">create_model_path</span><span class="p">(</span><span class="n">starting_path</span><span class="p">:</span> <span class="n"><span title="str">str</span></span> <span class="o">|</span> <span class="n"><span title="pathlib.Path">Path</span></span> <span class="o">=</span> <span class="n"><span title="pathlib.Path.cwd">cwd</span></span><span class="p">(),</span> <span class="o">*</span><span class="n">folders</span><span class="p">:</span> <span class="n"><span title="str">str</span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="pathlib.Path">Path</span></span>
 </code></pre></div>
 
     <div class="doc doc-contents ">
@@ -1417,14 +1452,11 @@ the resulting directory for existing <code>Model-#&lt;n&gt;</code> folders and c
 new one with the next available index.</p>
 
 
-<p><span class="doc-section-title">Parameters:</span></p>
-    <table>
+<table>
       <thead>
         <tr>
-          <th>Name</th>
-          <th>Type</th>
-          <th>Description</th>
-          <th>Default</th>
+          <th><span class="doc-section-title">PARAMETER</span></th>
+          <th><span>DESCRIPTION</span></th>
         </tr>
       </thead>
       <tbody>
@@ -1432,55 +1464,68 @@ new one with the next available index.</p>
             <td>
                 <code>starting_path</code>
             </td>
-            <td>
-                  <code><span title="pathlib.Path">Path</span></code>
-            </td>
-            <td>
+            <td class="doc-param-details">
               <div class="doc-md-description">
                 <p>Directory to start building the model path under.</p>
               </div>
-            </td>
-            <td>
-                  <code><span title="pathlib.Path.cwd">cwd</span>()</code>
+              <p>
+                  <span class="doc-param-annotation">
+                    <b>TYPE:</b>
+                      <code><span title="pathlib.Path">Path</span></code>
+                  </span>
+                  <span class="doc-param-default">
+                    <b>DEFAULT:</b>
+                      <code><span title="pathlib.Path.cwd">cwd</span>()</code>
+                  </span>
+              </p>
             </td>
           </tr>
           <tr class="doc-section-item">
             <td>
                 <code>*folders</code>
             </td>
-            <td>
-                  <code><span title="str">str</span></code>
-            </td>
-            <td>
+            <td class="doc-param-details">
               <div class="doc-md-description">
                 <p>Additional folders that determine the experiment path.</p>
               </div>
-            </td>
-            <td>
-                  <code>()</code>
+              <p>
+                  <span class="doc-param-annotation">
+                    <b>TYPE:</b>
+                      <code><span title="str">str</span></code>
+                  </span>
+                  <span class="doc-param-default">
+                    <b>DEFAULT:</b>
+                      <code>()</code>
+                  </span>
+              </p>
             </td>
           </tr>
       </tbody>
     </table>
 
 
-    <p><span class="doc-section-title">Returns:</span></p>
-    <table>
+<table>
       <thead>
         <tr>
-<th>Name</th>          <th>Type</th>
-          <th>Description</th>
+          <th><span class="doc-section-title">RETURNS</span></th>
+          <th><span>DESCRIPTION</span></th>
         </tr>
       </thead>
       <tbody>
           <tr class="doc-section-item">
-<td><code>Path</code></td>            <td>
-                  <code><span title="pathlib.Path">Path</span></code>
-            </td>
             <td>
+                <code>Path</code>
+            </td>
+            <td class="doc-returns-details">
               <div class="doc-md-description">
                 <p>The newly created model directory.</p>
               </div>
+                <p>
+                  <span class="doc-returns-annotation">
+                    <b>TYPE:</b>
+                      <code><span title="pathlib.Path">Path</span></code>
+                  </span>
+                </p>
             </td>
           </tr>
       </tbody>
@@ -1556,7 +1601,7 @@ new one with the next available index.</p>
 
 
 <a href="#pinnjax.utils.duration_converter_str" class="headerlink" title="Permanent link">#</a></h2>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">duration_converter_str</span><span class="p">(</span><span class="n">duration</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">duration_converter_str</span><span class="p">(</span><span class="n">duration</span><span class="p">:</span> <span class="n"><span title="float">float</span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="str">str</span></span>
 </code></pre></div>
 
     <div class="doc doc-contents ">
@@ -1564,14 +1609,11 @@ new one with the next available index.</p>
         <p>Convert an int/float seconds into a string "Y:D:H:M:S" (with labels).</p>
 
 
-<p><span class="doc-section-title">Parameters:</span></p>
-    <table>
+<table>
       <thead>
         <tr>
-          <th>Name</th>
-          <th>Type</th>
-          <th>Description</th>
-          <th>Default</th>
+          <th><span class="doc-section-title">PARAMETER</span></th>
+          <th><span>DESCRIPTION</span></th>
         </tr>
       </thead>
       <tbody>
@@ -1579,36 +1621,37 @@ new one with the next available index.</p>
             <td>
                 <code>duration</code>
             </td>
-            <td>
-                  <code><span title="float">float</span></code>
-            </td>
-            <td>
+            <td class="doc-param-details">
               <div class="doc-md-description">
                 <p>given time (in seconds)</p>
               </div>
-            </td>
-            <td>
-                <em>required</em>
+              <p>
+                  <span class="doc-param-annotation">
+                    <b>TYPE:</b>
+                      <code><span title="float">float</span></code>
+                  </span>
+              </p>
             </td>
           </tr>
       </tbody>
     </table>
 
 
-    <p><span class="doc-section-title">Returns:</span></p>
-    <table>
+<table>
       <thead>
         <tr>
-          <th>Type</th>
-          <th>Description</th>
+          <th><span class="doc-section-title">RETURNS</span></th>
+          <th><span>DESCRIPTION</span></th>
         </tr>
       </thead>
       <tbody>
           <tr class="doc-section-item">
             <td>
-                  <code><span title="str">str</span></code>
+                <span class="doc-returns-annotation">
+                    <code><span title="str">str</span></code>
+                </span>
             </td>
-            <td>
+            <td class="doc-returns-details">
               <div class="doc-md-description">
                 <p>Printable string equivalent to the given 'duration' extrapolated to
 years, months, days, hours, minutes and seconds.</p>
@@ -1783,7 +1826,7 @@ years, months, days, hours, minutes and seconds.</p>
 
 
 <a href="#pinnjax.utils.force_compile" class="headerlink" title="Permanent link">#</a></h2>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">force_compile</span><span class="p">(</span><span class="n">shape</span><span class="p">:</span> <span class="n">ComplexShape</span><span class="p">,</span> <span class="n">model</span><span class="p">:</span> <span class="n">NeuralNetwork</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">force_compile</span><span class="p">(</span><span class="n">shape</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-internal" title="            ComplexShape (pinnjax.ComplexShape)" href="../geometry_api/#pinnjax.geometry.ComplexShape">ComplexShape</a></span><span class="p">,</span> <span class="n">model</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-internal" title="            NeuralNetwork (pinnjax.NeuralNetwork)" href="../model_api/#pinnjax.model.NeuralNetwork">NeuralNetwork</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
 </code></pre></div>
 
     <div class="doc doc-contents ">
@@ -1796,14 +1839,11 @@ is replaced with its compiled version to avoid compilation overhead
 during training.</p>
 
 
-<p><span class="doc-section-title">Parameters:</span></p>
-    <table>
+<table>
       <thead>
         <tr>
-          <th>Name</th>
-          <th>Type</th>
-          <th>Description</th>
-          <th>Default</th>
+          <th><span class="doc-section-title">PARAMETER</span></th>
+          <th><span>DESCRIPTION</span></th>
         </tr>
       </thead>
       <tbody>
@@ -1811,52 +1851,53 @@ during training.</p>
             <td>
                 <code>shape</code>
             </td>
-            <td>
-                  <code><a class="autorefs autorefs-internal" title="            ComplexShape (pinnjax.ComplexShape)" href="../geometry_api/#pinnjax.geometry.ComplexShape">ComplexShape</a></code>
-            </td>
-            <td>
+            <td class="doc-param-details">
               <div class="doc-md-description">
                 <p><a class="autorefs autorefs-internal" title="            ComplexShape" href="../geometry_api/#pinnjax.geometry.ComplexShape"><code>ComplexShape</code></a> object containing the method.</p>
               </div>
-            </td>
-            <td>
-                <em>required</em>
+              <p>
+                  <span class="doc-param-annotation">
+                    <b>TYPE:</b>
+                      <code><a class="autorefs autorefs-internal" title="            ComplexShape (pinnjax.ComplexShape)" href="../geometry_api/#pinnjax.geometry.ComplexShape">ComplexShape</a></code>
+                  </span>
+              </p>
             </td>
           </tr>
           <tr class="doc-section-item">
             <td>
                 <code>model</code>
             </td>
-            <td>
-                  <code><a class="autorefs autorefs-internal" title="            NeuralNetwork (pinnjax.NeuralNetwork)" href="../model_api/#pinnjax.model.NeuralNetwork">NeuralNetwork</a></code>
-            </td>
-            <td>
+            <td class="doc-param-details">
               <div class="doc-md-description">
                 <p><a class="autorefs autorefs-internal" title="            NeuralNetwork" href="../model_api/#pinnjax.model.NeuralNetwork"><code>NeuralNetwork</code></a> object used as input.</p>
               </div>
-            </td>
-            <td>
-                <em>required</em>
+              <p>
+                  <span class="doc-param-annotation">
+                    <b>TYPE:</b>
+                      <code><a class="autorefs autorefs-internal" title="            NeuralNetwork (pinnjax.NeuralNetwork)" href="../model_api/#pinnjax.model.NeuralNetwork">NeuralNetwork</a></code>
+                  </span>
+              </p>
             </td>
           </tr>
       </tbody>
     </table>
 
 
-<p><span class="doc-section-title">Raises:</span></p>
-    <table>
+<table>
       <thead>
         <tr>
-          <th>Type</th>
-          <th>Description</th>
+          <th><span class="doc-section-title">RAISES</span></th>
+          <th><span>DESCRIPTION</span></th>
         </tr>
       </thead>
       <tbody>
           <tr class="doc-section-item">
             <td>
+              <span class="doc-raises-annotation">
                   <code><span title="TypeError">TypeError</span></code>
+              </span>
             </td>
-            <td>
+            <td class="doc-raises-details">
               <div class="doc-md-description">
                 <p>If <code>residual_and_losses</code> is not defined or not callable
 in the <code>shape</code> object.</p>
@@ -1983,11 +2024,8 @@ in the <code>shape</code> object.</p>
 
 <a href="#pinnjax.utils.index_shuffle" class="headerlink" title="Permanent link">#</a></h2>
 <div class="doc-signature highlight"><pre><span></span><code><span class="nf">index_shuffle</span><span class="p">(</span>
-    <span class="n">source</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="n">MutableSequence</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span>
-    <span class="o">*</span><span class="p">,</span>
-    <span class="n">portion</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span>
-    <span class="n">seed</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span>
+    <span class="n">source</span><span class="p">:</span> <span class="n"><span title="int">int</span></span> <span class="o">|</span> <span class="n"><span title="collections.abc.MutableSequence">MutableSequence</span></span><span class="p">[</span><span class="n"><span title="int">int</span></span><span class="p">],</span> <span class="o">*</span><span class="p">,</span> <span class="n">portion</span><span class="p">:</span> <span class="n"><span title="float">float</span></span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">seed</span><span class="p">:</span> <span class="n"><span title="int">int</span></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="list">list</span></span><span class="p">[</span><span class="n"><span title="int">int</span></span><span class="p">]</span>
 </code></pre></div>
 
     <div class="doc doc-contents ">
@@ -2060,7 +2098,7 @@ in the <code>shape</code> object.</p>
 
 
 <a href="#pinnjax.utils.is_power_of_2" class="headerlink" title="Permanent link">#</a></h2>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">is_power_of_2</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">is_power_of_2</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n"><span title="int">int</span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="bool">bool</span></span>
 </code></pre></div>
 
     <div class="doc doc-contents ">
@@ -2068,14 +2106,11 @@ in the <code>shape</code> object.</p>
         <p>Return if the input is power of 2.</p>
 
 
-<p><span class="doc-section-title">Parameters:</span></p>
-    <table>
+<table>
       <thead>
         <tr>
-          <th>Name</th>
-          <th>Type</th>
-          <th>Description</th>
-          <th>Default</th>
+          <th><span class="doc-section-title">PARAMETER</span></th>
+          <th><span>DESCRIPTION</span></th>
         </tr>
       </thead>
       <tbody>
@@ -2083,36 +2118,37 @@ in the <code>shape</code> object.</p>
             <td>
                 <code>x</code>
             </td>
-            <td>
-                  <code><span title="int">int</span></code>
-            </td>
-            <td>
+            <td class="doc-param-details">
               <div class="doc-md-description">
                 <p>value to be checked</p>
               </div>
-            </td>
-            <td>
-                <em>required</em>
+              <p>
+                  <span class="doc-param-annotation">
+                    <b>TYPE:</b>
+                      <code><span title="int">int</span></code>
+                  </span>
+              </p>
             </td>
           </tr>
       </tbody>
     </table>
 
 
-    <p><span class="doc-section-title">Returns:</span></p>
-    <table>
+<table>
       <thead>
         <tr>
-          <th>Type</th>
-          <th>Description</th>
+          <th><span class="doc-section-title">RETURNS</span></th>
+          <th><span>DESCRIPTION</span></th>
         </tr>
       </thead>
       <tbody>
           <tr class="doc-section-item">
             <td>
-                  <code><span title="bool">bool</span></code>
+                <span class="doc-returns-annotation">
+                    <code><span title="bool">bool</span></code>
+                </span>
             </td>
-            <td>
+            <td class="doc-returns-details">
               <div class="doc-md-description">
                 <p>True if <code>x</code> is power of 2.</p>
               </div>
@@ -2159,7 +2195,7 @@ in the <code>shape</code> object.</p>
 
 
 <a href="#pinnjax.utils.next_power_of_2" class="headerlink" title="Permanent link">#</a></h2>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">next_power_of_2</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">next_power_of_2</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="n"><span title="int">int</span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="int">int</span></span>
 </code></pre></div>
 
     <div class="doc doc-contents ">
@@ -2167,14 +2203,11 @@ in the <code>shape</code> object.</p>
         <p>Return the next power of 2 greater than or equal to <code>n</code>.</p>
 
 
-<p><span class="doc-section-title">Parameters:</span></p>
-    <table>
+<table>
       <thead>
         <tr>
-          <th>Name</th>
-          <th>Type</th>
-          <th>Description</th>
-          <th>Default</th>
+          <th><span class="doc-section-title">PARAMETER</span></th>
+          <th><span>DESCRIPTION</span></th>
         </tr>
       </thead>
       <tbody>
@@ -2182,36 +2215,37 @@ in the <code>shape</code> object.</p>
             <td>
                 <code>n</code>
             </td>
-            <td>
-                  <code><span title="int">int</span></code>
-            </td>
-            <td>
+            <td class="doc-param-details">
               <div class="doc-md-description">
                 <p>value to be checked</p>
               </div>
-            </td>
-            <td>
-                <em>required</em>
+              <p>
+                  <span class="doc-param-annotation">
+                    <b>TYPE:</b>
+                      <code><span title="int">int</span></code>
+                  </span>
+              </p>
             </td>
           </tr>
       </tbody>
     </table>
 
 
-    <p><span class="doc-section-title">Returns:</span></p>
-    <table>
+<table>
       <thead>
         <tr>
-          <th>Type</th>
-          <th>Description</th>
+          <th><span class="doc-section-title">RETURNS</span></th>
+          <th><span>DESCRIPTION</span></th>
         </tr>
       </thead>
       <tbody>
           <tr class="doc-section-item">
             <td>
-                  <code><span title="int">int</span></code>
+                <span class="doc-returns-annotation">
+                    <code><span title="int">int</span></code>
+                </span>
             </td>
-            <td>
+            <td class="doc-returns-details">
               <div class="doc-md-description">
                 <p>Next power of 2 greater than or equal to <code>n</code>.</p>
               </div>
