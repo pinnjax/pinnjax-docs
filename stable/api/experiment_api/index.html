@@ -194,6 +194,18 @@
       
     
     
+      <div class="md-header__source">
+        <a href="https://github.com/pinnjax/PINN-JAX" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    pinnjax/PINN-JAX
+  </div>
+</a>
+      </div>
+    
   </nav>
   
 </header>
@@ -278,6 +290,18 @@
     </a>
     PINN-JAX
   </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/pinnjax/PINN-JAX" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    pinnjax/PINN-JAX
+  </div>
+</a>
+    </div>
   
   <ul class="md-nav__list" data-md-scrollfix>
     
@@ -463,23 +487,6 @@
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label=" ExperimentBuilder">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#pinnjax.experiment.ExperimentBuilder.edit" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code>&nbsp;edit
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -926,23 +933,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label=" ExperimentBuilder">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#pinnjax.experiment.ExperimentBuilder.edit" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code>&nbsp;edit
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
     </ul>
@@ -960,6 +950,9 @@
                 
                   
 
+
+  
+  
 
 
   <h1>Experiment</h1>
@@ -1013,14 +1006,11 @@ pinnjax workflow. Missing components are generated automatically according to
 reasonable defaults, while user-supplied objects are validated for consistency.</p>
 
 
-<p><span class="doc-section-title">Parameters:</span></p>
-    <table>
+<table>
       <thead>
         <tr>
-          <th>Name</th>
-          <th>Type</th>
-          <th>Description</th>
-          <th>Default</th>
+          <th><span class="doc-section-title">PARAMETER</span></th>
+          <th><span>DESCRIPTION</span></th>
         </tr>
       </thead>
       <tbody>
@@ -1028,623 +1018,772 @@ reasonable defaults, while user-supplied objects are validated for consistency.<
             <td>
                 <code>time</code>
             </td>
-            <td>
-                  <code><a class="autorefs autorefs-internal" title="            Time (pinnjax.Time)" href="../dataclass_api/#pinnjax.dataclass.Time">Time</a> | <span title="bool">bool</span> | None</code>
-            </td>
-            <td>
+            <td class="doc-param-details">
               <div class="doc-md-description">
                 <p>Optional time configuration.
 - <code>pinnjax.Time</code> -&gt; Use directly.
 - <code>True</code>/<code>None</code> -&gt; Auto-generate from <code>domain.times</code> or default.
 - <code>False</code> -&gt; Disable time dimension.</p>
               </div>
-            </td>
-            <td>
-                  <code>None</code>
+              <p>
+                  <span class="doc-param-annotation">
+                    <b>TYPE:</b>
+                      <code><a class="autorefs autorefs-internal" title="            Time (pinnjax.Time)" href="../dataclass_api/#pinnjax.dataclass.Time">Time</a> | <span title="bool">bool</span> | None</code>
+                  </span>
+                  <span class="doc-param-default">
+                    <b>DEFAULT:</b>
+                      <code>None</code>
+                  </span>
+              </p>
             </td>
           </tr>
           <tr class="doc-section-item">
             <td>
                 <code>domain</code>
             </td>
-            <td>
-                  <code><a class="autorefs autorefs-internal" title="            Domain (pinnjax.Domain)" href="../dataclass_api/#pinnjax.dataclass.Domain">Domain</a> | None</code>
-            </td>
-            <td>
+            <td class="doc-param-details">
               <div class="doc-md-description">
                 <p>Spatial (and optional temporal) domain describing the problem region.</p>
               </div>
-            </td>
-            <td>
-                  <code>None</code>
+              <p>
+                  <span class="doc-param-annotation">
+                    <b>TYPE:</b>
+                      <code><a class="autorefs autorefs-internal" title="            Domain (pinnjax.Domain)" href="../dataclass_api/#pinnjax.dataclass.Domain">Domain</a> | None</code>
+                  </span>
+                  <span class="doc-param-default">
+                    <b>DEFAULT:</b>
+                      <code>None</code>
+                  </span>
+              </p>
             </td>
           </tr>
           <tr class="doc-section-item">
             <td>
                 <code>path</code>
             </td>
-            <td>
-                  <code><a class="autorefs autorefs-internal" title="            Path (pinnjax.Path)" href="../pathing_api/#pinnjax.pathing.Path">Path</a> | <a class="autorefs autorefs-internal" title="            PathConfig (pinnjax.PathConfig)" href="../dataclass_api/#pinnjax.dataclass.PathConfig">PathConfig</a> | <span title="bool">bool</span> | None</code>
-            </td>
-            <td>
+            <td class="doc-param-details">
               <div class="doc-md-description">
                 <p>Path configuration or path object for time-dependent problems.
 - <code>True</code>/<code>None</code> -&gt; Auto-generate a linear path if time is enabled.
 - <code>False</code> -&gt; Disable pathing.</p>
               </div>
-            </td>
-            <td>
-                  <code>None</code>
+              <p>
+                  <span class="doc-param-annotation">
+                    <b>TYPE:</b>
+                      <code><a class="autorefs autorefs-internal" title="            Path (pinnjax.Path)" href="../pathing_api/#pinnjax.pathing.Path">Path</a> | <a class="autorefs autorefs-internal" title="            PathConfig (pinnjax.PathConfig)" href="../dataclass_api/#pinnjax.dataclass.PathConfig">PathConfig</a> | <span title="bool">bool</span> | None</code>
+                  </span>
+                  <span class="doc-param-default">
+                    <b>DEFAULT:</b>
+                      <code>None</code>
+                  </span>
+              </p>
             </td>
           </tr>
           <tr class="doc-section-item">
             <td>
                 <code>geometry</code>
             </td>
-            <td>
-                  <code><a class="autorefs autorefs-internal" title="            ComplexShape (pinnjax.ComplexShape)" href="../geometry_api/#pinnjax.geometry.ComplexShape">ComplexShape</a> | None</code>
-            </td>
-            <td>
+            <td class="doc-param-details">
               <div class="doc-md-description">
                 <p>Pre-constructed <code>pinnjax.ComplexShape</code>.
 If omitted, a shape is constructed from the domain's OBB.</p>
               </div>
-            </td>
-            <td>
-                  <code>None</code>
+              <p>
+                  <span class="doc-param-annotation">
+                    <b>TYPE:</b>
+                      <code><a class="autorefs autorefs-internal" title="            ComplexShape (pinnjax.ComplexShape)" href="../geometry_api/#pinnjax.geometry.ComplexShape">ComplexShape</a> | None</code>
+                  </span>
+                  <span class="doc-param-default">
+                    <b>DEFAULT:</b>
+                      <code>None</code>
+                  </span>
+              </p>
             </td>
           </tr>
           <tr class="doc-section-item">
             <td>
                 <code>model</code>
             </td>
-            <td>
-                  <code><a class="autorefs autorefs-internal" title="            NeuralNetwork (pinnjax.NeuralNetwork)" href="../model_api/#pinnjax.model.NeuralNetwork">NeuralNetwork</a> | None</code>
-            </td>
-            <td>
+            <td class="doc-param-details">
               <div class="doc-md-description">
                 <p>Pre-constructed neural network. If supplied, topology/activation/
 initialization/optimizations are ignored.</p>
               </div>
-            </td>
-            <td>
-                  <code>None</code>
+              <p>
+                  <span class="doc-param-annotation">
+                    <b>TYPE:</b>
+                      <code><a class="autorefs autorefs-internal" title="            NeuralNetwork (pinnjax.NeuralNetwork)" href="../model_api/#pinnjax.model.NeuralNetwork">NeuralNetwork</a> | None</code>
+                  </span>
+                  <span class="doc-param-default">
+                    <b>DEFAULT:</b>
+                      <code>None</code>
+                  </span>
+              </p>
             </td>
           </tr>
           <tr class="doc-section-item">
             <td>
                 <code>training</code>
             </td>
-            <td>
-                  <code><a class="autorefs autorefs-internal" title="            Training (pinnjax.Training)" href="../dataclass_api/#pinnjax.dataclass.Training">Training</a> | None</code>
-            </td>
-            <td>
+            <td class="doc-param-details">
               <div class="doc-md-description">
                 <p>Pre-constructed <code>pinnjax.Training</code> object. If supplied, all
 training-related keyword arguments are ignored.</p>
               </div>
-            </td>
-            <td>
-                  <code>None</code>
+              <p>
+                  <span class="doc-param-annotation">
+                    <b>TYPE:</b>
+                      <code><a class="autorefs autorefs-internal" title="            Training (pinnjax.Training)" href="../dataclass_api/#pinnjax.dataclass.Training">Training</a> | None</code>
+                  </span>
+                  <span class="doc-param-default">
+                    <b>DEFAULT:</b>
+                      <code>None</code>
+                  </span>
+              </p>
             </td>
           </tr>
           <tr class="doc-section-item">
             <td>
                 <code>sampling_method</code>
             </td>
-            <td>
-                  <code><a class="autorefs autorefs-internal" title="            SamplingMethod (pinnjax.SamplingMethod)" href="../sampling_api/#pinnjax.sampling.SamplingMethod">SamplingMethod</a> | None</code>
-            </td>
-            <td>
+            <td class="doc-param-details">
               <div class="doc-md-description">
                 <p>Strategy used to sample points from the geometry.</p>
               </div>
-            </td>
-            <td>
-                  <code>None</code>
+              <p>
+                  <span class="doc-param-annotation">
+                    <b>TYPE:</b>
+                      <code><a class="autorefs autorefs-internal" title="            SamplingMethod (pinnjax.SamplingMethod)" href="../sampling_api/#pinnjax.sampling.SamplingMethod">SamplingMethod</a> | None</code>
+                  </span>
+                  <span class="doc-param-default">
+                    <b>DEFAULT:</b>
+                      <code>None</code>
+                  </span>
+              </p>
             </td>
           </tr>
           <tr class="doc-section-item">
             <td>
                 <code>sampling_values</code>
             </td>
-            <td>
-                  <code><span title="float">float</span> | <span title="list">list</span>[<span title="int">int</span> | <span title="float">float</span>] | None</code>
-            </td>
-            <td>
+            <td class="doc-param-details">
               <div class="doc-md-description">
                 <p>Scalar or per-shape values controlling sampling density.</p>
               </div>
-            </td>
-            <td>
-                  <code>None</code>
+              <p>
+                  <span class="doc-param-annotation">
+                    <b>TYPE:</b>
+                      <code><span title="float">float</span> | <span title="list">list</span>[<span title="int">int</span> | <span title="float">float</span>] | None</code>
+                  </span>
+                  <span class="doc-param-default">
+                    <b>DEFAULT:</b>
+                      <code>None</code>
+                  </span>
+              </p>
             </td>
           </tr>
           <tr class="doc-section-item">
             <td>
                 <code>sampling_mode</code>
             </td>
-            <td>
-                  <code><span title="typing.Literal">Literal</span>[&#39;grid_resolution&#39;, &#39;point_count&#39;, &#39;density&#39;] | None</code>
-            </td>
-            <td>
+            <td class="doc-param-details">
               <div class="doc-md-description">
                 <p>Determines how the <code>sampling_values</code> will be interpreted.
 Selection of"grid_resolution", "point_count", "density". Default <code>point_count</code>.</p>
               </div>
-            </td>
-            <td>
-                  <code>None</code>
+              <p>
+                  <span class="doc-param-annotation">
+                    <b>TYPE:</b>
+                      <code><span title="typing.Literal">Literal</span>[&#39;grid_resolution&#39;, &#39;point_count&#39;, &#39;density&#39;] | None</code>
+                  </span>
+                  <span class="doc-param-default">
+                    <b>DEFAULT:</b>
+                      <code>None</code>
+                  </span>
+              </p>
             </td>
           </tr>
           <tr class="doc-section-item">
             <td>
                 <code>loss_function</code>
             </td>
-            <td>
-                  <code><a class="autorefs autorefs-internal" title="            Loss (pinnjax.Loss)" href="../loss_api/#pinnjax.loss.Loss">Loss</a> | None</code>
-            </td>
-            <td>
+            <td class="doc-param-details">
               <div class="doc-md-description">
                 <p>Loss object assigned to geometry shapes.</p>
               </div>
-            </td>
-            <td>
-                  <code>None</code>
+              <p>
+                  <span class="doc-param-annotation">
+                    <b>TYPE:</b>
+                      <code><a class="autorefs autorefs-internal" title="            Loss (pinnjax.Loss)" href="../loss_api/#pinnjax.loss.Loss">Loss</a> | None</code>
+                  </span>
+                  <span class="doc-param-default">
+                    <b>DEFAULT:</b>
+                      <code>None</code>
+                  </span>
+              </p>
             </td>
           </tr>
           <tr class="doc-section-item">
             <td>
                 <code>residual_functions</code>
             </td>
-            <td>
-                  <code><span title="list">list</span>[<a class="autorefs autorefs-internal" title="            Residual (pinnjax.Residual)" href="../loss_api/#pinnjax.loss.Residual">Residual</a>] | <a class="autorefs autorefs-internal" title="            Residual (pinnjax.Residual)" href="../loss_api/#pinnjax.loss.Residual">Residual</a> | None</code>
-            </td>
-            <td>
+            <td class="doc-param-details">
               <div class="doc-md-description">
                 <p>Residual(s) defining PDE/BC/IC behaviour. Must match the
 assigned geometry.</p>
               </div>
-            </td>
-            <td>
-                  <code>None</code>
+              <p>
+                  <span class="doc-param-annotation">
+                    <b>TYPE:</b>
+                      <code><span title="list">list</span>[<a class="autorefs autorefs-internal" title="            Residual (pinnjax.Residual)" href="../loss_api/#pinnjax.loss.Residual">Residual</a>] | <a class="autorefs autorefs-internal" title="            Residual (pinnjax.Residual)" href="../loss_api/#pinnjax.loss.Residual">Residual</a> | None</code>
+                  </span>
+                  <span class="doc-param-default">
+                    <b>DEFAULT:</b>
+                      <code>None</code>
+                  </span>
+              </p>
             </td>
           </tr>
           <tr class="doc-section-item">
             <td>
                 <code>topology</code>
             </td>
-            <td>
-                  <code><span title="tuple">tuple</span>[<span title="int">int</span>, ...] | None</code>
-            </td>
-            <td>
+            <td class="doc-param-details">
               <div class="doc-md-description">
                 <p>Tuple describing layer widths of the neural network.
 If omitted, defaults to <code>(input_dim, 64, 64, 64, 64, output_dim)</code>.</p>
               </div>
-            </td>
-            <td>
-                  <code>None</code>
+              <p>
+                  <span class="doc-param-annotation">
+                    <b>TYPE:</b>
+                      <code><span title="tuple">tuple</span>[<span title="int">int</span>, ...] | None</code>
+                  </span>
+                  <span class="doc-param-default">
+                    <b>DEFAULT:</b>
+                      <code>None</code>
+                  </span>
+              </p>
             </td>
           </tr>
           <tr class="doc-section-item">
             <td>
                 <code>output_dimensions</code>
             </td>
-            <td>
-                  <code><span title="int">int</span> | None</code>
-            </td>
-            <td>
+            <td class="doc-param-details">
               <div class="doc-md-description">
                 <p>Number of output fields of the network.</p>
               </div>
-            </td>
-            <td>
-                  <code>None</code>
+              <p>
+                  <span class="doc-param-annotation">
+                    <b>TYPE:</b>
+                      <code><span title="int">int</span> | None</code>
+                  </span>
+                  <span class="doc-param-default">
+                    <b>DEFAULT:</b>
+                      <code>None</code>
+                  </span>
+              </p>
             </td>
           </tr>
           <tr class="doc-section-item">
             <td>
                 <code>activation</code>
             </td>
-            <td>
-                  <code><a class="autorefs autorefs-internal" title="            Activation (pinnjax.Activation)" href="../dataclass_api/#pinnjax.dataclass.Activation">Activation</a> | None</code>
-            </td>
-            <td>
+            <td class="doc-param-details">
               <div class="doc-md-description">
                 <p>Activation function container for model layers.</p>
               </div>
-            </td>
-            <td>
-                  <code>None</code>
+              <p>
+                  <span class="doc-param-annotation">
+                    <b>TYPE:</b>
+                      <code><a class="autorefs autorefs-internal" title="            Activation (pinnjax.Activation)" href="../dataclass_api/#pinnjax.dataclass.Activation">Activation</a> | None</code>
+                  </span>
+                  <span class="doc-param-default">
+                    <b>DEFAULT:</b>
+                      <code>None</code>
+                  </span>
+              </p>
             </td>
           </tr>
           <tr class="doc-section-item">
             <td>
                 <code>initialization</code>
             </td>
-            <td>
-                  <code><span title="pinnjax.Initialization">Initialization</span> | None</code>
-            </td>
-            <td>
+            <td class="doc-param-details">
               <div class="doc-md-description">
                 <p>Weight/bias initialization rules.</p>
               </div>
-            </td>
-            <td>
-                  <code>None</code>
+              <p>
+                  <span class="doc-param-annotation">
+                    <b>TYPE:</b>
+                      <code><span title="pinnjax.Initialization">Initialization</span> | None</code>
+                  </span>
+                  <span class="doc-param-default">
+                    <b>DEFAULT:</b>
+                      <code>None</code>
+                  </span>
+              </p>
             </td>
           </tr>
           <tr class="doc-section-item">
             <td>
                 <code>optimization</code>
             </td>
-            <td>
-                  <code><a class="autorefs autorefs-internal" title="            Optimization (pinnjax.Optimization)" href="../dataclass_api/#pinnjax.dataclass.Optimization">Optimization</a> | None</code>
-            </td>
-            <td>
+            <td class="doc-param-details">
               <div class="doc-md-description">
                 <p>Container for input/output transforms and hard constraints.</p>
               </div>
-            </td>
-            <td>
-                  <code>None</code>
+              <p>
+                  <span class="doc-param-annotation">
+                    <b>TYPE:</b>
+                      <code><a class="autorefs autorefs-internal" title="            Optimization (pinnjax.Optimization)" href="../dataclass_api/#pinnjax.dataclass.Optimization">Optimization</a> | None</code>
+                  </span>
+                  <span class="doc-param-default">
+                    <b>DEFAULT:</b>
+                      <code>None</code>
+                  </span>
+              </p>
             </td>
           </tr>
           <tr class="doc-section-item">
             <td>
                 <code>input_transformation</code>
             </td>
-            <td>
-                  <code><a class="autorefs autorefs-internal" title="            InputTransformation (pinnjax.InputTransformation)" href="../model_api/#pinnjax.model.InputTransformation">InputTransformation</a> | None</code>
-            </td>
-            <td>
+            <td class="doc-param-details">
               <div class="doc-md-description">
                 <p>Input preprocessing transformation.</p>
               </div>
-            </td>
-            <td>
-                  <code>None</code>
+              <p>
+                  <span class="doc-param-annotation">
+                    <b>TYPE:</b>
+                      <code><a class="autorefs autorefs-internal" title="            InputTransformation (pinnjax.InputTransformation)" href="../model_api/#pinnjax.model.InputTransformation">InputTransformation</a> | None</code>
+                  </span>
+                  <span class="doc-param-default">
+                    <b>DEFAULT:</b>
+                      <code>None</code>
+                  </span>
+              </p>
             </td>
           </tr>
           <tr class="doc-section-item">
             <td>
                 <code>output_transformation</code>
             </td>
-            <td>
-                  <code><a class="autorefs autorefs-internal" title="            OutputTransformation (pinnjax.OutputTransformation)" href="../model_api/#pinnjax.model.OutputTransformation">OutputTransformation</a> | None</code>
-            </td>
-            <td>
+            <td class="doc-param-details">
               <div class="doc-md-description">
                 <p>Output postprocessing transformation.</p>
               </div>
-            </td>
-            <td>
-                  <code>None</code>
+              <p>
+                  <span class="doc-param-annotation">
+                    <b>TYPE:</b>
+                      <code><a class="autorefs autorefs-internal" title="            OutputTransformation (pinnjax.OutputTransformation)" href="../model_api/#pinnjax.model.OutputTransformation">OutputTransformation</a> | None</code>
+                  </span>
+                  <span class="doc-param-default">
+                    <b>DEFAULT:</b>
+                      <code>None</code>
+                  </span>
+              </p>
             </td>
           </tr>
           <tr class="doc-section-item">
             <td>
                 <code>hard_constraint</code>
             </td>
-            <td>
-                  <code><a class="autorefs autorefs-internal" title="            HardConstraint (pinnjax.HardConstraint)" href="../model_api/#pinnjax.model.HardConstraint">HardConstraint</a> | <span title="tuple">tuple</span>[<a class="autorefs autorefs-internal" title="            HardConstraint (pinnjax.HardConstraint)" href="../model_api/#pinnjax.model.HardConstraint">HardConstraint</a>, ...] | None</code>
-            </td>
-            <td>
+            <td class="doc-param-details">
               <div class="doc-md-description">
                 <p>Hard constraint(s) applied to the model output.</p>
               </div>
-            </td>
-            <td>
-                  <code>None</code>
+              <p>
+                  <span class="doc-param-annotation">
+                    <b>TYPE:</b>
+                      <code><a class="autorefs autorefs-internal" title="            HardConstraint (pinnjax.HardConstraint)" href="../model_api/#pinnjax.model.HardConstraint">HardConstraint</a> | <span title="tuple">tuple</span>[<a class="autorefs autorefs-internal" title="            HardConstraint (pinnjax.HardConstraint)" href="../model_api/#pinnjax.model.HardConstraint">HardConstraint</a>, ...] | None</code>
+                  </span>
+                  <span class="doc-param-default">
+                    <b>DEFAULT:</b>
+                      <code>None</code>
+                  </span>
+              </p>
             </td>
           </tr>
           <tr class="doc-section-item">
             <td>
                 <code>add_path_shapes</code>
             </td>
-            <td>
-                  <code><span title="bool">bool</span></code>
-            </td>
-            <td>
+            <td class="doc-param-details">
               <div class="doc-md-description">
                 <p>Whether to embed additional shapes along the provided path.</p>
               </div>
-            </td>
-            <td>
-                  <code>False</code>
+              <p>
+                  <span class="doc-param-annotation">
+                    <b>TYPE:</b>
+                      <code><span title="bool">bool</span></code>
+                  </span>
+                  <span class="doc-param-default">
+                    <b>DEFAULT:</b>
+                      <code>False</code>
+                  </span>
+              </p>
             </td>
           </tr>
           <tr class="doc-section-item">
             <td>
                 <code>optimizer</code>
             </td>
-            <td>
-                  <code><a class="autorefs autorefs-internal" title="            Optimizer (pinnjax.Optimizer)" href="../dataclass_api/#pinnjax.dataclass.Optimizer">Optimizer</a> | None</code>
-            </td>
-            <td>
+            <td class="doc-param-details">
               <div class="doc-md-description">
                 <p><code>pinnjax.Optimizer</code> wrapping an <code>optax</code> optimizer.</p>
               </div>
-            </td>
-            <td>
-                  <code>None</code>
+              <p>
+                  <span class="doc-param-annotation">
+                    <b>TYPE:</b>
+                      <code><a class="autorefs autorefs-internal" title="            Optimizer (pinnjax.Optimizer)" href="../dataclass_api/#pinnjax.dataclass.Optimizer">Optimizer</a> | None</code>
+                  </span>
+                  <span class="doc-param-default">
+                    <b>DEFAULT:</b>
+                      <code>None</code>
+                  </span>
+              </p>
             </td>
           </tr>
           <tr class="doc-section-item">
             <td>
                 <code>learning_rate</code>
             </td>
-            <td>
-                  <code><span title="float">float</span> | <span title="collections.abc.Callable">Callable</span> | None</code>
-            </td>
-            <td>
+            <td class="doc-param-details">
               <div class="doc-md-description">
                 <p>Scalar or callable learning-rate schedule.</p>
               </div>
-            </td>
-            <td>
-                  <code>None</code>
+              <p>
+                  <span class="doc-param-annotation">
+                    <b>TYPE:</b>
+                      <code><span title="float">float</span> | <span title="collections.abc.Callable">Callable</span> | None</code>
+                  </span>
+                  <span class="doc-param-default">
+                    <b>DEFAULT:</b>
+                      <code>None</code>
+                  </span>
+              </p>
             </td>
           </tr>
           <tr class="doc-section-item">
             <td>
                 <code>epochs</code>
             </td>
-            <td>
-                  <code><span title="int">int</span> | None</code>
-            </td>
-            <td>
+            <td class="doc-param-details">
               <div class="doc-md-description">
                 <p>Number of training epochs.</p>
               </div>
-            </td>
-            <td>
-                  <code>None</code>
+              <p>
+                  <span class="doc-param-annotation">
+                    <b>TYPE:</b>
+                      <code><span title="int">int</span> | None</code>
+                  </span>
+                  <span class="doc-param-default">
+                    <b>DEFAULT:</b>
+                      <code>None</code>
+                  </span>
+              </p>
             </td>
           </tr>
           <tr class="doc-section-item">
             <td>
                 <code>train_mode</code>
             </td>
-            <td>
-                  <code><span title="str">str</span> | None</code>
-            </td>
-            <td>
+            <td class="doc-param-details">
               <div class="doc-md-description">
                 <p><code>"class"</code> or <code>"type"</code> - loss grouping style.</p>
               </div>
-            </td>
-            <td>
-                  <code>None</code>
+              <p>
+                  <span class="doc-param-annotation">
+                    <b>TYPE:</b>
+                      <code><span title="str">str</span> | None</code>
+                  </span>
+                  <span class="doc-param-default">
+                    <b>DEFAULT:</b>
+                      <code>None</code>
+                  </span>
+              </p>
             </td>
           </tr>
           <tr class="doc-section-item">
             <td>
                 <code>loss_scale</code>
             </td>
-            <td>
-                  <code><span title="float">float</span> | None</code>
-            </td>
-            <td>
+            <td class="doc-param-details">
               <div class="doc-md-description">
                 <p>Scalar multiplier applied to all losses.</p>
               </div>
-            </td>
-            <td>
-                  <code>None</code>
+              <p>
+                  <span class="doc-param-annotation">
+                    <b>TYPE:</b>
+                      <code><span title="float">float</span> | None</code>
+                  </span>
+                  <span class="doc-param-default">
+                    <b>DEFAULT:</b>
+                      <code>None</code>
+                  </span>
+              </p>
             </td>
           </tr>
           <tr class="doc-section-item">
             <td>
                 <code>priority</code>
             </td>
-            <td>
-                  <code><span title="tuple">tuple</span>[<span title="int">int</span> | <span title="float">float</span>, ...] | None</code>
-            </td>
-            <td>
+            <td class="doc-param-details">
               <div class="doc-md-description">
                 <p>Per-loss priority weighting tuple.</p>
               </div>
-            </td>
-            <td>
-                  <code>None</code>
+              <p>
+                  <span class="doc-param-annotation">
+                    <b>TYPE:</b>
+                      <code><span title="tuple">tuple</span>[<span title="int">int</span> | <span title="float">float</span>, ...] | None</code>
+                  </span>
+                  <span class="doc-param-default">
+                    <b>DEFAULT:</b>
+                      <code>None</code>
+                  </span>
+              </p>
             </td>
           </tr>
           <tr class="doc-section-item">
             <td>
                 <code>use_adaptive_weights</code>
             </td>
-            <td>
-                  <code><span title="bool">bool</span> | None</code>
-            </td>
-            <td>
+            <td class="doc-param-details">
               <div class="doc-md-description">
                 <p>Enable gradient-based adaptive loss weighting.</p>
               </div>
-            </td>
-            <td>
-                  <code>None</code>
+              <p>
+                  <span class="doc-param-annotation">
+                    <b>TYPE:</b>
+                      <code><span title="bool">bool</span> | None</code>
+                  </span>
+                  <span class="doc-param-default">
+                    <b>DEFAULT:</b>
+                      <code>None</code>
+                  </span>
+              </p>
             </td>
           </tr>
           <tr class="doc-section-item">
             <td>
                 <code>adaptive_alpha</code>
             </td>
-            <td>
-                  <code><span title="float">float</span> | None</code>
-            </td>
-            <td>
+            <td class="doc-param-details">
               <div class="doc-md-description">
                 <p>Update smoothing factor for adaptive weighting.</p>
               </div>
-            </td>
-            <td>
-                  <code>None</code>
+              <p>
+                  <span class="doc-param-annotation">
+                    <b>TYPE:</b>
+                      <code><span title="float">float</span> | None</code>
+                  </span>
+                  <span class="doc-param-default">
+                    <b>DEFAULT:</b>
+                      <code>None</code>
+                  </span>
+              </p>
             </td>
           </tr>
           <tr class="doc-section-item">
             <td>
                 <code>update_weights_every</code>
             </td>
-            <td>
-                  <code><span title="int">int</span> | None</code>
-            </td>
-            <td>
+            <td class="doc-param-details">
               <div class="doc-md-description">
                 <p>Interval (epochs) between weight updates.</p>
               </div>
-            </td>
-            <td>
-                  <code>None</code>
+              <p>
+                  <span class="doc-param-annotation">
+                    <b>TYPE:</b>
+                      <code><span title="int">int</span> | None</code>
+                  </span>
+                  <span class="doc-param-default">
+                    <b>DEFAULT:</b>
+                      <code>None</code>
+                  </span>
+              </p>
             </td>
           </tr>
           <tr class="doc-section-item">
             <td>
                 <code>update_weights_after</code>
             </td>
-            <td>
-                  <code><span title="int">int</span> | None</code>
-            </td>
-            <td>
+            <td class="doc-param-details">
               <div class="doc-md-description">
                 <p>Epoch after which adaptive weighting begins.</p>
               </div>
-            </td>
-            <td>
-                  <code>None</code>
+              <p>
+                  <span class="doc-param-annotation">
+                    <b>TYPE:</b>
+                      <code><span title="int">int</span> | None</code>
+                  </span>
+                  <span class="doc-param-default">
+                    <b>DEFAULT:</b>
+                      <code>None</code>
+                  </span>
+              </p>
             </td>
           </tr>
           <tr class="doc-section-item">
             <td>
                 <code>balance_magnitudes</code>
             </td>
-            <td>
-                  <code><span title="bool">bool</span> | None</code>
-            </td>
-            <td>
+            <td class="doc-param-details">
               <div class="doc-md-description">
                 <p>Normalize loss magnitudes once at training start.</p>
               </div>
-            </td>
-            <td>
-                  <code>None</code>
+              <p>
+                  <span class="doc-param-annotation">
+                    <b>TYPE:</b>
+                      <code><span title="bool">bool</span> | None</code>
+                  </span>
+                  <span class="doc-param-default">
+                    <b>DEFAULT:</b>
+                      <code>None</code>
+                  </span>
+              </p>
             </td>
           </tr>
           <tr class="doc-section-item">
             <td>
                 <code>magnitude_clip</code>
             </td>
-            <td>
-                  <code><span title="float">float</span> | None</code>
-            </td>
-            <td>
+            <td class="doc-param-details">
               <div class="doc-md-description">
                 <p>Maximum allowed down-scaling during magnitude balancing.</p>
               </div>
-            </td>
-            <td>
-                  <code>None</code>
+              <p>
+                  <span class="doc-param-annotation">
+                    <b>TYPE:</b>
+                      <code><span title="float">float</span> | None</code>
+                  </span>
+                  <span class="doc-param-default">
+                    <b>DEFAULT:</b>
+                      <code>None</code>
+                  </span>
+              </p>
             </td>
           </tr>
           <tr class="doc-section-item">
             <td>
                 <code>early_stopping</code>
             </td>
-            <td>
-                  <code><span title="bool">bool</span></code>
-            </td>
-            <td>
+            <td class="doc-param-details">
               <div class="doc-md-description">
                 <p>Enable early-stopping logic.</p>
               </div>
-            </td>
-            <td>
-                  <code>False</code>
+              <p>
+                  <span class="doc-param-annotation">
+                    <b>TYPE:</b>
+                      <code><span title="bool">bool</span></code>
+                  </span>
+                  <span class="doc-param-default">
+                    <b>DEFAULT:</b>
+                      <code>False</code>
+                  </span>
+              </p>
             </td>
           </tr>
           <tr class="doc-section-item">
             <td>
                 <code>patience</code>
             </td>
-            <td>
-                  <code><span title="int">int</span> | None</code>
-            </td>
-            <td>
+            <td class="doc-param-details">
               <div class="doc-md-description">
                 <p>Allowed epochs without improvement.</p>
               </div>
-            </td>
-            <td>
-                  <code>None</code>
+              <p>
+                  <span class="doc-param-annotation">
+                    <b>TYPE:</b>
+                      <code><span title="int">int</span> | None</code>
+                  </span>
+                  <span class="doc-param-default">
+                    <b>DEFAULT:</b>
+                      <code>None</code>
+                  </span>
+              </p>
             </td>
           </tr>
           <tr class="doc-section-item">
             <td>
                 <code>rel_tolerance</code>
             </td>
-            <td>
-                  <code><span title="float">float</span> | None</code>
-            </td>
-            <td>
+            <td class="doc-param-details">
               <div class="doc-md-description">
                 <p>Required fractional improvement between epochs.</p>
               </div>
-            </td>
-            <td>
-                  <code>None</code>
+              <p>
+                  <span class="doc-param-annotation">
+                    <b>TYPE:</b>
+                      <code><span title="float">float</span> | None</code>
+                  </span>
+                  <span class="doc-param-default">
+                    <b>DEFAULT:</b>
+                      <code>None</code>
+                  </span>
+              </p>
             </td>
           </tr>
           <tr class="doc-section-item">
             <td>
                 <code>seed</code>
             </td>
-            <td>
-                  <code><span title="int">int</span> | None</code>
-            </td>
-            <td>
+            <td class="doc-param-details">
               <div class="doc-md-description">
                 <p>Random seed for model initialization.</p>
               </div>
-            </td>
-            <td>
-                  <code>None</code>
+              <p>
+                  <span class="doc-param-annotation">
+                    <b>TYPE:</b>
+                      <code><span title="int">int</span> | None</code>
+                  </span>
+                  <span class="doc-param-default">
+                    <b>DEFAULT:</b>
+                      <code>None</code>
+                  </span>
+              </p>
             </td>
           </tr>
           <tr class="doc-section-item">
             <td>
                 <code>verbosity</code>
             </td>
-            <td>
-                  <code><span title="bool">bool</span></code>
-            </td>
-            <td>
+            <td class="doc-param-details">
               <div class="doc-md-description">
                 <p>Print constructed components for debugging.</p>
               </div>
-            </td>
-            <td>
-                  <code>False</code>
+              <p>
+                  <span class="doc-param-annotation">
+                    <b>TYPE:</b>
+                      <code><span title="bool">bool</span></code>
+                  </span>
+                  <span class="doc-param-default">
+                    <b>DEFAULT:</b>
+                      <code>False</code>
+                  </span>
+              </p>
             </td>
           </tr>
       </tbody>
     </table>
 
 
-<p><span class="doc-section-title">Raises:</span></p>
-    <table>
+<table>
       <thead>
         <tr>
-          <th>Type</th>
-          <th>Description</th>
+          <th><span class="doc-section-title">RAISES</span></th>
+          <th><span>DESCRIPTION</span></th>
         </tr>
       </thead>
       <tbody>
           <tr class="doc-section-item">
             <td>
+              <span class="doc-raises-annotation">
                   <code><span title="ValueError">ValueError</span></code>
+              </span>
             </td>
-            <td>
+            <td class="doc-raises-details">
               <div class="doc-md-description">
                 <p>If mutually dependent inputs contradict (e.g., domain/time mismatch).</p>
               </div>
@@ -1652,9 +1791,11 @@ If omitted, defaults to <code>(input_dim, 64, 64, 64, 64, output_dim)</code>.</p
           </tr>
           <tr class="doc-section-item">
             <td>
+              <span class="doc-raises-annotation">
                   <code><span title="ValueError">ValueError</span></code>
+              </span>
             </td>
-            <td>
+            <td class="doc-raises-details">
               <div class="doc-md-description">
                 <p>If <code>path</code> dimensionality does not match the domain.</p>
               </div>
@@ -1662,9 +1803,11 @@ If omitted, defaults to <code>(input_dim, 64, 64, 64, 64, output_dim)</code>.</p
           </tr>
           <tr class="doc-section-item">
             <td>
+              <span class="doc-raises-annotation">
                   <code><span title="ValueError">ValueError</span></code>
+              </span>
             </td>
-            <td>
+            <td class="doc-raises-details">
               <div class="doc-md-description">
                 <p>If geometry sampling or residual assignment is inconsistent.</p>
               </div>
@@ -1672,9 +1815,11 @@ If omitted, defaults to <code>(input_dim, 64, 64, 64, 64, output_dim)</code>.</p
           </tr>
           <tr class="doc-section-item">
             <td>
+              <span class="doc-raises-annotation">
                   <code><span title="ValueError">ValueError</span></code>
+              </span>
             </td>
-            <td>
+            <td class="doc-raises-details">
               <div class="doc-md-description">
                 <p>If the model or training configurations contain invalid types.</p>
               </div>
@@ -2798,8 +2943,1646 @@ If omitted, defaults to <code>(input_dim, 64, 64, 64, 64, output_dim)</code>.</p
 
 
 
+<div class="doc doc-object doc-attribute">
 
 
+
+<h3 id="pinnjax.experiment.ExperimentBuilder.activation" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>            <span class="doc doc-object-name doc-attribute-name">activation</span>
+
+
+<a href="#pinnjax.experiment.ExperimentBuilder.activation" class="headerlink" title="Permanent link">#</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">activation</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="pinnjax.experiment.ExperimentBuilder.adaptive_alpha" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>            <span class="doc doc-object-name doc-attribute-name">adaptive_alpha</span>
+
+
+<a href="#pinnjax.experiment.ExperimentBuilder.adaptive_alpha" class="headerlink" title="Permanent link">#</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">adaptive_alpha</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="pinnjax.experiment.ExperimentBuilder.balance_magnitudes" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>            <span class="doc doc-object-name doc-attribute-name">balance_magnitudes</span>
+
+
+<a href="#pinnjax.experiment.ExperimentBuilder.balance_magnitudes" class="headerlink" title="Permanent link">#</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">balance_magnitudes</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="pinnjax.experiment.ExperimentBuilder.domain" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>            <span class="doc doc-object-name doc-attribute-name">domain</span>
+
+
+<a href="#pinnjax.experiment.ExperimentBuilder.domain" class="headerlink" title="Permanent link">#</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">domain</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="pinnjax.experiment.ExperimentBuilder.early_stopping" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>            <span class="doc doc-object-name doc-attribute-name">early_stopping</span>
+
+
+<a href="#pinnjax.experiment.ExperimentBuilder.early_stopping" class="headerlink" title="Permanent link">#</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">early_stopping</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="pinnjax.experiment.ExperimentBuilder.epochs" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>            <span class="doc doc-object-name doc-attribute-name">epochs</span>
+
+
+<a href="#pinnjax.experiment.ExperimentBuilder.epochs" class="headerlink" title="Permanent link">#</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">epochs</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="pinnjax.experiment.ExperimentBuilder.geometry" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>            <span class="doc doc-object-name doc-attribute-name">geometry</span>
+
+
+<a href="#pinnjax.experiment.ExperimentBuilder.geometry" class="headerlink" title="Permanent link">#</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">geometry</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="pinnjax.experiment.ExperimentBuilder.hard_constraint" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>            <span class="doc doc-object-name doc-attribute-name">hard_constraint</span>
+
+
+<a href="#pinnjax.experiment.ExperimentBuilder.hard_constraint" class="headerlink" title="Permanent link">#</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">hard_constraint</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="pinnjax.experiment.ExperimentBuilder.initialization" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>            <span class="doc doc-object-name doc-attribute-name">initialization</span>
+
+
+<a href="#pinnjax.experiment.ExperimentBuilder.initialization" class="headerlink" title="Permanent link">#</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">initialization</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="pinnjax.experiment.ExperimentBuilder.input_dimensions" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>            <span class="doc doc-object-name doc-attribute-name">input_dimensions</span>
+
+
+<a href="#pinnjax.experiment.ExperimentBuilder.input_dimensions" class="headerlink" title="Permanent link">#</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">input_dimensions</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="pinnjax.experiment.ExperimentBuilder.input_transformation" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>            <span class="doc doc-object-name doc-attribute-name">input_transformation</span>
+
+
+<a href="#pinnjax.experiment.ExperimentBuilder.input_transformation" class="headerlink" title="Permanent link">#</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">input_transformation</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="pinnjax.experiment.ExperimentBuilder.learning_rate" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>            <span class="doc doc-object-name doc-attribute-name">learning_rate</span>
+
+
+<a href="#pinnjax.experiment.ExperimentBuilder.learning_rate" class="headerlink" title="Permanent link">#</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">learning_rate</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="pinnjax.experiment.ExperimentBuilder.loss_function" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>            <span class="doc doc-object-name doc-attribute-name">loss_function</span>
+
+
+<a href="#pinnjax.experiment.ExperimentBuilder.loss_function" class="headerlink" title="Permanent link">#</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">loss_function</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="pinnjax.experiment.ExperimentBuilder.loss_scale" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>            <span class="doc doc-object-name doc-attribute-name">loss_scale</span>
+
+
+<a href="#pinnjax.experiment.ExperimentBuilder.loss_scale" class="headerlink" title="Permanent link">#</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">loss_scale</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="pinnjax.experiment.ExperimentBuilder.magnitude_clip" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>            <span class="doc doc-object-name doc-attribute-name">magnitude_clip</span>
+
+
+<a href="#pinnjax.experiment.ExperimentBuilder.magnitude_clip" class="headerlink" title="Permanent link">#</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">magnitude_clip</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="pinnjax.experiment.ExperimentBuilder.model" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>            <span class="doc doc-object-name doc-attribute-name">model</span>
+
+
+<a href="#pinnjax.experiment.ExperimentBuilder.model" class="headerlink" title="Permanent link">#</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">model</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="pinnjax.experiment.ExperimentBuilder.optimization" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>            <span class="doc doc-object-name doc-attribute-name">optimization</span>
+
+
+<a href="#pinnjax.experiment.ExperimentBuilder.optimization" class="headerlink" title="Permanent link">#</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">optimization</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="pinnjax.experiment.ExperimentBuilder.optimizer" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>            <span class="doc doc-object-name doc-attribute-name">optimizer</span>
+
+
+<a href="#pinnjax.experiment.ExperimentBuilder.optimizer" class="headerlink" title="Permanent link">#</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">optimizer</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="pinnjax.experiment.ExperimentBuilder.output_dimensions" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>            <span class="doc doc-object-name doc-attribute-name">output_dimensions</span>
+
+
+<a href="#pinnjax.experiment.ExperimentBuilder.output_dimensions" class="headerlink" title="Permanent link">#</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">output_dimensions</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="pinnjax.experiment.ExperimentBuilder.output_transformation" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>            <span class="doc doc-object-name doc-attribute-name">output_transformation</span>
+
+
+<a href="#pinnjax.experiment.ExperimentBuilder.output_transformation" class="headerlink" title="Permanent link">#</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">output_transformation</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="pinnjax.experiment.ExperimentBuilder.path" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>            <span class="doc doc-object-name doc-attribute-name">path</span>
+
+
+<a href="#pinnjax.experiment.ExperimentBuilder.path" class="headerlink" title="Permanent link">#</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">path</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="pinnjax.experiment.ExperimentBuilder.patience" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>            <span class="doc doc-object-name doc-attribute-name">patience</span>
+
+
+<a href="#pinnjax.experiment.ExperimentBuilder.patience" class="headerlink" title="Permanent link">#</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">patience</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="pinnjax.experiment.ExperimentBuilder.priority" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>            <span class="doc doc-object-name doc-attribute-name">priority</span>
+
+
+<a href="#pinnjax.experiment.ExperimentBuilder.priority" class="headerlink" title="Permanent link">#</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">priority</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="pinnjax.experiment.ExperimentBuilder.rel_tolerance" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>            <span class="doc doc-object-name doc-attribute-name">rel_tolerance</span>
+
+
+<a href="#pinnjax.experiment.ExperimentBuilder.rel_tolerance" class="headerlink" title="Permanent link">#</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">rel_tolerance</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="pinnjax.experiment.ExperimentBuilder.residual_functions" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>            <span class="doc doc-object-name doc-attribute-name">residual_functions</span>
+
+
+<a href="#pinnjax.experiment.ExperimentBuilder.residual_functions" class="headerlink" title="Permanent link">#</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">residual_functions</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="pinnjax.experiment.ExperimentBuilder.sampling_method" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>            <span class="doc doc-object-name doc-attribute-name">sampling_method</span>
+
+
+<a href="#pinnjax.experiment.ExperimentBuilder.sampling_method" class="headerlink" title="Permanent link">#</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">sampling_method</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="pinnjax.experiment.ExperimentBuilder.sampling_mode" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>            <span class="doc doc-object-name doc-attribute-name">sampling_mode</span>
+
+
+<a href="#pinnjax.experiment.ExperimentBuilder.sampling_mode" class="headerlink" title="Permanent link">#</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">sampling_mode</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="pinnjax.experiment.ExperimentBuilder.sampling_values" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>            <span class="doc doc-object-name doc-attribute-name">sampling_values</span>
+
+
+<a href="#pinnjax.experiment.ExperimentBuilder.sampling_values" class="headerlink" title="Permanent link">#</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">sampling_values</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="pinnjax.experiment.ExperimentBuilder.seed" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>            <span class="doc doc-object-name doc-attribute-name">seed</span>
+
+
+<a href="#pinnjax.experiment.ExperimentBuilder.seed" class="headerlink" title="Permanent link">#</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">seed</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="pinnjax.experiment.ExperimentBuilder.spatial_dimensions" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>            <span class="doc doc-object-name doc-attribute-name">spatial_dimensions</span>
+
+
+<a href="#pinnjax.experiment.ExperimentBuilder.spatial_dimensions" class="headerlink" title="Permanent link">#</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">spatial_dimensions</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="pinnjax.experiment.ExperimentBuilder.time" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>            <span class="doc doc-object-name doc-attribute-name">time</span>
+
+
+<a href="#pinnjax.experiment.ExperimentBuilder.time" class="headerlink" title="Permanent link">#</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">time</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="pinnjax.experiment.ExperimentBuilder.topology" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>            <span class="doc doc-object-name doc-attribute-name">topology</span>
+
+
+<a href="#pinnjax.experiment.ExperimentBuilder.topology" class="headerlink" title="Permanent link">#</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">topology</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="pinnjax.experiment.ExperimentBuilder.train_mode" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>            <span class="doc doc-object-name doc-attribute-name">train_mode</span>
+
+
+<a href="#pinnjax.experiment.ExperimentBuilder.train_mode" class="headerlink" title="Permanent link">#</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">train_mode</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="pinnjax.experiment.ExperimentBuilder.training" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>            <span class="doc doc-object-name doc-attribute-name">training</span>
+
+
+<a href="#pinnjax.experiment.ExperimentBuilder.training" class="headerlink" title="Permanent link">#</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">training</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="pinnjax.experiment.ExperimentBuilder.update_weights_after" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>            <span class="doc doc-object-name doc-attribute-name">update_weights_after</span>
+
+
+<a href="#pinnjax.experiment.ExperimentBuilder.update_weights_after" class="headerlink" title="Permanent link">#</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">update_weights_after</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="pinnjax.experiment.ExperimentBuilder.update_weights_every" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>            <span class="doc doc-object-name doc-attribute-name">update_weights_every</span>
+
+
+<a href="#pinnjax.experiment.ExperimentBuilder.update_weights_every" class="headerlink" title="Permanent link">#</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">update_weights_every</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="pinnjax.experiment.ExperimentBuilder.use_adaptive_weights" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>            <span class="doc doc-object-name doc-attribute-name">use_adaptive_weights</span>
+
+
+<a href="#pinnjax.experiment.ExperimentBuilder.use_adaptive_weights" class="headerlink" title="Permanent link">#</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">use_adaptive_weights</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+    </div>
+
+</div>
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="pinnjax.experiment.ExperimentBuilder.__init__" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <span class="doc doc-object-name doc-function-name">__init__</span>
+
+
+<a href="#pinnjax.experiment.ExperimentBuilder.__init__" class="headerlink" title="Permanent link">#</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">__init__</span><span class="p">(</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">time</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-internal" title="            Time (pinnjax.Time)" href="../dataclass_api/#pinnjax.dataclass.Time">Time</a></span> <span class="o">|</span> <span class="n"><span title="bool">bool</span></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">domain</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-internal" title="            Domain (pinnjax.Domain)" href="../dataclass_api/#pinnjax.dataclass.Domain">Domain</a></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">path</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-internal" title="            Path (pinnjax.Path)" href="../pathing_api/#pinnjax.pathing.Path">Path</a></span> <span class="o">|</span> <span class="n"><a class="autorefs autorefs-internal" title="            PathConfig (pinnjax.PathConfig)" href="../dataclass_api/#pinnjax.dataclass.PathConfig">PathConfig</a></span> <span class="o">|</span> <span class="n"><span title="bool">bool</span></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">geometry</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-internal" title="            ComplexShape (pinnjax.ComplexShape)" href="../geometry_api/#pinnjax.geometry.ComplexShape">ComplexShape</a></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">model</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-internal" title="            NeuralNetwork (pinnjax.NeuralNetwork)" href="../model_api/#pinnjax.model.NeuralNetwork">NeuralNetwork</a></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">training</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-internal" title="            Training (pinnjax.Training)" href="../dataclass_api/#pinnjax.dataclass.Training">Training</a></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">sampling_method</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-internal" title="            SamplingMethod (pinnjax.SamplingMethod)" href="../sampling_api/#pinnjax.sampling.SamplingMethod">SamplingMethod</a></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">sampling_values</span><span class="p">:</span> <span class="n"><span title="float">float</span></span> <span class="o">|</span> <span class="n"><span title="list">list</span></span><span class="p">[</span><span class="n"><span title="int">int</span></span> <span class="o">|</span> <span class="n"><span title="float">float</span></span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">sampling_mode</span><span class="p">:</span> <span class="n"><span title="typing.Literal">Literal</span></span><span class="p">[</span><span class="s2">&quot;grid_resolution&quot;</span><span class="p">,</span> <span class="s2">&quot;point_count&quot;</span><span class="p">,</span> <span class="s2">&quot;density&quot;</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">loss_function</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-internal" title="            Loss (pinnjax.Loss)" href="../loss_api/#pinnjax.loss.Loss">Loss</a></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">residual_functions</span><span class="p">:</span> <span class="n"><span title="list">list</span></span><span class="p">[</span><span class="n"><a class="autorefs autorefs-internal" title="            Residual (pinnjax.Residual)" href="../loss_api/#pinnjax.loss.Residual">Residual</a></span><span class="p">]</span> <span class="o">|</span> <span class="n"><a class="autorefs autorefs-internal" title="            Residual (pinnjax.Residual)" href="../loss_api/#pinnjax.loss.Residual">Residual</a></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">topology</span><span class="p">:</span> <span class="n"><span title="tuple">tuple</span></span><span class="p">[</span><span class="n"><span title="int">int</span></span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">output_dimensions</span><span class="p">:</span> <span class="n"><span title="int">int</span></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">activation</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-internal" title="            Activation (pinnjax.Activation)" href="../dataclass_api/#pinnjax.dataclass.Activation">Activation</a></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">initialization</span><span class="p">:</span> <span class="n"><span title="pinnjax.Initialization">Initialization</span></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">optimization</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-internal" title="            Optimization (pinnjax.Optimization)" href="../dataclass_api/#pinnjax.dataclass.Optimization">Optimization</a></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">input_transformation</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-internal" title="            InputTransformation (pinnjax.InputTransformation)" href="../model_api/#pinnjax.model.InputTransformation">InputTransformation</a></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">output_transformation</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-internal" title="            OutputTransformation (pinnjax.OutputTransformation)" href="../model_api/#pinnjax.model.OutputTransformation">OutputTransformation</a></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">hard_constraint</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-internal" title="            HardConstraint (pinnjax.HardConstraint)" href="../model_api/#pinnjax.model.HardConstraint">HardConstraint</a></span> <span class="o">|</span> <span class="n"><span title="tuple">tuple</span></span><span class="p">[</span><span class="n"><a class="autorefs autorefs-internal" title="            HardConstraint (pinnjax.HardConstraint)" href="../model_api/#pinnjax.model.HardConstraint">HardConstraint</a></span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">add_path_shapes</span><span class="p">:</span> <span class="n"><span title="bool">bool</span></span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">optimizer</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-internal" title="            Optimizer (pinnjax.Optimizer)" href="../dataclass_api/#pinnjax.dataclass.Optimizer">Optimizer</a></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">learning_rate</span><span class="p">:</span> <span class="n"><span title="float">float</span></span> <span class="o">|</span> <span class="n"><span title="collections.abc.Callable">Callable</span></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">epochs</span><span class="p">:</span> <span class="n"><span title="int">int</span></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">train_mode</span><span class="p">:</span> <span class="n"><span title="str">str</span></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">loss_scale</span><span class="p">:</span> <span class="n"><span title="float">float</span></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">priority</span><span class="p">:</span> <span class="n"><span title="tuple">tuple</span></span><span class="p">[</span><span class="n"><span title="int">int</span></span> <span class="o">|</span> <span class="n"><span title="float">float</span></span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">use_adaptive_weights</span><span class="p">:</span> <span class="n"><span title="bool">bool</span></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">adaptive_alpha</span><span class="p">:</span> <span class="n"><span title="float">float</span></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">update_weights_every</span><span class="p">:</span> <span class="n"><span title="int">int</span></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">update_weights_after</span><span class="p">:</span> <span class="n"><span title="int">int</span></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">balance_magnitudes</span><span class="p">:</span> <span class="n"><span title="bool">bool</span></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">magnitude_clip</span><span class="p">:</span> <span class="n"><span title="float">float</span></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">early_stopping</span><span class="p">:</span> <span class="n"><span title="bool">bool</span></span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">patience</span><span class="p">:</span> <span class="n"><span title="int">int</span></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">rel_tolerance</span><span class="p">:</span> <span class="n"><span title="float">float</span></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">seed</span><span class="p">:</span> <span class="n"><span title="int">int</span></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">verbosity</span><span class="p">:</span> <span class="n"><span title="bool">bool</span></span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+
+            <details class="mkdocstrings-source">
+              <summary>Source code in <code>pinnjax/experiment.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 96</span>
+<span class="normal"> 97</span>
+<span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span>
+<span class="normal">102</span>
+<span class="normal">103</span>
+<span class="normal">104</span>
+<span class="normal">105</span>
+<span class="normal">106</span>
+<span class="normal">107</span>
+<span class="normal">108</span>
+<span class="normal">109</span>
+<span class="normal">110</span>
+<span class="normal">111</span>
+<span class="normal">112</span>
+<span class="normal">113</span>
+<span class="normal">114</span>
+<span class="normal">115</span>
+<span class="normal">116</span>
+<span class="normal">117</span>
+<span class="normal">118</span>
+<span class="normal">119</span>
+<span class="normal">120</span>
+<span class="normal">121</span>
+<span class="normal">122</span>
+<span class="normal">123</span>
+<span class="normal">124</span>
+<span class="normal">125</span>
+<span class="normal">126</span>
+<span class="normal">127</span>
+<span class="normal">128</span>
+<span class="normal">129</span>
+<span class="normal">130</span>
+<span class="normal">131</span>
+<span class="normal">132</span>
+<span class="normal">133</span>
+<span class="normal">134</span>
+<span class="normal">135</span>
+<span class="normal">136</span>
+<span class="normal">137</span>
+<span class="normal">138</span>
+<span class="normal">139</span>
+<span class="normal">140</span>
+<span class="normal">141</span>
+<span class="normal">142</span>
+<span class="normal">143</span>
+<span class="normal">144</span>
+<span class="normal">145</span>
+<span class="normal">146</span>
+<span class="normal">147</span>
+<span class="normal">148</span>
+<span class="normal">149</span>
+<span class="normal">150</span>
+<span class="normal">151</span>
+<span class="normal">152</span>
+<span class="normal">153</span>
+<span class="normal">154</span>
+<span class="normal">155</span>
+<span class="normal">156</span>
+<span class="normal">157</span>
+<span class="normal">158</span>
+<span class="normal">159</span>
+<span class="normal">160</span>
+<span class="normal">161</span>
+<span class="normal">162</span>
+<span class="normal">163</span>
+<span class="normal">164</span>
+<span class="normal">165</span>
+<span class="normal">166</span>
+<span class="normal">167</span>
+<span class="normal">168</span>
+<span class="normal">169</span>
+<span class="normal">170</span>
+<span class="normal">171</span>
+<span class="normal">172</span>
+<span class="normal">173</span>
+<span class="normal">174</span>
+<span class="normal">175</span>
+<span class="normal">176</span>
+<span class="normal">177</span>
+<span class="normal">178</span>
+<span class="normal">179</span>
+<span class="normal">180</span>
+<span class="normal">181</span>
+<span class="normal">182</span>
+<span class="normal">183</span>
+<span class="normal">184</span>
+<span class="normal">185</span>
+<span class="normal">186</span>
+<span class="normal">187</span>
+<span class="normal">188</span>
+<span class="normal">189</span>
+<span class="normal">190</span>
+<span class="normal">191</span>
+<span class="normal">192</span>
+<span class="normal">193</span>
+<span class="normal">194</span>
+<span class="normal">195</span>
+<span class="normal">196</span>
+<span class="normal">197</span>
+<span class="normal">198</span>
+<span class="normal">199</span>
+<span class="normal">200</span>
+<span class="normal">201</span>
+<span class="normal">202</span>
+<span class="normal">203</span>
+<span class="normal">204</span>
+<span class="normal">205</span>
+<span class="normal">206</span>
+<span class="normal">207</span>
+<span class="normal">208</span>
+<span class="normal">209</span>
+<span class="normal">210</span>
+<span class="normal">211</span>
+<span class="normal">212</span>
+<span class="normal">213</span>
+<span class="normal">214</span>
+<span class="normal">215</span>
+<span class="normal">216</span>
+<span class="normal">217</span>
+<span class="normal">218</span>
+<span class="normal">219</span>
+<span class="normal">220</span>
+<span class="normal">221</span>
+<span class="normal">222</span>
+<span class="normal">223</span>
+<span class="normal">224</span>
+<span class="normal">225</span>
+<span class="normal">226</span>
+<span class="normal">227</span>
+<span class="normal">228</span>
+<span class="normal">229</span>
+<span class="normal">230</span>
+<span class="normal">231</span>
+<span class="normal">232</span>
+<span class="normal">233</span>
+<span class="normal">234</span>
+<span class="normal">235</span>
+<span class="normal">236</span>
+<span class="normal">237</span>
+<span class="normal">238</span>
+<span class="normal">239</span>
+<span class="normal">240</span>
+<span class="normal">241</span>
+<span class="normal">242</span>
+<span class="normal">243</span>
+<span class="normal">244</span>
+<span class="normal">245</span>
+<span class="normal">246</span>
+<span class="normal">247</span>
+<span class="normal">248</span>
+<span class="normal">249</span>
+<span class="normal">250</span>
+<span class="normal">251</span>
+<span class="normal">252</span>
+<span class="normal">253</span>
+<span class="normal">254</span>
+<span class="normal">255</span>
+<span class="normal">256</span>
+<span class="normal">257</span>
+<span class="normal">258</span>
+<span class="normal">259</span>
+<span class="normal">260</span>
+<span class="normal">261</span>
+<span class="normal">262</span>
+<span class="normal">263</span>
+<span class="normal">264</span>
+<span class="normal">265</span>
+<span class="normal">266</span>
+<span class="normal">267</span>
+<span class="normal">268</span>
+<span class="normal">269</span>
+<span class="normal">270</span>
+<span class="normal">271</span>
+<span class="normal">272</span>
+<span class="normal">273</span>
+<span class="normal">274</span>
+<span class="normal">275</span>
+<span class="normal">276</span>
+<span class="normal">277</span>
+<span class="normal">278</span>
+<span class="normal">279</span>
+<span class="normal">280</span>
+<span class="normal">281</span>
+<span class="normal">282</span>
+<span class="normal">283</span>
+<span class="normal">284</span>
+<span class="normal">285</span>
+<span class="normal">286</span>
+<span class="normal">287</span>
+<span class="normal">288</span>
+<span class="normal">289</span>
+<span class="normal">290</span>
+<span class="normal">291</span>
+<span class="normal">292</span>
+<span class="normal">293</span>
+<span class="normal">294</span>
+<span class="normal">295</span>
+<span class="normal">296</span>
+<span class="normal">297</span>
+<span class="normal">298</span>
+<span class="normal">299</span>
+<span class="normal">300</span>
+<span class="normal">301</span>
+<span class="normal">302</span>
+<span class="normal">303</span>
+<span class="normal">304</span>
+<span class="normal">305</span>
+<span class="normal">306</span>
+<span class="normal">307</span>
+<span class="normal">308</span>
+<span class="normal">309</span>
+<span class="normal">310</span>
+<span class="normal">311</span>
+<span class="normal">312</span>
+<span class="normal">313</span>
+<span class="normal">314</span>
+<span class="normal">315</span>
+<span class="normal">316</span>
+<span class="normal">317</span>
+<span class="normal">318</span>
+<span class="normal">319</span>
+<span class="normal">320</span>
+<span class="normal">321</span>
+<span class="normal">322</span>
+<span class="normal">323</span>
+<span class="normal">324</span>
+<span class="normal">325</span>
+<span class="normal">326</span>
+<span class="normal">327</span>
+<span class="normal">328</span>
+<span class="normal">329</span>
+<span class="normal">330</span>
+<span class="normal">331</span>
+<span class="normal">332</span>
+<span class="normal">333</span>
+<span class="normal">334</span>
+<span class="normal">335</span>
+<span class="normal">336</span>
+<span class="normal">337</span>
+<span class="normal">338</span>
+<span class="normal">339</span>
+<span class="normal">340</span>
+<span class="normal">341</span>
+<span class="normal">342</span>
+<span class="normal">343</span>
+<span class="normal">344</span>
+<span class="normal">345</span>
+<span class="normal">346</span>
+<span class="normal">347</span>
+<span class="normal">348</span>
+<span class="normal">349</span>
+<span class="normal">350</span>
+<span class="normal">351</span>
+<span class="normal">352</span>
+<span class="normal">353</span>
+<span class="normal">354</span>
+<span class="normal">355</span>
+<span class="normal">356</span>
+<span class="normal">357</span>
+<span class="normal">358</span>
+<span class="normal">359</span>
+<span class="normal">360</span>
+<span class="normal">361</span>
+<span class="normal">362</span>
+<span class="normal">363</span>
+<span class="normal">364</span>
+<span class="normal">365</span>
+<span class="normal">366</span>
+<span class="normal">367</span>
+<span class="normal">368</span>
+<span class="normal">369</span>
+<span class="normal">370</span>
+<span class="normal">371</span>
+<span class="normal">372</span>
+<span class="normal">373</span>
+<span class="normal">374</span>
+<span class="normal">375</span>
+<span class="normal">376</span>
+<span class="normal">377</span>
+<span class="normal">378</span>
+<span class="normal">379</span>
+<span class="normal">380</span>
+<span class="normal">381</span>
+<span class="normal">382</span>
+<span class="normal">383</span>
+<span class="normal">384</span>
+<span class="normal">385</span>
+<span class="normal">386</span>
+<span class="normal">387</span>
+<span class="normal">388</span>
+<span class="normal">389</span>
+<span class="normal">390</span>
+<span class="normal">391</span>
+<span class="normal">392</span>
+<span class="normal">393</span>
+<span class="normal">394</span>
+<span class="normal">395</span>
+<span class="normal">396</span>
+<span class="normal">397</span>
+<span class="normal">398</span>
+<span class="normal">399</span>
+<span class="normal">400</span>
+<span class="normal">401</span>
+<span class="normal">402</span>
+<span class="normal">403</span>
+<span class="normal">404</span>
+<span class="normal">405</span>
+<span class="normal">406</span>
+<span class="normal">407</span>
+<span class="normal">408</span>
+<span class="normal">409</span>
+<span class="normal">410</span>
+<span class="normal">411</span>
+<span class="normal">412</span>
+<span class="normal">413</span>
+<span class="normal">414</span>
+<span class="normal">415</span>
+<span class="normal">416</span>
+<span class="normal">417</span>
+<span class="normal">418</span>
+<span class="normal">419</span>
+<span class="normal">420</span>
+<span class="normal">421</span>
+<span class="normal">422</span>
+<span class="normal">423</span>
+<span class="normal">424</span>
+<span class="normal">425</span>
+<span class="normal">426</span>
+<span class="normal">427</span>
+<span class="normal">428</span>
+<span class="normal">429</span>
+<span class="normal">430</span>
+<span class="normal">431</span>
+<span class="normal">432</span>
+<span class="normal">433</span>
+<span class="normal">434</span>
+<span class="normal">435</span>
+<span class="normal">436</span>
+<span class="normal">437</span>
+<span class="normal">438</span>
+<span class="normal">439</span>
+<span class="normal">440</span>
+<span class="normal">441</span>
+<span class="normal">442</span>
+<span class="normal">443</span>
+<span class="normal">444</span>
+<span class="normal">445</span>
+<span class="normal">446</span>
+<span class="normal">447</span>
+<span class="normal">448</span>
+<span class="normal">449</span>
+<span class="normal">450</span>
+<span class="normal">451</span>
+<span class="normal">452</span>
+<span class="normal">453</span>
+<span class="normal">454</span>
+<span class="normal">455</span>
+<span class="normal">456</span>
+<span class="normal">457</span>
+<span class="normal">458</span>
+<span class="normal">459</span>
+<span class="normal">460</span>
+<span class="normal">461</span>
+<span class="normal">462</span>
+<span class="normal">463</span>
+<span class="normal">464</span>
+<span class="normal">465</span>
+<span class="normal">466</span>
+<span class="normal">467</span>
+<span class="normal">468</span>
+<span class="normal">469</span>
+<span class="normal">470</span>
+<span class="normal">471</span>
+<span class="normal">472</span>
+<span class="normal">473</span>
+<span class="normal">474</span>
+<span class="normal">475</span>
+<span class="normal">476</span>
+<span class="normal">477</span>
+<span class="normal">478</span>
+<span class="normal">479</span>
+<span class="normal">480</span>
+<span class="normal">481</span>
+<span class="normal">482</span>
+<span class="normal">483</span>
+<span class="normal">484</span>
+<span class="normal">485</span>
+<span class="normal">486</span>
+<span class="normal">487</span>
+<span class="normal">488</span>
+<span class="normal">489</span>
+<span class="normal">490</span>
+<span class="normal">491</span>
+<span class="normal">492</span>
+<span class="normal">493</span>
+<span class="normal">494</span>
+<span class="normal">495</span>
+<span class="normal">496</span>
+<span class="normal">497</span>
+<span class="normal">498</span>
+<span class="normal">499</span>
+<span class="normal">500</span>
+<span class="normal">501</span>
+<span class="normal">502</span>
+<span class="normal">503</span>
+<span class="normal">504</span>
+<span class="normal">505</span>
+<span class="normal">506</span>
+<span class="normal">507</span>
+<span class="normal">508</span>
+<span class="normal">509</span>
+<span class="normal">510</span>
+<span class="normal">511</span>
+<span class="normal">512</span>
+<span class="normal">513</span>
+<span class="normal">514</span>
+<span class="normal">515</span>
+<span class="normal">516</span>
+<span class="normal">517</span>
+<span class="normal">518</span>
+<span class="normal">519</span>
+<span class="normal">520</span>
+<span class="normal">521</span>
+<span class="normal">522</span>
+<span class="normal">523</span>
+<span class="normal">524</span>
+<span class="normal">525</span>
+<span class="normal">526</span>
+<span class="normal">527</span>
+<span class="normal">528</span>
+<span class="normal">529</span>
+<span class="normal">530</span>
+<span class="normal">531</span>
+<span class="normal">532</span>
+<span class="normal">533</span>
+<span class="normal">534</span>
+<span class="normal">535</span>
+<span class="normal">536</span>
+<span class="normal">537</span>
+<span class="normal">538</span>
+<span class="normal">539</span>
+<span class="normal">540</span>
+<span class="normal">541</span>
+<span class="normal">542</span>
+<span class="normal">543</span>
+<span class="normal">544</span>
+<span class="normal">545</span>
+<span class="normal">546</span>
+<span class="normal">547</span>
+<span class="normal">548</span>
+<span class="normal">549</span>
+<span class="normal">550</span>
+<span class="normal">551</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+    <span class="bp">self</span><span class="p">,</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">time</span><span class="p">:</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">Time</span> <span class="o">|</span> <span class="nb">bool</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">domain</span><span class="p">:</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">Domain</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">path</span><span class="p">:</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">Path</span> <span class="o">|</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">PathConfig</span> <span class="o">|</span> <span class="nb">bool</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">geometry</span><span class="p">:</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">ComplexShape</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">model</span><span class="p">:</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">NeuralNetwork</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">training</span><span class="p">:</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">Training</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">sampling_method</span><span class="p">:</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">SamplingMethod</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">sampling_values</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span> <span class="o">|</span> <span class="nb">float</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">sampling_mode</span><span class="p">:</span> <span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;grid_resolution&quot;</span><span class="p">,</span> <span class="s2">&quot;point_count&quot;</span><span class="p">,</span> <span class="s2">&quot;density&quot;</span><span class="p">]</span>
+    <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">loss_function</span><span class="p">:</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">Loss</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">residual_functions</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">pinnjax</span><span class="o">.</span><span class="n">Residual</span><span class="p">]</span> <span class="o">|</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">Residual</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">topology</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">output_dimensions</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">activation</span><span class="p">:</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">Activation</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">initialization</span><span class="p">:</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">Initialization</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">optimization</span><span class="p">:</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">Optimization</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">input_transformation</span><span class="p">:</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">InputTransformation</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">output_transformation</span><span class="p">:</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">OutputTransformation</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">hard_constraint</span><span class="p">:</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">HardConstraint</span>
+    <span class="o">|</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">pinnjax</span><span class="o">.</span><span class="n">HardConstraint</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span>
+    <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">add_path_shapes</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">optimizer</span><span class="p">:</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">Optimizer</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">learning_rate</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="n">Callable</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">epochs</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">train_mode</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">loss_scale</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">priority</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span> <span class="o">|</span> <span class="nb">float</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">use_adaptive_weights</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">adaptive_alpha</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">update_weights_every</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">update_weights_after</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">balance_magnitudes</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">magnitude_clip</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">early_stopping</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">patience</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">rel_tolerance</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">seed</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">verbosity</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="c1"># ------------------- Domain and Time -------------------</span>
+    <span class="k">if</span> <span class="p">(</span>
+        <span class="n">domain</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+        <span class="ow">and</span> <span class="n">time</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+        <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">domain</span><span class="p">,</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">Domain</span><span class="p">)</span>
+        <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">Time</span><span class="p">)</span>
+        <span class="ow">and</span> <span class="n">domain</span><span class="o">.</span><span class="n">times</span> <span class="o">!=</span> <span class="n">time</span>
+    <span class="p">):</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;The time-dependent domain &#39;time&#39; DOES NOT match the inputted &#39;time&#39;.&quot;</span>
+        <span class="n">_CONFIG</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">time</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">time</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">domain</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">domain</span><span class="p">,</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">Domain</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">time</span> <span class="o">=</span> <span class="n">domain</span><span class="o">.</span><span class="n">times</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">time</span> <span class="o">=</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">Time</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">time</span> <span class="ow">is</span> <span class="kc">False</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">time</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">Time</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">time</span> <span class="o">=</span> <span class="n">time</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Inputted time is not of type pinnjax.Time, rather </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">time</span><span class="p">)</span><span class="si">}</span><span class="s2">.&quot;</span>
+        <span class="n">_CONFIG</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">verbosity</span><span class="p">:</span>
+        <span class="n">_CONFIG</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">time</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">domain</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">domain</span> <span class="o">=</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">Domain</span><span class="p">(</span>
+            <span class="nb">min</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+            <span class="nb">max</span><span class="o">=</span><span class="p">(</span><span class="mf">4e-2</span><span class="p">,</span> <span class="mf">6e-3</span><span class="p">,</span> <span class="mf">4e-3</span><span class="p">),</span>
+            <span class="n">times</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">time</span><span class="p">,</span>
+        <span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">domain</span><span class="p">,</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">Domain</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">domain</span> <span class="o">=</span> <span class="n">domain</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;Inputted domain is not of type pinnjax.Domain, rather </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">domain</span><span class="p">)</span><span class="si">}</span><span class="s2">.&quot;</span>
+        <span class="p">)</span>
+        <span class="n">_CONFIG</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">verbosity</span><span class="p">:</span>
+        <span class="n">_CONFIG</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">domain</span><span class="p">)</span>
+
+    <span class="c1"># ------------------- Path -------------------</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">path</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">path</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">time</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">waypoints</span> <span class="o">=</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">line_waypoint_generator</span><span class="p">(</span>
+            <span class="n">speed</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span>
+            <span class="n">direction</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+            <span class="n">initial</span><span class="o">=</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">3e-3</span><span class="p">,</span> <span class="mf">4e-3</span><span class="p">),</span>
+            <span class="n">time</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">time</span><span class="p">,</span>
+            <span class="n">segments</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">path_config</span> <span class="o">=</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">ComplexLinearPathConfig</span><span class="p">(</span>
+            <span class="n">waypoints</span><span class="o">=</span><span class="n">waypoints</span><span class="p">,</span>
+            <span class="n">is_temporal</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="n">active</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">path</span> <span class="o">=</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">create_path</span><span class="p">(</span><span class="n">path_config</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">domain</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">path</span> <span class="ow">is</span> <span class="kc">False</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">path</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">PathConfig</span><span class="p">):</span>
+            <span class="n">path</span> <span class="o">=</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">create_path</span><span class="p">(</span><span class="n">config</span><span class="o">=</span><span class="n">path</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">Path</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">path</span><span class="o">.</span><span class="n">dimensions</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">domain</span><span class="o">.</span><span class="n">min</span><span class="p">):</span>
+                <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span>
+                    <span class="s2">&quot;Inputted path and domain dont have the &quot;</span>
+                    <span class="s2">&quot;same spatial dimensions.&quot;</span>
+                <span class="p">)</span>
+                <span class="n">_CONFIG</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">time</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span>
+                    <span class="s2">&quot;This is not a time-dependent domain, &quot;</span>
+                    <span class="s2">&quot;and thus cant have a path.&quot;</span>
+                <span class="p">)</span>
+                <span class="n">_CONFIG</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">domain</span><span class="o">.</span><span class="n">min</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;Pathing not compatible with 1D domains.&quot;</span>
+                <span class="n">_CONFIG</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">path</span> <span class="o">=</span> <span class="n">path</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">domain</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Inputted path is not of type pinnjax.Path, rather </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">path</span><span class="p">)</span><span class="si">}</span><span class="s2">.&quot;</span>
+            <span class="n">_CONFIG</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+    <span class="bp">self</span><span class="o">.</span><span class="n">spatial_dimensions</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">domain</span><span class="o">.</span><span class="n">min</span><span class="p">)</span>
+
+    <span class="c1"># ------------------- Geometry -------------------</span>
+    <span class="k">if</span> <span class="n">geometry</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">obb</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">domain</span><span class="o">.</span><span class="n">to_obb</span><span class="p">()</span>
+        <span class="k">match</span> <span class="nb">len</span><span class="p">(</span><span class="n">obb</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+            <span class="k">case</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">geometry</span> <span class="o">=</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">BoundedLine</span><span class="p">(</span><span class="o">*</span><span class="n">obb</span><span class="p">,</span> <span class="n">times</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">time</span><span class="p">)</span>
+            <span class="k">case</span> <span class="mi">2</span><span class="p">:</span>
+                <span class="n">geometry</span> <span class="o">=</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">BoundedRectangle</span><span class="p">(</span><span class="o">*</span><span class="n">obb</span><span class="p">,</span> <span class="n">times</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">time</span><span class="p">)</span>
+            <span class="k">case</span> <span class="mi">3</span><span class="p">:</span>
+                <span class="n">geometry</span> <span class="o">=</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">BoundedBox</span><span class="p">(</span><span class="o">*</span><span class="n">obb</span><span class="p">,</span> <span class="n">times</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">time</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">add_path_shapes</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">path</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">three_dimensions</span> <span class="o">=</span> <span class="mi">3</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">spatial_dimensions</span> <span class="o">==</span> <span class="n">three_dimensions</span><span class="p">:</span>
+                <span class="n">geometry</span><span class="o">.</span><span class="n">add_path_shape</span><span class="p">(</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">,</span>
+                    <span class="n">radius</span><span class="o">=</span><span class="p">(</span><span class="mf">1e-10</span><span class="p">,</span> <span class="mf">0.0025</span><span class="p">,</span> <span class="mf">0.0035</span><span class="p">),</span>
+                <span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;Spatial Dimensions of </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">spatial_dimensions</span><span class="si">}</span><span class="s2"> &quot;</span>
+                    <span class="s2">&quot;not compatible with additional path shapes.&quot;</span>
+                <span class="p">)</span>
+                <span class="n">_CONFIG</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">sampling_method</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">sampling_mode</span> <span class="o">=</span> <span class="s2">&quot;point_count&quot;</span> <span class="ow">or</span> <span class="n">sampling_mode</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">sampling_method</span> <span class="o">=</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">SobolSampler</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">sampling_mode</span><span class="p">)</span>
+
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">sampling_method</span><span class="p">,</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">SamplingMethod</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">sampling_method</span> <span class="o">=</span> <span class="n">sampling_method</span>
+
+        <span class="c1"># TODO(@mjryande) This appears incorrect.</span>
+        <span class="k">if</span> <span class="n">sampling_values</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">sampling_values</span> <span class="o">=</span> <span class="mf">0.1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">sampling_values</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">))</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span>
+                <span class="n">sampling_values</span><span class="p">,</span> <span class="nb">list</span>
+            <span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">sampling_values</span> <span class="o">=</span> <span class="n">sampling_values</span>
+            <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">sampling_values</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">geometry</span><span class="o">.</span><span class="n">shapes</span><span class="p">):</span>
+                <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;Number of sampling_values [</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">sampling_values</span><span class="p">)</span><span class="si">}</span><span class="s2">]&quot;</span>
+                    <span class="sa">f</span><span class="s2">&quot; DOES NOT match number of shapes &quot;</span>
+                    <span class="sa">f</span><span class="s2">&quot;[</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">geometry</span><span class="o">.</span><span class="n">shapes</span><span class="p">)</span><span class="si">}</span><span class="s2">]&quot;</span>
+                <span class="p">)</span>
+                <span class="n">_CONFIG</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Invalid &#39;sampling_values&#39; type: </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">sampling_values</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="n">_CONFIG</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+                <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+        <span class="n">geometry</span><span class="o">.</span><span class="n">samples</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sampling_method</span><span class="p">,</span> <span class="n">sampling_values</span><span class="p">)</span>
+        <span class="n">geometry</span><span class="o">.</span><span class="n">unpack</span><span class="p">(</span><span class="n">flatten</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">loss_function</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">loss_function</span> <span class="o">=</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">ResidualMSError</span><span class="p">()</span>
+        <span class="n">geometry</span><span class="o">.</span><span class="n">assign_loss</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">loss_function</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">residual_functions</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;If &#39;geometry&#39; is not defined, &#39;residual_functions&#39; must be.&quot;</span>
+            <span class="n">_CONFIG</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">residual_functions</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">Residual</span><span class="p">)):</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">residual_functions</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+                <span class="k">for</span> <span class="n">residual_function</span> <span class="ow">in</span> <span class="n">residual_functions</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">residual_function</span><span class="p">,</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">Residual</span><span class="p">):</span>
+                        <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span>
+                            <span class="s2">&quot;One or more of the residuals in &#39;residual_functions&#39; &quot;</span>
+                            <span class="sa">f</span><span class="s2">&quot;is not of type pinnjax.Residual, &quot;</span>
+                            <span class="sa">f</span><span class="s2">&quot;rather </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">residual_function</span><span class="p">)</span><span class="si">}</span><span class="s2">.&quot;</span>
+                        <span class="p">)</span>
+                        <span class="n">_CONFIG</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+                        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Invalid &#39;residual_functions&#39; type: </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">residual_functions</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="n">_CONFIG</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">residual_functions</span> <span class="o">=</span> <span class="n">residual_functions</span>
+        <span class="n">geometry</span><span class="o">.</span><span class="n">assign_residuals</span><span class="p">(</span><span class="n">residual_functions</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">geometry</span> <span class="o">=</span> <span class="n">geometry</span>
+
+    <span class="k">elif</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">geometry</span><span class="p">,</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">ComplexShape</span><span class="p">):</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;Inputted geometry is not of type pinnjax.ComplexShape, &quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;rather </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">geometry</span><span class="p">)</span><span class="si">}</span><span class="s2">.&quot;</span>
+        <span class="p">)</span>
+        <span class="n">_CONFIG</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">spatial_dimensions</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">geometry</span><span class="o">.</span><span class="n">origin</span><span class="p">):</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;Inputted geometry DOES NOT share equivalent spatial dimensions.&quot;</span>
+            <span class="n">_CONFIG</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">time</span> <span class="o">!=</span> <span class="n">geometry</span><span class="o">.</span><span class="n">times</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;Inputted geometry DOES NOT share equivalent &#39;time&#39;.&quot;</span>
+            <span class="n">_CONFIG</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">geometry</span> <span class="o">=</span> <span class="n">geometry</span>
+
+    <span class="c1"># ------------------- Model -------------------</span>
+    <span class="k">if</span> <span class="n">model</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">input_dimensions</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">spatial_dimensions</span> <span class="o">+</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">time</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">topology</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">output_dimensions</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">output_dimensions</span> <span class="o">=</span> <span class="mi">1</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">topology</span> <span class="o">=</span> <span class="p">(</span><span class="n">input_dimensions</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="n">output_dimensions</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">):</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">topology</span><span class="p">):</span>
+                <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Not all values in &#39;topology: </span><span class="si">{</span><span class="n">topology</span><span class="si">}</span><span class="s2">&#39; are integers.&quot;</span>
+                <span class="n">_CONFIG</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+            <span class="k">if</span> <span class="p">(</span>
+                <span class="n">output_dimensions</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+                <span class="ow">and</span> <span class="n">output_dimensions</span> <span class="o">!=</span> <span class="n">topology</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+                <span class="ow">and</span> <span class="n">verbosity</span>
+            <span class="p">):</span>
+                <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span>
+                    <span class="s2">&quot;Inputted &#39;output_dimensions&#39;: </span><span class="si">%s</span><span class="s2"> DO NOT equal &quot;</span>
+                    <span class="s2">&quot;&#39;topology&#39; last dimension: </span><span class="si">%s</span><span class="s2">. &quot;</span>
+                    <span class="s2">&quot;Build proceeds: &#39;topology&#39; controls.&quot;</span>
+                <span class="p">)</span>
+                <span class="n">_CONFIG</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="n">output_dimensions</span><span class="p">,</span> <span class="n">topology</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+
+            <span class="n">output_dimensions</span> <span class="o">=</span> <span class="n">topology</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">topology</span> <span class="o">=</span> <span class="n">topology</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Inputted topology is not of type Tuple, rather </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">topology</span><span class="p">)</span><span class="si">}</span><span class="s2">.&quot;</span>
+            <span class="p">)</span>
+            <span class="n">_CONFIG</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">input_dimensions</span> <span class="o">=</span> <span class="n">input_dimensions</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">output_dimensions</span> <span class="o">=</span> <span class="n">output_dimensions</span>
+
+        <span class="k">if</span> <span class="n">activation</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">activation</span> <span class="o">=</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">Activation</span><span class="p">(</span><span class="n">jax</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">relu</span><span class="p">,</span> <span class="n">kwargs</span><span class="o">=</span><span class="p">{})</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">activation</span><span class="p">,</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">Activation</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">activation</span> <span class="o">=</span> <span class="n">activation</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Inputted activation is not of type pinnjax.Activation,&quot;</span>
+                <span class="sa">f</span><span class="s2">&quot; rather </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">activation</span><span class="p">)</span><span class="si">}</span><span class="s2">.&quot;</span>
+            <span class="p">)</span>
+            <span class="n">_CONFIG</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">initialization</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">initialization</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">elif</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">initialization</span><span class="p">,</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">Initialization</span><span class="p">):</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Inputted initialization is not of type pinnjax.Initialization,&quot;</span>
+                <span class="sa">f</span><span class="s2">&quot; rather </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">initialization</span><span class="p">)</span><span class="si">}</span><span class="s2">.&quot;</span>
+            <span class="p">)</span>
+            <span class="n">_CONFIG</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">initialization</span> <span class="o">=</span> <span class="n">initialization</span>
+
+        <span class="c1"># ------------------- Optimization -------------------</span>
+        <span class="k">if</span> <span class="n">optimization</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">input_transformation</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="n">input_transformation</span>
+                <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">input_transformation</span><span class="p">,</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">InputTransformation</span><span class="p">)</span>
+                <span class="k">else</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">IdentityInputTransform</span><span class="p">()</span>
+            <span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">output_transformation</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="n">output_transformation</span>
+                <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">output_transformation</span><span class="p">,</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">OutputTransformation</span><span class="p">)</span>
+                <span class="k">else</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">IdentityOutputTransformation</span><span class="p">()</span>
+            <span class="p">)</span>
+            <span class="k">if</span> <span class="n">hard_constraint</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">hard_constraint</span> <span class="o">=</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">IdentityHardConstraint</span><span class="p">()</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">hard_constraint</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">):</span>
+                    <span class="k">if</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">(</span>
+                        <span class="nb">isinstance</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">HardConstraint</span><span class="p">)</span>
+                        <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">hard_constraint</span>
+                    <span class="p">):</span>
+                        <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span>
+                            <span class="s2">&quot;One or more of the hard constraints is not of type &quot;</span>
+                            <span class="s2">&quot;pinnjax.HardConstraint.&quot;</span>
+                        <span class="p">)</span>
+                        <span class="n">_CONFIG</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+                        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">hard_constraint</span><span class="p">,</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">HardConstraint</span><span class="p">):</span>
+                    <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span>
+                        <span class="sa">f</span><span class="s2">&quot;Inputted &#39;hard_constraint&#39; &quot;</span>
+                        <span class="sa">f</span><span class="s2">&quot;is not of type pinnjax.HardConstraint, &quot;</span>
+                        <span class="sa">f</span><span class="s2">&quot;rather </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">hard_constraint</span><span class="p">)</span><span class="si">}</span><span class="s2">.&quot;</span>
+                    <span class="p">)</span>
+                    <span class="n">_CONFIG</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+                    <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">hard_constraint</span> <span class="o">=</span> <span class="n">hard_constraint</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">optimization</span> <span class="o">=</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">Optimization</span><span class="p">(</span>
+                <span class="n">input_transformation</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">input_transformation</span><span class="p">,</span>
+                <span class="n">output_transformation</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">output_transformation</span><span class="p">,</span>
+                <span class="n">hard_constraint</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">hard_constraint</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="k">elif</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">optimization</span><span class="p">,</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">Optimization</span><span class="p">):</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Inputted &#39;optimization&#39; is not of type pinnjax.Optimization, &quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;rather </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">optimization</span><span class="p">)</span><span class="si">}</span><span class="s2">.&quot;</span>
+            <span class="p">)</span>
+            <span class="n">_CONFIG</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">optimization</span> <span class="o">=</span> <span class="n">optimization</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">input_transformation</span> <span class="o">=</span> <span class="n">optimization</span><span class="o">.</span><span class="n">input_transformation</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">output_transformation</span> <span class="o">=</span> <span class="n">optimization</span><span class="o">.</span><span class="n">output_transformation</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">hard_constraint</span> <span class="o">=</span> <span class="n">optimization</span><span class="o">.</span><span class="n">hard_constraint</span>
+
+        <span class="k">if</span> <span class="n">seed</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">seed</span> <span class="o">=</span> <span class="n">_CONFIG</span><span class="o">.</span><span class="n">SEED</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">seed</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">seed</span> <span class="o">=</span> <span class="n">seed</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Inputted &#39;seed&#39; is NOT of type int, rather </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="n">_CONFIG</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+        <span class="n">key</span><span class="p">,</span> <span class="n">subkey</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">jax</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">key</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">seed</span><span class="p">),</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">FNN</span><span class="p">(</span>
+            <span class="n">subkey</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">domain</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">topology</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">activation</span><span class="p">,</span>
+            <span class="n">initialization</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">initialization</span><span class="p">,</span>
+            <span class="n">optimization</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">optimization</span><span class="p">,</span>
+        <span class="p">)</span>
+
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">NeuralNetwork</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">model</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;Inputted &#39;model&#39; is not of type pinnjax.NeuralNetwork, &quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;rather </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">model</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="p">)</span>
+        <span class="n">_CONFIG</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+    <span class="c1"># ------------------- Training -------------------</span>
+    <span class="k">if</span> <span class="n">training</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">learning_rate</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">learning_rate</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">learning_rate</span><span class="p">,</span> <span class="p">(</span><span class="nb">float</span><span class="p">,</span> <span class="n">Callable</span><span class="p">))</span> <span class="k">else</span> <span class="mf">1e-2</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">optimizer</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">optimizer</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">optimizer</span><span class="p">,</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">Optimizer</span><span class="p">)</span>
+            <span class="k">else</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">Optimizer</span><span class="p">(</span>
+                <span class="n">optax</span><span class="o">.</span><span class="n">adam</span><span class="p">,</span>
+                <span class="n">kwargs</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;learning_rate&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">learning_rate</span><span class="p">},</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">epochs</span> <span class="o">=</span> <span class="n">epochs</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">epochs</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="k">else</span> <span class="mi">1000</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">train_mode</span> <span class="o">=</span> <span class="n">train_mode</span> <span class="k">if</span> <span class="n">train_mode</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;class&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="k">else</span> <span class="s2">&quot;class&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">loss_scale</span> <span class="o">=</span> <span class="n">loss_scale</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">loss_scale</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span> <span class="k">else</span> <span class="mf">1.0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">priority</span> <span class="o">=</span> <span class="n">priority</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">priority</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">use_adaptive_weights</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">use_adaptive_weights</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">use_adaptive_weights</span><span class="p">,</span> <span class="nb">bool</span><span class="p">)</span>
+            <span class="k">else</span> <span class="kc">False</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">adaptive_alpha</span> <span class="o">=</span> <span class="n">adaptive_alpha</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">use_adaptive_weights</span> <span class="k">else</span> <span class="mf">0.0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">update_weights_every</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">update_weights_every</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">use_adaptive_weights</span> <span class="k">else</span> <span class="mi">0</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">update_weights_after</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">update_weights_after</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">use_adaptive_weights</span> <span class="k">else</span> <span class="mi">0</span>
+        <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">balance_magnitudes</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">balance_magnitudes</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">balance_magnitudes</span><span class="p">,</span> <span class="nb">bool</span><span class="p">)</span> <span class="k">else</span> <span class="kc">False</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">magnitude_clip</span> <span class="o">=</span> <span class="n">magnitude_clip</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">balance_magnitudes</span> <span class="k">else</span> <span class="mf">0.0</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">early_stopping</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">early_stopping</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">early_stopping</span><span class="p">,</span> <span class="nb">bool</span><span class="p">)</span> <span class="k">else</span> <span class="kc">False</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">patience</span> <span class="o">=</span> <span class="n">patience</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">early_stopping</span> <span class="k">else</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rel_tolerance</span> <span class="o">=</span> <span class="n">rel_tolerance</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">early_stopping</span> <span class="k">else</span> <span class="mf">0.0</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">training</span> <span class="o">=</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">Training</span><span class="p">(</span>
+            <span class="n">optimizer</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">optimizer</span><span class="p">,</span>
+            <span class="n">epochs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">epochs</span><span class="p">,</span>
+            <span class="n">train_mode</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">train_mode</span><span class="p">,</span>
+            <span class="n">loss_scale</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">loss_scale</span><span class="p">,</span>
+            <span class="n">priority</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">priority</span><span class="p">,</span>
+            <span class="n">use_adaptive_weights</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">use_adaptive_weights</span><span class="p">,</span>
+            <span class="n">adaptive_alpha</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">adaptive_alpha</span><span class="p">,</span>
+            <span class="n">update_weights_every</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">update_weights_every</span><span class="p">,</span>
+            <span class="n">update_weights_after</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">update_weights_after</span><span class="p">,</span>
+            <span class="n">balance_magnitudes</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">balance_magnitudes</span><span class="p">,</span>
+            <span class="n">magnitude_clip</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">magnitude_clip</span><span class="p">,</span>
+            <span class="n">early_stopping</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">early_stopping</span><span class="p">,</span>
+            <span class="n">patience</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">patience</span><span class="p">,</span>
+            <span class="n">rel_tolerance</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">rel_tolerance</span><span class="p">,</span>
+        <span class="p">)</span>
+
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">training</span><span class="p">,</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">Training</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">training</span> <span class="o">=</span> <span class="n">training</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;Inputted &#39;training&#39; is NOT of type &#39;pinnjax.Training&#39;, &quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;rather </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">training</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="p">)</span>
+        <span class="n">_CONFIG</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">verbosity</span><span class="p">:</span>
+        <span class="n">_CONFIG</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">)</span>
+        <span class="n">_CONFIG</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">training</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
 
 <div class="doc doc-object doc-function">
 
