@@ -2,74 +2,74 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://pinnjax.github.io/pinnjax-docs/dev/</loc>
-         <lastmod>2026-03-31</lastmod>
+         <lastmod>2026-06-10</lastmod>
     </url>
     <url>
          <loc>https://pinnjax.github.io/pinnjax-docs/dev/HOWTO/</loc>
-         <lastmod>2026-03-31</lastmod>
+         <lastmod>2026-06-10</lastmod>
     </url>
     <url>
          <loc>https://pinnjax.github.io/pinnjax-docs/dev/api/config_api/</loc>
-         <lastmod>2026-03-31</lastmod>
+         <lastmod>2026-06-10</lastmod>
     </url>
     <url>
          <loc>https://pinnjax.github.io/pinnjax-docs/dev/api/dataclass_api/</loc>
-         <lastmod>2026-03-31</lastmod>
+         <lastmod>2026-06-10</lastmod>
     </url>
     <url>
          <loc>https://pinnjax.github.io/pinnjax-docs/dev/api/experiment_api/</loc>
-         <lastmod>2026-03-31</lastmod>
+         <lastmod>2026-06-10</lastmod>
     </url>
     <url>
          <loc>https://pinnjax.github.io/pinnjax-docs/dev/api/geometry_api/</loc>
-         <lastmod>2026-03-31</lastmod>
+         <lastmod>2026-06-10</lastmod>
     </url>
     <url>
          <loc>https://pinnjax.github.io/pinnjax-docs/dev/api/grid_api/</loc>
-         <lastmod>2026-03-31</lastmod>
+         <lastmod>2026-06-10</lastmod>
     </url>
     <url>
          <loc>https://pinnjax.github.io/pinnjax-docs/dev/api/importance_api/</loc>
-         <lastmod>2026-03-31</lastmod>
+         <lastmod>2026-06-10</lastmod>
     </url>
     <url>
          <loc>https://pinnjax.github.io/pinnjax-docs/dev/api/init_api/</loc>
-         <lastmod>2026-03-31</lastmod>
+         <lastmod>2026-06-10</lastmod>
     </url>
     <url>
          <loc>https://pinnjax.github.io/pinnjax-docs/dev/api/loss_api/</loc>
-         <lastmod>2026-03-31</lastmod>
+         <lastmod>2026-06-10</lastmod>
     </url>
     <url>
          <loc>https://pinnjax.github.io/pinnjax-docs/dev/api/model_api/</loc>
-         <lastmod>2026-03-31</lastmod>
+         <lastmod>2026-06-10</lastmod>
     </url>
     <url>
          <loc>https://pinnjax.github.io/pinnjax-docs/dev/api/pathing_api/</loc>
-         <lastmod>2026-03-31</lastmod>
+         <lastmod>2026-06-10</lastmod>
     </url>
     <url>
          <loc>https://pinnjax.github.io/pinnjax-docs/dev/api/plot_api/</loc>
-         <lastmod>2026-03-31</lastmod>
+         <lastmod>2026-06-10</lastmod>
     </url>
     <url>
          <loc>https://pinnjax.github.io/pinnjax-docs/dev/api/predict_api/</loc>
-         <lastmod>2026-03-31</lastmod>
+         <lastmod>2026-06-10</lastmod>
     </url>
     <url>
          <loc>https://pinnjax.github.io/pinnjax-docs/dev/api/sampling_api/</loc>
-         <lastmod>2026-03-31</lastmod>
+         <lastmod>2026-06-10</lastmod>
     </url>
     <url>
          <loc>https://pinnjax.github.io/pinnjax-docs/dev/api/storage_api/</loc>
-         <lastmod>2026-03-31</lastmod>
+         <lastmod>2026-06-10</lastmod>
     </url>
     <url>
          <loc>https://pinnjax.github.io/pinnjax-docs/dev/api/train_api/</loc>
-         <lastmod>2026-03-31</lastmod>
+         <lastmod>2026-06-10</lastmod>
     </url>
     <url>
          <loc>https://pinnjax.github.io/pinnjax-docs/dev/api/utils_api/</loc>
-         <lastmod>2026-03-31</lastmod>
+         <lastmod>2026-06-10</lastmod>
     </url>
 </urlset>

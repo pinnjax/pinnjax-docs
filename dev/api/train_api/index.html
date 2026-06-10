@@ -1043,9 +1043,7 @@ during PINN training.</p>
 
               <details class="mkdocstrings-source">
                 <summary>Source code in <code>pinnjax/train.py</code></summary>
-                <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">168</span>
-<span class="normal">169</span>
-<span class="normal">170</span>
+                <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">170</span>
 <span class="normal">171</span>
 <span class="normal">172</span>
 <span class="normal">173</span>
@@ -1169,7 +1167,9 @@ during PINN training.</p>
 <span class="normal">291</span>
 <span class="normal">292</span>
 <span class="normal">293</span>
-<span class="normal">294</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">AdaptiveLossWeights</span><span class="p">(</span><span class="n">eqx</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+<span class="normal">294</span>
+<span class="normal">295</span>
+<span class="normal">296</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">AdaptiveLossWeights</span><span class="p">(</span><span class="n">eqx</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Gradient-based adaptive weighting over losses.</span>
 
 <span class="sd">    Implements the method by Wang et al. for adaptively weighting losses</span>
@@ -1488,9 +1488,7 @@ during PINN training.</p>
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>pinnjax/train.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">181</span>
-<span class="normal">182</span>
-<span class="normal">183</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">183</span>
 <span class="normal">184</span>
 <span class="normal">185</span>
 <span class="normal">186</span>
@@ -1508,7 +1506,9 @@ during PINN training.</p>
 <span class="normal">198</span>
 <span class="normal">199</span>
 <span class="normal">200</span>
-<span class="normal">201</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+<span class="normal">201</span>
+<span class="normal">202</span>
+<span class="normal">203</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
     <span class="bp">self</span><span class="p">,</span>
     <span class="n">n_classes</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
     <span class="n">mode</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
@@ -1647,9 +1647,7 @@ during PINN training.</p>
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>pinnjax/train.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">203</span>
-<span class="normal">204</span>
-<span class="normal">205</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">205</span>
 <span class="normal">206</span>
 <span class="normal">207</span>
 <span class="normal">208</span>
@@ -1738,7 +1736,9 @@ during PINN training.</p>
 <span class="normal">291</span>
 <span class="normal">292</span>
 <span class="normal">293</span>
-<span class="normal">294</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">update_weights</span><span class="p">(</span>
+<span class="normal">294</span>
+<span class="normal">295</span>
+<span class="normal">296</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">update_weights</span><span class="p">(</span>
     <span class="bp">self</span><span class="p">,</span>
     <span class="n">model</span><span class="p">:</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">NeuralNetwork</span><span class="p">,</span>
     <span class="n">_geometry</span><span class="p">:</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">ComplexShape</span><span class="p">,</span>
@@ -2040,9 +2040,7 @@ LBFGS requires <code>batch_size=None</code>.</p>
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>pinnjax/train.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">350</span>
-<span class="normal">351</span>
-<span class="normal">352</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">352</span>
 <span class="normal">353</span>
 <span class="normal">354</span>
 <span class="normal">355</span>
@@ -2615,7 +2613,10 @@ LBFGS requires <code>batch_size=None</code>.</p>
 <span class="normal">922</span>
 <span class="normal">923</span>
 <span class="normal">924</span>
-<span class="normal">925</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">train</span><span class="p">(</span>
+<span class="normal">925</span>
+<span class="normal">926</span>
+<span class="normal">927</span>
+<span class="normal">928</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">train</span><span class="p">(</span>
     <span class="n">model</span><span class="p">:</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">NeuralNetwork</span><span class="p">,</span>
     <span class="n">geometry</span><span class="p">:</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">ComplexShape</span><span class="p">,</span>
     <span class="n">training</span><span class="p">:</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">Training</span><span class="p">,</span>
@@ -2960,8 +2961,9 @@ LBFGS requires <code>batch_size=None</code>.</p>
             <span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">epoch_key</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">fold_in</span><span class="p">(</span><span class="n">jax</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">key</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">get_seed</span><span class="p">())),</span> <span class="n">i</span><span class="p">)</span>
-            <span class="n">perms</span> <span class="o">=</span> <span class="n">_epoch_permutations</span><span class="p">(</span><span class="n">geometry</span><span class="p">,</span> <span class="n">epoch_key</span><span class="p">,</span>
-                                        <span class="n">shuffle</span><span class="o">=</span><span class="n">training</span><span class="o">.</span><span class="n">shuffle_batches</span><span class="p">)</span>
+            <span class="n">perms</span> <span class="o">=</span> <span class="n">_epoch_permutations</span><span class="p">(</span>
+                <span class="n">geometry</span><span class="p">,</span> <span class="n">epoch_key</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="n">training</span><span class="o">.</span><span class="n">shuffle_batches</span>
+            <span class="p">)</span>
             <span class="n">batch_totals</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
             <span class="n">batch_loss_vals</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
             <span class="n">batch_by_class</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Array</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
