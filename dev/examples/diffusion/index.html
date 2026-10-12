@@ -1,0 +1,1202 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://pinnjax.github.io/pinnjax-docs/dev/examples/diffusion/">
+      
+      
+        <link rel="prev" href="../..">
+      
+      
+        <link rel="next" href="../../api/init_api/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Diffusion - PINN-JAX</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/doc-strings.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="red">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#domain" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="https://www.stahlbau.uni-hannover.de/de/" title="PINN-JAX" class="md-header__button md-logo" aria-label="PINN-JAX" data-md-component="logo">
+      
+  <img src="../../assets/logo-stahlbau.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            PINN-JAX
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Diffusion
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="red"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="red"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/pinnjax/PINN-JAX" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    pinnjax/PINN-JAX
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  INSTALL
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+    
+  
+  EXAMPLES
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../api/init_api/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  API Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://www.stahlbau.uni-hannover.de/de/" title="PINN-JAX" class="md-nav__button md-logo" aria-label="PINN-JAX" data-md-component="logo">
+      
+  <img src="../../assets/logo-stahlbau.png" alt="logo">
+
+    </a>
+    PINN-JAX
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/pinnjax/PINN-JAX" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    pinnjax/PINN-JAX
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    INSTALL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    EXAMPLES
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    EXAMPLES
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Diffusion
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Diffusion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of Contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of Contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#domain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Domain
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Model
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geometry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Geometry
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sampling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sampling
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#residuals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Residuals
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#training" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Training
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prediction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prediction
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../api/init_api/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Reference
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of Contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of Contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#domain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Domain
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Model
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geometry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Geometry
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sampling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sampling
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#residuals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Residuals
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#training" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Training
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prediction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prediction
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    INSTALL
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="./" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    EXAMPLES
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+  <h1>Diffusion</h1>
+
+<p>The full runnable script can be found at <code>examples/public/diffusion.py</code> on GitHub. </p>
+<p>It trains a 1D diffusion problem on <span class="arithmatex">\([-1, 1]\)</span> from <span class="arithmatex">\(t = 0\)</span> to <span class="arithmatex">\(t = 1\)</span>, with defaults:</p>
+<ul>
+<li>diffusion coefficient: <span class="arithmatex">\(0.25\)</span> and </li>
+<li>mode: <span class="arithmatex">\(5\)</span>.</li>
+</ul>
+<p>Feel free to experiment with different values.</p>
+<div class="arithmatex">\[
+u_t = D u_{xx}, \quad u(x, 0) = \sin\left(\frac{n\pi}{2}(x + 1)\right), \quad u(\pm 1, t) = 0.
+\]</div>
+<p><code>SAVE</code>, <code>PLOT</code>, and <code>SHOW</code> at the top of the script control the model folder, the loss plot, and the comparison animation.</p>
+<h2 id="domain">Domain<a class="headerlink" href="#domain" title="Permanent link">#</a></h2>
+<p><code>step</code> is used for sampling. A problem with no time uses <code>times=None</code>. <code>to_obb()</code> turns the domain into the origin and edge used by the line geometry.</p>
+<div class="language-python highlight"><pre><span></span><code><span class="n">time</span> <span class="o">=</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">Time</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>  <span class="c1"># from 0s to 1s with a 0.1s time-step</span>
+<span class="c1"># the time-step is used exclusively for sampling.</span>
+<span class="n">domain</span> <span class="o">=</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">SpatialDomain</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,),</span> <span class="nb">max</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,),</span> <span class="n">times</span><span class="o">=</span><span class="n">time</span><span class="p">)</span>  <span class="c1"># [-1, 1] m + time</span>
+<span class="c1"># if the problem isn't time-dependent use times=None</span>
+
+<span class="c1"># PINN-JAX defines Shapes using OBBs (Oriented Bounded Boxes)</span>
+<span class="c1"># You could define your own OBB using an Origin point and Edges</span>
+<span class="c1"># (dependent on the dimensionality of the domain)</span>
+<span class="c1"># To save time, a SpatialDomain can be converted into an OBB.</span>
+<span class="n">origin</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="n">domain</span><span class="o">.</span><span class="n">to_obb</span><span class="p">()</span>
+
+<span class="c1"># since domain is 1D, obb is defined as an origin and 1 edge - [origin, edge]</span>
+</code></pre></div>
+<h2 id="model">Model<a class="headerlink" href="#model" title="Permanent link">#</a></h2>
+<p>Inputs are scaled to <span class="arithmatex">\([-1, 1]\)</span>. The initial condition is a hard constraint, so the network output is forced to that sine at <span class="arithmatex">\(t = 0\)</span>. The network takes <span class="arithmatex">\((x, t)\)</span> and returns <span class="arithmatex">\(u\)</span>.</p>
+<div class="language-python highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">initial_condition_fn</span><span class="p">(</span><span class="n">pt</span><span class="p">):</span>
+    <span class="c1"># pt[0] is x, pt[-1] is t</span>
+    <span class="k">return</span> <span class="n">jnp</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">mode</span> <span class="o">*</span> <span class="p">(</span><span class="n">jnp</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">pt</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
+
+<span class="c1"># Hard Constraint on the Initial Condition</span>
+<span class="n">hard_ic</span> <span class="o">=</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">HardArrayInitialConstraint</span><span class="p">(</span><span class="n">times</span><span class="o">=</span><span class="n">time</span><span class="p">,</span>
+                                             <span class="n">initial_condition</span><span class="o">=</span><span class="n">initial_condition_fn</span><span class="p">)</span>
+
+<span class="c1"># Define the Optimization Object</span>
+<span class="n">optimization</span> <span class="o">=</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">Optimization</span><span class="p">(</span>
+    <span class="n">input_transformation</span><span class="o">=</span><span class="n">pinnjax</span><span class="o">.</span><span class="n">NormalizationBetweenNeg1and1</span><span class="p">(</span><span class="n">domain</span><span class="o">=</span><span class="n">domain</span><span class="p">),</span>
+    <span class="c1"># Input Transformations</span>
+    <span class="n">output_transformation</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>  <span class="c1"># Output Transformations</span>
+    <span class="n">hard_constraint</span><span class="o">=</span><span class="p">(</span><span class="n">hard_ic</span><span class="p">,),</span>  <span class="c1"># Hard Constraints</span>
+<span class="p">)</span>
+<span class="c1"># Multiple Hard Constraints can be added as a Tuple, the constraints will be applied</span>
+<span class="c1"># in order. At this time, you cannot have multiple input/output transformations. If</span>
+<span class="c1"># you have no such 'Optimizations' you can leave all 3 as None, or set</span>
+<span class="c1"># optimization=None</span>
+
+<span class="c1"># Define the topology (specific to FNN) [input, layer .... layer, output]</span>
+<span class="n">topology</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># [input: x, t] [output: u]</span>
+
+<span class="c1"># Define the Activation Object. Currently, all interior layers get the same activation.</span>
+<span class="n">activation</span> <span class="o">=</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">Activation</span><span class="p">(</span><span class="n">jax</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">tanh</span><span class="p">)</span>
+<span class="c1"># Look at the jax.nn documentation for available options.</span>
+<span class="c1"># If the selected option has kwargs or args:</span>
+<span class="c1"># activation = pinnjax.Activation(jax.nn.gelu, kwargs={"approximate": False})</span>
+
+<span class="c1"># Note: The Dataclasses are all well-documented, therefore all of this information</span>
+<span class="c1"># is already in the documentation provided.</span>
+
+<span class="c1"># Initialize the Model  - Note currently the only option is FNN, but you are free to</span>
+<span class="c1"># attempt to make your own by defining a new NeuralNetwork class.</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">FNN</span><span class="p">(</span>
+    <span class="n">domain</span><span class="p">,</span>
+    <span class="n">topology</span><span class="p">,</span>
+    <span class="n">activation</span><span class="p">,</span>
+    <span class="n">optimization</span><span class="o">=</span><span class="n">optimization</span><span class="p">,</span>  <span class="c1"># optional parameter defaults to None</span>
+    <span class="n">initialization</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span>  <span class="c1"># optional parameter defaults to None</span>
+</code></pre></div>
+<p>Hard constraints are a tuple and run in order. One input transformation and one output transformation are supported. Leave an entry as <code>None</code> when you do not need it.</p>
+<h2 id="geometry">Geometry<a class="headerlink" href="#geometry" title="Permanent link">#</a></h2>
+<p><code>BoundedLine</code> builds the interior segment and its two endpoints. <code>initial=True</code> appends the same segment at the first time. That initial line is optional once the hard constraint is in place. The script draws it so those points stay in the training loss.</p>
+<div class="language-python highlight"><pre><span></span><code><span class="n">geometry</span><span class="p">:</span> <span class="n">ComplexShape</span> <span class="o">=</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">BoundedLine</span><span class="p">(</span>
+    <span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">origin</span><span class="p">[</span><span class="mi">0</span><span class="p">]),),</span>
+    <span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">end</span><span class="p">[</span><span class="mi">0</span><span class="p">]),),</span>
+    <span class="n">times</span><span class="o">=</span><span class="n">time</span><span class="p">,</span>
+    <span class="n">initial</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="c1"># Other options include BoundedBox (3D) and Bounded Rectangle (2D), or you can make</span>
+<span class="c1"># your own pinnjax.ComplexShape() class, though naturally you'll have to write all</span>
+<span class="c1"># additional features.</span>
+
+<span class="c1"># *obb opens up the [obb edge] list initial=True means a shape will be added to the</span>
+<span class="c1"># ComplexShape only at t=0. if you forget to add this initial shape, it can be added</span>
+<span class="c1"># later with: geometry.add_initial() Since we are hard constraining our initial</span>
+<span class="c1"># conditions, this isn't strictly necessary, but showing the model initial points</span>
+<span class="c1"># during training has been shown to increase stability.</span>
+</code></pre></div>
+<p>A 2D problem uses <code>BoundedRectangle</code>. A 3D problem uses <code>BoundedBox</code>.</p>
+<h2 id="sampling">Sampling<a class="headerlink" href="#sampling" title="Permanent link">#</a></h2>
+<p>A time-dependent <code>BoundedLine</code> contains FOUR interior primitive <code>Shapes</code>:</p>
+<ul>
+<li>A temporal <code>Line</code>, two <code>Dot</code>, and an initial <code>Line</code>.</li>
+</ul>
+<p>We need to sample points within all of these shapes. Currently, the only <code>SamplingMethod</code> is the <code>SobolSequencer</code> so we use that here, but feel free to write your own. 
+<div class="language-python highlight"><pre><span></span><code><span class="n">method</span> <span class="o">=</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">SobolSampler</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="s2">"point_count"</span><span class="p">)</span>
+
+<span class="n">npoints</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+
+<span class="c1"># Sample:</span>
+<span class="n">geometry</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="n">npoints</span><span class="p">)</span>
+
+<span class="c1"># Optional: Check Your Work</span>
+<span class="c1"># geometry.draw(show_samples=True)</span>
+<span class="c1"># setting show_samples=True only works after sampling.</span>
+</code></pre></div></p>
+<h2 id="residuals">Residuals<a class="headerlink" href="#residuals" title="Permanent link">#</a></h2>
+<p>The PDE residual is <span class="arithmatex">\(u_t - D u_{xx}\)</span>. Each boundary residual is the predicted value, which is the homogeneous Dirichlet condition. The initial residual repeats the sine. It is a check. The hard constraint already enforces that condition.</p>
+<div class="language-python highlight"><pre><span></span><code><span class="c1"># Make a subclass of pinnjax.PartialDifferentialEquation</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Diffusion</span><span class="p">(</span><span class="n">pinnjax</span><span class="o">.</span><span class="n">PartialDifferentialEquation</span><span class="p">):</span>
+    <span class="c1"># define:</span>
+    <span class="c1">#     an __init__,</span>
+    <span class="c1">#     a _residual (one point at a time),</span>
+    <span class="c1">#     a _residuals() (vmapped)</span>
+    <span class="c1">#     and an @eqx.filter_jit __call__()</span>
+
+    <span class="c1"># the _residual, _residuals, and __call__ must have the same inputs as here.</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">diffusion_coeff</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1e-3</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">diffusion_coeff</span> <span class="o">=</span> <span class="n">diffusion_coeff</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_residual</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">u</span><span class="p">:</span> <span class="n">Array</span><span class="p">,</span> <span class="n">ops</span><span class="p">:</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">DifferentialOperators</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Array</span><span class="p">:</span>
+        <span class="n">u_t</span> <span class="o">=</span> <span class="n">ops</span><span class="o">.</span><span class="n">evolution_derivative</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
+        <span class="n">u_xx</span> <span class="o">=</span> <span class="n">ops</span><span class="o">.</span><span class="n">laplacian</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>  <span class="c1"># in 1D this is d^2 u / dx^2</span>
+        <span class="k">return</span> <span class="n">u_t</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">diffusion_coeff</span> <span class="o">*</span> <span class="n">u_xx</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_residuals</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                   <span class="n">points</span><span class="p">:</span> <span class="n">Array</span><span class="p">,</span> <span class="n">ops</span><span class="p">:</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">DifferentialOperators</span>
+                   <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Array</span><span class="p">:</span>
+        <span class="n">vm</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">vmap</span><span class="p">(</span><span class="k">lambda</span> <span class="n">p</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_residual</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">ops</span><span class="p">),</span> <span class="n">in_axes</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">jnp</span><span class="o">.</span><span class="n">nan_to_num</span><span class="p">(</span><span class="n">vm</span><span class="p">(</span><span class="n">points</span><span class="p">),</span> <span class="n">nan</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">,</span> <span class="n">posinf</span><span class="o">=</span><span class="mf">1e6</span><span class="p">,</span> <span class="n">neginf</span><span class="o">=-</span><span class="mf">1e6</span><span class="p">)</span>
+
+    <span class="nd">@eqx</span><span class="o">.</span><span class="n">filter_jit</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">points</span><span class="p">:</span> <span class="n">Array</span><span class="p">,</span>
+                 <span class="n">ops</span><span class="p">:</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">DifferentialOperators</span>
+                 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Array</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_residuals</span><span class="p">(</span><span class="n">points</span><span class="p">,</span> <span class="n">ops</span><span class="p">)</span>
+
+<span class="c1"># 5b. BC</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">DiffusionBC</span><span class="p">(</span><span class="n">pinnjax</span><span class="o">.</span><span class="n">BoundaryCondition</span><span class="p">):</span>
+    <span class="c1"># same deal here, but for a subclass of pinnjax.BoundaryCondition</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_residual</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                  <span class="n">points</span><span class="p">:</span> <span class="n">Array</span><span class="p">,</span> <span class="n">ops</span><span class="p">:</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">DifferentialOperators</span>
+                  <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Array</span><span class="p">:</span>
+        <span class="n">u_val</span> <span class="o">=</span> <span class="n">ops</span><span class="o">.</span><span class="n">T</span><span class="p">(</span><span class="n">points</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">u_val</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_residuals</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                   <span class="n">points</span><span class="p">:</span> <span class="n">Array</span><span class="p">,</span> <span class="n">ops</span><span class="p">:</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">DifferentialOperators</span>
+                   <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Array</span><span class="p">:</span>
+        <span class="n">vm</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">vmap</span><span class="p">(</span><span class="k">lambda</span> <span class="n">p</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_residual</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">ops</span><span class="p">),</span> <span class="n">in_axes</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">jnp</span><span class="o">.</span><span class="n">nan_to_num</span><span class="p">(</span><span class="n">vm</span><span class="p">(</span><span class="n">points</span><span class="p">),</span> <span class="n">nan</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">,</span> <span class="n">posinf</span><span class="o">=</span><span class="mf">1e6</span><span class="p">,</span> <span class="n">neginf</span><span class="o">=-</span><span class="mf">1e6</span><span class="p">)</span>
+
+    <span class="nd">@eqx</span><span class="o">.</span><span class="n">filter_jit</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">points</span><span class="p">:</span> <span class="n">Array</span><span class="p">,</span> <span class="n">ops</span><span class="p">:</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">DifferentialOperators</span>
+                 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Array</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_residuals</span><span class="p">(</span><span class="n">points</span><span class="p">,</span> <span class="n">ops</span><span class="p">)</span>
+
+<span class="c1"># 5c. IC</span>
+<span class="c1"># Since we are hard constraining our Initial Conditions this isn't strictly necessary,</span>
+<span class="c1"># but it helps to make sure it's working.</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">DiffusionIC</span><span class="p">(</span><span class="n">pinnjax</span><span class="o">.</span><span class="n">InitialCondition</span><span class="p">):</span>
+    <span class="c1"># This particular class utilizes the predefined functions of the parent</span>
+    <span class="c1"># InitialCondition class but in effect it has the same format as the other 2</span>
+    <span class="c1"># types. Functionally, all 3 (PDE, BC, IC) are identical in function, but they</span>
+    <span class="c1"># are separated for the purpose of weighted loss functions, and adaptive weights.</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="k">lambda</span> <span class="n">pt</span><span class="p">:</span> <span class="n">jnp</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">mode</span> <span class="o">*</span> <span class="p">(</span><span class="n">jnp</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">pt</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)))</span>
+</code></pre></div>
+<p>Assign one residual per shape, in the same order as the sample counts. Every shape uses residual mean squared error.</p>
+<div class="language-python highlight"><pre><span></span><code><span class="n">initial_condition</span> <span class="o">=</span> <span class="n">DiffusionIC</span><span class="p">()</span>
+<span class="n">boundary_condition</span> <span class="o">=</span> <span class="n">DiffusionBC</span><span class="p">()</span>
+<span class="n">pde</span> <span class="o">=</span> <span class="n">Diffusion</span><span class="p">(</span><span class="n">diffusion_coefficient</span><span class="p">)</span>
+
+<span class="c1"># Assign the Residuals to the shape.</span>
+<span class="c1"># Again here you need to remember the number of shapes you have, and their order.</span>
+<span class="n">residuals</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">pinnjax</span><span class="o">.</span><span class="n">Residual</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">pde</span><span class="p">,</span>
+    <span class="n">boundary_condition</span><span class="p">,</span>
+    <span class="n">boundary_condition</span><span class="p">,</span>
+    <span class="n">initial_condition</span><span class="p">,</span>
+<span class="p">]</span>
+<span class="c1"># Assign them:</span>
+<span class="n">geometry</span><span class="o">.</span><span class="n">assign_residuals</span><span class="p">(</span><span class="n">residuals</span><span class="p">)</span>
+
+<span class="c1"># Assign the Loss function - Currently, all shapes get the same Loss</span>
+<span class="c1"># if you wish to have unique losses, you can loop through the shapes:</span>
+<span class="c1"># for shape, loss in zip(geometry.shapes, losses):</span>
+<span class="c1">#   # and assign them individually</span>
+<span class="c1">#   shape.set_loss(loss)</span>
+
+<span class="n">geometry</span><span class="o">.</span><span class="n">assign_loss</span><span class="p">(</span><span class="n">pinnjax</span><span class="o">.</span><span class="n">ResidualMSError</span><span class="p">())</span>
+<span class="c1"># here we use the Residual MSE, but are free to define your own pinnjax.Loss()</span>
+</code></pre></div>
+<p>A second PDE on the same segment needs another shape. One shape carries one residual.</p>
+<h2 id="training">Training<a class="headerlink" href="#training" title="Permanent link">#</a></h2>
+<p>Adam uses an exponential decay from <span class="arithmatex">\(10^{-2}\)</span> to <span class="arithmatex">\(10^{-5}\)</span>. <code>train_mode="class"</code> groups the loss as PDE, boundary, and initial. Early stopping waits 500 epochs for a relative improvement of <span class="arithmatex">\(10^{-4}\)</span>.</p>
+<div class="language-python highlight"><pre><span></span><code><span class="n">scheduler</span> <span class="o">=</span> <span class="n">optax</span><span class="o">.</span><span class="n">exponential_decay</span><span class="p">(</span>
+    <span class="n">init_value</span><span class="o">=</span><span class="mf">1e-2</span><span class="p">,</span>
+    <span class="n">transition_steps</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>  <span class="c1"># decay every 100 epochs</span>
+    <span class="n">decay_rate</span><span class="o">=</span><span class="mf">0.95</span><span class="p">,</span>  <span class="c1"># 5% reduction each time</span>
+    <span class="n">end_value</span><span class="o">=</span><span class="mf">1e-5</span><span class="p">,</span>  <span class="c1"># don't go below this</span>
+<span class="p">)</span>
+
+<span class="c1"># Define the Optimizer - This functions the same as Activation, where kwargs and args</span>
+<span class="c1"># can be added. Look at optax documentation for options.</span>
+<span class="n">optimizer</span> <span class="o">=</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">Optimizer</span><span class="p">(</span>
+    <span class="n">optax</span><span class="o">.</span><span class="n">lion</span><span class="p">,</span>
+    <span class="n">kwargs</span><span class="o">=</span><span class="p">{</span><span class="s2">"learning_rate"</span><span class="p">:</span> <span class="n">scheduler</span><span class="p">,</span> <span class="s2">"b1"</span><span class="p">:</span> <span class="mf">0.9</span><span class="p">,</span> <span class="s2">"b2"</span><span class="p">:</span> <span class="mf">0.999</span><span class="p">},</span>
+<span class="p">)</span>
+
+<span class="n">training</span> <span class="o">=</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">Training</span><span class="p">(</span>
+    <span class="n">optimizer</span><span class="p">,</span>
+    <span class="n">epochs</span><span class="o">=</span><span class="mi">20000</span><span class="p">,</span>  <span class="c1"># set the number of epochs</span>
+    <span class="c1"># everything after here is optional and has a default value.</span>
+    <span class="n">use_adaptive_weights</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="c1"># automatically update the weighting of the</span>
+    <span class="c1"># multi-objective loss function</span>
+    <span class="n">adaptive_alpha</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span>
+    <span class="c1"># how much of current weights effects new calculation.</span>
+    <span class="n">update_weights_every</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span>  <span class="c1"># how often to update weights</span>
+    <span class="n">update_weights_after</span><span class="o">=</span><span class="mi">250</span><span class="p">,</span>
+    <span class="c1"># when to start updating weights (starting very early is</span>
+    <span class="c1"># unstable)</span>
+    <span class="n">train_mode</span><span class="o">=</span><span class="s2">"class"</span><span class="p">,</span>  <span class="c1"># type or class type divides the</span>
+    <span class="c1"># losses (for the purpose of adaptive weights) into</span>
+    <span class="c1"># Diffusion, pde2, DiffusionBC, bc2, etc... class divides</span>
+    <span class="c1"># into PDE, BC, IC</span>
+    <span class="n">balance_magnitudes</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="c1"># since the expected residual loss of one residual might</span>
+    <span class="c1"># be very different from another this aims to allow the</span>
+    <span class="c1"># model to learn all objectives, by pulling the losses</span>
+    <span class="c1"># closer in magnitude.</span>
+    <span class="n">magnitude_clip</span><span class="o">=</span><span class="mf">1e-2</span><span class="p">,</span>
+    <span class="c1"># limit of how much the loss can be modified.</span>
+    <span class="n">early_stopping</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="c1"># if loss has converged, whether to stop training early.</span>
+    <span class="n">rel_tolerance</span><span class="o">=</span><span class="mf">0.0001</span><span class="p">,</span>
+    <span class="c1"># compared to the current best model, how much better</span>
+    <span class="c1"># is the new model (relatively)</span>
+    <span class="n">patience</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span>
+    <span class="c1"># how many epochs without improvement (better than</span>
+    <span class="c1"># the relative tolerance) before stopping</span>
+<span class="p">)</span>
+<span class="n">setup_time</span> <span class="o">=</span> <span class="n">timer</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span> <span class="o">-</span> <span class="n">tstart</span>
+<span class="n">tstart</span> <span class="o">=</span> <span class="n">timer</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
+<span class="n">updated_model</span> <span class="o">=</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">train</span><span class="p">(</span>
+    <span class="n">model</span><span class="p">,</span>
+    <span class="n">geometry</span><span class="p">,</span>
+    <span class="n">training</span><span class="p">,</span>
+    <span class="n">verbosity</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span>  <span class="c1"># how often (in epochs) to print the results (loss).</span>
+    <span class="n">print_mode</span><span class="o">=</span><span class="s2">"class"</span><span class="p">,</span>  <span class="c1"># same as train_mode but for the print.</span>
+<span class="p">)</span>
+</code></pre></div>
+<p>With <code>SAVE</code> true, the script writes the model, a JSON config, and the log under a new Diffusion run folder.</p>
+<h2 id="prediction">Prediction<a class="headerlink" href="#prediction" title="Permanent link">#</a></h2>
+<p>A <code>LineGrid</code> is the evaluation mesh. The reference solution is the exact decay of the initial sine:</p>
+<div class="arithmatex">\[
+u(x, t) = \exp\left(-\left(\frac{n\pi}{2}\right)^2 D t\right) \sin\left(\frac{n\pi}{2}(x + 1)\right).
+\]</div>
+<div class="language-python highlight"><pre><span></span><code><span class="n">grid</span> <span class="o">=</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">LineGrid</span><span class="p">(</span>
+    <span class="n">domain</span><span class="o">=</span><span class="n">domain</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s2">"x"</span><span class="p">,</span> <span class="n">num_points</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">time_range</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">num_times</span><span class="o">=</span><span class="mi">100</span>
+<span class="p">)</span>
+<span class="c1"># inputs should be self-explanatory.</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">analytic_solution</span><span class="p">(</span><span class="n">_x</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">_mode</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">D</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Analytical solution for IC.</span>
+
+<span class="sd">    u(x,0)=sin(pi/2 * (x+1)), domain [-1,1], Dirichlet BC:</span>
+<span class="sd">    u(x,t) = exp(- (pi/2)^2 * D * t) * sin(pi/2 * (x+1))</span>
+<span class="sd">    """</span>
+    <span class="n">k</span> <span class="o">=</span> <span class="n">_mode</span> <span class="o">*</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">k</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">D</span> <span class="o">*</span> <span class="n">t</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">k</span> <span class="o">*</span> <span class="p">(</span><span class="n">_x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
+
+
+<span class="c1"># prebuilt function that predicts the spatial-temporal points for the given model</span>
+<span class="c1"># and grid another option includes predict() which is for a single timestep.</span>
+<span class="c1"># predict_evolution is a wrapper around that function which loops through the</span>
+<span class="c1"># time-steps of the Grid.</span>
+<span class="n">preds</span> <span class="o">=</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">predict_evolution</span><span class="p">(</span><span class="n">_model</span><span class="p">,</span> <span class="n">_grid</span><span class="p">)</span>  <span class="c1"># shape: (num_times, num_points)</span>
+</code></pre></div>
+<p>Inside the animation, <code>predict_evolution</code> is called with the trained model and this grid. It returns one field per time. The script animates that field against the reference and saves <code>diffusion.gif</code> when <code>SAVE</code> is true. <code>geometry.plot_loss()</code> writes the loss curves for the same run.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.indexes", "navigation.tabs", "navigation.top", "navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "toc.follow", "navigation.prune", "navigation.path", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"default": "stable", "provider": "mike"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="../../javascripts/doc-strings.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
