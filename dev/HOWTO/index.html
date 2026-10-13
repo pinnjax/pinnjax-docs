@@ -240,7 +240,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../examples/diffusion/" class="md-tabs__link">
+        <a href="../examples/diffusion/diffusion/" class="md-tabs__link">
           
   
   
@@ -376,7 +376,7 @@
   
   
   
-    <a href="../examples/diffusion/" class="md-nav__link">
+    <a href="../examples/diffusion/diffusion/" class="md-nav__link">
       
   
   
@@ -677,7 +677,7 @@ For example:</p>
 where the 3D domain would be sliced along the z-axis at z=0.003.</p>
 <p>Once a <code>Grid</code> object has been created, a prediction can be made with one of three functions:
 * <code>predict</code>: make a prediction using the trained model <code>NeuralNetwork</code> at the <code>Grid</code> points and time <em>t</em>.
-* <code>predict_at_times</code>: make a prediction at multiple times <code>ts</code> using <code>predict</code>.
+* <code>predict_at_times</code>: evaluate every requested time <code>ts</code> in one batch.
 * <code>prediction_evolution</code>: predict a large number of times if the <code>Grid</code> was constructed including time constraints.</p>
 <div class="language-python highlight"><pre><span></span><code><span class="n">grid</span> <span class="o">=</span> <span class="n">src</span><span class="o">.</span><span class="n">RectangularGrid2D</span><span class="p">(</span>
     <span class="n">domain</span><span class="o">=</span><span class="n">updated_model</span><span class="o">.</span><span class="n">domain</span><span class="p">,</span>

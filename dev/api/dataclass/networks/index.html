@@ -249,7 +249,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../examples/diffusion/" class="md-tabs__link">
+        <a href="../../../examples/diffusion/diffusion/" class="md-tabs__link">
           
   
   
@@ -387,7 +387,7 @@
   
   
   
-    <a href="../../../examples/diffusion/" class="md-nav__link">
+    <a href="../../../examples/diffusion/diffusion/" class="md-nav__link">
       
   
   
@@ -2858,7 +2858,12 @@ Default: 0.</p>
             <td>
               <div class="doc-md-description">
                 <p>Optional
-<a class="autorefs autorefs-internal" title="            HardConstraint" href="../../model/constraints/#pinnjax.model.constraints.HardConstraint"><code>HardConstraint</code></a> object or <code>tuple</code> of objects.</p>
+<a class="autorefs autorefs-internal" title="            HardConstraint" href="../../model/constraints/#pinnjax.model.constraints.HardConstraint"><code>HardConstraint</code></a> object or <code>tuple</code> of objects.
+A tuple of compatible
+<a class="autorefs autorefs-internal" title="            HardValueConstraint" href="../../model/constraints/#pinnjax.model.constraints.HardValueConstraint"><code>HardValueConstraint</code></a> objects is combined
+when a network is built, at the position of the first of them. Other
+hard constraints stay in their written order. The tuple stored here
+is left unchanged.</p>
               </div>
             </td>
           </tr>
@@ -2919,7 +2924,12 @@ Default: 0.</p>
 <span class="normal">150</span>
 <span class="normal">151</span>
 <span class="normal">152</span>
-<span class="normal">153</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@frozen</span>
+<span class="normal">153</span>
+<span class="normal">154</span>
+<span class="normal">155</span>
+<span class="normal">156</span>
+<span class="normal">157</span>
+<span class="normal">158</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@frozen</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">Optimization</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""Container for Input/Output Transformations and Hard Constraints used in creation of [`NeuralNetwork`][pinnjax.NeuralNetwork] objects.</span>
 
@@ -2930,6 +2940,11 @@ Default: 0.</p>
 <span class="sd">            [`OutputTransformation`][pinnjax.OutputTransformation] object.</span>
 <span class="sd">        hard_constraint: Optional</span>
 <span class="sd">            [`HardConstraint`][pinnjax.HardConstraint] object or ``tuple`` of objects.</span>
+<span class="sd">            A tuple of compatible</span>
+<span class="sd">            [`HardValueConstraint`][pinnjax.HardValueConstraint] objects is combined</span>
+<span class="sd">            when a network is built, at the position of the first of them. Other</span>
+<span class="sd">            hard constraints stay in their written order. The tuple stored here</span>
+<span class="sd">            is left unchanged.</span>
 
 <span class="sd">    """</span>
 
@@ -3049,12 +3064,7 @@ Default: 0.</p>
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>pinnjax/dataclass/model_config.py</code></summary>
-              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">126</span>
-<span class="normal">127</span>
-<span class="normal">128</span>
-<span class="normal">129</span>
-<span class="normal">130</span>
-<span class="normal">131</span>
+              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">131</span>
 <span class="normal">132</span>
 <span class="normal">133</span>
 <span class="normal">134</span>
@@ -3073,7 +3083,12 @@ Default: 0.</p>
 <span class="normal">147</span>
 <span class="normal">148</span>
 <span class="normal">149</span>
-<span class="normal">150</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">to_string</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">indent</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="normal">150</span>
+<span class="normal">151</span>
+<span class="normal">152</span>
+<span class="normal">153</span>
+<span class="normal">154</span>
+<span class="normal">155</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">to_string</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">indent</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""Return a string of the [`Optimization`][pinnjax.Optimization] object.</span>
 
 <span class="sd">    Args:</span>

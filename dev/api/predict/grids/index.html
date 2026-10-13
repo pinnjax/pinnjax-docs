@@ -249,7 +249,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../examples/diffusion/" class="md-tabs__link">
+        <a href="../../../examples/diffusion/diffusion/" class="md-tabs__link">
           
   
   
@@ -387,7 +387,7 @@
   
   
   
-    <a href="../../../examples/diffusion/" class="md-nav__link">
+    <a href="../../../examples/diffusion/diffusion/" class="md-nav__link">
       
   
   
@@ -2735,7 +2735,7 @@ domain is not a <a class="autorefs autorefs-internal" title="            Spatial
     <span class="o">*</span><span class="p">,</span>
     <span class="n">fixed_coordinates</span><span class="p">:</span> <span class="n"><span title="dict">dict</span></span><span class="p">[</span><span class="n"><span title="str">str</span></span><span class="p">,</span> <span class="n"><span title="float">float</span></span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">num_points</span><span class="p">:</span> <span class="n"><span title="tuple">tuple</span></span><span class="p">[</span><span class="n"><span title="int">int</span></span><span class="p">,</span> <span class="n"><span title="int">int</span></span><span class="p">]</span> <span class="o">=</span> <span class="n"><a class="autorefs autorefs-internal" title="            DEFAULT_GRID_NUM_POINTS (pinnjax.predict.defaults.DEFAULT_GRID_NUM_POINTS)" href="../defaults/#pinnjax.predict.defaults.DEFAULT_GRID_NUM_POINTS">DEFAULT_GRID_NUM_POINTS</a></span><span class="p">,</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="tuple">tuple</span></span><span class="p">[</span><span class="n"><span title="list">list</span></span><span class="p">[</span><span class="n"><span title="jax.Array">Array</span></span><span class="p">],</span> <span class="n"><a class="autorefs autorefs-internal" title="            RectangularGrid2D (pinnjax.grid.structured.RectangularGrid2D)" href="../../grid/structured/#pinnjax.grid.structured.RectangularGrid2D">RectangularGrid2D</a></span><span class="p">]</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="tuple">tuple</span></span><span class="p">[</span><span class="n"><span title="jax.Array">Array</span></span><span class="p">,</span> <span class="n"><a class="autorefs autorefs-internal" title="            RectangularGrid2D (pinnjax.grid.structured.RectangularGrid2D)" href="../../grid/structured/#pinnjax.grid.structured.RectangularGrid2D">RectangularGrid2D</a></span><span class="p">]</span>
 </code></pre></div>
 
     <div class="doc doc-contents ">
@@ -2744,8 +2744,8 @@ domain is not a <a class="autorefs autorefs-internal" title="            Spatial
 <p>Builds a <a class="autorefs autorefs-internal" title="            RectangularGrid2D" href="../../grid/structured/#pinnjax.grid.structured.RectangularGrid2D"><code>RectangularGrid2D</code></a> and evaluates
 <a class="autorefs autorefs-internal" title="            predict_at_times" href="../fields/#pinnjax.predict.evolution.predict_at_times"><code>predict_at_times</code></a>. An omitted domain uses
 <code>model.domain</code>. An omitted slice holds <code>z</code> at the domain maximum.
-<code>num_points</code> is <code>(nx, ny)</code> along the free axes. Each stored field is
-<code>(ny, nx)</code>.</p>
+<code>num_points</code> is <code>(nx, ny)</code> along the free axes. The prediction has
+shape <code>(n_times, ny, nx)</code>.</p>
 
 
 <p><span class="doc-section-title">Parameters:</span></p>
@@ -2856,12 +2856,11 @@ domain is not a <a class="autorefs autorefs-internal" title="            Spatial
       <tbody>
           <tr class="doc-section-item">
             <td>
-                  <code><span title="tuple">tuple</span>[<span title="list">list</span>[<span title="jax.Array">Array</span>], <a class="autorefs autorefs-internal" title="            RectangularGrid2D (pinnjax.grid.structured.RectangularGrid2D)" href="../../grid/structured/#pinnjax.grid.structured.RectangularGrid2D">RectangularGrid2D</a>]</code>
+                  <code><span title="tuple">tuple</span>[<span title="jax.Array">Array</span>, <a class="autorefs autorefs-internal" title="            RectangularGrid2D (pinnjax.grid.structured.RectangularGrid2D)" href="../../grid/structured/#pinnjax.grid.structured.RectangularGrid2D">RectangularGrid2D</a>]</code>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>One prediction per time, each shaped <code>(ny, nx)</code>, and the spatial
-grid.</p>
+                <p>Predictions of shape <code>(n_times, ny, nx)</code>, and the spatial grid.</p>
               </div>
             </td>
           </tr>
@@ -2943,22 +2942,21 @@ domain is not a <a class="autorefs autorefs-internal" title="            Spatial
 <span class="normal">183</span>
 <span class="normal">184</span>
 <span class="normal">185</span>
-<span class="normal">186</span>
-<span class="normal">187</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">run_prediction_at_times</span><span class="p">(</span>
+<span class="normal">186</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">run_prediction_at_times</span><span class="p">(</span>
     <span class="n">model</span><span class="p">:</span> <span class="n">NeuralNetwork</span><span class="p">,</span>
     <span class="n">domain</span><span class="p">:</span> <span class="n">SpatialDomain</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">times</span><span class="p">:</span> <span class="n">Array</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">|</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="p">(),</span>
     <span class="o">*</span><span class="p">,</span>
     <span class="n">fixed_coordinates</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">num_points</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">DEFAULT_GRID_NUM_POINTS</span><span class="p">,</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="n">Array</span><span class="p">],</span> <span class="n">RectangularGrid2D</span><span class="p">]:</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">Array</span><span class="p">,</span> <span class="n">RectangularGrid2D</span><span class="p">]:</span>
 <span class="w">    </span><span class="sd">"""Predict a 2D slice at several times.</span>
 
 <span class="sd">    Builds a [`RectangularGrid2D`][pinnjax.RectangularGrid2D] and evaluates</span>
 <span class="sd">    [`predict_at_times`][pinnjax.predict_at_times]. An omitted domain uses</span>
 <span class="sd">    ``model.domain``. An omitted slice holds ``z`` at the domain maximum.</span>
-<span class="sd">    ``num_points`` is ``(nx, ny)`` along the free axes. Each stored field is</span>
-<span class="sd">    ``(ny, nx)``.</span>
+<span class="sd">    ``num_points`` is ``(nx, ny)`` along the free axes. The prediction has</span>
+<span class="sd">    shape ``(n_times, ny, nx)``.</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        model: [`NeuralNetwork`][pinnjax.NeuralNetwork] to evaluate.</span>
@@ -2970,8 +2968,7 @@ domain is not a <a class="autorefs autorefs-internal" title="            Spatial
 <span class="sd">        num_points: Sample counts ``(nx, ny)`` for the free axes.</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        One prediction per time, each shaped ``(ny, nx)``, and the spatial</span>
-<span class="sd">            grid.</span>
+<span class="sd">        Predictions of shape ``(n_times, ny, nx)``, and the spatial grid.</span>
 
 <span class="sd">    Raises:</span>
 <span class="sd">        TypeError: If neither ``domain`` nor ``model.domain`` is set, or the</span>

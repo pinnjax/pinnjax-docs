@@ -249,7 +249,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../examples/diffusion/" class="md-tabs__link">
+        <a href="../../../examples/diffusion/diffusion/" class="md-tabs__link">
           
   
   
@@ -387,7 +387,7 @@
   
   
   
-    <a href="../../../examples/diffusion/" class="md-nav__link">
+    <a href="../../../examples/diffusion/diffusion/" class="md-nav__link">
       
   
   
@@ -2441,8 +2441,8 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">axis_names</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="o">...</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">"""Return the name of each axis.</span>
 
-<span class="sd">            If not provided at initialization, this is generated as ('x0', 'x1', ... 'xn'),</span>
-<span class="sd">            where `n` is the number of dimensions in `min` and `max`.</span>
+<span class="sd">        If not provided at initialization, this is generated as ('x0', 'x1', ... 'xn'),</span>
+<span class="sd">        where `n` is the number of dimensions in `min` and `max`.</span>
 <span class="sd">        """</span>
         <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">_axis_names</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_axis_names</span>
@@ -3707,7 +3707,7 @@ the problem dimensionality.</p>
 
     <span class="nd">@classmethod</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">from_points</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">points</span><span class="p">:</span> <span class="n">Array</span> <span class="o">|</span> <span class="n">ArrayLike</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">SpatialDomain</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">"""Helper classmethod for use with Point Clouds.</span>
+<span class="w">        </span><span class="sd">"""Build [`Domain`][pinnjax.dataclass.domain.Domain] for use with Point Clouds.</span>
 
 <span class="sd">        Simply, calculates the `min` and `max` values to fully encompass the point cloud.</span>
 <span class="sd">        """</span>
@@ -5146,7 +5146,7 @@ The traditional dimensional approach doesn't necessary apply to things like data
 
     <div class="doc doc-contents ">
 
-        <p>Helper classmethod for use with Point Clouds.</p>
+        <p>Build <a class="autorefs autorefs-internal" title="            Domain" href="#pinnjax.dataclass.domain.Domain"><code>Domain</code></a> for use with Point Clouds.</p>
 <p>Simply, calculates the <code>min</code> and <code>max</code> values to fully encompass the point cloud.</p>
 
 
@@ -5163,7 +5163,7 @@ The traditional dimensional approach doesn't necessary apply to things like data
 <span class="normal">273</span>
 <span class="normal">274</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@classmethod</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">from_points</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">points</span><span class="p">:</span> <span class="n">Array</span> <span class="o">|</span> <span class="n">ArrayLike</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">SpatialDomain</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">"""Helper classmethod for use with Point Clouds.</span>
+<span class="w">    </span><span class="sd">"""Build [`Domain`][pinnjax.dataclass.domain.Domain] for use with Point Clouds.</span>
 
 <span class="sd">    Simply, calculates the `min` and `max` values to fully encompass the point cloud.</span>
 <span class="sd">    """</span>

@@ -249,7 +249,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../examples/diffusion/" class="md-tabs__link">
+        <a href="../../../examples/diffusion/diffusion/" class="md-tabs__link">
           
   
   
@@ -387,7 +387,7 @@
   
   
   
-    <a href="../../../examples/diffusion/" class="md-nav__link">
+    <a href="../../../examples/diffusion/diffusion/" class="md-nav__link">
       
   
   
@@ -2183,7 +2183,8 @@ hard constraint. Recognized entries are stored as a tuple. An unrecognized
   defaults to the material ambient temperature. <code>evolution_axis</code> defaults
   to <code>-1</code>.</li>
 <li><code>"HardDirichletConstraint"</code>: <code>condition</code> defaults to the ambient
-  temperature. <code>side</code> is used as stored. If <code>side</code> is missing and
+  temperature. <code>side</code> is used as stored. A positive entry is the maximum
+  face and a negative entry is the minimum face. If <code>side</code> is missing and
   <code>idx</code> is set, the side is <code>-1</code> on that axis, which is the minimum
   boundary. If both are missing, the side is <code>(0, 0, -1)</code>.</li>
 </ul>
@@ -2278,12 +2279,7 @@ ambient temperature and the output-range transforms.</p>
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>pinnjax/storage/optimization.py</code></summary>
-              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">108</span>
-<span class="normal">109</span>
-<span class="normal">110</span>
-<span class="normal">111</span>
-<span class="normal">112</span>
-<span class="normal">113</span>
+              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">113</span>
 <span class="normal">114</span>
 <span class="normal">115</span>
 <span class="normal">116</span>
@@ -2382,7 +2378,13 @@ ambient temperature and the output-range transforms.</p>
 <span class="normal">209</span>
 <span class="normal">210</span>
 <span class="normal">211</span>
-<span class="normal">212</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">build_optimization_from_spec</span><span class="p">(</span>
+<span class="normal">212</span>
+<span class="normal">213</span>
+<span class="normal">214</span>
+<span class="normal">215</span>
+<span class="normal">216</span>
+<span class="normal">217</span>
+<span class="normal">218</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">build_optimization_from_spec</span><span class="p">(</span>
     <span class="n">spec</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span>
     <span class="n">domain</span><span class="p">:</span> <span class="n">Domain</span><span class="p">,</span>
     <span class="n">material</span><span class="p">:</span> <span class="n">ThermalMaterial</span><span class="p">,</span>
@@ -2420,7 +2422,8 @@ ambient temperature and the output-range transforms.</p>
 <span class="sd">      defaults to the material ambient temperature. ``evolution_axis`` defaults</span>
 <span class="sd">      to ``-1``.</span>
 <span class="sd">    - ``"HardDirichletConstraint"``: ``condition`` defaults to the ambient</span>
-<span class="sd">      temperature. ``side`` is used as stored. If ``side`` is missing and</span>
+<span class="sd">      temperature. ``side`` is used as stored. A positive entry is the maximum</span>
+<span class="sd">      face and a negative entry is the minimum face. If ``side`` is missing and</span>
 <span class="sd">      ``idx`` is set, the side is ``-1`` on that axis, which is the minimum</span>
 <span class="sd">      boundary. If both are missing, the side is ``(0, 0, -1)``.</span>
 

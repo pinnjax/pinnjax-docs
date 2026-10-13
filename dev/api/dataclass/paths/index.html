@@ -249,7 +249,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../examples/diffusion/" class="md-tabs__link">
+        <a href="../../../examples/diffusion/diffusion/" class="md-tabs__link">
           
   
   
@@ -387,7 +387,7 @@
   
   
   
-    <a href="../../../examples/diffusion/" class="md-nav__link">
+    <a href="../../../examples/diffusion/diffusion/" class="md-nav__link">
       
   
   
@@ -2227,9 +2227,9 @@
 
               <details class="mkdocstrings-source">
                 <summary>Source code in <code>pinnjax/dataclass/path_config.py</code></summary>
-                <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@frozen</span>
+                <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@frozen</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">PathConfig</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""Container base class for all path configurations."""</span>
 </code></pre></div></td></tr></table></div>
@@ -2362,7 +2362,8 @@ same number of dimensions.</p>
 
               <details class="mkdocstrings-source">
                 <summary>Source code in <code>pinnjax/dataclass/path_config.py</code></summary>
-                <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">21</span>
+                <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">20</span>
+<span class="normal">21</span>
 <span class="normal">22</span>
 <span class="normal">23</span>
 <span class="normal">24</span>
@@ -2423,8 +2424,7 @@ same number of dimensions.</p>
 <span class="normal">79</span>
 <span class="normal">80</span>
 <span class="normal">81</span>
-<span class="normal">82</span>
-<span class="normal">83</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@frozen</span>
+<span class="normal">82</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@frozen</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">LinearPathConfig</span><span class="p">(</span><span class="n">PathConfig</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Configuration of LINEAR paths to be used in [`Path`][pinnjax.Path].</span>
 
@@ -2567,7 +2567,8 @@ Default: 0.</p>
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>pinnjax/dataclass/path_config.py</code></summary>
-              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">60</span>
+              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">59</span>
+<span class="normal">60</span>
 <span class="normal">61</span>
 <span class="normal">62</span>
 <span class="normal">63</span>
@@ -2586,8 +2587,7 @@ Default: 0.</p>
 <span class="normal">76</span>
 <span class="normal">77</span>
 <span class="normal">78</span>
-<span class="normal">79</span>
-<span class="normal">80</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">to_string</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">indent</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="normal">79</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">to_string</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">indent</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""Return a string of the [`LinearPathConfig`][pinnjax.LinearPathConfig] object.</span>
 
 <span class="sd">    Args:</span>
@@ -2727,7 +2727,8 @@ to the <code>center</code> and <code>radius</code> [°].</p>
 
               <details class="mkdocstrings-source">
                 <summary>Source code in <code>pinnjax/dataclass/path_config.py</code></summary>
-                <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">478</span>
+                <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">477</span>
+<span class="normal">478</span>
 <span class="normal">479</span>
 <span class="normal">480</span>
 <span class="normal">481</span>
@@ -2790,8 +2791,7 @@ to the <code>center</code> and <code>radius</code> [°].</p>
 <span class="normal">538</span>
 <span class="normal">539</span>
 <span class="normal">540</span>
-<span class="normal">541</span>
-<span class="normal">542</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@frozen</span>
+<span class="normal">541</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@frozen</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">CirclePathConfig</span><span class="p">(</span><span class="n">PathConfig</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Configuration of CIRCULAR paths to be used in [`Path`][pinnjax.Path].</span>
 
@@ -2944,7 +2944,8 @@ Default: 0.</p>
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>pinnjax/dataclass/path_config.py</code></summary>
-              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">511</span>
+              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">510</span>
+<span class="normal">511</span>
 <span class="normal">512</span>
 <span class="normal">513</span>
 <span class="normal">514</span>
@@ -2971,8 +2972,7 @@ Default: 0.</p>
 <span class="normal">535</span>
 <span class="normal">536</span>
 <span class="normal">537</span>
-<span class="normal">538</span>
-<span class="normal">539</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">to_string</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">indent</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="normal">538</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">to_string</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">indent</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""Return a string of the [`CirclePathConfig`][pinnjax.CirclePathConfig] object.</span>
 
 <span class="sd">    Args:</span>
@@ -3052,7 +3052,7 @@ Default: 0.</p>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>Sequence of spatial or spatio-temporal coordinates.
+                <p>Sequence of spatial or spatial-temporal coordinates.
 - (x, y)
 - (x, y, z) or (x, y, t)
 - (x, y, z, t)</p>
@@ -3231,7 +3231,8 @@ Computed internally.</p>
 
               <details class="mkdocstrings-source">
                 <summary>Source code in <code>pinnjax/dataclass/path_config.py</code></summary>
-                <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 86</span>
+                <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 85</span>
+<span class="normal"> 86</span>
 <span class="normal"> 87</span>
 <span class="normal"> 88</span>
 <span class="normal"> 89</span>
@@ -3619,13 +3620,12 @@ Computed internally.</p>
 <span class="normal">471</span>
 <span class="normal">472</span>
 <span class="normal">473</span>
-<span class="normal">474</span>
-<span class="normal">475</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@frozen</span>
+<span class="normal">474</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@frozen</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">ComplexLinearPathConfig</span><span class="p">(</span><span class="n">PathConfig</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Configuration of COMPLEX LINEAR paths to be used in [`Path`][pinnjax.Path].</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        waypoints: Sequence of spatial or spatio-temporal coordinates.</span>
+<span class="sd">        waypoints: Sequence of spatial or spatial-temporal coordinates.</span>
 <span class="sd">            - (x, y)</span>
 <span class="sd">            - (x, y, z) or (x, y, t)</span>
 <span class="sd">            - (x, y, z, t)</span>
@@ -4194,7 +4194,8 @@ Default: 0.</p>
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>pinnjax/dataclass/path_config.py</code></summary>
-              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">348</span>
+              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">347</span>
+<span class="normal">348</span>
 <span class="normal">349</span>
 <span class="normal">350</span>
 <span class="normal">351</span>
@@ -4317,8 +4318,7 @@ Default: 0.</p>
 <span class="normal">468</span>
 <span class="normal">469</span>
 <span class="normal">470</span>
-<span class="normal">471</span>
-<span class="normal">472</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">to_string</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">indent</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="normal">471</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">to_string</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">indent</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""Return a string of the [`ComplexLinearPathConfig`][pinnjax.ComplexLinearPathConfig] object.</span>
 
 <span class="sd">    Args:</span>

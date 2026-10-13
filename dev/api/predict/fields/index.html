@@ -249,7 +249,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../examples/diffusion/" class="md-tabs__link">
+        <a href="../../../examples/diffusion/diffusion/" class="md-tabs__link">
           
   
   
@@ -387,7 +387,7 @@
   
   
   
-    <a href="../../../examples/diffusion/" class="md-nav__link">
+    <a href="../../../examples/diffusion/diffusion/" class="md-nav__link">
       
   
   
@@ -2400,14 +2400,15 @@ axis.</p>
 <a href="#pinnjax.predict.evolution.predict_at_times" class="headerlink" title="Permanent link">#</a></h2>
 <div class="language-python doc-signature highlight"><pre><span></span><code><span class="nf">predict_at_times</span><span class="p">(</span>
     <span class="n">model</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-internal" title="            NeuralNetwork (pinnjax.model.base.NeuralNetwork)" href="../../model/networks/#pinnjax.model.base.NeuralNetwork">NeuralNetwork</a></span><span class="p">,</span> <span class="n">grid</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-internal" title="            SpatialGrid (pinnjax.grid.base.SpatialGrid)" href="../../grid/bases/#pinnjax.grid.base.SpatialGrid">SpatialGrid</a></span><span class="p">,</span> <span class="n">times</span><span class="p">:</span> <span class="n"><span title="jax.Array">Array</span></span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="list">list</span></span><span class="p">[</span><span class="n"><span title="jax.Array">Array</span></span><span class="p">]</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="jax.Array">Array</span></span>
 </code></pre></div>
 
     <div class="doc doc-contents ">
 
-        <p>Predict model outputs on a spatial grid at each time.</p>
-<p>Each time is passed to <a class="autorefs autorefs-internal" title="            predict" href="#pinnjax.predict.base.predict"><code>predict</code></a>, which keeps the
-default output column.</p>
+        <p>Predict model outputs on a spatial grid at each requested time.</p>
+<p>Every time is appended to the spatial coordinates and evaluated in one
+batch. A multi-column output keeps column 0. A single output column is
+reshaped as it is.</p>
 
 
 <p><span class="doc-section-title">Parameters:</span></p>
@@ -2462,7 +2463,7 @@ default output column.</p>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>One time per prediction.</p>
+                <p>One time per frame.</p>
               </div>
             </td>
             <td>
@@ -2484,11 +2485,21 @@ default output column.</p>
       <tbody>
           <tr class="doc-section-item">
             <td>
-                  <code><span title="list">list</span>[<span title="jax.Array">Array</span>]</code>
+                  <code><span title="jax.Array">Array</span></code>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>One prediction per time, in the same order as <code>times</code>.</p>
+                <p>Predictions of shape <code>(n_times, *spatial_shape)</code>, in the same order</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="jax.Array">Array</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>as <code>times</code>.</p>
               </div>
             </td>
           </tr>
@@ -2498,7 +2509,9 @@ default output column.</p>
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>pinnjax/predict/evolution.py</code></summary>
-              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">15</span>
+              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
 <span class="normal">16</span>
 <span class="normal">17</span>
 <span class="normal">18</span>
@@ -2517,26 +2530,54 @@ default output column.</p>
 <span class="normal">31</span>
 <span class="normal">32</span>
 <span class="normal">33</span>
-<span class="normal">34</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">predict_at_times</span><span class="p">(</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">predict_at_times</span><span class="p">(</span>
     <span class="n">model</span><span class="p">:</span> <span class="n">NeuralNetwork</span><span class="p">,</span>
     <span class="n">grid</span><span class="p">:</span> <span class="n">SpatialGrid</span><span class="p">,</span>
     <span class="n">times</span><span class="p">:</span> <span class="n">Array</span><span class="p">,</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">Array</span><span class="p">]:</span>
-<span class="w">    </span><span class="sd">"""Predict model outputs on a spatial grid at each time.</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Array</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Predict model outputs on a spatial grid at each requested time.</span>
 
-<span class="sd">    Each time is passed to [`predict`][pinnjax.predict.base.predict], which keeps the</span>
-<span class="sd">    default output column.</span>
+<span class="sd">    Every time is appended to the spatial coordinates and evaluated in one</span>
+<span class="sd">    batch. A multi-column output keeps column 0. A single output column is</span>
+<span class="sd">    reshaped as it is.</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        model: [`NeuralNetwork`][pinnjax.NeuralNetwork] to evaluate.</span>
 <span class="sd">        grid: [`SpatialGrid`][pinnjax.SpatialGrid] of spatial coordinates.</span>
-<span class="sd">        times: One time per prediction.</span>
+<span class="sd">        times: One time per frame.</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        One prediction per time, in the same order as ``times``.</span>
+<span class="sd">        Predictions of shape ``(n_times, *spatial_shape)``, in the same order</span>
+<span class="sd">        as ``times``.</span>
 
 <span class="sd">    """</span>
-    <span class="k">return</span> <span class="p">[</span><span class="n">predict</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">grid</span><span class="p">,</span> <span class="n">time</span><span class="p">)</span> <span class="k">for</span> <span class="n">time</span> <span class="ow">in</span> <span class="n">times</span><span class="p">]</span>
+    <span class="n">times_arr</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">atleast_1d</span><span class="p">(</span><span class="n">jnp</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">times</span><span class="p">))</span>
+    <span class="n">spatial</span> <span class="o">=</span> <span class="n">grid</span><span class="o">.</span><span class="n">coordinates</span>
+    <span class="n">spatial_shape</span> <span class="o">=</span> <span class="n">spatial</span><span class="o">.</span><span class="n">shape</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">flat</span> <span class="o">=</span> <span class="n">spatial</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">spatial</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">n_times</span> <span class="o">=</span> <span class="n">times_arr</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">n_points</span> <span class="o">=</span> <span class="n">flat</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">spatial_dims</span> <span class="o">=</span> <span class="n">flat</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">repeated</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">broadcast_to</span><span class="p">(</span><span class="n">flat</span><span class="p">,</span> <span class="p">(</span><span class="n">n_times</span><span class="p">,</span> <span class="n">n_points</span><span class="p">,</span> <span class="n">spatial_dims</span><span class="p">))</span>
+    <span class="n">time_column</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">broadcast_to</span><span class="p">(</span><span class="n">times_arr</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">],</span> <span class="p">(</span><span class="n">n_times</span><span class="p">,</span> <span class="n">n_points</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+    <span class="n">points</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">repeated</span><span class="p">,</span> <span class="n">time_column</span><span class="p">],</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">spatial_dims</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">predictions</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">vmap</span><span class="p">(</span><span class="n">model</span><span class="p">)(</span><span class="n">points</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">predictions</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">and</span> <span class="n">predictions</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">predictions</span> <span class="o">=</span> <span class="n">predictions</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">predictions</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">n_times</span><span class="p">,</span> <span class="o">*</span><span class="n">spatial_shape</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>
@@ -2660,20 +2701,7 @@ spatiotemporal coordinates already stored on the
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>pinnjax/predict/evolution.py</code></summary>
-              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">37</span>
-<span class="normal">38</span>
-<span class="normal">39</span>
-<span class="normal">40</span>
-<span class="normal">41</span>
-<span class="normal">42</span>
-<span class="normal">43</span>
-<span class="normal">44</span>
-<span class="normal">45</span>
-<span class="normal">46</span>
-<span class="normal">47</span>
-<span class="normal">48</span>
-<span class="normal">49</span>
-<span class="normal">50</span>
+              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">50</span>
 <span class="normal">51</span>
 <span class="normal">52</span>
 <span class="normal">53</span>
@@ -2690,7 +2718,20 @@ spatiotemporal coordinates already stored on the
 <span class="normal">64</span>
 <span class="normal">65</span>
 <span class="normal">66</span>
-<span class="normal">67</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">predict_evolution</span><span class="p">(</span><span class="n">model</span><span class="p">:</span> <span class="n">NeuralNetwork</span><span class="p">,</span> <span class="n">grid</span><span class="p">:</span> <span class="n">SpatialGrid</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Array</span><span class="p">:</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span>
+<span class="normal">73</span>
+<span class="normal">74</span>
+<span class="normal">75</span>
+<span class="normal">76</span>
+<span class="normal">77</span>
+<span class="normal">78</span>
+<span class="normal">79</span>
+<span class="normal">80</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">predict_evolution</span><span class="p">(</span><span class="n">model</span><span class="p">:</span> <span class="n">NeuralNetwork</span><span class="p">,</span> <span class="n">grid</span><span class="p">:</span> <span class="n">SpatialGrid</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Array</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""Predict the field over the full time range of a grid.</span>
 
 <span class="sd">    Evaluates the [`NeuralNetwork`][pinnjax.NeuralNetwork] on the</span>
