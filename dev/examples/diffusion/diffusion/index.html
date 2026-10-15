@@ -564,6 +564,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#hyperparameter-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hyperparameter Optimization
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -778,6 +789,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#hyperparameter-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hyperparameter Optimization
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -899,7 +921,7 @@ u_t = D u_{xx}, \quad u(x, 0) = \sin\left(\frac{n\pi}{2}(x + 1)\right), \quad u(
 <span class="p">)</span>
 </code></pre></div>
 <p><a class="autorefs autorefs-internal" title="            HardArrayInitialConstraint" href="../../../api/model/constraints/#pinnjax.model.constraints.HardArrayInitialConstraint"><code>HardArrayInitialConstraint</code></a> as been predefined for this purpose. As it's name implies <code>initial_condition</code> can be either an Array or a function, which was used here. A scalar version also exists, <a class="autorefs autorefs-internal" title="            HardScalarInitialConstraint" href="../../../api/model/constraints/#pinnjax.model.constraints.HardScalarInitialConstraint"><code>HardScalarInitialConstraint</code></a>, as well as a version for spatial coordinates, <a class="autorefs autorefs-internal" title="            HardDirichletConstraint" href="../../../api/model/constraints/#pinnjax.model.constraints.HardDirichletConstraint"><code>HardDirichletConstraint</code></a>.</p>
-<p>Given the mathematic restrictions, the pre-made functions are limited to Dirichlet boundaries.</p>
+<p>Given the mathematics restrictions, the pre-made functions are limited to Dirichlet boundaries.</p>
 <div class="language-python highlight"><pre><span></span><code><span class="c1"># Define the Optimization Object</span>
 <span class="n">optimization</span> <span class="o">=</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">Optimization</span><span class="p">(</span>
     <span class="c1"># Input Transformations</span>
@@ -907,7 +929,7 @@ u_t = D u_{xx}, \quad u(x, 0) = \sin\left(\frac{n\pi}{2}(x + 1)\right), \quad u(
     <span class="c1"># Output Transformations</span>
     <span class="n">output_transformation</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
     <span class="c1"># Hard Constraints </span>
-    <span class="n">hard_constraint</span><span class="o">=</span><span class="p">(</span><span class="n">hard_ic</span><span class="p">,),</span> 
+    <span class="n">hard_constraint</span><span class="o">=</span><span class="p">(</span><span class="n">hard_ic</span><span class="p">,),</span>
 <span class="p">)</span>
 </code></pre></div>
 <p>Currently, you're limited to ONE <a class="autorefs autorefs-internal" title="            InputTransformation" href="../../../api/model/transforms/#pinnjax.model.transforms.InputTransformation"><code>InputTransformation</code></a> and ONE <a class="autorefs autorefs-internal" title="            OutputTransformation" href="../../../api/model/transforms/#pinnjax.model.transforms.OutputTransformation"><code>OutputTransformation</code></a>, but multiple <a class="autorefs autorefs-internal" title="            HardConstraint" href="../../../api/model/constraints/#pinnjax.model.constraints.HardConstraint"><code>HardConstraint</code></a> which are applied consecutively. If the constraints are compatible with each other they will be combined to avoid them <em>fighting</em> each other.</p>
@@ -945,7 +967,7 @@ u_t = D u_{xx}, \quad u(x, 0) = \sin\left(\frac{n\pi}{2}(x + 1)\right), \quad u(
 </ul>
 <div class="admonition figure figure">
 <p class="admonition-title">Figure</p>
-<p><img alt="network" src="assets/network.png" style="display: block; margin: 0 auto; width: 65%;" /></p>
+<p><img alt="network" src="../assets/network.png" style="display: block; margin: 0 auto; width: 65%;" /></p>
 </div>
 <p>Hence, <code class="language-python highlight"><span class="n">topology</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span></code>.</p>
 <h2 id="geometry">Geometry<a class="headerlink" href="#geometry" title="Permanent link">#</a></h2>
@@ -954,8 +976,8 @@ u_t = D u_{xx}, \quad u(x, 0) = \sin\left(\frac{n\pi}{2}(x + 1)\right), \quad u(
 <li>A temporal <a class="autorefs autorefs-internal" title="            Line" href="../../../api/geometry/primitives/#pinnjax.geometry.primitives.Line"><code>Line</code></a>, two <a class="autorefs autorefs-internal" title="            Dot" href="../../../api/geometry/primitives/#pinnjax.geometry.primitives.Dot"><code>Dot</code></a>, and an initial <a class="autorefs autorefs-internal" title="            Line" href="../../../api/geometry/primitives/#pinnjax.geometry.primitives.Line"><code>Line</code></a>.</li>
 </ul>
 <div class="language-python highlight"><pre><span></span><code><span class="n">geometry</span><span class="p">:</span> <span class="n">ComplexShape</span> <span class="o">=</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">BoundedLine</span><span class="p">(</span>
-    <span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">domain</span><span class="o">.</span><span class="n">min</span><span class="p">[</span><span class="mi">0</span><span class="p">]),),</span>
-    <span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">domain</span><span class="o">.</span><span class="n">max</span><span class="p">[</span><span class="mi">0</span><span class="p">]),),</span>
+    <span class="n">origin</span> <span class="o">=</span> <span class="n">domain</span><span class="o">.</span><span class="n">min</span><span class="p">,</span>
+    <span class="n">end</span> <span class="o">=</span> <span class="n">domain</span><span class="o">.</span><span class="n">max</span><span class="p">,</span>
     <span class="n">times</span><span class="o">=</span><span class="n">time</span><span class="p">,</span>
     <span class="n">initial</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
 <span class="p">)</span>
@@ -964,7 +986,7 @@ u_t = D u_{xx}, \quad u(x, 0) = \sin\left(\frac{n\pi}{2}(x + 1)\right), \quad u(
 <span class="c1"># write all additional features. There's also Hypercube which allows for higher-</span>
 <span class="c1"># dimensional domains, which aren't necessarily spatial-temporal.</span>
 
-<span class="c1"># initial=True means a shape will be added to  the ComplexShape only at t=0.</span>
+<span class="c1"># initial=True means a shape will be added to the ComplexShape only at t=0.</span>
 <span class="c1"># if you forget to add this initial shape, it can be added later with: </span>
 <span class="c1">#    geometry.add_initial(). </span>
 <span class="c1"># Since we are hard constraining our initial conditions, this isn't strictly</span>
@@ -991,19 +1013,20 @@ u_t = D u_{xx}, \quad u(x, 0) = \sin\left(\frac{n\pi}{2}(x + 1)\right), \quad u(
 <p class="admonition-title">Figure</p>
 <p><img alt="samples" src="../assets/geometry.png" style="display: block; margin: 0 auto;" /></p>
 </div>
-<div class="language-pycon highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">geometry</span><span class="o">.</span><span class="n">print_samples</span><span class="p">()</span>
-<span class="go">Number of Samples:</span>
-<span class="go">    Shape 1 (Line): 1000 collocation points</span>
-<span class="go">    Shape 2 (Dot): 20 collocation points</span>
-<span class="go">    Shape 3 (Dot): 20 collocation points</span>
-<span class="go">    Shape 4 (Line): 10 collocation points</span>
-<span class="go">    Total Number of Collocation Points: 1050</span>
+<p><div class="language-python highlight"><pre><span></span><code><span class="n">geometry</span><span class="o">.</span><span class="n">print_samples</span><span class="p">()</span>
 </code></pre></div>
+<div class="language-text highlight"><pre><span></span><code>Number of Samples:
+    Shape 1 (Line): 1000 collocation points
+    Shape 2 (Dot): 20 collocation points
+    Shape 3 (Dot): 20 collocation points
+    Shape 4 (Line): 10 collocation points
+    Total Number of Collocation Points: 1050
+</code></pre></div></p>
 <p>The <a class="autorefs autorefs-internal" title="            SobolSampler" href="../../../api/sampling/samplers/#pinnjax.sampling.sobol.SobolSampler"><code>SobolSampler</code></a> samples from the unit-hypercube following a pseudo-random sequence in an effort to most efficiently fill the sample space. In the case of our time-dependent <a class="autorefs autorefs-internal" title="            Line" href="../../../api/geometry/primitives/#pinnjax.geometry.primitives.Line"><code>Line</code></a>, this is a 2D-hypercube. Therefore, while the visualization shows samples throughout the geometry spatially, they are also spread throughout time. This is also why we've opted to sample 20 points at each <a class="autorefs autorefs-internal" title="            Dot" href="../../../api/geometry/primitives/#pinnjax.geometry.primitives.Dot"><code>Dot</code></a> -- they aren't in the same place in time.</p>
 <p>The <a class="autorefs autorefs-internal" title="            SobolSampler" href="../../../api/sampling/samplers/#pinnjax.sampling.sobol.SobolSampler"><code>SobolSampler</code></a> has three <code>modes</code> which determine how <code>sampling_values</code> is interpreted, in order to determine how many points to sample:</p>
 <ul>
 <li><code>"point_count"</code>: uses the scalar value.</li>
-<li><code>"grid_resolution"</code>: treats the value as a <em>resolution</em> and calculates the equivalent grid distribution setting the number of samples as a factor of this value dependent on sample sample dimensionality</li>
+<li><code>"grid_resolution"</code>: treats the value as a <em>resolution</em> and calculates the equivalent grid distribution setting the number of samples as a factor of this value dependent on sample dimensionality</li>
 <li><code>"density"</code>: treats the value as a <em>density</em> and calculates the length, area or volume of the sample space.</li>
 </ul>
 <p>For both <code>"grid_resolution"</code> and <code>"density"</code> the calculated values are simply spatial. The temporal component is taken into account using the <code>step</code> parameter set in an earlier <a href="#domain">section</a> as part of <a class="autorefs autorefs-internal" title="            Time" href="../../../api/dataclass/domains/#pinnjax.dataclass.time.Time"><code>Time</code></a>. They, simply, multiply the calculated value by the number of discrete time steps.</p>
@@ -1023,7 +1046,7 @@ u_t = D u_{xx}, \quad u(x, 0) = \sin\left(\frac{n\pi}{2}(x + 1)\right), \quad u(
 <li><code>._residuals()</code>: handles a group of points using <a href="https://docs.jax.dev/en/latest/_autosummary/jax.vmap.html#jax.vmap"><code>vmap</code></a>.</li>
 <li><code>__call__()</code>: is called during <a class="autorefs autorefs-internal" title="            train" href="../../../api/train/#pinnjax.train.train"><code>train()</code></a>.</li>
 </ul>
-<p>Within this formulation <a class="autorefs autorefs-internal" title="            DifferentialOperators" href="../../../api/loss/operators/#pinnjax.loss.operators.DifferentialOperators"><code>DifferentialOperators</code></a> are used, which provide some simple, pre-defined functions for derivatives with <a href="https://docs.jax.dev/en/latest/index.html#"><code>JAX</code></a>-efficiency in-mind, but their use isn´t mandatory. What is mandatory, however, is providing a <code>__call__()</code> function with a <code>points</code> and <code>ops</code> parameter, regardless of whether or not it is used.</p>
+<p>Within this formulation <a class="autorefs autorefs-internal" title="            DifferentialOperators" href="../../../api/loss/operators/#pinnjax.loss.operators.DifferentialOperators"><code>DifferentialOperators</code></a> are used, which provide some simple, pre-defined functions for derivatives with <a href="https://docs.jax.dev/en/latest/index.html#"><code>JAX</code></a>-efficiency in-mind, but their use isn’t mandatory. What is mandatory, however, is providing a <code>__call__()</code> function with a <code>points</code> and <code>ops</code> parameter, regardless of whether it is used.</p>
 <div class="language-python highlight"><pre><span></span><code><span class="c1"># PDE</span>
 <span class="c1"># Make a subclass of pinnjax.PartialDifferentialEquation</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">Diffusion</span><span class="p">(</span><span class="n">pinnjax</span><span class="o">.</span><span class="n">PartialDifferentialEquation</span><span class="p">):</span>
@@ -1119,7 +1142,7 @@ u_t = D u_{xx}, \quad u(x, 0) = \sin\left(\frac{n\pi}{2}(x + 1)\right), \quad u(
 <li>Mean-Absolute Error (MAE): <a class="autorefs autorefs-internal" title="            ResidualMAError" href="../../../api/loss/metrics/#pinnjax.loss.metrics.ResidualMAError"><code>ResidualMAError</code></a></li>
 <li>...</li>
 </ul>
-<p>However, as with everything in <code>PINNJAX</code>, you are not limited to what has been created, simply create a sub-class of <a class="autorefs autorefs-internal" title="            Loss" href="../../../api/loss/metrics/#pinnjax.loss.metrics.Loss"><code>Loss</code></a>, define your <code>CustomLoss</code> and all systems will function as normal.</p>
+<p>However, as with everything in <code>PINNJAX</code>, you are not limited to what has been created, simply create a subclass of <a class="autorefs autorefs-internal" title="            Loss" href="../../../api/loss/metrics/#pinnjax.loss.metrics.Loss"><code>Loss</code></a>, define your <code>CustomLoss</code> and all systems will function as normal.</p>
 <div class="language-python highlight"><pre><span></span><code><span class="c1"># Assign the Loss function</span>
 <span class="n">geometry</span><span class="o">.</span><span class="n">assign_loss</span><span class="p">(</span><span class="n">pinnjax</span><span class="o">.</span><span class="n">ResidualMSError</span><span class="p">())</span>
 </code></pre></div>
@@ -1135,11 +1158,11 @@ u_t = D u_{xx}, \quad u(x, 0) = \sin\left(\frac{n\pi}{2}(x + 1)\right), \quad u(
 <p>With the Model, Geometry, Residuals, Losses, and Samples, all defined, all that is left is to train.</p>
 <p>But first, we need an <a class="autorefs autorefs-internal" title="            Optimizer" href="../../../api/dataclass/training/#pinnjax.dataclass.training_config.Optimizer"><code>Optimizer</code></a>. Like <a class="autorefs autorefs-internal" title="            Activation" href="../../../api/dataclass/networks/#pinnjax.dataclass.model_config.Activation"><code>Activation</code></a>, <a class="autorefs autorefs-internal" title="            Initialization" href="../../../api/dataclass/networks/#pinnjax.dataclass.model_config.Initialization"><code>Initialization</code></a>, mentioned in <a href="#model">Model</a>, this also is a wrapper, in this case for <a href="https://optax.readthedocs.io/en/latest/api/optimizers.html"><code>optax</code></a>.</p>
 <p>Here <code>Adam</code> is used as it is often considered one of the "default" optimizer, and, thus, a good starting point for hyperparameter optimization. A different optimizer, from this <a href="https://optax.readthedocs.io/en/latest/api/optimizers.html">list</a> can be slotted in instead, but depending on the complexity of their output and call parameters, they aren't all guaranteed to work.</p>
-<div class="language-python highlight"><pre><span></span><code>    <span class="n">scheduler</span> <span class="o">=</span> <span class="mf">0.001</span>
-    <span class="n">optimizer</span> <span class="o">=</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">Optimizer</span><span class="p">(</span>
-        <span class="n">optax</span><span class="o">.</span><span class="n">adam</span><span class="p">,</span>
-        <span class="n">kwargs</span><span class="o">=</span><span class="p">{</span><span class="s2">"learning_rate"</span><span class="p">:</span> <span class="n">scheduler</span><span class="p">,</span> <span class="s2">"b1"</span><span class="p">:</span> <span class="mf">0.9</span><span class="p">,</span> <span class="s2">"b2"</span><span class="p">:</span> <span class="mf">0.999</span><span class="p">},</span>
-    <span class="p">)</span>
+<div class="language-python highlight"><pre><span></span><code><span class="n">scheduler</span> <span class="o">=</span> <span class="mf">0.001</span>
+<span class="n">optimizer</span> <span class="o">=</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">Optimizer</span><span class="p">(</span>
+    <span class="n">optax</span><span class="o">.</span><span class="n">adam</span><span class="p">,</span>
+    <span class="n">kwargs</span><span class="o">=</span><span class="p">{</span><span class="s2">"learning_rate"</span><span class="p">:</span> <span class="n">scheduler</span><span class="p">,</span> <span class="s2">"b1"</span><span class="p">:</span> <span class="mf">0.9</span><span class="p">,</span> <span class="s2">"b2"</span><span class="p">:</span> <span class="mf">0.999</span><span class="p">},</span>
+<span class="p">)</span>
 </code></pre></div>
 <p>We aren't limited to using a scalar value for <code>learning_rate</code>, we can instead use a <em>learning rate scheduler</em> which updates throughout the training period. More information about these, and other features, can be found in the <a href="https://optax.readthedocs.io/en/latest/index.html">docs</a> for <code>optax</code>.</p>
 <div class="language-python highlight"><pre><span></span><code><span class="n">scheduler</span> <span class="o">=</span> <span class="n">optax</span><span class="o">.</span><span class="n">exponential_decay</span><span class="p">(</span>
@@ -1189,7 +1212,7 @@ u_t = D u_{xx}, \quad u(x, 0) = \sin\left(\frac{n\pi}{2}(x + 1)\right), \quad u(
     <span class="n">model</span><span class="p">,</span>
     <span class="n">geometry</span><span class="p">,</span>
     <span class="n">training</span><span class="p">,</span>
-    <span class="n">verbosity</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span>  <span class="c1"># how often (in epochs) to print the results (loss).</span>
+    <span class="n">verbosity</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>  <span class="c1"># how often (in epochs) to print the results (loss).</span>
     <span class="n">print_mode</span><span class="o">=</span><span class="s2">"class"</span><span class="p">,</span>  <span class="c1"># same as train_mode but for the print.</span>
 <span class="p">)</span>
 </code></pre></div>
@@ -1205,9 +1228,20 @@ u_t = D u_{xx}, \quad u(x, 0) = \sin\left(\frac{n\pi}{2}(x + 1)\right), \quad u(
 </code></pre></div>
 <div class="admonition figure figure">
 <p class="admonition-title">Figure</p>
-<p><img alt="samples" src="assets/loss_plot_type.png" style="display: block; margin: 0 auto; width: 90%" /></p>
+<p><img alt="samples" src="../assets/loss_plot_type.png" style="display: block; margin: 0 auto; width: 90%" /></p>
 </div>
-<p>This plot is useful, but it also allows me to visually explain some the parameters from earlier. Firstly, <code>early_stopping</code> which is why despite <code class="language-python highlight"><span class="n">epochs</span> <span class="o">=</span> <span class="mi">20000</span></code> the training stopped after 8831. This is because the model failed to improve by more than 0.01% (<code class="language-python highlight"><span class="n">rel_tolerance</span><span class="o">=</span><span class="mf">0.0001</span></code>) for more than 1000 consecutive epochs (<code class="language-python highlight"><span class="n">patience</span><span class="o">=</span><span class="mi">1000</span></code>). Additionally, you can see the effects of the learning rate scheduler.</p>
+<p>This plot is useful, but it also allows me to visually explain some the parameters from earlier. Firstly, <code>early_stopping</code> which is why despite <code class="language-python highlight"><span class="n">epochs</span> <span class="o">=</span> <span class="mi">20000</span></code> the training stopped after 8831. This is because the model failed to improve by more than 0.01% (<code class="language-python highlight"><span class="n">rel_tolerance</span><span class="o">=</span><span class="mf">0.0001</span></code>) for more than 1000 consecutive epochs (<code class="language-python highlight"><span class="n">patience</span><span class="o">=</span><span class="mi">1000</span></code>). </p>
+<div class="language-text highlight"><pre><span></span><code>Total Time    = 46.781s
+Final Loss:
+    Class:
+        Diffusion = 0.00361989
+        DiffusionBC = 0.000168309
+        DiffusionIC = 0
+    Type:
+        PartialDifferentialEquation = 0.00361989
+        BoundaryCondition = 0.000168309
+        InitialCondition = 0
+</code></pre></div>
 <h2 id="prediction">Prediction<a class="headerlink" href="#prediction" title="Permanent link">#</a></h2>
 <p>Since this was a purely-physics-informed neural network, the true solution never came into the picture, however, for the purpose of verifying out results its rather important.</p>
 <p>Luckily, there is an analytical solution:</p>
@@ -1223,7 +1257,7 @@ u(x, t) = \exp\left(-\left(\frac{n\pi}{2}\right)^2 D t\right) \sin\left(\frac{n\
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">k</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">D</span> <span class="o">*</span> <span class="n">t</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">k</span> <span class="o">*</span> <span class="p">(</span><span class="n">_x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
 </code></pre></div>
 <p>Of course, the existence of an analytical solution negates any purpose for training a surrogate, but this is a <em>simple</em> example after all.</p>
-<p>A <a class="autorefs autorefs-internal" title="            LineGrid" href="../../../api/grid/structured/#pinnjax.grid.structured.LineGrid"><code>LineGrid</code></a> is the evaluation mesh.</p>
+<p>A <a class="autorefs autorefs-internal" title="            LineGrid" href="../../../api/grid/structured/#pinnjax.grid.structured.LineGrid"><code>LineGrid</code></a> is the evaluation mesh. Considering the sampled collocation points are sparsely spanning the entire spatial-temporal domain, we can instead sample uniform points exclusively for prediction. </p>
 <div class="language-python highlight"><pre><span></span><code><span class="c1"># 7. Predicting 7a. Grid Construction Rather than our Sobol points, we can use </span>
 <span class="c1"># our model to predict using a simple grid. </span>
 <span class="c1"># </span>
@@ -1243,7 +1277,85 @@ u(x, t) = \exp\left(-\left(\frac{n\pi}{2}\right)^2 D t\right) \sin\left(\frac{n\
 <span class="n">preds</span> <span class="o">=</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">predict_evolution</span><span class="p">(</span><span class="n">_model</span><span class="p">,</span> <span class="n">_grid</span><span class="p">)</span>  
 <span class="c1"># shape: (num_times, num_points)</span>
 </code></pre></div>
-<p>Inside the animation, <a class="autorefs autorefs-internal" title="            predict_evolution" href="../../../api/predict/fields/#pinnjax.predict.evolution.predict_evolution"><code>predict_evolution()</code></a> is called with the trained model and this grid. It returns one field per time. The script animates that field against the reference and saves <code>diffusion.gif</code> when <code>SAVE</code> is true.</p>
+<p>As seen in the full script, a specific wrapper function was written to plot both the analytical and predicted solution simultaneously however, within <a class="autorefs autorefs-internal" title="            predict_evolution" href="../../../api/predict/fields/#pinnjax.predict.evolution.predict_evolution"><code>predict_evolution()</code></a> is called with the trained model and this grid. </p>
+<p>Where we can now see our visualized results. </p>
+<div class="admonition figure figure">
+<p class="admonition-title">Figure</p>
+<p><img alt="prediction" src="../assets/diffusion.gif" style="display: block; margin: 0 auto; width: 90%" /></p>
+</div>
+<p>However, this is not where the story ends, but rather the beginning.</p>
+<hr />
+<h2 id="hyperparameter-optimization">Hyperparameter Optimization<a class="headerlink" href="#hyperparameter-optimization" title="Permanent link">#</a></h2>
+<p>The purpose of <em>hyperparameter optimization</em> is to modify the parameters in such a way to optimize the results. While there are many, much more advanced and methodical ways to achieve this, none of which have been fully implemented into PINNJAX, here we will attempt 'Random Search', and simply just modify on parameter at a time, utilizing expert knowledge and luck. </p>
+<p>First, let's change the Optimizer from Adam to LBFGS. Since each epoch of LBFGS is significantly more computationally expensive compared to Adam, we've also simultaneously reduced the number of epochs to 1000. </p>
+<div class="language-python highlight"><pre><span></span><code><span class="n">optimizer</span> <span class="o">=</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">Optimizer</span><span class="p">(</span>
+    <span class="n">optax</span><span class="o">.</span><span class="n">lbfgs</span><span class="p">,</span> 
+    <span class="n">kwargs</span><span class="o">=</span><span class="p">{</span>
+        <span class="s2">"learning_rate"</span><span class="p">:</span> <span class="n">scheduler</span><span class="p">,</span>
+        <span class="s2">"memory_size"</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span>  <span class="c1"># default 10</span>
+        <span class="s2">"linesearch"</span><span class="p">:</span> <span class="n">optax</span><span class="o">.</span><span class="n">scale_by_zoom_linesearch</span><span class="p">(</span>
+            <span class="n">max_linesearch_steps</span><span class="o">=</span><span class="mi">75</span><span class="p">,</span>  <span class="c1"># default 15</span>
+            <span class="n">initial_guess_strategy</span><span class="o">=</span><span class="s2">"one"</span><span class="p">,</span>
+        <span class="p">),</span>
+    <span class="p">},</span>  <span class="c1"># recommended by documentation</span>
+<span class="p">)</span>
+</code></pre></div>
+<div class="admonition figure figure">
+<p class="admonition-title">Figure</p>
+<p><img alt="prediction" src="../assets/diffusion_lbfgs.gif" style="display: block; margin: 0 auto; width: 90%" /></p>
+</div>
+<div class="language-text highlight"><pre><span></span><code>Total Time    = 15m: 46.685s
+Final Loss:
+    Class:
+        Diffusion = 0.0121203
+        DiffusionBC = 0.000849124
+        DiffusionIC = 0
+    Type:
+        PartialDifferentialEquation = 0.0121203
+        BoundaryCondition = 0.000849124
+        InitialCondition = 0
+</code></pre></div>
+<p>It appears this version is slightly worse, both visually and numerically, and took significantly longer. However, in particular, the error seems most visually apparent at the boundaries. Considering, we've already managed to perfectly hard constrain the initial condition, it might be worth it to constrain the two Dirichlet boundaries, as well. </p>
+<p>So, let's return to the original optimizer, Adam, and add some additional constraints.</p>
+<p><div class="language-python highlight"><pre><span></span><code><span class="n">hard_ic</span> <span class="o">=</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">HardArrayInitialConstraint</span><span class="p">(</span>
+                <span class="n">times</span><span class="o">=</span><span class="n">time</span><span class="p">,</span>
+                <span class="n">initial_condition</span><span class="o">=</span><span class="n">initial_condition_fn</span>
+                <span class="p">)</span>
+<span class="n">hard_dc_left</span> <span class="o">=</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">HardDirichletConstraint</span><span class="p">(</span>
+                <span class="n">domain</span><span class="p">,</span> 
+                <span class="n">condition</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> 
+                <span class="n">side</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,)</span>
+                <span class="p">)</span>
+<span class="n">hard_dc_right</span> <span class="o">=</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">HardDirichletConstraint</span><span class="p">(</span>
+                <span class="n">domain</span><span class="p">,</span>
+                <span class="n">condition</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> 
+                <span class="n">side</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,)</span>
+                <span class="p">)</span>
+
+<span class="n">optimization</span> <span class="o">=</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">Optimization</span><span class="p">(</span>
+    <span class="n">input_transformation</span><span class="o">=</span><span class="n">pinnjax</span><span class="o">.</span><span class="n">NormalizationBetweenNeg1and1</span><span class="p">(</span><span class="n">domain</span><span class="o">=</span><span class="n">domain</span><span class="p">),</span>
+    <span class="n">output_transformation</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
+    <span class="n">hard_constraint</span><span class="o">=</span><span class="p">(</span><span class="n">hard_ic</span><span class="p">,</span> <span class="n">hard_dc_left</span><span class="p">,</span> <span class="n">hard_dc_right</span><span class="p">),</span> 
+<span class="p">)</span>
+</code></pre></div>
+Since all three of these constraints are compatible with each other they will be combined. </p>
+<div class="admonition figure figure">
+<p class="admonition-title">Figure</p>
+<p><img alt="prediction" src="../assets/diffusion_hard_constraints.gif" style="display: block; margin: 0 auto; width: 90%" /></p>
+</div>
+<div class="language-text highlight"><pre><span></span><code>Total Time    = 1m: 26.793s
+Final Loss:
+    Class:
+        Diffusion = 0.00535355
+        DiffusionBC = 3.7494e-31
+        DiffusionIC = 0
+    Type:
+        PartialDifferentialEquation = 0.00535355
+        BoundaryCondition = 3.7494e-31
+        InitialCondition = 0
+</code></pre></div>
+<p>And, thus, here we achieve the best results so far.</p>
+<hr />
 
 
 
