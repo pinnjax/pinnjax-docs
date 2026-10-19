@@ -2297,8 +2297,8 @@ The path is written to the log.</p>
 <a href="#pinnjax.utils.filesystem.create_path_folder" class="headerlink" title="Permanent link">#</a></h2>
 <div class="language-python doc-signature highlight"><pre><span></span><code><span class="nf">create_path_folder</span><span class="p">(</span>
     <span class="n">starting_path</span><span class="p">:</span> <span class="n"><span title="str">str</span></span> <span class="o">|</span> <span class="n"><span title="pathlib.Path">Path</span></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="n">initial_folder_name</span><span class="p">:</span> <span class="n"><span title="str">str</span></span> <span class="o">=</span> <span class="s2">"models"</span><span class="p">,</span>
     <span class="o">*</span><span class="n">folders</span><span class="p">:</span> <span class="n"><span title="str">str</span></span><span class="p">,</span>
+    <span class="n">initial_folder_name</span><span class="p">:</span> <span class="n"><span title="str">str</span></span> <span class="o">=</span> <span class="s2">"models"</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="pathlib.Path">Path</span></span>
 </code></pre></div>
 
@@ -2433,8 +2433,8 @@ Default: <code>"models"</code>.</p>
 <span class="normal">61</span>
 <span class="normal">62</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">create_path_folder</span><span class="p">(</span>
     <span class="n">starting_path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Path</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="n">initial_folder_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"models"</span><span class="p">,</span>
     <span class="o">*</span><span class="n">folders</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">initial_folder_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"models"</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Path</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""Create a nested folder structure.</span>
 
@@ -2479,9 +2479,9 @@ Default: <code>"models"</code>.</p>
 <a href="#pinnjax.utils.filesystem.create_model_path" class="headerlink" title="Permanent link">#</a></h2>
 <div class="language-python doc-signature highlight"><pre><span></span><code><span class="nf">create_model_path</span><span class="p">(</span>
     <span class="n">starting_path</span><span class="p">:</span> <span class="n"><span title="str">str</span></span> <span class="o">|</span> <span class="n"><span title="pathlib.Path">Path</span></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="o">*</span><span class="n">folders</span><span class="p">:</span> <span class="n"><span title="str">str</span></span><span class="p">,</span>
     <span class="n">initial_folder_name</span><span class="p">:</span> <span class="n"><span title="str">str</span></span> <span class="o">=</span> <span class="s2">"models"</span><span class="p">,</span>
     <span class="n">counting_name</span><span class="p">:</span> <span class="n"><span title="str">str</span></span> <span class="o">=</span> <span class="s2">"Model"</span><span class="p">,</span>
-    <span class="o">*</span><span class="n">folders</span><span class="p">:</span> <span class="n"><span title="str">str</span></span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="pathlib.Path">Path</span></span>
 </code></pre></div>
 
@@ -2642,11 +2642,12 @@ Default: <code>"Model"</code>.</p>
 <span class="normal">103</span>
 <span class="normal">104</span>
 <span class="normal">105</span>
-<span class="normal">106</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">create_model_path</span><span class="p">(</span>
+<span class="normal">106</span>
+<span class="normal">107</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">create_model_path</span><span class="p">(</span>
     <span class="n">starting_path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Path</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="o">*</span><span class="n">folders</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
     <span class="n">initial_folder_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"models"</span><span class="p">,</span>
     <span class="n">counting_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"Model"</span><span class="p">,</span>
-    <span class="o">*</span><span class="n">folders</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Path</span><span class="p">:</span>
     <span class="c1"># TODO: This function, and adjacent folders, need help.</span>
 <span class="w">    </span><span class="sd">"""Create a new model directory with an incremented model index.</span>
@@ -2675,15 +2676,16 @@ Default: <code>"Model"</code>.</p>
     <span class="k">if</span> <span class="n">starting_path</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">starting_path</span> <span class="o">=</span> <span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">()</span>
 
-    <span class="n">path</span> <span class="o">=</span> <span class="n">create_path_folder</span><span class="p">(</span><span class="n">starting_path</span><span class="p">,</span> <span class="n">initial_folder_name</span><span class="p">,</span> <span class="o">*</span><span class="n">folders</span><span class="p">)</span>
+    <span class="n">path</span> <span class="o">=</span> <span class="n">create_path_folder</span><span class="p">(</span>
+        <span class="n">starting_path</span><span class="p">,</span>
+        <span class="o">*</span><span class="n">folders</span><span class="p">,</span>
+        <span class="n">initial_folder_name</span><span class="o">=</span><span class="n">initial_folder_name</span><span class="p">,</span>
+    <span class="p">)</span>
 
-    <span class="c1"># folder system is such that the additional test runs are called 'Model #1', etc...</span>
-    <span class="n">models_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">p</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"#"</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">Path</span><span class="p">(</span><span class="n">path</span><span class="p">)</span><span class="o">.</span><span class="n">iterdir</span><span class="p">()</span> <span class="k">if</span> <span class="s2">"#"</span> <span class="ow">in</span> <span class="n">p</span><span class="o">.</span><span class="n">name</span><span class="p">]</span>
-
+    <span class="n">models_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">p</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"#"</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">path</span><span class="o">.</span><span class="n">iterdir</span><span class="p">()</span> <span class="k">if</span> <span class="s2">"#"</span> <span class="ow">in</span> <span class="n">p</span><span class="o">.</span><span class="n">name</span><span class="p">]</span>
     <span class="n">model_number</span> <span class="o">=</span> <span class="nb">max</span><span class="p">([</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">models_list</span><span class="p">],</span> <span class="n">default</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
-    <span class="n">name_of_folder</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">counting_name</span><span class="si">}</span><span class="s2">-#</span><span class="si">{</span><span class="n">model_number</span><span class="si">}</span><span class="s2">"</span>
 
-    <span class="k">return</span> <span class="n">create_folder</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">name_of_folder</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">create_folder</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">counting_name</span><span class="si">}</span><span class="s2">-#</span><span class="si">{</span><span class="n">model_number</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>

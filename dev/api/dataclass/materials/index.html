@@ -2380,13 +2380,13 @@
             </td>
           </tr>
           <tr class="doc-section-item">
-            <td><code><span title="pinnjax.dataclass.material.ThermalMaterial.temperature_range">temperature_range</span></code></td>
+            <td><code><span title="pinnjax.dataclass.material.ThermalMaterial.temperature_scale">temperature_scale</span></code></td>
             <td>
                   <code><span title="float">float</span> | <span title="int">int</span></code>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>Expected maximum temperature range for given material [K].</p>
+                <p>Expected temperature scale for given material [K].</p>
               </div>
             </td>
           </tr>
@@ -2402,8 +2402,7 @@
 
               <details class="mkdocstrings-source">
                 <summary>Source code in <code>pinnjax/dataclass/material.py</code></summary>
-                <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">243</span>
-<span class="normal">244</span>
+                <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">244</span>
 <span class="normal">245</span>
 <span class="normal">246</span>
 <span class="normal">247</span>
@@ -2468,7 +2467,8 @@
 <span class="normal">306</span>
 <span class="normal">307</span>
 <span class="normal">308</span>
-<span class="normal">309</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@frozen</span>
+<span class="normal">309</span>
+<span class="normal">310</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@frozen</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">ThermalMaterial</span><span class="p">(</span><span class="n">Material</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Container for the material parameters used in Metal Additive Manufacturing.</span>
 
@@ -2479,7 +2479,7 @@
 <span class="sd">        thermal_conductivity: Thermal conductivity [W/m·K].</span>
 <span class="sd">        convection_coefficient: Convective heat transfer coefficient [W/m²·K].</span>
 <span class="sd">        ambient_temperature: Ambient/environmental temperature [K].</span>
-<span class="sd">        temperature_range: Expected maximum temperature range for given material [K].</span>
+<span class="sd">        temperature_scale: Expected temperature scale for given material [K].</span>
 
 <span class="sd">    """</span>
 
@@ -2489,7 +2489,7 @@
     <span class="n">thermal_conductivity</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="nb">int</span>  <span class="c1"># W/m·K</span>
     <span class="n">convection_coefficient</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="nb">int</span>  <span class="c1"># W/m²·K</span>
     <span class="n">ambient_temperature</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="nb">int</span>  <span class="c1"># K</span>
-    <span class="n">temperature_range</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="nb">int</span>  <span class="c1"># K</span>
+    <span class="n">temperature_scale</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="nb">int</span>  <span class="c1"># K</span>
 
     <span class="n">UNITS</span><span class="p">:</span> <span class="n">ClassVar</span><span class="p">[</span><span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{</span>
         <span class="s2">"heat_capacity"</span><span class="p">:</span> <span class="s2">"J/kg·K"</span><span class="p">,</span>
@@ -2498,11 +2498,11 @@
         <span class="s2">"thermal_conductivity"</span><span class="p">:</span> <span class="s2">"W/m·K"</span><span class="p">,</span>
         <span class="s2">"convection_coefficient"</span><span class="p">:</span> <span class="s2">"W/m²·K"</span><span class="p">,</span>
         <span class="s2">"ambient_temperature"</span><span class="p">:</span> <span class="s2">"K"</span><span class="p">,</span>
-        <span class="s2">"temperature_range"</span><span class="p">:</span> <span class="s2">"K"</span><span class="p">,</span>
+        <span class="s2">"temperature_scale"</span><span class="p">:</span> <span class="s2">"K"</span><span class="p">,</span>
     <span class="p">}</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">to_string</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">indent</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">"""Return a string representation of the [`Material`][pinnjax.Material] object.</span>
+<span class="w">        </span><span class="sd">"""Return a string representation of the [`ThermalMaterial`][pinnjax.ThermalMaterial] object.</span>
 
 <span class="sd">        Args:</span>
 <span class="sd">            indent: Indentation level used for the formatted output.</span>
@@ -2518,7 +2518,7 @@
 <span class="sd">            ...    thermal_conductivity=45,</span>
 <span class="sd">            ...    convection_coefficient=20,</span>
 <span class="sd">            ...    ambient_temperature=298,</span>
-<span class="sd">            ...    temperature_range=3000,</span>
+<span class="sd">            ...    temperature_scale=3000,</span>
 <span class="sd">            ...   )</span>
 <span class="sd">            &gt;&gt;&gt; print(material)</span>
 <span class="sd">            ThermalMaterial:</span>
@@ -2528,7 +2528,7 @@
 <span class="sd">              thermal_conductivity: 45 W/m·K</span>
 <span class="sd">              convection_coefficient: 20 W/m²·K</span>
 <span class="sd">              ambient_temperature: 298 K</span>
-<span class="sd">              temperature_range: 3000 K</span>
+<span class="sd">              temperature_scale: 3000 K</span>
 
 <span class="sd">        """</span>
         <span class="k">return</span> <span class="n">_print_attrs_class</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="n">indent</span><span class="p">)</span>
@@ -2564,7 +2564,7 @@
 
     <div class="doc doc-contents ">
 
-        <p>Return a string representation of the <a class="autorefs autorefs-internal" title="            Material" href="#pinnjax.dataclass.material.Material"><code>Material</code></a> object.</p>
+        <p>Return a string representation of the <a class="autorefs autorefs-internal" title="            ThermalMaterial" href="#pinnjax.dataclass.material.ThermalMaterial"><code>ThermalMaterial</code></a> object.</p>
 
 
 <p><span class="doc-section-title">Parameters:</span></p>
@@ -2609,7 +2609,7 @@ Default: 0.</p>
 <span class="gp">... </span>   <span class="n">thermal_conductivity</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span>
 <span class="gp">... </span>   <span class="n">convection_coefficient</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
 <span class="gp">... </span>   <span class="n">ambient_temperature</span><span class="o">=</span><span class="mi">298</span><span class="p">,</span>
-<span class="gp">... </span>   <span class="n">temperature_range</span><span class="o">=</span><span class="mi">3000</span><span class="p">,</span>
+<span class="gp">... </span>   <span class="n">temperature_scale</span><span class="o">=</span><span class="mi">3000</span><span class="p">,</span>
 <span class="gp">... </span>  <span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">material</span><span class="p">)</span>
 <span class="go">ThermalMaterial:</span>
@@ -2619,14 +2619,13 @@ Default: 0.</p>
 <span class="go">  thermal_conductivity: 45 W/m·K</span>
 <span class="go">  convection_coefficient: 20 W/m²·K</span>
 <span class="go">  ambient_temperature: 298 K</span>
-<span class="go">  temperature_range: 3000 K</span>
+<span class="go">  temperature_scale: 3000 K</span>
 </code></pre></div>
 
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>pinnjax/dataclass/material.py</code></summary>
-              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">276</span>
-<span class="normal">277</span>
+              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">277</span>
 <span class="normal">278</span>
 <span class="normal">279</span>
 <span class="normal">280</span>
@@ -2655,8 +2654,9 @@ Default: 0.</p>
 <span class="normal">303</span>
 <span class="normal">304</span>
 <span class="normal">305</span>
-<span class="normal">306</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">to_string</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">indent</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">"""Return a string representation of the [`Material`][pinnjax.Material] object.</span>
+<span class="normal">306</span>
+<span class="normal">307</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">to_string</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">indent</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Return a string representation of the [`ThermalMaterial`][pinnjax.ThermalMaterial] object.</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        indent: Indentation level used for the formatted output.</span>
@@ -2672,7 +2672,7 @@ Default: 0.</p>
 <span class="sd">        ...    thermal_conductivity=45,</span>
 <span class="sd">        ...    convection_coefficient=20,</span>
 <span class="sd">        ...    ambient_temperature=298,</span>
-<span class="sd">        ...    temperature_range=3000,</span>
+<span class="sd">        ...    temperature_scale=3000,</span>
 <span class="sd">        ...   )</span>
 <span class="sd">        &gt;&gt;&gt; print(material)</span>
 <span class="sd">        ThermalMaterial:</span>
@@ -2682,7 +2682,7 @@ Default: 0.</p>
 <span class="sd">          thermal_conductivity: 45 W/m·K</span>
 <span class="sd">          convection_coefficient: 20 W/m²·K</span>
 <span class="sd">          ambient_temperature: 298 K</span>
-<span class="sd">          temperature_range: 3000 K</span>
+<span class="sd">          temperature_scale: 3000 K</span>
 
 <span class="sd">    """</span>
     <span class="k">return</span> <span class="n">_print_attrs_class</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="n">indent</span><span class="p">)</span>
@@ -2796,7 +2796,8 @@ Default: 0.</p>
 <span class="normal">232</span>
 <span class="normal">233</span>
 <span class="normal">234</span>
-<span class="normal">235</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@frozen</span>
+<span class="normal">235</span>
+<span class="normal">236</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@frozen</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">ElasticMaterial</span><span class="p">(</span><span class="n">Material</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Material with isotropic linear-elastic properties."""</span>
 
@@ -2860,6 +2861,7 @@ Default: 0.</p>
 <span class="sd">              lam_hat: 0.576923 -</span>
 <span class="sd">              lam_hat_2d: 0.32967 -</span>
 <span class="sd">              mu_hat: 0.384615 -</span>
+
 <span class="sd">        """</span>
         <span class="k">return</span> <span class="n">_print_attrs_class</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="n">indent</span><span class="p">)</span>
 
@@ -2976,7 +2978,8 @@ Default: 0.</p>
 <span class="normal">229</span>
 <span class="normal">230</span>
 <span class="normal">231</span>
-<span class="normal">232</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">to_string</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">indent</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="normal">232</span>
+<span class="normal">233</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">to_string</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">indent</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""Return a string representation of the [`Material`][pinnjax.Material] object.</span>
 
 <span class="sd">    Args:</span>
@@ -3000,6 +3003,7 @@ Default: 0.</p>
 <span class="sd">          lam_hat: 0.576923 -</span>
 <span class="sd">          lam_hat_2d: 0.32967 -</span>
 <span class="sd">          mu_hat: 0.384615 -</span>
+
 <span class="sd">    """</span>
     <span class="k">return</span> <span class="n">_print_attrs_class</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="n">indent</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
@@ -3044,9 +3048,9 @@ Default: 0.</p>
 
               <details class="mkdocstrings-source">
                 <summary>Source code in <code>pinnjax/dataclass/material.py</code></summary>
-                <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">238</span>
-<span class="normal">239</span>
-<span class="normal">240</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@frozen</span>
+                <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">239</span>
+<span class="normal">240</span>
+<span class="normal">241</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@frozen</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">Steel</span><span class="p">(</span><span class="n">ElasticMaterial</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Steel material."""</span>
 </code></pre></div></td></tr></table></div>
@@ -3160,7 +3164,8 @@ Default: 0.</p>
 <span class="normal">229</span>
 <span class="normal">230</span>
 <span class="normal">231</span>
-<span class="normal">232</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">to_string</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">indent</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="normal">232</span>
+<span class="normal">233</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">to_string</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">indent</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""Return a string representation of the [`Material`][pinnjax.Material] object.</span>
 
 <span class="sd">    Args:</span>
@@ -3184,6 +3189,7 @@ Default: 0.</p>
 <span class="sd">          lam_hat: 0.576923 -</span>
 <span class="sd">          lam_hat_2d: 0.32967 -</span>
 <span class="sd">          mu_hat: 0.384615 -</span>
+
 <span class="sd">    """</span>
     <span class="k">return</span> <span class="n">_print_attrs_class</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="n">indent</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
