@@ -55,6 +55,8 @@
     
       <link rel="stylesheet" href="../../../stylesheets/doc-strings.css">
     
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -369,6 +371,8 @@
       
         
       
+        
+      
     
     
     
@@ -423,8 +427,6 @@
   
     
     
-      
-        
       
         
       
@@ -535,66 +537,6 @@
   
 
       </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-        
-      
-    
-    
-    
-      
-      
-    
-    
-      
-        
-        
-      
-    
-    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-      
-        
-  
-  
-  
-    <a href="../../experiment/" class="md-nav__link">
-      
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Experiment
-  
-
-    
-  </span>
-  
-  
-
-      
-        <span class="md-nav__icon md-icon"></span>
-      
-    </a>
-  
-
-      
     </li>
   
 
@@ -904,7 +846,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" checked>
         
           
           <div class="md-nav__link md-nav__container">
@@ -926,14 +868,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_3_7" id="__nav_3_7_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_7_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_3_7">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_6">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -6360,7 +6302,7 @@ condition for all points in the domain. Called as <code>initial_function(u)</cod
             </td>
             <td>
               <div class="doc-md-description">
-                <p>A <a class="autorefs autorefs-internal" title="            Path" href="../../pathing/paths/#pinnjax.pathing.base.Path"><code>Path</code></a> object containing <code>.offset()</code>, <code>.get_rotation()</code>,
+                <p>A <a class="autorefs autorefs-internal" title="            Path" href="../../pathing/paths/#pinnjax.pathing.base.Path"><code>Path</code></a> object containing <code>.offset_in_local_frame()</code>
 and <code>.get_active()</code>.</p>
               </div>
             </td>
@@ -6628,16 +6570,7 @@ and <code>.get_active()</code>.</p>
 <span class="normal">301</span>
 <span class="normal">302</span>
 <span class="normal">303</span>
-<span class="normal">304</span>
-<span class="normal">305</span>
-<span class="normal">306</span>
-<span class="normal">307</span>
-<span class="normal">308</span>
-<span class="normal">309</span>
-<span class="normal">310</span>
-<span class="normal">311</span>
-<span class="normal">312</span>
-<span class="normal">313</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">GoldakHeatFlux</span><span class="p">(</span><span class="n">PartialDifferentialEquation</span><span class="p">):</span>
+<span class="normal">304</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">GoldakHeatFlux</span><span class="p">(</span><span class="n">PartialDifferentialEquation</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""[`PartialDifferentialEquation`][pinnjax.PartialDifferentialEquation] particularly for the Goldak heat flux residual.</span>
 
 <span class="sd">    Since the</span>
@@ -6651,7 +6584,7 @@ and <code>.get_active()</code>.</p>
 <span class="sd">        material: A [`ThermalMaterial`][pinnjax.ThermalMaterial] object containing `density`,</span>
 <span class="sd">            `heat_capacity`, and `thermal_conductivity`.</span>
 <span class="sd">        goldak: A [`Goldak`][pinnjax.Goldak] object.</span>
-<span class="sd">        path: A [`Path`][pinnjax.Path] object containing `.offset()`, `.get_rotation()`,</span>
+<span class="sd">        path: A [`Path`][pinnjax.Path] object containing `.offset_in_local_frame()`</span>
 <span class="sd">            and `.get_active()`.</span>
 
 <span class="sd">    """</span>
@@ -6748,38 +6681,28 @@ and <code>.get_active()</code>.</p>
 <span class="sd">            A JAX Array of the Goldak heat flux at point `u`.</span>
 
 <span class="sd">        """</span>
-        <span class="n">dx</span><span class="p">,</span> <span class="n">dy</span><span class="p">,</span> <span class="n">dz</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">offset</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
-        <span class="n">rotation</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">get_rotation</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
-        <span class="n">xi</span><span class="p">,</span> <span class="n">eta</span><span class="p">,</span> <span class="n">zeta</span> <span class="o">=</span> <span class="n">rotation</span><span class="o">.</span><span class="n">inv</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">jnp</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">dx</span><span class="p">,</span> <span class="n">dy</span><span class="p">,</span> <span class="n">dz</span><span class="p">]))</span>
-        <span class="n">mask</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">get_active</span><span class="p">(</span><span class="n">u</span><span class="p">))</span>
+        <span class="n">xi</span><span class="p">,</span> <span class="n">eta</span><span class="p">,</span> <span class="n">zeta</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">offset_in_local_frame</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
+        <span class="n">mask</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">get_active</span><span class="p">(</span><span class="n">u</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">xi</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
 
-        <span class="k">def</span><span class="w"> </span><span class="nf">_front</span><span class="p">(</span><span class="n">_</span><span class="p">:</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Array</span><span class="p">:</span>
-            <span class="n">exp_front</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span>
-                <span class="o">-</span><span class="mf">3.0</span>
-                <span class="o">*</span> <span class="p">(</span>
-                    <span class="p">(</span><span class="n">xi</span> <span class="o">*</span> <span class="n">xi</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">inv_af2</span>
-                    <span class="o">+</span> <span class="p">(</span><span class="n">eta</span> <span class="o">*</span> <span class="n">eta</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">inv_b2</span>
-                    <span class="o">+</span> <span class="p">(</span><span class="n">zeta</span> <span class="o">*</span> <span class="n">zeta</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">inv_c2</span>
-                <span class="p">),</span>
-            <span class="p">)</span>
-
-            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">front_coefficient</span> <span class="o">*</span> <span class="n">exp_front</span> <span class="o">*</span> <span class="n">mask</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">exp_front</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
-
-        <span class="k">def</span><span class="w"> </span><span class="nf">_rear</span><span class="p">(</span><span class="n">_</span><span class="p">:</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Array</span><span class="p">:</span>
-            <span class="n">exp_rear</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span>
-                <span class="o">-</span><span class="mf">3.0</span>
-                <span class="o">*</span> <span class="p">(</span>
-                    <span class="p">(</span><span class="n">xi</span> <span class="o">*</span> <span class="n">xi</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">inv_ar2</span>
-                    <span class="o">+</span> <span class="p">(</span><span class="n">eta</span> <span class="o">*</span> <span class="n">eta</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">inv_b2</span>
-                    <span class="o">+</span> <span class="p">(</span><span class="n">zeta</span> <span class="o">*</span> <span class="n">zeta</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">inv_c2</span>
-                <span class="p">),</span>
-            <span class="p">)</span>
-
-            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">rear_coefficient</span> <span class="o">*</span> <span class="n">exp_rear</span> <span class="o">*</span> <span class="n">mask</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">exp_rear</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
-
-        <span class="c1"># jax.jit compilation doesn't like conditionals (if), thus this format</span>
-        <span class="c1"># is necessary to maintain jit-compatibility.</span>
-        <span class="k">return</span> <span class="n">lax</span><span class="o">.</span><span class="n">cond</span><span class="p">(</span><span class="n">xi</span> <span class="o">&gt;=</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">_front</span><span class="p">,</span> <span class="n">_rear</span><span class="p">,</span> <span class="n">operand</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+        <span class="n">exp_front</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span>
+            <span class="o">-</span><span class="mf">3.0</span>
+            <span class="o">*</span> <span class="p">(</span>
+                <span class="p">(</span><span class="n">xi</span> <span class="o">*</span> <span class="n">xi</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">inv_af2</span>
+                <span class="o">+</span> <span class="p">(</span><span class="n">eta</span> <span class="o">*</span> <span class="n">eta</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">inv_b2</span>
+                <span class="o">+</span> <span class="p">(</span><span class="n">zeta</span> <span class="o">*</span> <span class="n">zeta</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">inv_c2</span>
+            <span class="p">),</span>
+        <span class="p">)</span>
+        <span class="n">exp_rear</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span>
+            <span class="o">-</span><span class="mf">3.0</span>
+            <span class="o">*</span> <span class="p">(</span>
+                <span class="p">(</span><span class="n">xi</span> <span class="o">*</span> <span class="n">xi</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">inv_ar2</span>
+                <span class="o">+</span> <span class="p">(</span><span class="n">eta</span> <span class="o">*</span> <span class="n">eta</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">inv_b2</span>
+                <span class="o">+</span> <span class="p">(</span><span class="n">zeta</span> <span class="o">*</span> <span class="n">zeta</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">inv_c2</span>
+            <span class="p">),</span>
+        <span class="p">)</span>
+        <span class="n">q_front</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">front_coefficient</span> <span class="o">*</span> <span class="n">exp_front</span> <span class="o">*</span> <span class="n">mask</span>
+        <span class="n">q_rear</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rear_coefficient</span> <span class="o">*</span> <span class="n">exp_rear</span> <span class="o">*</span> <span class="n">mask</span>
+        <span class="k">return</span> <span class="n">jnp</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">xi</span> <span class="o">&gt;=</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">q_front</span><span class="p">,</span> <span class="n">q_rear</span><span class="p">)</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">goldak_heat_flux</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">u</span><span class="p">:</span> <span class="n">Array</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Array</span><span class="p">:</span>
 <span class="w">        </span><span class="sa">r</span><span class="sd">"""Goldak heat flux \( Q_{\text{goldak}}(\mathbf{x}, t)\) of point \(u\).</span>
@@ -6859,11 +6782,12 @@ and <code>.get_active()</code>.</p>
 <span class="sd">                for a single point `u`.</span>
 
 <span class="sd">        """</span>
-        <span class="n">storage</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rhoCp</span> <span class="o">*</span> <span class="n">ops</span><span class="o">.</span><span class="n">evolution_derivative</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
-        <span class="n">diffusion</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">thermal_conductivity</span> <span class="o">*</span> <span class="n">ops</span><span class="o">.</span><span class="n">laplacian</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
-        <span class="n">goldak</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">goldak_heat_flux_rotate</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
-
-        <span class="k">return</span> <span class="n">storage</span> <span class="o">+</span> <span class="n">diffusion</span> <span class="o">+</span> <span class="n">goldak</span>
+        <span class="n">dTdt</span><span class="p">,</span> <span class="n">lap</span> <span class="o">=</span> <span class="n">ops</span><span class="o">.</span><span class="n">evolution_and_laplacian</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">rhoCp</span> <span class="o">*</span> <span class="n">dTdt</span>
+                <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">thermal_conductivity</span> <span class="o">*</span> <span class="n">lap</span>
+                <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">goldak_heat_flux_rotate</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
+        <span class="p">)</span>
 
     <span class="c1"># noinspection PyArgumentList</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">_residuals</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">points</span><span class="p">:</span> <span class="n">Array</span><span class="p">,</span> <span class="n">ops</span><span class="p">:</span> <span class="n">DifferentialOperators</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Array</span><span class="p">:</span>
@@ -7002,20 +6926,20 @@ for all collocation points.</p>
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>pinnjax/loss/pde.py</code></summary>
-              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">300</span>
+              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">291</span>
+<span class="normal">292</span>
+<span class="normal">293</span>
+<span class="normal">294</span>
+<span class="normal">295</span>
+<span class="normal">296</span>
+<span class="normal">297</span>
+<span class="normal">298</span>
+<span class="normal">299</span>
+<span class="normal">300</span>
 <span class="normal">301</span>
 <span class="normal">302</span>
 <span class="normal">303</span>
-<span class="normal">304</span>
-<span class="normal">305</span>
-<span class="normal">306</span>
-<span class="normal">307</span>
-<span class="normal">308</span>
-<span class="normal">309</span>
-<span class="normal">310</span>
-<span class="normal">311</span>
-<span class="normal">312</span>
-<span class="normal">313</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@eqx</span><span class="o">.</span><span class="n">filter_jit</span>
+<span class="normal">304</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@eqx</span><span class="o">.</span><span class="n">filter_jit</span>
 <span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">points</span><span class="p">:</span> <span class="n">Array</span><span class="p">,</span> <span class="n">ops</span><span class="p">:</span> <span class="n">DifferentialOperators</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Array</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""`jax.jit` compliant call to full residual calculation.</span>
 
@@ -7253,7 +7177,17 @@ for all collocation points.</p>
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>pinnjax/loss/pde.py</code></summary>
-              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">200</span>
+              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">190</span>
+<span class="normal">191</span>
+<span class="normal">192</span>
+<span class="normal">193</span>
+<span class="normal">194</span>
+<span class="normal">195</span>
+<span class="normal">196</span>
+<span class="normal">197</span>
+<span class="normal">198</span>
+<span class="normal">199</span>
+<span class="normal">200</span>
 <span class="normal">201</span>
 <span class="normal">202</span>
 <span class="normal">203</span>
@@ -7301,17 +7235,7 @@ for all collocation points.</p>
 <span class="normal">245</span>
 <span class="normal">246</span>
 <span class="normal">247</span>
-<span class="normal">248</span>
-<span class="normal">249</span>
-<span class="normal">250</span>
-<span class="normal">251</span>
-<span class="normal">252</span>
-<span class="normal">253</span>
-<span class="normal">254</span>
-<span class="normal">255</span>
-<span class="normal">256</span>
-<span class="normal">257</span>
-<span class="normal">258</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">goldak_heat_flux</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">u</span><span class="p">:</span> <span class="n">Array</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Array</span><span class="p">:</span>
+<span class="normal">248</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">goldak_heat_flux</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">u</span><span class="p">:</span> <span class="n">Array</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Array</span><span class="p">:</span>
 <span class="w">    </span><span class="sa">r</span><span class="sd">"""Goldak heat flux \( Q_{\text{goldak}}(\mathbf{x}, t)\) of point \(u\).</span>
 
 <span class="sd">    Deprecated in favor of</span>
@@ -7530,17 +7454,7 @@ then computed as:</p>
 <span class="normal">185</span>
 <span class="normal">186</span>
 <span class="normal">187</span>
-<span class="normal">188</span>
-<span class="normal">189</span>
-<span class="normal">190</span>
-<span class="normal">191</span>
-<span class="normal">192</span>
-<span class="normal">193</span>
-<span class="normal">194</span>
-<span class="normal">195</span>
-<span class="normal">196</span>
-<span class="normal">197</span>
-<span class="normal">198</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">goldak_heat_flux_rotate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">u</span><span class="p">:</span> <span class="n">Array</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Array</span><span class="p">:</span>
+<span class="normal">188</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">goldak_heat_flux_rotate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">u</span><span class="p">:</span> <span class="n">Array</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Array</span><span class="p">:</span>
 <span class="w">    </span><span class="sa">r</span><span class="sd">"""Goldak heat flux \( Q_{\text{goldak}}(\mathbf{x}, t)\) of point `u`.</span>
 
 <span class="sd">    Accounts for the rotation of the heat source along the path.</span>
@@ -7577,38 +7491,28 @@ then computed as:</p>
 <span class="sd">        A JAX Array of the Goldak heat flux at point `u`.</span>
 
 <span class="sd">    """</span>
-    <span class="n">dx</span><span class="p">,</span> <span class="n">dy</span><span class="p">,</span> <span class="n">dz</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">offset</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
-    <span class="n">rotation</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">get_rotation</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
-    <span class="n">xi</span><span class="p">,</span> <span class="n">eta</span><span class="p">,</span> <span class="n">zeta</span> <span class="o">=</span> <span class="n">rotation</span><span class="o">.</span><span class="n">inv</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">jnp</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">dx</span><span class="p">,</span> <span class="n">dy</span><span class="p">,</span> <span class="n">dz</span><span class="p">]))</span>
-    <span class="n">mask</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">get_active</span><span class="p">(</span><span class="n">u</span><span class="p">))</span>
+    <span class="n">xi</span><span class="p">,</span> <span class="n">eta</span><span class="p">,</span> <span class="n">zeta</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">offset_in_local_frame</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
+    <span class="n">mask</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">get_active</span><span class="p">(</span><span class="n">u</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">xi</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
 
-    <span class="k">def</span><span class="w"> </span><span class="nf">_front</span><span class="p">(</span><span class="n">_</span><span class="p">:</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Array</span><span class="p">:</span>
-        <span class="n">exp_front</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span>
-            <span class="o">-</span><span class="mf">3.0</span>
-            <span class="o">*</span> <span class="p">(</span>
-                <span class="p">(</span><span class="n">xi</span> <span class="o">*</span> <span class="n">xi</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">inv_af2</span>
-                <span class="o">+</span> <span class="p">(</span><span class="n">eta</span> <span class="o">*</span> <span class="n">eta</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">inv_b2</span>
-                <span class="o">+</span> <span class="p">(</span><span class="n">zeta</span> <span class="o">*</span> <span class="n">zeta</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">inv_c2</span>
-            <span class="p">),</span>
-        <span class="p">)</span>
-
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">front_coefficient</span> <span class="o">*</span> <span class="n">exp_front</span> <span class="o">*</span> <span class="n">mask</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">exp_front</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">_rear</span><span class="p">(</span><span class="n">_</span><span class="p">:</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Array</span><span class="p">:</span>
-        <span class="n">exp_rear</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span>
-            <span class="o">-</span><span class="mf">3.0</span>
-            <span class="o">*</span> <span class="p">(</span>
-                <span class="p">(</span><span class="n">xi</span> <span class="o">*</span> <span class="n">xi</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">inv_ar2</span>
-                <span class="o">+</span> <span class="p">(</span><span class="n">eta</span> <span class="o">*</span> <span class="n">eta</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">inv_b2</span>
-                <span class="o">+</span> <span class="p">(</span><span class="n">zeta</span> <span class="o">*</span> <span class="n">zeta</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">inv_c2</span>
-            <span class="p">),</span>
-        <span class="p">)</span>
-
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">rear_coefficient</span> <span class="o">*</span> <span class="n">exp_rear</span> <span class="o">*</span> <span class="n">mask</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">exp_rear</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
-
-    <span class="c1"># jax.jit compilation doesn't like conditionals (if), thus this format</span>
-    <span class="c1"># is necessary to maintain jit-compatibility.</span>
-    <span class="k">return</span> <span class="n">lax</span><span class="o">.</span><span class="n">cond</span><span class="p">(</span><span class="n">xi</span> <span class="o">&gt;=</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">_front</span><span class="p">,</span> <span class="n">_rear</span><span class="p">,</span> <span class="n">operand</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+    <span class="n">exp_front</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span>
+        <span class="o">-</span><span class="mf">3.0</span>
+        <span class="o">*</span> <span class="p">(</span>
+            <span class="p">(</span><span class="n">xi</span> <span class="o">*</span> <span class="n">xi</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">inv_af2</span>
+            <span class="o">+</span> <span class="p">(</span><span class="n">eta</span> <span class="o">*</span> <span class="n">eta</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">inv_b2</span>
+            <span class="o">+</span> <span class="p">(</span><span class="n">zeta</span> <span class="o">*</span> <span class="n">zeta</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">inv_c2</span>
+        <span class="p">),</span>
+    <span class="p">)</span>
+    <span class="n">exp_rear</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span>
+        <span class="o">-</span><span class="mf">3.0</span>
+        <span class="o">*</span> <span class="p">(</span>
+            <span class="p">(</span><span class="n">xi</span> <span class="o">*</span> <span class="n">xi</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">inv_ar2</span>
+            <span class="o">+</span> <span class="p">(</span><span class="n">eta</span> <span class="o">*</span> <span class="n">eta</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">inv_b2</span>
+            <span class="o">+</span> <span class="p">(</span><span class="n">zeta</span> <span class="o">*</span> <span class="n">zeta</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">inv_c2</span>
+        <span class="p">),</span>
+    <span class="p">)</span>
+    <span class="n">q_front</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">front_coefficient</span> <span class="o">*</span> <span class="n">exp_front</span> <span class="o">*</span> <span class="n">mask</span>
+    <span class="n">q_rear</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rear_coefficient</span> <span class="o">*</span> <span class="n">exp_rear</span> <span class="o">*</span> <span class="n">mask</span>
+    <span class="k">return</span> <span class="n">jnp</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">xi</span> <span class="o">&gt;=</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">q_front</span><span class="p">,</span> <span class="n">q_rear</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>

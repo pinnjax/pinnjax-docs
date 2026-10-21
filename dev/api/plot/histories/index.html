@@ -55,6 +55,8 @@
     
       <link rel="stylesheet" href="../../../stylesheets/doc-strings.css">
     
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -369,6 +371,8 @@
       
         
       
+        
+      
     
     
     
@@ -423,8 +427,6 @@
   
     
     
-      
-        
       
         
       
@@ -535,66 +537,6 @@
   
 
       </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-        
-      
-    
-    
-    
-      
-      
-    
-    
-      
-        
-        
-      
-    
-    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-      
-        
-  
-  
-  
-    <a href="../../experiment/" class="md-nav__link">
-      
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Experiment
-  
-
-    
-  </span>
-  
-  
-
-      
-        <span class="md-nav__icon md-icon"></span>
-      
-    </a>
-  
-
-      
     </li>
   
 
@@ -1474,7 +1416,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_16" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_15" checked>
         
           
           <div class="md-nav__link md-nav__container">
@@ -1496,14 +1438,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_3_16" id="__nav_3_16_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_3_15" id="__nav_3_15_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_16_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_3_16">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_15_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_15">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -3074,8 +3016,7 @@ width, or the model has no topology.</p>
 <span class="normal">460</span>
 <span class="normal">461</span>
 <span class="normal">462</span>
-<span class="normal">463</span>
-<span class="normal">464</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">value_over_time_plot</span><span class="p">(</span>
+<span class="normal">463</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">value_over_time_plot</span><span class="p">(</span>
     <span class="n">spatial_points</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">tuple</span> <span class="o">|</span> <span class="nb">list</span><span class="p">]</span> <span class="o">|</span> <span class="nb">tuple</span> <span class="o">|</span> <span class="nb">list</span><span class="p">,</span>
     <span class="n">model</span><span class="p">:</span> <span class="n">NeuralNetwork</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">truth</span><span class="p">:</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -3349,9 +3290,8 @@ width, or the model has no topology.</p>
             <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="n">shared_axes</span><span class="p">:</span>  <span class="c1"># plots each shared axis as a separate plot.</span>
                 <span class="n">other_axis</span> <span class="o">=</span> <span class="p">[</span><span class="n">ax</span> <span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="n">all_axis</span> <span class="k">if</span> <span class="n">ax</span> <span class="o">!=</span> <span class="n">idx</span><span class="p">]</span>
                 <span class="n">fig1</span><span class="p">,</span> <span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span>
-                    <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
                     <span class="n">constrained_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-                <span class="p">)</span>  <span class="c1"># TODO(@mjryande): not hardcoded fig-size</span>
+                <span class="p">)</span>
                 <span class="n">_style</span><span class="p">(</span><span class="n">ax1</span><span class="p">)</span>
                 <span class="n">reduced_points</span> <span class="o">=</span> <span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="n">p</span><span class="p">[:</span><span class="n">idx</span><span class="p">])</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="n">idx</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">:])</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">spatial_points</span><span class="p">]</span>
                 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">reduced_points</span><span class="p">):</span>
@@ -3952,7 +3892,8 @@ width.</p>
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>pinnjax/plot/time_series.py</code></summary>
-              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">467</span>
+              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">466</span>
+<span class="normal">467</span>
 <span class="normal">468</span>
 <span class="normal">469</span>
 <span class="normal">470</span>
@@ -4224,8 +4165,7 @@ width.</p>
 <span class="normal">736</span>
 <span class="normal">737</span>
 <span class="normal">738</span>
-<span class="normal">739</span>
-<span class="normal">740</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">value_along_path_plot</span><span class="p">(</span>
+<span class="normal">739</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">value_along_path_plot</span><span class="p">(</span>
     <span class="n">time_instances</span><span class="p">:</span> <span class="n">Iterable</span> <span class="o">|</span> <span class="nb">float</span><span class="p">,</span>
     <span class="n">path</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span>
     <span class="o">*</span><span class="p">,</span>

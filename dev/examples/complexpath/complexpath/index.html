@@ -1,0 +1,1159 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://pinnjax.github.io/pinnjax-docs/dev/examples/complexpath/complexpath/">
+      
+      
+        <link rel="prev" href="../../diffusion/diffusion/">
+      
+      
+        <link rel="next" href="../../../api/init_api/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Complex Pathing - PINN-JAX</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="../../../stylesheets/doc-strings.css">
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="red">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#complex-pathing" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="https://www.stahlbau.uni-hannover.de/de/" title="PINN-JAX" class="md-header__button md-logo" aria-label="PINN-JAX" data-md-component="logo">
+      
+  <img src="../../../assets/logo-stahlbau.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            PINN-JAX
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Complex Pathing
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="red"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="red"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/pinnjax/PINN-JAX" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    pinnjax/PINN-JAX
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  INSTALL
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../diffusion/diffusion/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  EXAMPLES
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../api/init_api/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  API Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://www.stahlbau.uni-hannover.de/de/" title="PINN-JAX" class="md-nav__button md-logo" aria-label="PINN-JAX" data-md-component="logo">
+      
+  <img src="../../../assets/logo-stahlbau.png" alt="logo">
+
+    </a>
+    PINN-JAX
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/pinnjax/PINN-JAX" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    pinnjax/PINN-JAX
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    INSTALL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    EXAMPLES
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    EXAMPLES
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../diffusion/diffusion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1D Diffusion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Complex Pathing
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Complex Pathing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of Contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of Contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#domain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Domain
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pathing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pathing
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geometry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Geometry
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sampling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sampling
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hyperparameter-exploration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hyperparameter Exploration
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../api/init_api/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Reference
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of Contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of Contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#domain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Domain
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pathing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pathing
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geometry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Geometry
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sampling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sampling
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hyperparameter-exploration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hyperparameter Exploration
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    INSTALL
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../diffusion/diffusion/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    EXAMPLES
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="complex-pathing">Complex Pathing<a class="headerlink" href="#complex-pathing" title="Permanent link">#</a></h1>
+<p>The purpose of this example is to explain the intricacies and value of the  <a class="autorefs autorefs-internal" title="            ComplexLinearPath" href="../../../api/pathing/paths/#pinnjax.pathing.complex.ComplexLinearPath"><code>ComplexLinearPath</code></a> and associated functions.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It's recommended to read all the examples in order, as previously explained portions won't be as thoroughly explained in later examples, and vice-versa concerning the content provided in this example.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Some of the function calls, particularly for the visualizations have been simplified from the call which generated the image, this is to highlight only the necessary parameters for these functions.</p>
+</div>
+<h2 id="domain">Domain<a class="headerlink" href="#domain" title="Permanent link">#</a></h2>
+<p>Starting with a 3D Domain.</p>
+<div class="language-python highlight"><pre><span></span><code><span class="n">time</span> <span class="o">=</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">Time</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">)</span>                <span class="c1"># s</span>
+<span class="n">domain</span> <span class="o">=</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">SpatialDomain</span><span class="p">(</span>
+                    <span class="nb">min</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>             <span class="c1"># m</span>
+                    <span class="nb">max</span><span class="o">=</span><span class="p">(</span><span class="mf">0.028</span><span class="p">,</span> <span class="mf">0.028</span><span class="p">,</span> <span class="mf">0.004</span><span class="p">),</span> <span class="c1"># m</span>
+                    <span class="n">times</span><span class="o">=</span><span class="n">time</span>
+                <span class="p">)</span>
+</code></pre></div>
+<p>Let's look at it.</p>
+<div class="language-python highlight"><pre><span></span><code><span class="n">domain</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+</code></pre></div>
+<div class="admonition figure">
+<p class="admonition-title">Figure</p>
+<p><img alt="domain" class="figure-image small" src="../assets/spatial_domain.png" /></p>
+</div>
+<p><em>Neat.</em></p>
+<h2 id="pathing">Pathing<a class="headerlink" href="#pathing" title="Permanent link">#</a></h2>
+<p><em>Pathing</em> grants us the ability to locate a point through time, with its initial introduction as representing the location of the laser during Metal Additive Manufacturing. However, there is no reason why it couldn't be adapted to be utilized elsewhere, perhaps the source location of a water simulation.</p>
+<p>The <a class="autorefs autorefs-internal" title="            ComplexLinearPath" href="../../../api/pathing/paths/#pinnjax.pathing.complex.ComplexLinearPath"><code>ComplexLinearPath</code></a>, as we will use, is made up of a series of linear paths connected by <code>waypoints</code>. However, for simple shapes, two generators have been provided:</p>
+<ul>
+<li><a class="autorefs autorefs-internal" title="            line_waypoint_generator" href="../../../api/pathing/generators/#pinnjax.pathing.generators.line_waypoint_generator"><code>line_waypoint_generator()</code></a>, and</li>
+<li><a class="autorefs autorefs-internal" title="            circle_waypoint_generator" href="../../../api/pathing/generators/#pinnjax.pathing.generators.circle_waypoint_generator"><code>circle_waypoint_generator()</code></a>,</li>
+</ul>
+<p>but these simply just generate waypoints in the format <code>(x, y)</code>, <code>(x, y, t)</code>, <code>(x, y, z)</code> or <code>(x, y, z, t)</code>.</p>
+<p>So, a list of coordinates can be generated, or self-made elsewhere. These are just meant to save you some time.</p>
+<p>Since it's more complex, we will use <a class="autorefs autorefs-internal" title="            circle_waypoint_generator" href="../../../api/pathing/generators/#pinnjax.pathing.generators.circle_waypoint_generator"><code>circle_waypoint_generator()</code></a> here, but you might ask yourself why we would ever want to split our line into a series of smaller lines, well that lies in <a class="autorefs autorefs-internal" title="            add_path_shape" href="../../../api/geometry/bounded/#pinnjax.geometry.bounded.BoundedBox.add_path_shape"><code>geometry.add_path_shape()</code></a> which we will get to later. However, in short, these shapes can be used to specifically sample more points in the region surrounding the 'path'. By splitting a line into smaller pieces both temporally and spatial we can better concentrate those points where they are needed.</p>
+<p>Anyway, first lets locate the center of our domain. Since, we want our laser at the top of our shape, we fix the 'z' dimension.</p>
+<div class="language-python highlight"><pre><span></span><code><span class="n">center</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="n">domain</span><span class="o">.</span><span class="n">center</span><span class="p">(</span><span class="n">fixed</span><span class="o">=</span><span class="p">{</span><span class="s2">"z"</span><span class="p">:</span> <span class="n">domain</span><span class="o">.</span><span class="n">max</span><span class="p">[</span><span class="mi">2</span><span class="p">]})</span>
+</code></pre></div>
+<p>The path in mind is two quarter-circles where the laser is off' as it traverses from one path the other. If you can't picture that, scroll down and look at the plot.</p>
+<p>For, the first half:</p>
+<div class="language-python highlight"><pre><span></span><code><span class="n">waypoints1</span> <span class="o">=</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">circle_waypoint_generator</span><span class="p">(</span>
+    <span class="n">center</span><span class="o">=</span><span class="n">center</span><span class="p">,</span>
+    <span class="n">diameter</span><span class="o">=</span><span class="mf">0.018</span><span class="p">,</span>  <span class="c1"># m  -- smaller than the full shape domain.</span>
+    <span class="n">starting_angle</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+    <span class="n">rotation_angle</span><span class="o">=</span><span class="mi">90</span><span class="p">,</span>
+    <span class="n">time</span><span class="o">=</span><span class="n">pinnjax</span><span class="o">.</span><span class="n">Time</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.3</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">),</span>
+    <span class="n">segments</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span>  <span class="c1"># 30 segments will result in 31 waypoints.</span>
+<span class="p">)</span>
+</code></pre></div>
+<p>The parameters for this function should be straightforward, but in case it isn't, we are rotating around the outer edge of a circle centered at the top and center of our domain, with a diameter of 0.0225, starting at 0° on the Unit Circle and moving 90°.</p>
+<p>If degrees scare you, you can use radians instead, just set the parameter:</p>
+<ul>
+<li><code class="language-python highlight"><span class="n">angle_units</span> <span class="o">=</span> <span class="s2">"radians"</span></code>.</li>
+</ul>
+<p>This arc is not smooth, but rather made up of 30 segments. The time will determine how fast our laser is moving. These calculations are all done internally, but a <code>speed</code> can be inputted instead, which is a uniform linear speed. Or nothing and you're left with purely spatial waypoints until a later step.</p>
+<p>Now lets draw the second half, this time starting at 270° and moving -90°:</p>
+<div class="language-python highlight"><pre><span></span><code><span class="n">waypoints2</span> <span class="o">=</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">circle_waypoint_generator</span><span class="p">(</span>
+    <span class="n">center</span><span class="o">=</span><span class="n">center</span><span class="p">,</span>
+    <span class="n">diameter</span><span class="o">=</span><span class="mf">0.018</span><span class="p">,</span>  <span class="c1"># m</span>
+    <span class="n">starting_angle</span><span class="o">=</span><span class="mi">270</span><span class="p">,</span>
+    <span class="n">rotation_angle</span><span class="o">=-</span><span class="mi">90</span><span class="p">,</span>
+    <span class="n">time</span><span class="o">=</span><span class="n">pinnjax</span><span class="o">.</span><span class="n">Time</span><span class="p">(</span><span class="mf">1.7</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">),</span>
+    <span class="n">segments</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span>
+<span class="p">)</span>
+</code></pre></div>
+<p>Now, lets combine the two.</p>
+<div class="language-python highlight"><pre><span></span><code><span class="n">waypoints</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">waypoints1</span><span class="p">,</span> <span class="n">waypoints2</span><span class="p">))</span>
+</code></pre></div>
+<p>Remember, these are both just lists of waypoints, so the once the <a class="autorefs autorefs-internal" title="            Path" href="../../../api/pathing/paths/#pinnjax.pathing.base.Path"><code>Path</code></a> is generated the connection line between the two will be included automatically. However, we planned on turning it off, so let's do that.</p>
+<div class="language-python highlight"><pre><span></span><code><span class="n">active</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">list</span> <span class="o">|</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"off"</span><span class="p">:</span> <span class="mi">31</span><span class="p">}</span>
+</code></pre></div>
+<p>The first quarter has 30 segments, the second has 30, but the connection becomes segment number 31, for a total of 61 segments.</p>
+<p>Now let's generate the <code>path_config</code>.</p>
+<div class="language-python highlight"><pre><span></span><code><span class="n">path_config</span> <span class="o">=</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">ComplexLinearPathConfig</span><span class="p">(</span>
+                            <span class="n">waypoints</span><span class="o">=</span><span class="n">waypoints</span><span class="p">,</span> 
+                            <span class="n">is_temporal</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
+                            <span class="n">active</span><span class="o">=</span><span class="n">active</span>
+<span class="p">)</span>
+</code></pre></div>
+<p>Naturally, we give it our generated waypoints, but what else?</p>
+<p>First, since waypoints could be <code>(x, y)</code>, <code>(x, y, t)</code>, <code>(x, y, z)</code> or <code>(x, y, z, t)</code> the configuration initialization has no way of knowing if the given <code>waypoints</code> already include time, thus <code>is_temporal</code> simply indicates that the final column is time. If it wasn't already temporal we could also provide a <code>speed</code> here and the temporal portion would be generated.</p>
+<p>Next, is <code>active</code>, which we have already used to turn off segment number 31, but we could also turn off multiple sections like  <code class="language-python highlight"><span class="n">active</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"off"</span><span class="p">:</span> <span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">50</span><span class="p">]}</span></code>. Naturally, you shouldn't pick numbers greater than the total number of segments in your <code>waypoints</code>. If for some reason you find yourself turning off a large number of segments, it might be more convenient to only turn on the relevant segments <code class="language-python highlight"><span class="n">active</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"on"</span><span class="p">:</span> <span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">50</span><span class="p">]}</span></code>. But, remember, the path 'source' is always moving, particularly because it is mimicking a real world mechanical device, so even <code>off</code> segments will have a calculated travel time.</p>
+<p>Then simply,</p>
+<div class="language-python highlight"><pre><span></span><code><span class="n">path</span> <span class="o">=</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">create_path</span><span class="p">(</span><span class="n">path_config</span><span class="p">)</span>
+</code></pre></div>
+<p><code>pinnjax.create_path()</code> identifies which of the three types of path config was provided <a class="autorefs autorefs-internal" title="            LinearPathConfig" href="../../../api/dataclass/paths/#pinnjax.dataclass.path_config.LinearPathConfig"><code>LinearPathConfig</code></a>, <a class="autorefs autorefs-internal" title="            CirclePathConfig" href="../../../api/dataclass/paths/#pinnjax.dataclass.path_config.CirclePathConfig"><code>CirclePathConfig</code></a>, or <a class="autorefs autorefs-internal" title="            ComplexLinearPathConfig" href="../../../api/dataclass/paths/#pinnjax.dataclass.path_config.ComplexLinearPathConfig"><code>ComplexLinearPathConfig</code></a>, and creates the appropriate <a class="autorefs autorefs-internal" title="            Path" href="../../../api/pathing/paths/#pinnjax.pathing.base.Path"><code>Path</code></a>: <a class="autorefs autorefs-internal" title="            LinearPath" href="../../../api/pathing/paths/#pinnjax.pathing.linear.LinearPath"><code>LinearPath</code></a>, <a class="autorefs autorefs-internal" title="            CirclePath" href="../../../api/pathing/paths/#pinnjax.pathing.circle.CirclePath"><code>CirclePath</code></a>, and <a class="autorefs autorefs-internal" title="            ComplexLinearPath" href="../../../api/pathing/paths/#pinnjax.pathing.complex.ComplexLinearPath"><code>ComplexLinearPath</code></a>, respectively.</p>
+<p>By creating a <a class="autorefs autorefs-internal" title="            Path" href="../../../api/pathing/paths/#pinnjax.pathing.base.Path"><code>Path</code></a>, we now have access to a number of methods, particularly helpful for verifying and visualizing our work. The previous steps internally included a number of verifications, such as ensuring the time times are consecutive, speeds are positive, etc... But, it didn't know the <a class="autorefs autorefs-internal" title="            SpatialDomain" href="../../../api/dataclass/domains/#pinnjax.dataclass.domain.SpatialDomain"><code>SpatialDomain</code></a> it was attached to, so next let's validate the path on the <code>domain</code>.</p>
+<div class="language-python highlight"><pre><span></span><code><span class="n">path</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">domain</span><span class="p">)</span>
+</code></pre></div>
+<p>The main check here is making sure that the path remains within the domain, if not you might have some sampling problems later.</p>
+<p>Next, lets visualize our <a class="autorefs autorefs-internal" title="            Path" href="../../../api/pathing/paths/#pinnjax.pathing.base.Path"><code>Path</code></a>.</p>
+<div class="language-python highlight"><pre><span></span><code><span class="n">path</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">domain</span><span class="o">=</span><span class="n">domain</span><span class="p">)</span>
+</code></pre></div>
+<div class="admonition figure figure">
+<p class="admonition-title">Figure</p>
+<p><img alt="path" class="figure-image small" src="../assets/path.png" /></p>
+</div>
+<p>It even shows when the 'source' is "off".</p>
+<p>Remember when we made used the <a class="autorefs autorefs-internal" title="            circle_waypoint_generator" href="../../../api/pathing/generators/#pinnjax.pathing.generators.circle_waypoint_generator"><code>circle_waypoint_generator()</code></a>, here is a way to verify that we used the correct degrees. Though, sorry degree-aphobes, no radians here.</p>
+<div class="language-python highlight"><pre><span></span><code><span class="n">path</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span>
+    <span class="n">domain</span><span class="o">=</span><span class="n">domain</span><span class="p">,</span>
+    <span class="n">show_angle_axes</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">center</span><span class="o">=</span><span class="n">domain</span><span class="o">.</span><span class="n">center</span><span class="p">(</span><span class="n">fixed</span><span class="o">=</span><span class="p">{</span><span class="s2">"z"</span><span class="p">:</span> <span class="mi">0</span><span class="p">}),</span>  <span class="c1"># let's put it at the bottom.</span>
+<span class="p">)</span>
+</code></pre></div>
+<div class="admonition figure figure">
+<p class="admonition-title">Figure</p>
+<p><img alt="with-axes" class="figure-image small" src="../assets/with_axes.png" /></p>
+</div>
+<p>A picture tells a thousand words, but a video is a bunch of pictures.</p>
+<p>So, let's really verify using an animation. This also helps to verify the speeds, assuming you keep that in mind when choosing the number of frames and fps, as well as the fact that different .gif viewers might play back .gifs at different speeds.</p>
+<div class="language-python highlight"><pre><span></span><code><span class="n">path</span><span class="o">.</span><span class="n">animate</span><span class="p">(</span><span class="n">domain</span><span class="o">=</span><span class="n">domain</span><span class="p">)</span>
+</code></pre></div>
+<div class="admonition figure figure">
+<p class="admonition-title">Figure</p>
+<p><img alt="path-gif" class="figure-image medium" src="../assets/path.gif" /></p>
+</div>
+<h2 id="geometry">Geometry<a class="headerlink" href="#geometry" title="Permanent link">#</a></h2>
+<p>Enough fun, back to business. Let's create a geometry from our <a class="autorefs autorefs-internal" title="            SpatialDomain" href="../../../api/dataclass/domains/#pinnjax.dataclass.domain.SpatialDomain"><code>SpatialDomain</code></a>.</p>
+<div class="language-python highlight"><pre><span></span><code><span class="n">obb</span> <span class="o">=</span> <span class="n">domain</span><span class="o">.</span><span class="n">to_obb</span><span class="p">()</span>
+</code></pre></div>
+<p>Since we are in 3 Dimensions we should use the <a class="autorefs autorefs-internal" title="            BoundedBox" href="../../../api/geometry/bounded/#pinnjax.geometry.bounded.BoundedBox"><code>BoundedBox</code></a>.</p>
+<p>A BoundedBox is defined as 7 shapes:</p>
+<ul>
+<li>A <a class="autorefs autorefs-internal" title="            Box" href="../../../api/geometry/primitives/#pinnjax.geometry.primitives.Box"><code>Box</code></a>, and,</li>
+<li>6 <a class="autorefs autorefs-internal" title="            Rectangle" href="../../../api/geometry/primitives/#pinnjax.geometry.primitives.Rectangle"><code>Rectangles</code></a> on each edge</li>
+</ul>
+<p>Plus, an additional <a class="autorefs autorefs-internal" title="            Box" href="../../../api/geometry/primitives/#pinnjax.geometry.primitives.Box"><code>Box</code></a> if <code class="language-python highlight"><span class="n">initial</span><span class="o">=</span><span class="kc">True</span></code>.</p>
+<div class="language-python highlight"><pre><span></span><code><span class="n">geometry</span> <span class="o">=</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">BoundedBox</span><span class="p">(</span><span class="o">*</span><span class="n">obb</span><span class="p">,</span> <span class="n">times</span><span class="o">=</span><span class="n">time</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="sampling">Sampling<a class="headerlink" href="#sampling" title="Permanent link">#</a></h2>
+<p>Since, the 1D diffusion example used <code class="language-python highlight"><span class="s2">"point_count"</span></code> - <a class="autorefs autorefs-internal" title="            SobolSampler" href="../../../api/sampling/samplers/#pinnjax.sampling.sobol.SobolSampler"><code>SobolSampler</code></a>, let's mix it up for a moment and use <code class="language-python highlight"><span class="s2">"grid_resolution"</span></code> - <a class="autorefs autorefs-internal" title="            UniformSampler" href="../../../api/sampling/samplers/#pinnjax.sampling.uniform.UniformSampler"><code>UniformSampler</code></a>. We can swap this out later to really highlight the modularity of PINN-JAX.</p>
+<div class="language-python highlight"><pre><span></span><code><span class="n">method</span> <span class="o">=</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">UniformSampler</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="s2">"grid_resolution"</span><span class="p">)</span>
+</code></pre></div>
+<p>Let's pick some resolutions per shape. Remember, the temporal sampling is based on the <code>step</code> set in the <a class="autorefs autorefs-internal" title="            Time" href="../../../api/dataclass/domains/#pinnjax.dataclass.time.Time"><code>Time</code></a>. Unlike with <a class="autorefs autorefs-internal" title="            SobolSampler" href="../../../api/sampling/samplers/#pinnjax.sampling.sobol.SobolSampler"><code>SobolSampler</code></a> which uses the <code>step</code> as a multiplier, there's no funny business here, the identical points are sampled throughout time.</p>
+<div class="language-python highlight"><pre><span></span><code><span class="c1"># reminder, the domain was (0.028, 0.028, 4e-3)</span>
+<span class="n">resolutions</span> <span class="o">=</span> <span class="p">[</span><span class="mf">2e-3</span><span class="p">,</span> <span class="mf">2e-3</span><span class="p">,</span> <span class="mf">2e-3</span><span class="p">,</span> <span class="mf">2e-3</span><span class="p">,</span> <span class="mf">2e-3</span><span class="p">,</span> <span class="mf">2e-3</span><span class="p">,</span> <span class="mf">2e-3</span><span class="p">]</span>
+<span class="c1"># resolutions are in the same units as the domain, not relative to it.</span>
+</code></pre></div>
+<p>Since they are all the same, we could also just do <code>resolutions = 2e-3</code>, or have assigned it directly to the <code>method</code>.</p>
+<div class="language-python highlight"><pre><span></span><code><span class="n">geometry</span><span class="o">.</span><span class="n">add_path_shape</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">radius</span><span class="o">=</span><span class="p">[</span><span class="mf">2e-3</span><span class="p">,</span> <span class="mf">2e-3</span><span class="p">,</span> <span class="mf">4e-3</span><span class="p">])</span>
+<span class="c1"># The `radius` is defined as the distance from the path, not the total size.</span>
+</code></pre></div>
+<p>Additional <a class="autorefs autorefs-internal" title="            Shape" href="../../../api/geometry/primitives/#pinnjax.geometry.base.Shape"><code>Shapes</code></a> are added under the 'source' as it travels through time. This is only currently available for <a class="autorefs autorefs-internal" title="            BoundedBox" href="../../../api/geometry/bounded/#pinnjax.geometry.bounded.BoundedBox"><code>BoundedBox</code></a>, and the additional <a class="autorefs autorefs-internal" title="            Shape" href="../../../api/geometry/primitives/#pinnjax.geometry.base.Shape"><code>Shapes</code></a> are assumed to be touching the top surface, thus it makes a ComplexShape, defined by an interior <a class="autorefs autorefs-internal" title="            Box" href="../../../api/geometry/primitives/#pinnjax.geometry.primitives.Box"><code>Box</code></a> and a <a class="autorefs autorefs-internal" title="            Rectangle" href="../../../api/geometry/primitives/#pinnjax.geometry.primitives.Rectangle"><code>Rectangle</code></a> at the top surface. This way you can assign the correct residuals to the correct points.</p>
+<div class="language-python highlight"><pre><span></span><code><span class="n">resolutions</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="mf">1e-3</span><span class="p">,</span> <span class="mf">1e-3</span><span class="p">])</span>
+</code></pre></div>
+<p>Make note: you will sample at this resolution for all segments. The more segments you add, the more points this will result in because the path shapes overlap. Granted, this is only a major concern if using "point_count", since the other two scale by domain size, and with more segments, the segments themselves are smaller.</p>
+<p>Confused? Probably. Pictures solve everything.</p>
+<div class="language-python highlight"><pre><span></span><code><span class="n">geometry</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">show_path</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div>
+<div class="admonition figure figure">
+<p class="admonition-title">Figure</p>
+<p><img alt="path-shapes" class="figure-image small" src="../assets/with_path_shapes.png" /></p>
+</div>
+<p>Now let's sample.</p>
+<div class="language-python highlight"><pre><span></span><code><span class="n">geometry</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="n">resolutions</span><span class="p">)</span>
+</code></pre></div>
+<p>Everyone likes pictures.</p>
+<div class="language-python highlight"><pre><span></span><code><span class="n">geometry</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">show_path</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">show_samples</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div>
+<div class="admonition figure figure">
+<p class="admonition-title">Figure</p>
+<p><img alt="samples-path-shapes-uniform" class="figure-image small" src="../assets/with_path_shapes_and_samples_uniform.png" /></p>
+</div>
+<p>Now, that the points are sampled, we actually don't need all of those <a class="autorefs autorefs-internal" title="            Shape" href="../../../api/geometry/primitives/#pinnjax.geometry.base.Shape"><code>Shapes</code></a>, in-fact keeping them will complicate things because we will need to assign a residual for each of them, and during 'training' we will need to loop through all of them.</p>
+<p>Currently, we have a <a class="autorefs autorefs-internal" title="            ComplexShape" href="../../../api/geometry/composites/#pinnjax.geometry.complex.ComplexShape"><code>ComplexShape</code></a> inside our <a class="autorefs autorefs-internal" title="            ComplexShape" href="../../../api/geometry/composites/#pinnjax.geometry.complex.ComplexShape"><code>ComplexShape</code></a>, which was convenient for assigning samples, but they are unnecessary. <code>.unpack()</code>, well, <em>unpacks</em> the internal <a class="autorefs autorefs-internal" title="            ComplexShape" href="../../../api/geometry/composites/#pinnjax.geometry.complex.ComplexShape"><code>ComplexShape</code></a>. Then, <code>flatten=True</code> replaces all compatible shapes with one all encompassing <a class="autorefs autorefs-internal" title="            Shape" href="../../../api/geometry/primitives/#pinnjax.geometry.base.Shape"><code>Shape</code></a>. A 'compatible' <a class="autorefs autorefs-internal" title="            Shape" href="../../../api/geometry/primitives/#pinnjax.geometry.base.Shape"><code>Shape</code></a> in this case means all the children' have the same <a class="autorefs autorefs-internal" title="            Shape" href="../../../api/geometry/primitives/#pinnjax.geometry.base.Shape"><code>Shape</code></a>, <a class="autorefs autorefs-internal" title="            Residual" href="../../../api/loss/residuals/#pinnjax.loss.residuals.Residual"><code>Residual</code></a>, and <a class="autorefs autorefs-internal" title="            Loss" href="../../../api/loss/metrics/#pinnjax.loss.metrics.Loss"><code>Loss</code></a>.</p>
+<div class="language-python highlight"><pre><span></span><code><span class="n">geometry</span><span class="o">.</span><span class="n">unpack</span><span class="p">(</span><span class="n">flatten</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div>
+<p>We could've 'unpacked' and 'flattened' prior to sampling, but the points would be sampled into the larger all encompassing shape, defeating the point of the localized path shape samples.</p>
+<p>Once again, for visual clarity:</p>
+<div class="language-python highlight"><pre><span></span><code><span class="n">geometry</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">show_path</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">show_samples</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div>
+<div class="admonition figure figure">
+<p class="admonition-title">Figure</p>
+<p><img alt="samples-uniform" class="figure-image small" src="../assets/with_samples_flattened_uniform.png" /></p>
+</div>
+<p>And here we can see the number of samples total. Notice the additional <a class="autorefs autorefs-internal" title="            Box" href="../../../api/geometry/primitives/#pinnjax.geometry.primitives.Box"><code>Box</code></a> and <a class="autorefs autorefs-internal" title="            Rectangle" href="../../../api/geometry/primitives/#pinnjax.geometry.primitives.Rectangle"><code>Rectangle</code></a>. We will need to remember them when we assign losses and residuals.</p>
+<div class="language-python highlight"><pre><span></span><code><span class="n">geometry</span><span class="o">.</span><span class="n">print_samples</span><span class="p">()</span>
+</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code>Shape 1 (Box): 4704 collocation points
+Shape 2 (Rectangle): 336 collocation points
+Shape 3 (Rectangle): 336 collocation points
+Shape 4 (Rectangle): 336 collocation points
+Shape 5 (Rectangle): 336 collocation points
+Shape 6 (Rectangle): 2352 collocation points
+Shape 7 (Rectangle): 2352 collocation points
+Shape 8 (Box): 8384 collocation points
+Shape 9 (Rectangle): 2096 collocation points
+</code></pre></div>
+<p>As always, videos are pretty cool.</p>
+<div class="language-python highlight"><pre><span></span><code><span class="n">geometry</span><span class="o">.</span><span class="n">animate</span><span class="p">(</span><span class="n">show_samples</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">show_path</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div>
+<div class="admonition figure figure">
+<p class="admonition-title">Figure</p>
+<p><img alt="samples-uniform-gif" class="figure-image medium" src="../assets/sampled_path_uniform.gif" /></p>
+</div>
+<p>And here is a version where the points from all timesteps are collectively shown.</p>
+<div class="language-python highlight"><pre><span></span><code><span class="n">geometry</span><span class="o">.</span><span class="n">animate</span><span class="p">(</span><span class="n">show_samples</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">show_path</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">additive</span><span class="o">=</span><span class="kc">True</span><span class="p">,)</span>
+</code></pre></div>
+<div class="admonition figure figure">
+<p class="admonition-title">Figure</p>
+<p><img alt="samples-uniform-additive-gif" class="figure-image medium" src="../assets/sampled_path_additive_uniform.gif" /></p>
+</div>
+<p>You'll notice the general uniform points seems to flash in and out, this is because the general points are sampled at a different temporal discretization as the points added from the path shape. To clarify, it is the same 'step_size', but the start and end points are dictated by the segmentation, so the time-discretization is not necessarily aligned.</p>
+<p>In the case of <a class="autorefs autorefs-internal" title="            UniformSampler" href="../../../api/sampling/samplers/#pinnjax.sampling.uniform.UniformSampler"><code>UniformSampler</code></a>, it this only effects the additionally sampled points since all points are repeated at each time step in the uniform case</p>
+<hr />
+<h2 id="hyperparameter-exploration">Hyperparameter Exploration<a class="headerlink" href="#hyperparameter-exploration" title="Permanent link">#</a></h2>
+<p>For something a bit more interesting, let's try this again, but with the <a class="autorefs autorefs-internal" title="            SobolSampler" href="../../../api/sampling/samplers/#pinnjax.sampling.sobol.SobolSampler"><code>SobolSampler</code></a>.</p>
+<p>Despite the fact that I've recreated the geometry and rewritten the function calls the only change in the following entire section is changing the word <em>'Uniform'</em> to <em>'Sobol'</em>.</p>
+<p>This is the point of this modular framework -- to best facilitate hyperparameter exploration.</p>
+<div class="language-python highlight"><pre><span></span><code><span class="n">geometry</span> <span class="o">=</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">BoundedBox</span><span class="p">(</span><span class="o">*</span><span class="n">obb</span><span class="p">,</span> <span class="n">times</span><span class="o">=</span><span class="n">time</span><span class="p">)</span>
+<span class="n">method</span> <span class="o">=</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">SobolSampler</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="s2">"grid_resolution"</span><span class="p">)</span>
+
+<span class="n">resolutions</span> <span class="o">=</span> <span class="p">[</span><span class="mf">2e-3</span><span class="p">,</span> <span class="mf">2e-3</span><span class="p">,</span> <span class="mf">2e-3</span><span class="p">,</span> <span class="mf">2e-3</span><span class="p">,</span> <span class="mf">2e-3</span><span class="p">,</span> <span class="mf">2e-3</span><span class="p">,</span> <span class="mf">2e-3</span><span class="p">]</span>
+
+<span class="n">geometry</span><span class="o">.</span><span class="n">add_path_shape</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">radius</span><span class="o">=</span><span class="p">[</span><span class="mf">2e-3</span><span class="p">,</span> <span class="mf">2e-3</span><span class="p">,</span> <span class="mf">4e-3</span><span class="p">])</span>
+<span class="n">resolutions</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="mf">1e-3</span><span class="p">,</span> <span class="mf">1e-3</span><span class="p">])</span>
+
+<span class="n">geometry</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="n">resolutions</span><span class="p">)</span>
+<span class="n">geometry</span><span class="o">.</span><span class="n">unpack</span><span class="p">(</span><span class="n">flatten</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">geometry</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">show_path</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">show_samples</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div>
+<div class="admonition figure figure">
+<p class="admonition-title">Figure</p>
+<p><img alt="samples-sobol" class="figure-image small" src="../assets/with_samples_sobol.png" /></p>
+</div>
+<div class="language-python highlight"><pre><span></span><code><span class="n">geometry</span><span class="o">.</span><span class="n">print_samples</span><span class="p">()</span>
+</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code>Shape 1 (Box): 1568 collocation points
+Shape 2 (Rectangle): 112 collocation points
+Shape 3 (Rectangle): 112 collocation points
+Shape 4 (Rectangle): 112 collocation points
+Shape 5 (Rectangle): 112 collocation points
+Shape 6 (Rectangle): 784 collocation points
+Shape 7 (Rectangle): 784 collocation points
+Shape 8 (Box): 2815 collocation points
+Shape 9 (Rectangle): 719 collocation points
+</code></pre></div>
+<div class="language-python highlight"><pre><span></span><code><span class="n">geometry</span><span class="o">.</span><span class="n">animate</span><span class="p">(</span><span class="n">show_samples</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">show_path</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div>
+<div class="admonition figure figure">
+<p class="admonition-title">Figure</p>
+<p><img alt="samples-sobol-gif" class="figure-image medium" src="../assets/sampled_path_sobol.gif" /></p>
+</div>
+<div class="language-python highlight"><pre><span></span><code><span class="n">geometry</span><span class="o">.</span><span class="n">animate</span><span class="p">(</span><span class="n">show_samples</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">show_path</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">additive</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div>
+<div class="admonition figure figure">
+<p class="admonition-title">Figure</p>
+<p><img alt="samples-sobol-additive-gif" class="figure-image medium" src="../assets/sampled_path_additive_sobol.gif" /></p>
+</div>
+<p>You should notice two things, first, that the <a class="autorefs autorefs-internal" title="            SobolSampler" href="../../../api/sampling/samplers/#pinnjax.sampling.sobol.SobolSampler"><code>SobolSampler</code></a> results in less points even with the same resolutions, this is because the <a class="autorefs autorefs-internal" title="            SobolSampler" href="../../../api/sampling/samplers/#pinnjax.sampling.sobol.SobolSampler"><code>SobolSampler</code></a> using <code class="language-python highlight"><span class="s2">"grid_resolution"</span></code> attempts to calculate the number of 'equivalent' uniform points, by estimating the necessary uniform points and then reducing those values by a factor dependent on the dimensionality of the sample space. The second thing you'll notice is, despite that, the Sobol points seem to better fill the spatial domain, which is the intended point of Sobol sampling.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.indexes", "navigation.tabs", "navigation.top", "navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "toc.follow", "navigation.prune", "navigation.path", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"default": "stable", "provider": "mike"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="../../../javascripts/doc-strings.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

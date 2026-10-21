@@ -55,6 +55,8 @@
     
       <link rel="stylesheet" href="../../../stylesheets/doc-strings.css">
     
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -369,6 +371,8 @@
       
         
       
+        
+      
     
     
     
@@ -423,8 +427,6 @@
   
     
     
-      
-        
       
         
       
@@ -535,66 +537,6 @@
   
 
       </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-        
-      
-    
-    
-    
-      
-      
-    
-    
-      
-        
-        
-      
-    
-    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-      
-        
-  
-  
-  
-    <a href="../../experiment/" class="md-nav__link">
-      
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Experiment
-  
-
-    
-  </span>
-  
-  
-
-      
-        <span class="md-nav__icon md-icon"></span>
-      
-    </a>
-  
-
-      
     </li>
   
 
@@ -1156,7 +1098,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_11" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_10" checked>
         
           
           <div class="md-nav__link md-nav__container">
@@ -1178,14 +1120,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_3_11" id="__nav_3_11_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_3_10" id="__nav_3_10_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_11_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_3_11">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_10_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_10">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -2807,7 +2749,22 @@
 <span class="normal">614</span>
 <span class="normal">615</span>
 <span class="normal">616</span>
-<span class="normal">617</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Path</span><span class="p">(</span><span class="n">eqx</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+<span class="normal">617</span>
+<span class="normal">618</span>
+<span class="normal">619</span>
+<span class="normal">620</span>
+<span class="normal">621</span>
+<span class="normal">622</span>
+<span class="normal">623</span>
+<span class="normal">624</span>
+<span class="normal">625</span>
+<span class="normal">626</span>
+<span class="normal">627</span>
+<span class="normal">628</span>
+<span class="normal">629</span>
+<span class="normal">630</span>
+<span class="normal">631</span>
+<span class="normal">632</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Path</span><span class="p">(</span><span class="n">eqx</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Abstract base class for all path definitions.</span>
 
 <span class="sd">    Notes:</span>
@@ -2916,6 +2873,22 @@
 <span class="sd">                Rotation.inv().apply(), to meet your specific needs.</span>
 
 <span class="sd">        """</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">offset_in_local_frame</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">u</span><span class="p">:</span> <span class="n">Array</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Array</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Return ``offset(u)`` in the path-local frame at ``u``.</span>
+
+<span class="sd">        Default implementation uses [`get_rotation`][pinnjax.pathing.base.Path.get_rotation]</span>
+<span class="sd">        and ``Rotation.inv().apply``. Subclasses may override with a cached</span>
+<span class="sd">        inverse rotation matrix for a cheaper Goldak / source evaluation.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            u: A point with spatial and temporal coordinates.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Local-frame displacement, same spatial width as ``offset(u)``.</span>
+
+<span class="sd">        """</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_rotation</span><span class="p">(</span><span class="n">u</span><span class="p">)</span><span class="o">.</span><span class="n">inv</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">offset</span><span class="p">(</span><span class="n">u</span><span class="p">))</span>
 
     <span class="nd">@abstractmethod</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">get_active</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">u</span><span class="p">:</span> <span class="n">Array</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Array</span><span class="p">:</span>
@@ -3164,7 +3137,6 @@
         <span class="n">save_location</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">save_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="s2">"path.gif"</span><span class="p">,</span>
         <span class="n">n_frames</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-        <span class="n">interval</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="mi">80</span><span class="p">,</span>
         <span class="n">fps</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="mi">15</span><span class="p">,</span>
         <span class="n">dpi</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">300</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">Figure</span><span class="p">,</span> <span class="n">Axes</span><span class="p">,</span> <span class="n">FuncAnimation</span><span class="p">]:</span>
@@ -3190,7 +3162,6 @@
 <span class="sd">            save_name: Output filename.</span>
 <span class="sd">            n_frames: Number of frames. When omitted, the time-step count is</span>
 <span class="sd">                used, clamped to the range 10 through 80.</span>
-<span class="sd">            interval: Milliseconds between frames (for display).</span>
 <span class="sd">            fps: Frames per second for saved gif.</span>
 <span class="sd">            dpi: Resolution of the saved gif.</span>
 
@@ -3373,6 +3344,8 @@
             <span class="k">return</span> <span class="p">(</span><span class="n">head_scat</span><span class="p">,)</span>
 
         <span class="c1"># blit=False so the head scatter updates every frame (blit can leave it stuck)</span>
+        <span class="n">playback_fps</span> <span class="o">=</span> <span class="mi">15</span> <span class="k">if</span> <span class="n">fps</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">fps</span>
+        <span class="n">interval</span> <span class="o">=</span> <span class="mi">1000</span> <span class="o">/</span> <span class="n">playback_fps</span>
         <span class="n">anim</span> <span class="o">=</span> <span class="n">FuncAnimation</span><span class="p">(</span>
             <span class="n">fig</span><span class="p">,</span>
             <span class="n">update</span><span class="p">,</span>
@@ -3387,8 +3360,7 @@
             <span class="n">out_dir</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="n">save_location</span><span class="p">)</span> <span class="k">if</span> <span class="n">save_location</span> <span class="k">else</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">()</span>
             <span class="n">out_dir</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
             <span class="n">out_path</span> <span class="o">=</span> <span class="n">out_dir</span> <span class="o">/</span> <span class="p">(</span><span class="n">save_name</span> <span class="ow">or</span> <span class="s2">"path.gif"</span><span class="p">)</span>
-            <span class="n">saved_fps</span> <span class="o">=</span> <span class="mi">15</span> <span class="k">if</span> <span class="n">fps</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">fps</span>
-            <span class="n">writer</span> <span class="o">=</span> <span class="n">PillowWriter</span><span class="p">(</span><span class="n">fps</span><span class="o">=</span><span class="n">saved_fps</span><span class="p">,</span> <span class="n">bitrate</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">writer</span> <span class="o">=</span> <span class="n">PillowWriter</span><span class="p">(</span><span class="n">fps</span><span class="o">=</span><span class="n">playback_fps</span><span class="p">,</span> <span class="n">bitrate</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
             <span class="n">anim</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">out_path</span><span class="p">,</span> <span class="n">writer</span><span class="o">=</span><span class="n">writer</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="n">dpi</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="n">show</span><span class="p">:</span>
@@ -3435,7 +3407,6 @@
     <span class="n">save_location</span><span class="p">:</span> <span class="n"><span title="str">str</span></span> <span class="o">|</span> <span class="n"><span title="pathlib.Path">Path</span></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">save_name</span><span class="p">:</span> <span class="n"><span title="str">str</span></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="s2">"path.gif"</span><span class="p">,</span>
     <span class="n">n_frames</span><span class="p">:</span> <span class="n"><span title="int">int</span></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="n">interval</span><span class="p">:</span> <span class="n"><span title="int">int</span></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="mi">80</span><span class="p">,</span>
     <span class="n">fps</span><span class="p">:</span> <span class="n"><span title="int">int</span></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="mi">15</span><span class="p">,</span>
     <span class="n">dpi</span><span class="p">:</span> <span class="n"><span title="int">int</span></span> <span class="o">=</span> <span class="mi">300</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="tuple">tuple</span></span><span class="p">[</span><span class="n"><span title="matplotlib.pyplot.Figure">Figure</span></span><span class="p">,</span> <span class="n"><span title="matplotlib.pyplot.Axes">Axes</span></span><span class="p">,</span> <span class="n"><span title="matplotlib.animation.FuncAnimation">FuncAnimation</span></span><span class="p">]</span>
@@ -3657,22 +3628,6 @@ used, clamped to the range 10 through 80.</p>
           </tr>
           <tr class="doc-section-item">
             <td>
-                <code>interval</code>
-            </td>
-            <td>
-                  <code><span title="int">int</span> | None</code>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>Milliseconds between frames (for display).</p>
-              </div>
-            </td>
-            <td>
-                  <code>80</code>
-            </td>
-          </tr>
-          <tr class="doc-section-item">
-            <td>
                 <code>fps</code>
             </td>
             <td>
@@ -3775,23 +3730,7 @@ used, clamped to the range 10 through 80.</p>
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>pinnjax/pathing/base.py</code></summary>
-              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">370</span>
-<span class="normal">371</span>
-<span class="normal">372</span>
-<span class="normal">373</span>
-<span class="normal">374</span>
-<span class="normal">375</span>
-<span class="normal">376</span>
-<span class="normal">377</span>
-<span class="normal">378</span>
-<span class="normal">379</span>
-<span class="normal">380</span>
-<span class="normal">381</span>
-<span class="normal">382</span>
-<span class="normal">383</span>
-<span class="normal">384</span>
-<span class="normal">385</span>
-<span class="normal">386</span>
+              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">386</span>
 <span class="normal">387</span>
 <span class="normal">388</span>
 <span class="normal">389</span>
@@ -4022,7 +3961,22 @@ used, clamped to the range 10 through 80.</p>
 <span class="normal">614</span>
 <span class="normal">615</span>
 <span class="normal">616</span>
-<span class="normal">617</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">animate</span><span class="p">(</span>
+<span class="normal">617</span>
+<span class="normal">618</span>
+<span class="normal">619</span>
+<span class="normal">620</span>
+<span class="normal">621</span>
+<span class="normal">622</span>
+<span class="normal">623</span>
+<span class="normal">624</span>
+<span class="normal">625</span>
+<span class="normal">626</span>
+<span class="normal">627</span>
+<span class="normal">628</span>
+<span class="normal">629</span>
+<span class="normal">630</span>
+<span class="normal">631</span>
+<span class="normal">632</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">animate</span><span class="p">(</span>
     <span class="bp">self</span><span class="p">,</span>
     <span class="o">*</span><span class="p">,</span>
     <span class="n">domain</span><span class="p">:</span> <span class="n">SpatialDomain</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -4037,7 +3991,6 @@ used, clamped to the range 10 through 80.</p>
     <span class="n">save_location</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">save_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="s2">"path.gif"</span><span class="p">,</span>
     <span class="n">n_frames</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="n">interval</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="mi">80</span><span class="p">,</span>
     <span class="n">fps</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="mi">15</span><span class="p">,</span>
     <span class="n">dpi</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">300</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">Figure</span><span class="p">,</span> <span class="n">Axes</span><span class="p">,</span> <span class="n">FuncAnimation</span><span class="p">]:</span>
@@ -4063,7 +4016,6 @@ used, clamped to the range 10 through 80.</p>
 <span class="sd">        save_name: Output filename.</span>
 <span class="sd">        n_frames: Number of frames. When omitted, the time-step count is</span>
 <span class="sd">            used, clamped to the range 10 through 80.</span>
-<span class="sd">        interval: Milliseconds between frames (for display).</span>
 <span class="sd">        fps: Frames per second for saved gif.</span>
 <span class="sd">        dpi: Resolution of the saved gif.</span>
 
@@ -4246,6 +4198,8 @@ used, clamped to the range 10 through 80.</p>
         <span class="k">return</span> <span class="p">(</span><span class="n">head_scat</span><span class="p">,)</span>
 
     <span class="c1"># blit=False so the head scatter updates every frame (blit can leave it stuck)</span>
+    <span class="n">playback_fps</span> <span class="o">=</span> <span class="mi">15</span> <span class="k">if</span> <span class="n">fps</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">fps</span>
+    <span class="n">interval</span> <span class="o">=</span> <span class="mi">1000</span> <span class="o">/</span> <span class="n">playback_fps</span>
     <span class="n">anim</span> <span class="o">=</span> <span class="n">FuncAnimation</span><span class="p">(</span>
         <span class="n">fig</span><span class="p">,</span>
         <span class="n">update</span><span class="p">,</span>
@@ -4260,8 +4214,7 @@ used, clamped to the range 10 through 80.</p>
         <span class="n">out_dir</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="n">save_location</span><span class="p">)</span> <span class="k">if</span> <span class="n">save_location</span> <span class="k">else</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">()</span>
         <span class="n">out_dir</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         <span class="n">out_path</span> <span class="o">=</span> <span class="n">out_dir</span> <span class="o">/</span> <span class="p">(</span><span class="n">save_name</span> <span class="ow">or</span> <span class="s2">"path.gif"</span><span class="p">)</span>
-        <span class="n">saved_fps</span> <span class="o">=</span> <span class="mi">15</span> <span class="k">if</span> <span class="n">fps</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">fps</span>
-        <span class="n">writer</span> <span class="o">=</span> <span class="n">PillowWriter</span><span class="p">(</span><span class="n">fps</span><span class="o">=</span><span class="n">saved_fps</span><span class="p">,</span> <span class="n">bitrate</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">writer</span> <span class="o">=</span> <span class="n">PillowWriter</span><span class="p">(</span><span class="n">fps</span><span class="o">=</span><span class="n">playback_fps</span><span class="p">,</span> <span class="n">bitrate</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
         <span class="n">anim</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">out_path</span><span class="p">,</span> <span class="n">writer</span><span class="o">=</span><span class="n">writer</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="n">dpi</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="n">show</span><span class="p">:</span>
@@ -4625,23 +4578,7 @@ domain is set, use domain.center(); otherwise, use path bbox center.</p>
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>pinnjax/pathing/base.py</code></summary>
-              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">209</span>
-<span class="normal">210</span>
-<span class="normal">211</span>
-<span class="normal">212</span>
-<span class="normal">213</span>
-<span class="normal">214</span>
-<span class="normal">215</span>
-<span class="normal">216</span>
-<span class="normal">217</span>
-<span class="normal">218</span>
-<span class="normal">219</span>
-<span class="normal">220</span>
-<span class="normal">221</span>
-<span class="normal">222</span>
-<span class="normal">223</span>
-<span class="normal">224</span>
-<span class="normal">225</span>
+              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">225</span>
 <span class="normal">226</span>
 <span class="normal">227</span>
 <span class="normal">228</span>
@@ -4784,7 +4721,23 @@ domain is set, use domain.center(); otherwise, use path bbox center.</p>
 <span class="normal">365</span>
 <span class="normal">366</span>
 <span class="normal">367</span>
-<span class="normal">368</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">draw</span><span class="p">(</span>
+<span class="normal">368</span>
+<span class="normal">369</span>
+<span class="normal">370</span>
+<span class="normal">371</span>
+<span class="normal">372</span>
+<span class="normal">373</span>
+<span class="normal">374</span>
+<span class="normal">375</span>
+<span class="normal">376</span>
+<span class="normal">377</span>
+<span class="normal">378</span>
+<span class="normal">379</span>
+<span class="normal">380</span>
+<span class="normal">381</span>
+<span class="normal">382</span>
+<span class="normal">383</span>
+<span class="normal">384</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">draw</span><span class="p">(</span>
     <span class="bp">self</span><span class="p">,</span>
     <span class="o">*</span><span class="p">,</span>
     <span class="n">domain</span><span class="p">:</span> <span class="n">SpatialDomain</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -5122,18 +5075,18 @@ dimension is assumed to be time.</p>
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>pinnjax/pathing/base.py</code></summary>
-              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">138</span>
-<span class="normal">139</span>
-<span class="normal">140</span>
-<span class="normal">141</span>
-<span class="normal">142</span>
-<span class="normal">143</span>
-<span class="normal">144</span>
-<span class="normal">145</span>
-<span class="normal">146</span>
-<span class="normal">147</span>
-<span class="normal">148</span>
-<span class="normal">149</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@abstractmethod</span>
+              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">154</span>
+<span class="normal">155</span>
+<span class="normal">156</span>
+<span class="normal">157</span>
+<span class="normal">158</span>
+<span class="normal">159</span>
+<span class="normal">160</span>
+<span class="normal">161</span>
+<span class="normal">162</span>
+<span class="normal">163</span>
+<span class="normal">164</span>
+<span class="normal">165</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@abstractmethod</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">get_active</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">u</span><span class="p">:</span> <span class="n">Array</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Array</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""Return whether the path is active at ``u``.</span>
 
@@ -5488,6 +5441,116 @@ is subtracted from the point's spatial coordinates.</p>
 <div class="doc doc-object doc-function">
 
 
+<h3 id="pinnjax.pathing.base.Path.offset_in_local_frame" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <span class="doc doc-object-name doc-function-name">offset_in_local_frame</span>
+
+
+<a href="#pinnjax.pathing.base.Path.offset_in_local_frame" class="headerlink" title="Permanent link">#</a></h3>
+<div class="language-python doc-signature highlight"><pre><span></span><code><span class="nf">offset_in_local_frame</span><span class="p">(</span><span class="n">u</span><span class="p">:</span> <span class="n"><span title="jax.Array">Array</span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="jax.Array">Array</span></span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Return <code>offset(u)</code> in the path-local frame at <code>u</code>.</p>
+<p>Default implementation uses <a class="autorefs autorefs-internal" title="            get_rotation" href="#pinnjax.pathing.base.Path.get_rotation"><code>get_rotation</code></a>
+and <code>Rotation.inv().apply</code>. Subclasses may override with a cached
+inverse rotation matrix for a cheaper Goldak / source evaluation.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>u</code>
+            </td>
+            <td>
+                  <code><span title="jax.Array">Array</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>A point with spatial and temporal coordinates.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="jax.Array">Array</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Local-frame displacement, same spatial width as <code>offset(u)</code>.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+            <details class="mkdocstrings-source">
+              <summary>Source code in <code>pinnjax/pathing/base.py</code></summary>
+              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">138</span>
+<span class="normal">139</span>
+<span class="normal">140</span>
+<span class="normal">141</span>
+<span class="normal">142</span>
+<span class="normal">143</span>
+<span class="normal">144</span>
+<span class="normal">145</span>
+<span class="normal">146</span>
+<span class="normal">147</span>
+<span class="normal">148</span>
+<span class="normal">149</span>
+<span class="normal">150</span>
+<span class="normal">151</span>
+<span class="normal">152</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">offset_in_local_frame</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">u</span><span class="p">:</span> <span class="n">Array</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Array</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Return ``offset(u)`` in the path-local frame at ``u``.</span>
+
+<span class="sd">    Default implementation uses [`get_rotation`][pinnjax.pathing.base.Path.get_rotation]</span>
+<span class="sd">    and ``Rotation.inv().apply``. Subclasses may override with a cached</span>
+<span class="sd">    inverse rotation matrix for a cheaper Goldak / source evaluation.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        u: A point with spatial and temporal coordinates.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Local-frame displacement, same spatial width as ``offset(u)``.</span>
+
+<span class="sd">    """</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_rotation</span><span class="p">(</span><span class="n">u</span><span class="p">)</span><span class="o">.</span><span class="n">inv</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">offset</span><span class="p">(</span><span class="n">u</span><span class="p">))</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
 <h3 id="pinnjax.pathing.base.Path.validate" class="doc doc-heading">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <span class="doc doc-object-name doc-function-name">validate</span>
 
@@ -5781,6 +5844,17 @@ temporal bounds.</p>
             </td>
           </tr>
           <tr class="doc-section-item">
+            <td><code><span title="pinnjax.pathing.linear.LinearPath.inv_rotation_matrix">inv_rotation_matrix</span></code></td>
+            <td>
+                  <code><span title="jax.Array">Array</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Inverse of <code>rotation</code> as a <code>(3, 3)</code> matrix.</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
             <td><code><span title="pinnjax.pathing.linear.LinearPath.active">active</span></code></td>
             <td>
                   <code><span title="bool">bool</span></code>
@@ -5969,7 +6043,17 @@ temporal bounds.</p>
 <span class="normal">138</span>
 <span class="normal">139</span>
 <span class="normal">140</span>
-<span class="normal">141</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">LinearPath</span><span class="p">(</span><span class="n">Path</span><span class="p">,</span> <span class="n">ABC</span><span class="p">):</span>
+<span class="normal">141</span>
+<span class="normal">142</span>
+<span class="normal">143</span>
+<span class="normal">144</span>
+<span class="normal">145</span>
+<span class="normal">146</span>
+<span class="normal">147</span>
+<span class="normal">148</span>
+<span class="normal">149</span>
+<span class="normal">150</span>
+<span class="normal">151</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">LinearPath</span><span class="p">(</span><span class="n">Path</span><span class="p">,</span> <span class="n">ABC</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Omnidirectional linear path.</span>
 
 <span class="sd">    ``velocity`` is ``speed`` times the unit direction. ``None`` for</span>
@@ -5984,6 +6068,7 @@ temporal bounds.</p>
 <span class="sd">        velocity: Directional velocity as per the ``speed`` and normalized</span>
 <span class="sd">            ``direction``.</span>
 <span class="sd">        rotation: A ``jax.scipy.spatial.transform.Rotation`` for ``direction``.</span>
+<span class="sd">        inv_rotation_matrix: Inverse of ``rotation`` as a ``(3, 3)`` matrix.</span>
 <span class="sd">        active: Whether the heat source is on. ``None`` is stored as ``True``.</span>
 <span class="sd">        config: The [`LinearPathConfig`][pinnjax.LinearPathConfig].</span>
 <span class="sd">        dimensions: ``2`` or ``3``, from ``direction``.</span>
@@ -5996,6 +6081,7 @@ temporal bounds.</p>
     <span class="n">initial</span><span class="p">:</span> <span class="n">Array</span>
     <span class="n">velocity</span><span class="p">:</span> <span class="n">Array</span>
     <span class="n">rotation</span><span class="p">:</span> <span class="n">Rotation</span>
+    <span class="n">inv_rotation_matrix</span><span class="p">:</span> <span class="n">Array</span>
     <span class="n">active</span><span class="p">:</span> <span class="nb">bool</span>
     <span class="n">config</span><span class="p">:</span> <span class="n">LinearPathConfig</span> <span class="o">=</span> <span class="n">eqx</span><span class="o">.</span><span class="n">field</span><span class="p">(</span><span class="n">static</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
@@ -6021,6 +6107,7 @@ temporal bounds.</p>
         <span class="n">active</span> <span class="o">=</span> <span class="n">path_config</span><span class="o">.</span><span class="n">active</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">active</span> <span class="o">=</span> <span class="kc">True</span> <span class="k">if</span> <span class="n">active</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">active</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">rotation</span> <span class="o">=</span> <span class="n">Path</span><span class="o">.</span><span class="n">_create_rotation</span><span class="p">(</span><span class="n">direction</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inv_rotation_matrix</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rotation</span><span class="o">.</span><span class="n">inv</span><span class="p">()</span><span class="o">.</span><span class="n">as_matrix</span><span class="p">()</span>
 
     <span class="nd">@jax</span><span class="o">.</span><span class="n">jit</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">eval</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">:</span> <span class="n">Array</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Array</span><span class="p">:</span>
@@ -6079,6 +6166,13 @@ temporal bounds.</p>
 <span class="sd">        """</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">rotation</span>
 
+    <span class="k">def</span><span class="w"> </span><span class="nf">offset_in_local_frame</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">u</span><span class="p">:</span> <span class="n">Array</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Array</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Return ``offset(u)`` using the cached inverse rotation matrix."""</span>
+        <span class="n">offset</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">offset</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">offset</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="n">offset</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">offset</span><span class="p">,</span> <span class="n">jnp</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">1</span><span class="p">,),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">offset</span><span class="o">.</span><span class="n">dtype</span><span class="p">)])</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">inv_rotation_matrix</span> <span class="o">@</span> <span class="n">offset</span>
+
     <span class="k">def</span><span class="w"> </span><span class="nf">get_active</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">u</span><span class="p">:</span> <span class="n">Array</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Array</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">"""Return the stored active flag.</span>
 
@@ -6126,9 +6220,7 @@ temporal bounds.</p>
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>pinnjax/pathing/linear.py</code></summary>
-              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">49</span>
-<span class="normal">50</span>
-<span class="normal">51</span>
+              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">51</span>
 <span class="normal">52</span>
 <span class="normal">53</span>
 <span class="normal">54</span>
@@ -6147,7 +6239,10 @@ temporal bounds.</p>
 <span class="normal">67</span>
 <span class="normal">68</span>
 <span class="normal">69</span>
-<span class="normal">70</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path_config</span><span class="p">:</span> <span class="n">LinearPathConfig</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span>
+<span class="normal">73</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path_config</span><span class="p">:</span> <span class="n">LinearPathConfig</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""Store the initial point, the velocity, and the rotation."""</span>
     <span class="n">speed</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">path_config</span><span class="o">.</span><span class="n">speed</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">get_dtype</span><span class="p">())</span>
     <span class="n">initial</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">path_config</span><span class="o">.</span><span class="n">initial</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">get_dtype</span><span class="p">())</span>
@@ -6169,6 +6264,7 @@ temporal bounds.</p>
     <span class="n">active</span> <span class="o">=</span> <span class="n">path_config</span><span class="o">.</span><span class="n">active</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">active</span> <span class="o">=</span> <span class="kc">True</span> <span class="k">if</span> <span class="n">active</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">active</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">rotation</span> <span class="o">=</span> <span class="n">Path</span><span class="o">.</span><span class="n">_create_rotation</span><span class="p">(</span><span class="n">direction</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">inv_rotation_matrix</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rotation</span><span class="o">.</span><span class="n">inv</span><span class="p">()</span><span class="o">.</span><span class="n">as_matrix</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>
@@ -6197,7 +6293,6 @@ temporal bounds.</p>
     <span class="n">save_location</span><span class="p">:</span> <span class="n"><span title="str">str</span></span> <span class="o">|</span> <span class="n"><span title="pathlib.Path">Path</span></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">save_name</span><span class="p">:</span> <span class="n"><span title="str">str</span></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="s2">"path.gif"</span><span class="p">,</span>
     <span class="n">n_frames</span><span class="p">:</span> <span class="n"><span title="int">int</span></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="n">interval</span><span class="p">:</span> <span class="n"><span title="int">int</span></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="mi">80</span><span class="p">,</span>
     <span class="n">fps</span><span class="p">:</span> <span class="n"><span title="int">int</span></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="mi">15</span><span class="p">,</span>
     <span class="n">dpi</span><span class="p">:</span> <span class="n"><span title="int">int</span></span> <span class="o">=</span> <span class="mi">300</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="tuple">tuple</span></span><span class="p">[</span><span class="n"><span title="matplotlib.pyplot.Figure">Figure</span></span><span class="p">,</span> <span class="n"><span title="matplotlib.pyplot.Axes">Axes</span></span><span class="p">,</span> <span class="n"><span title="matplotlib.animation.FuncAnimation">FuncAnimation</span></span><span class="p">]</span>
@@ -6419,22 +6514,6 @@ used, clamped to the range 10 through 80.</p>
           </tr>
           <tr class="doc-section-item">
             <td>
-                <code>interval</code>
-            </td>
-            <td>
-                  <code><span title="int">int</span> | None</code>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>Milliseconds between frames (for display).</p>
-              </div>
-            </td>
-            <td>
-                  <code>80</code>
-            </td>
-          </tr>
-          <tr class="doc-section-item">
-            <td>
                 <code>fps</code>
             </td>
             <td>
@@ -6537,23 +6616,7 @@ used, clamped to the range 10 through 80.</p>
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>pinnjax/pathing/base.py</code></summary>
-              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">370</span>
-<span class="normal">371</span>
-<span class="normal">372</span>
-<span class="normal">373</span>
-<span class="normal">374</span>
-<span class="normal">375</span>
-<span class="normal">376</span>
-<span class="normal">377</span>
-<span class="normal">378</span>
-<span class="normal">379</span>
-<span class="normal">380</span>
-<span class="normal">381</span>
-<span class="normal">382</span>
-<span class="normal">383</span>
-<span class="normal">384</span>
-<span class="normal">385</span>
-<span class="normal">386</span>
+              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">386</span>
 <span class="normal">387</span>
 <span class="normal">388</span>
 <span class="normal">389</span>
@@ -6784,7 +6847,22 @@ used, clamped to the range 10 through 80.</p>
 <span class="normal">614</span>
 <span class="normal">615</span>
 <span class="normal">616</span>
-<span class="normal">617</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">animate</span><span class="p">(</span>
+<span class="normal">617</span>
+<span class="normal">618</span>
+<span class="normal">619</span>
+<span class="normal">620</span>
+<span class="normal">621</span>
+<span class="normal">622</span>
+<span class="normal">623</span>
+<span class="normal">624</span>
+<span class="normal">625</span>
+<span class="normal">626</span>
+<span class="normal">627</span>
+<span class="normal">628</span>
+<span class="normal">629</span>
+<span class="normal">630</span>
+<span class="normal">631</span>
+<span class="normal">632</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">animate</span><span class="p">(</span>
     <span class="bp">self</span><span class="p">,</span>
     <span class="o">*</span><span class="p">,</span>
     <span class="n">domain</span><span class="p">:</span> <span class="n">SpatialDomain</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -6799,7 +6877,6 @@ used, clamped to the range 10 through 80.</p>
     <span class="n">save_location</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">save_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="s2">"path.gif"</span><span class="p">,</span>
     <span class="n">n_frames</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="n">interval</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="mi">80</span><span class="p">,</span>
     <span class="n">fps</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="mi">15</span><span class="p">,</span>
     <span class="n">dpi</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">300</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">Figure</span><span class="p">,</span> <span class="n">Axes</span><span class="p">,</span> <span class="n">FuncAnimation</span><span class="p">]:</span>
@@ -6825,7 +6902,6 @@ used, clamped to the range 10 through 80.</p>
 <span class="sd">        save_name: Output filename.</span>
 <span class="sd">        n_frames: Number of frames. When omitted, the time-step count is</span>
 <span class="sd">            used, clamped to the range 10 through 80.</span>
-<span class="sd">        interval: Milliseconds between frames (for display).</span>
 <span class="sd">        fps: Frames per second for saved gif.</span>
 <span class="sd">        dpi: Resolution of the saved gif.</span>
 
@@ -7008,6 +7084,8 @@ used, clamped to the range 10 through 80.</p>
         <span class="k">return</span> <span class="p">(</span><span class="n">head_scat</span><span class="p">,)</span>
 
     <span class="c1"># blit=False so the head scatter updates every frame (blit can leave it stuck)</span>
+    <span class="n">playback_fps</span> <span class="o">=</span> <span class="mi">15</span> <span class="k">if</span> <span class="n">fps</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">fps</span>
+    <span class="n">interval</span> <span class="o">=</span> <span class="mi">1000</span> <span class="o">/</span> <span class="n">playback_fps</span>
     <span class="n">anim</span> <span class="o">=</span> <span class="n">FuncAnimation</span><span class="p">(</span>
         <span class="n">fig</span><span class="p">,</span>
         <span class="n">update</span><span class="p">,</span>
@@ -7022,8 +7100,7 @@ used, clamped to the range 10 through 80.</p>
         <span class="n">out_dir</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="n">save_location</span><span class="p">)</span> <span class="k">if</span> <span class="n">save_location</span> <span class="k">else</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">()</span>
         <span class="n">out_dir</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         <span class="n">out_path</span> <span class="o">=</span> <span class="n">out_dir</span> <span class="o">/</span> <span class="p">(</span><span class="n">save_name</span> <span class="ow">or</span> <span class="s2">"path.gif"</span><span class="p">)</span>
-        <span class="n">saved_fps</span> <span class="o">=</span> <span class="mi">15</span> <span class="k">if</span> <span class="n">fps</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">fps</span>
-        <span class="n">writer</span> <span class="o">=</span> <span class="n">PillowWriter</span><span class="p">(</span><span class="n">fps</span><span class="o">=</span><span class="n">saved_fps</span><span class="p">,</span> <span class="n">bitrate</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">writer</span> <span class="o">=</span> <span class="n">PillowWriter</span><span class="p">(</span><span class="n">fps</span><span class="o">=</span><span class="n">playback_fps</span><span class="p">,</span> <span class="n">bitrate</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
         <span class="n">anim</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">out_path</span><span class="p">,</span> <span class="n">writer</span><span class="o">=</span><span class="n">writer</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="n">dpi</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="n">show</span><span class="p">:</span>
@@ -7387,23 +7464,7 @@ domain is set, use domain.center(); otherwise, use path bbox center.</p>
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>pinnjax/pathing/base.py</code></summary>
-              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">209</span>
-<span class="normal">210</span>
-<span class="normal">211</span>
-<span class="normal">212</span>
-<span class="normal">213</span>
-<span class="normal">214</span>
-<span class="normal">215</span>
-<span class="normal">216</span>
-<span class="normal">217</span>
-<span class="normal">218</span>
-<span class="normal">219</span>
-<span class="normal">220</span>
-<span class="normal">221</span>
-<span class="normal">222</span>
-<span class="normal">223</span>
-<span class="normal">224</span>
-<span class="normal">225</span>
+              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">225</span>
 <span class="normal">226</span>
 <span class="normal">227</span>
 <span class="normal">228</span>
@@ -7546,7 +7607,23 @@ domain is set, use domain.center(); otherwise, use path bbox center.</p>
 <span class="normal">365</span>
 <span class="normal">366</span>
 <span class="normal">367</span>
-<span class="normal">368</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">draw</span><span class="p">(</span>
+<span class="normal">368</span>
+<span class="normal">369</span>
+<span class="normal">370</span>
+<span class="normal">371</span>
+<span class="normal">372</span>
+<span class="normal">373</span>
+<span class="normal">374</span>
+<span class="normal">375</span>
+<span class="normal">376</span>
+<span class="normal">377</span>
+<span class="normal">378</span>
+<span class="normal">379</span>
+<span class="normal">380</span>
+<span class="normal">381</span>
+<span class="normal">382</span>
+<span class="normal">383</span>
+<span class="normal">384</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">draw</span><span class="p">(</span>
     <span class="bp">self</span><span class="p">,</span>
     <span class="o">*</span><span class="p">,</span>
     <span class="n">domain</span><span class="p">:</span> <span class="n">SpatialDomain</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -7786,10 +7863,7 @@ domain is set, use domain.center(); otherwise, use path bbox center.</p>
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>pinnjax/pathing/linear.py</code></summary>
-              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">72</span>
-<span class="normal">73</span>
-<span class="normal">74</span>
-<span class="normal">75</span>
+              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">75</span>
 <span class="normal">76</span>
 <span class="normal">77</span>
 <span class="normal">78</span>
@@ -7801,7 +7875,10 @@ domain is set, use domain.center(); otherwise, use path bbox center.</p>
 <span class="normal">84</span>
 <span class="normal">85</span>
 <span class="normal">86</span>
-<span class="normal">87</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@jax</span><span class="o">.</span><span class="n">jit</span>
+<span class="normal">87</span>
+<span class="normal">88</span>
+<span class="normal">89</span>
+<span class="normal">90</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@jax</span><span class="o">.</span><span class="n">jit</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">eval</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">:</span> <span class="n">Array</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Array</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""Evaluate the path for the coordinate location of the moving object at time t.</span>
 
@@ -7896,19 +7973,19 @@ domain is set, use domain.center(); otherwise, use path bbox center.</p>
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>pinnjax/pathing/linear.py</code></summary>
-              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">129</span>
-<span class="normal">130</span>
-<span class="normal">131</span>
-<span class="normal">132</span>
-<span class="normal">133</span>
-<span class="normal">134</span>
-<span class="normal">135</span>
-<span class="normal">136</span>
-<span class="normal">137</span>
-<span class="normal">138</span>
-<span class="normal">139</span>
+              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">139</span>
 <span class="normal">140</span>
-<span class="normal">141</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">get_active</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">u</span><span class="p">:</span> <span class="n">Array</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Array</span><span class="p">:</span>
+<span class="normal">141</span>
+<span class="normal">142</span>
+<span class="normal">143</span>
+<span class="normal">144</span>
+<span class="normal">145</span>
+<span class="normal">146</span>
+<span class="normal">147</span>
+<span class="normal">148</span>
+<span class="normal">149</span>
+<span class="normal">150</span>
+<span class="normal">151</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">get_active</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">u</span><span class="p">:</span> <span class="n">Array</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Array</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""Return the stored active flag.</span>
 
 <span class="sd">    ``u`` is unused. The flag comes from the config.</span>
@@ -7951,16 +8028,16 @@ pre-computed during initialization. <code>u</code> is unused.</p>
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>pinnjax/pathing/linear.py</code></summary>
-              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">118</span>
-<span class="normal">119</span>
-<span class="normal">120</span>
-<span class="normal">121</span>
+              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">121</span>
 <span class="normal">122</span>
 <span class="normal">123</span>
 <span class="normal">124</span>
 <span class="normal">125</span>
 <span class="normal">126</span>
-<span class="normal">127</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@jax</span><span class="o">.</span><span class="n">jit</span>
+<span class="normal">127</span>
+<span class="normal">128</span>
+<span class="normal">129</span>
+<span class="normal">130</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@jax</span><span class="o">.</span><span class="n">jit</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">get_rotation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">u</span><span class="p">:</span> <span class="n">Array</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Rotation</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""See [`Path.get_rotation`][pinnjax.pathing.base.Path.get_rotation].</span>
 
@@ -8000,15 +8077,15 @@ pre-computed during initialization. <code>t</code> is unused.</p>
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>pinnjax/pathing/linear.py</code></summary>
-              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">108</span>
-<span class="normal">109</span>
-<span class="normal">110</span>
-<span class="normal">111</span>
+              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">111</span>
 <span class="normal">112</span>
 <span class="normal">113</span>
 <span class="normal">114</span>
 <span class="normal">115</span>
-<span class="normal">116</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">get_velocity</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Array</span><span class="p">:</span>
+<span class="normal">116</span>
+<span class="normal">117</span>
+<span class="normal">118</span>
+<span class="normal">119</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">get_velocity</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Array</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""See [`Path.get_velocity`][pinnjax.pathing.base.Path.get_velocity].</span>
 
 <span class="sd">    Note:</span>
@@ -8099,10 +8176,7 @@ position at the point's last component. Wrapped with <code>jax.jit</code>.</p>
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>pinnjax/pathing/linear.py</code></summary>
-              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 89</span>
-<span class="normal"> 90</span>
-<span class="normal"> 91</span>
-<span class="normal"> 92</span>
+              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 92</span>
 <span class="normal"> 93</span>
 <span class="normal"> 94</span>
 <span class="normal"> 95</span>
@@ -8116,7 +8190,10 @@ position at the point's last component. Wrapped with <code>jax.jit</code>.</p>
 <span class="normal">103</span>
 <span class="normal">104</span>
 <span class="normal">105</span>
-<span class="normal">106</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@jax</span><span class="o">.</span><span class="n">jit</span>
+<span class="normal">106</span>
+<span class="normal">107</span>
+<span class="normal">108</span>
+<span class="normal">109</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@jax</span><span class="o">.</span><span class="n">jit</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">offset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">point</span><span class="p">:</span> <span class="n">Array</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Array</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""Return the offset displacement vector at the same time.</span>
 
@@ -8134,6 +8211,41 @@ position at the point's last component. Wrapped with <code>jax.jit</code>.</p>
 <span class="sd">    """</span>
     <span class="n">p</span> <span class="o">=</span> <span class="n">point</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">initial</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">p</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">initial</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">velocity</span> <span class="o">*</span> <span class="n">p</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="o">...</span><span class="p">,</span> <span class="kc">None</span><span class="p">])</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="pinnjax.pathing.linear.LinearPath.offset_in_local_frame" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <span class="doc doc-object-name doc-function-name">offset_in_local_frame</span>
+
+
+<a href="#pinnjax.pathing.linear.LinearPath.offset_in_local_frame" class="headerlink" title="Permanent link">#</a></h3>
+<div class="language-python doc-signature highlight"><pre><span></span><code><span class="nf">offset_in_local_frame</span><span class="p">(</span><span class="n">u</span><span class="p">:</span> <span class="n"><span title="jax.Array">Array</span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="jax.Array">Array</span></span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Return <code>offset(u)</code> using the cached inverse rotation matrix.</p>
+
+
+            <details class="mkdocstrings-source">
+              <summary>Source code in <code>pinnjax/pathing/linear.py</code></summary>
+              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">132</span>
+<span class="normal">133</span>
+<span class="normal">134</span>
+<span class="normal">135</span>
+<span class="normal">136</span>
+<span class="normal">137</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">offset_in_local_frame</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">u</span><span class="p">:</span> <span class="n">Array</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Array</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Return ``offset(u)`` using the cached inverse rotation matrix."""</span>
+    <span class="n">offset</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">offset</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">offset</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="n">offset</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">offset</span><span class="p">,</span> <span class="n">jnp</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">1</span><span class="p">,),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">offset</span><span class="o">.</span><span class="n">dtype</span><span class="p">)])</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">inv_rotation_matrix</span> <span class="o">@</span> <span class="n">offset</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>
@@ -8486,6 +8598,18 @@ circle. Default: <code>1000</code>.</p>
             </td>
           </tr>
           <tr class="doc-section-item">
+            <td><code><span title="pinnjax.pathing.circle.CirclePath._cached_inv_rotation_matrices">_cached_inv_rotation_matrices</span></code></td>
+            <td>
+                  <code><span title="jax.Array">Array</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Inverse rotation matrices aligned with
+<code>_cached_rotations</code>, shape <code>(num_cached_rotations, 3, 3)</code>.</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
             <td><code><span title="pinnjax.pathing.circle.CirclePath.config">config</span></code></td>
             <td>
                   <code><a class="autorefs autorefs-internal" title="            CirclePathConfig (pinnjax.dataclass.path_config.CirclePathConfig)" href="../../dataclass/paths/#pinnjax.dataclass.path_config.CirclePathConfig">CirclePathConfig</a></code>
@@ -8718,7 +8842,24 @@ instead using <a class="autorefs autorefs-internal" title="            circle_wa
 <span class="normal">214</span>
 <span class="normal">215</span>
 <span class="normal">216</span>
-<span class="normal">217</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">CirclePath</span><span class="p">(</span><span class="n">Path</span><span class="p">,</span> <span class="n">ABC</span><span class="p">):</span>
+<span class="normal">217</span>
+<span class="normal">218</span>
+<span class="normal">219</span>
+<span class="normal">220</span>
+<span class="normal">221</span>
+<span class="normal">222</span>
+<span class="normal">223</span>
+<span class="normal">224</span>
+<span class="normal">225</span>
+<span class="normal">226</span>
+<span class="normal">227</span>
+<span class="normal">228</span>
+<span class="normal">229</span>
+<span class="normal">230</span>
+<span class="normal">231</span>
+<span class="normal">232</span>
+<span class="normal">233</span>
+<span class="normal">234</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">CirclePath</span><span class="p">(</span><span class="n">Path</span><span class="p">,</span> <span class="n">ABC</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Circle path around a fixed center.</span>
 
 <span class="sd">    The circle is in the xy plane. A 3D center keeps its z coordinate.</span>
@@ -8738,6 +8879,8 @@ instead using <a class="autorefs autorefs-internal" title="            circle_wa
 <span class="sd">        initial_angle: Starting angle, passed into ``cos`` and ``sin``.</span>
 <span class="sd">        active: Whether the path is active. ``None`` is stored as ``True``.</span>
 <span class="sd">        num_cached_rotations: Size of the rotation cache.</span>
+<span class="sd">        _cached_inv_rotation_matrices: Inverse rotation matrices aligned with</span>
+<span class="sd">            ``_cached_rotations``, shape ``(num_cached_rotations, 3, 3)``.</span>
 <span class="sd">        config: The [`CirclePathConfig`][pinnjax.CirclePathConfig].</span>
 <span class="sd">        dimensions: ``2`` or ``3``, from ``center``.</span>
 
@@ -8755,6 +8898,7 @@ instead using <a class="autorefs autorefs-internal" title="            circle_wa
 
     <span class="n">_cached_angles</span><span class="p">:</span> <span class="n">Array</span>
     <span class="n">_cached_rotations</span><span class="p">:</span> <span class="n">Array</span>
+    <span class="n">_cached_inv_rotation_matrices</span><span class="p">:</span> <span class="n">Array</span>
     <span class="n">num_cached_rotations</span><span class="p">:</span> <span class="nb">int</span>
 
     <span class="n">config</span><span class="p">:</span> <span class="n">CirclePathConfig</span> <span class="o">=</span> <span class="n">eqx</span><span class="o">.</span><span class="n">field</span><span class="p">(</span><span class="n">static</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -8792,6 +8936,9 @@ instead using <a class="autorefs autorefs-internal" title="            circle_wa
         <span class="p">)</span>
         <span class="n">rotations_batch</span> <span class="o">=</span> <span class="n">vmapped_rotation_fn</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_cached_angles</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_cached_rotations</span> <span class="o">=</span> <span class="n">rotations_batch</span><span class="o">.</span><span class="n">as_quat</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cached_inv_rotation_matrices</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">vmap</span><span class="p">(</span><span class="k">lambda</span> <span class="n">r</span><span class="p">:</span> <span class="n">r</span><span class="o">.</span><span class="n">inv</span><span class="p">()</span><span class="o">.</span><span class="n">as_matrix</span><span class="p">())(</span>
+            <span class="n">rotations_batch</span><span class="p">,</span>
+        <span class="p">)</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">__check_init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">"""Check that the radius is positive and the center is 2D or 3D.</span>
@@ -8851,6 +8998,17 @@ instead using <a class="autorefs autorefs-internal" title="            circle_wa
 
         <span class="c1"># Explicitly return a Rotation object</span>
         <span class="k">return</span> <span class="n">Rotation</span><span class="o">.</span><span class="n">from_quat</span><span class="p">(</span><span class="n">cached_quaternion</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">offset_in_local_frame</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">u</span><span class="p">:</span> <span class="n">Array</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Array</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Return ``offset(u)`` using the cached inverse rotation matrix."""</span>
+        <span class="n">t</span> <span class="o">=</span> <span class="n">u</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">current_angle</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">angular_speed</span> <span class="o">*</span> <span class="n">t</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">initial_angle</span>
+        <span class="n">normalized_angle</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">mod</span><span class="p">(</span><span class="n">current_angle</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">jnp</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+        <span class="n">idx</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">jnp</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_cached_angles</span> <span class="o">-</span> <span class="n">normalized_angle</span><span class="p">))</span>
+        <span class="n">offset</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">offset</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">offset</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="n">offset</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">offset</span><span class="p">,</span> <span class="n">jnp</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">1</span><span class="p">,),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">offset</span><span class="o">.</span><span class="n">dtype</span><span class="p">)])</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cached_inv_rotation_matrices</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">@</span> <span class="n">offset</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">get_active</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">u</span><span class="p">:</span> <span class="n">Array</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Array</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">"""Return the stored active flag.</span>
@@ -8971,13 +9129,7 @@ not a 1D coordinate of length 2 or 3.</p>
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>pinnjax/pathing/circle.py</code></summary>
-              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 98</span>
-<span class="normal"> 99</span>
-<span class="normal">100</span>
-<span class="normal">101</span>
-<span class="normal">102</span>
-<span class="normal">103</span>
-<span class="normal">104</span>
+              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">104</span>
 <span class="normal">105</span>
 <span class="normal">106</span>
 <span class="normal">107</span>
@@ -8990,7 +9142,13 @@ not a 1D coordinate of length 2 or 3.</p>
 <span class="normal">114</span>
 <span class="normal">115</span>
 <span class="normal">116</span>
-<span class="normal">117</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">__check_init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="normal">117</span>
+<span class="normal">118</span>
+<span class="normal">119</span>
+<span class="normal">120</span>
+<span class="normal">121</span>
+<span class="normal">122</span>
+<span class="normal">123</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">__check_init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""Check that the radius is positive and the center is 2D or 3D.</span>
 
 <span class="sd">    Raises:</span>
@@ -9037,39 +9195,42 @@ not a 1D coordinate of length 2 or 3.</p>
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>pinnjax/pathing/circle.py</code></summary>
-              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">64</span>
-<span class="normal">65</span>
-<span class="normal">66</span>
-<span class="normal">67</span>
-<span class="normal">68</span>
-<span class="normal">69</span>
-<span class="normal">70</span>
-<span class="normal">71</span>
-<span class="normal">72</span>
-<span class="normal">73</span>
-<span class="normal">74</span>
-<span class="normal">75</span>
-<span class="normal">76</span>
-<span class="normal">77</span>
-<span class="normal">78</span>
-<span class="normal">79</span>
-<span class="normal">80</span>
-<span class="normal">81</span>
-<span class="normal">82</span>
-<span class="normal">83</span>
-<span class="normal">84</span>
-<span class="normal">85</span>
-<span class="normal">86</span>
-<span class="normal">87</span>
-<span class="normal">88</span>
-<span class="normal">89</span>
-<span class="normal">90</span>
-<span class="normal">91</span>
-<span class="normal">92</span>
-<span class="normal">93</span>
-<span class="normal">94</span>
-<span class="normal">95</span>
-<span class="normal">96</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 67</span>
+<span class="normal"> 68</span>
+<span class="normal"> 69</span>
+<span class="normal"> 70</span>
+<span class="normal"> 71</span>
+<span class="normal"> 72</span>
+<span class="normal"> 73</span>
+<span class="normal"> 74</span>
+<span class="normal"> 75</span>
+<span class="normal"> 76</span>
+<span class="normal"> 77</span>
+<span class="normal"> 78</span>
+<span class="normal"> 79</span>
+<span class="normal"> 80</span>
+<span class="normal"> 81</span>
+<span class="normal"> 82</span>
+<span class="normal"> 83</span>
+<span class="normal"> 84</span>
+<span class="normal"> 85</span>
+<span class="normal"> 86</span>
+<span class="normal"> 87</span>
+<span class="normal"> 88</span>
+<span class="normal"> 89</span>
+<span class="normal"> 90</span>
+<span class="normal"> 91</span>
+<span class="normal"> 92</span>
+<span class="normal"> 93</span>
+<span class="normal"> 94</span>
+<span class="normal"> 95</span>
+<span class="normal"> 96</span>
+<span class="normal"> 97</span>
+<span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span>
+<span class="normal">102</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
     <span class="bp">self</span><span class="p">,</span>
     <span class="n">path_config</span><span class="p">:</span> <span class="n">CirclePathConfig</span><span class="p">,</span>
     <span class="n">num_cached_rotations</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">,</span>
@@ -9102,6 +9263,9 @@ not a 1D coordinate of length 2 or 3.</p>
     <span class="p">)</span>
     <span class="n">rotations_batch</span> <span class="o">=</span> <span class="n">vmapped_rotation_fn</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_cached_angles</span><span class="p">)</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">_cached_rotations</span> <span class="o">=</span> <span class="n">rotations_batch</span><span class="o">.</span><span class="n">as_quat</span><span class="p">()</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_cached_inv_rotation_matrices</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">vmap</span><span class="p">(</span><span class="k">lambda</span> <span class="n">r</span><span class="p">:</span> <span class="n">r</span><span class="o">.</span><span class="n">inv</span><span class="p">()</span><span class="o">.</span><span class="n">as_matrix</span><span class="p">())(</span>
+        <span class="n">rotations_batch</span><span class="p">,</span>
+    <span class="p">)</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>
@@ -9130,7 +9294,6 @@ not a 1D coordinate of length 2 or 3.</p>
     <span class="n">save_location</span><span class="p">:</span> <span class="n"><span title="str">str</span></span> <span class="o">|</span> <span class="n"><span title="pathlib.Path">Path</span></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">save_name</span><span class="p">:</span> <span class="n"><span title="str">str</span></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="s2">"path.gif"</span><span class="p">,</span>
     <span class="n">n_frames</span><span class="p">:</span> <span class="n"><span title="int">int</span></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="n">interval</span><span class="p">:</span> <span class="n"><span title="int">int</span></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="mi">80</span><span class="p">,</span>
     <span class="n">fps</span><span class="p">:</span> <span class="n"><span title="int">int</span></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="mi">15</span><span class="p">,</span>
     <span class="n">dpi</span><span class="p">:</span> <span class="n"><span title="int">int</span></span> <span class="o">=</span> <span class="mi">300</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="tuple">tuple</span></span><span class="p">[</span><span class="n"><span title="matplotlib.pyplot.Figure">Figure</span></span><span class="p">,</span> <span class="n"><span title="matplotlib.pyplot.Axes">Axes</span></span><span class="p">,</span> <span class="n"><span title="matplotlib.animation.FuncAnimation">FuncAnimation</span></span><span class="p">]</span>
@@ -9352,22 +9515,6 @@ used, clamped to the range 10 through 80.</p>
           </tr>
           <tr class="doc-section-item">
             <td>
-                <code>interval</code>
-            </td>
-            <td>
-                  <code><span title="int">int</span> | None</code>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>Milliseconds between frames (for display).</p>
-              </div>
-            </td>
-            <td>
-                  <code>80</code>
-            </td>
-          </tr>
-          <tr class="doc-section-item">
-            <td>
                 <code>fps</code>
             </td>
             <td>
@@ -9470,23 +9617,7 @@ used, clamped to the range 10 through 80.</p>
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>pinnjax/pathing/base.py</code></summary>
-              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">370</span>
-<span class="normal">371</span>
-<span class="normal">372</span>
-<span class="normal">373</span>
-<span class="normal">374</span>
-<span class="normal">375</span>
-<span class="normal">376</span>
-<span class="normal">377</span>
-<span class="normal">378</span>
-<span class="normal">379</span>
-<span class="normal">380</span>
-<span class="normal">381</span>
-<span class="normal">382</span>
-<span class="normal">383</span>
-<span class="normal">384</span>
-<span class="normal">385</span>
-<span class="normal">386</span>
+              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">386</span>
 <span class="normal">387</span>
 <span class="normal">388</span>
 <span class="normal">389</span>
@@ -9717,7 +9848,22 @@ used, clamped to the range 10 through 80.</p>
 <span class="normal">614</span>
 <span class="normal">615</span>
 <span class="normal">616</span>
-<span class="normal">617</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">animate</span><span class="p">(</span>
+<span class="normal">617</span>
+<span class="normal">618</span>
+<span class="normal">619</span>
+<span class="normal">620</span>
+<span class="normal">621</span>
+<span class="normal">622</span>
+<span class="normal">623</span>
+<span class="normal">624</span>
+<span class="normal">625</span>
+<span class="normal">626</span>
+<span class="normal">627</span>
+<span class="normal">628</span>
+<span class="normal">629</span>
+<span class="normal">630</span>
+<span class="normal">631</span>
+<span class="normal">632</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">animate</span><span class="p">(</span>
     <span class="bp">self</span><span class="p">,</span>
     <span class="o">*</span><span class="p">,</span>
     <span class="n">domain</span><span class="p">:</span> <span class="n">SpatialDomain</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -9732,7 +9878,6 @@ used, clamped to the range 10 through 80.</p>
     <span class="n">save_location</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">save_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="s2">"path.gif"</span><span class="p">,</span>
     <span class="n">n_frames</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="n">interval</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="mi">80</span><span class="p">,</span>
     <span class="n">fps</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="mi">15</span><span class="p">,</span>
     <span class="n">dpi</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">300</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">Figure</span><span class="p">,</span> <span class="n">Axes</span><span class="p">,</span> <span class="n">FuncAnimation</span><span class="p">]:</span>
@@ -9758,7 +9903,6 @@ used, clamped to the range 10 through 80.</p>
 <span class="sd">        save_name: Output filename.</span>
 <span class="sd">        n_frames: Number of frames. When omitted, the time-step count is</span>
 <span class="sd">            used, clamped to the range 10 through 80.</span>
-<span class="sd">        interval: Milliseconds between frames (for display).</span>
 <span class="sd">        fps: Frames per second for saved gif.</span>
 <span class="sd">        dpi: Resolution of the saved gif.</span>
 
@@ -9941,6 +10085,8 @@ used, clamped to the range 10 through 80.</p>
         <span class="k">return</span> <span class="p">(</span><span class="n">head_scat</span><span class="p">,)</span>
 
     <span class="c1"># blit=False so the head scatter updates every frame (blit can leave it stuck)</span>
+    <span class="n">playback_fps</span> <span class="o">=</span> <span class="mi">15</span> <span class="k">if</span> <span class="n">fps</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">fps</span>
+    <span class="n">interval</span> <span class="o">=</span> <span class="mi">1000</span> <span class="o">/</span> <span class="n">playback_fps</span>
     <span class="n">anim</span> <span class="o">=</span> <span class="n">FuncAnimation</span><span class="p">(</span>
         <span class="n">fig</span><span class="p">,</span>
         <span class="n">update</span><span class="p">,</span>
@@ -9955,8 +10101,7 @@ used, clamped to the range 10 through 80.</p>
         <span class="n">out_dir</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="n">save_location</span><span class="p">)</span> <span class="k">if</span> <span class="n">save_location</span> <span class="k">else</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">()</span>
         <span class="n">out_dir</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         <span class="n">out_path</span> <span class="o">=</span> <span class="n">out_dir</span> <span class="o">/</span> <span class="p">(</span><span class="n">save_name</span> <span class="ow">or</span> <span class="s2">"path.gif"</span><span class="p">)</span>
-        <span class="n">saved_fps</span> <span class="o">=</span> <span class="mi">15</span> <span class="k">if</span> <span class="n">fps</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">fps</span>
-        <span class="n">writer</span> <span class="o">=</span> <span class="n">PillowWriter</span><span class="p">(</span><span class="n">fps</span><span class="o">=</span><span class="n">saved_fps</span><span class="p">,</span> <span class="n">bitrate</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">writer</span> <span class="o">=</span> <span class="n">PillowWriter</span><span class="p">(</span><span class="n">fps</span><span class="o">=</span><span class="n">playback_fps</span><span class="p">,</span> <span class="n">bitrate</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
         <span class="n">anim</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">out_path</span><span class="p">,</span> <span class="n">writer</span><span class="o">=</span><span class="n">writer</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="n">dpi</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="n">show</span><span class="p">:</span>
@@ -10320,23 +10465,7 @@ domain is set, use domain.center(); otherwise, use path bbox center.</p>
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>pinnjax/pathing/base.py</code></summary>
-              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">209</span>
-<span class="normal">210</span>
-<span class="normal">211</span>
-<span class="normal">212</span>
-<span class="normal">213</span>
-<span class="normal">214</span>
-<span class="normal">215</span>
-<span class="normal">216</span>
-<span class="normal">217</span>
-<span class="normal">218</span>
-<span class="normal">219</span>
-<span class="normal">220</span>
-<span class="normal">221</span>
-<span class="normal">222</span>
-<span class="normal">223</span>
-<span class="normal">224</span>
-<span class="normal">225</span>
+              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">225</span>
 <span class="normal">226</span>
 <span class="normal">227</span>
 <span class="normal">228</span>
@@ -10479,7 +10608,23 @@ domain is set, use domain.center(); otherwise, use path bbox center.</p>
 <span class="normal">365</span>
 <span class="normal">366</span>
 <span class="normal">367</span>
-<span class="normal">368</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">draw</span><span class="p">(</span>
+<span class="normal">368</span>
+<span class="normal">369</span>
+<span class="normal">370</span>
+<span class="normal">371</span>
+<span class="normal">372</span>
+<span class="normal">373</span>
+<span class="normal">374</span>
+<span class="normal">375</span>
+<span class="normal">376</span>
+<span class="normal">377</span>
+<span class="normal">378</span>
+<span class="normal">379</span>
+<span class="normal">380</span>
+<span class="normal">381</span>
+<span class="normal">382</span>
+<span class="normal">383</span>
+<span class="normal">384</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">draw</span><span class="p">(</span>
     <span class="bp">self</span><span class="p">,</span>
     <span class="o">*</span><span class="p">,</span>
     <span class="n">domain</span><span class="p">:</span> <span class="n">SpatialDomain</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -10721,24 +10866,7 @@ domain is set, use domain.center(); otherwise, use path bbox center.</p>
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>pinnjax/pathing/circle.py</code></summary>
-              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">171</span>
-<span class="normal">172</span>
-<span class="normal">173</span>
-<span class="normal">174</span>
-<span class="normal">175</span>
-<span class="normal">176</span>
-<span class="normal">177</span>
-<span class="normal">178</span>
-<span class="normal">179</span>
-<span class="normal">180</span>
-<span class="normal">181</span>
-<span class="normal">182</span>
-<span class="normal">183</span>
-<span class="normal">184</span>
-<span class="normal">185</span>
-<span class="normal">186</span>
-<span class="normal">187</span>
-<span class="normal">188</span>
+              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">188</span>
 <span class="normal">189</span>
 <span class="normal">190</span>
 <span class="normal">191</span>
@@ -10750,7 +10878,24 @@ domain is set, use domain.center(); otherwise, use path bbox center.</p>
 <span class="normal">197</span>
 <span class="normal">198</span>
 <span class="normal">199</span>
-<span class="normal">200</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@jax</span><span class="o">.</span><span class="n">jit</span>
+<span class="normal">200</span>
+<span class="normal">201</span>
+<span class="normal">202</span>
+<span class="normal">203</span>
+<span class="normal">204</span>
+<span class="normal">205</span>
+<span class="normal">206</span>
+<span class="normal">207</span>
+<span class="normal">208</span>
+<span class="normal">209</span>
+<span class="normal">210</span>
+<span class="normal">211</span>
+<span class="normal">212</span>
+<span class="normal">213</span>
+<span class="normal">214</span>
+<span class="normal">215</span>
+<span class="normal">216</span>
+<span class="normal">217</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@jax</span><span class="o">.</span><span class="n">jit</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">eval</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">time</span><span class="p">:</span> <span class="n">Array</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Array</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""Return the circle coordinates at ``time``.</span>
 
@@ -10859,19 +11004,19 @@ domain is set, use domain.center(); otherwise, use path bbox center.</p>
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>pinnjax/pathing/circle.py</code></summary>
-              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">157</span>
-<span class="normal">158</span>
-<span class="normal">159</span>
-<span class="normal">160</span>
-<span class="normal">161</span>
-<span class="normal">162</span>
-<span class="normal">163</span>
-<span class="normal">164</span>
-<span class="normal">165</span>
-<span class="normal">166</span>
-<span class="normal">167</span>
-<span class="normal">168</span>
-<span class="normal">169</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">get_active</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">u</span><span class="p">:</span> <span class="n">Array</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Array</span><span class="p">:</span>
+              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">174</span>
+<span class="normal">175</span>
+<span class="normal">176</span>
+<span class="normal">177</span>
+<span class="normal">178</span>
+<span class="normal">179</span>
+<span class="normal">180</span>
+<span class="normal">181</span>
+<span class="normal">182</span>
+<span class="normal">183</span>
+<span class="normal">184</span>
+<span class="normal">185</span>
+<span class="normal">186</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">get_active</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">u</span><span class="p">:</span> <span class="n">Array</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Array</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""Return the stored active flag.</span>
 
 <span class="sd">    ``u`` is unused. The flag comes from the config.</span>
@@ -10964,13 +11109,7 @@ cached sample.</p>
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>pinnjax/pathing/circle.py</code></summary>
-              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">135</span>
-<span class="normal">136</span>
-<span class="normal">137</span>
-<span class="normal">138</span>
-<span class="normal">139</span>
-<span class="normal">140</span>
-<span class="normal">141</span>
+              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">141</span>
 <span class="normal">142</span>
 <span class="normal">143</span>
 <span class="normal">144</span>
@@ -10984,7 +11123,13 @@ cached sample.</p>
 <span class="normal">152</span>
 <span class="normal">153</span>
 <span class="normal">154</span>
-<span class="normal">155</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">get_rotation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">u</span><span class="p">:</span> <span class="n">jnp</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Rotation</span><span class="p">:</span>
+<span class="normal">155</span>
+<span class="normal">156</span>
+<span class="normal">157</span>
+<span class="normal">158</span>
+<span class="normal">159</span>
+<span class="normal">160</span>
+<span class="normal">161</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">get_rotation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">u</span><span class="p">:</span> <span class="n">jnp</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Rotation</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""Return the closest cached rotation for the point's time.</span>
 
 <span class="sd">    The angle is wrapped onto ``[0, 2 * pi)`` and matched to the nearest</span>
@@ -11083,13 +11228,7 @@ cached sample.</p>
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>pinnjax/pathing/circle.py</code></summary>
-              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">119</span>
-<span class="normal">120</span>
-<span class="normal">121</span>
-<span class="normal">122</span>
-<span class="normal">123</span>
-<span class="normal">124</span>
-<span class="normal">125</span>
+              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">125</span>
 <span class="normal">126</span>
 <span class="normal">127</span>
 <span class="normal">128</span>
@@ -11097,7 +11236,13 @@ cached sample.</p>
 <span class="normal">130</span>
 <span class="normal">131</span>
 <span class="normal">132</span>
-<span class="normal">133</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">get_velocity</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Array</span><span class="p">:</span>
+<span class="normal">133</span>
+<span class="normal">134</span>
+<span class="normal">135</span>
+<span class="normal">136</span>
+<span class="normal">137</span>
+<span class="normal">138</span>
+<span class="normal">139</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">get_velocity</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Array</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""Calculate the instantaneous velocity vector of the path.</span>
 
 <span class="sd">    Args:</span>
@@ -11192,22 +11337,22 @@ component of <code>point</code>.</p>
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>pinnjax/pathing/circle.py</code></summary>
-              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">202</span>
-<span class="normal">203</span>
-<span class="normal">204</span>
-<span class="normal">205</span>
-<span class="normal">206</span>
-<span class="normal">207</span>
-<span class="normal">208</span>
-<span class="normal">209</span>
-<span class="normal">210</span>
-<span class="normal">211</span>
-<span class="normal">212</span>
-<span class="normal">213</span>
-<span class="normal">214</span>
-<span class="normal">215</span>
-<span class="normal">216</span>
-<span class="normal">217</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@jax</span><span class="o">.</span><span class="n">jit</span>
+              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">219</span>
+<span class="normal">220</span>
+<span class="normal">221</span>
+<span class="normal">222</span>
+<span class="normal">223</span>
+<span class="normal">224</span>
+<span class="normal">225</span>
+<span class="normal">226</span>
+<span class="normal">227</span>
+<span class="normal">228</span>
+<span class="normal">229</span>
+<span class="normal">230</span>
+<span class="normal">231</span>
+<span class="normal">232</span>
+<span class="normal">233</span>
+<span class="normal">234</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@jax</span><span class="o">.</span><span class="n">jit</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">offset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">point</span><span class="p">:</span> <span class="n">Array</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Array</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""Return the displacement from the circle to a point.</span>
 
@@ -11223,6 +11368,49 @@ component of <code>point</code>.</p>
 <span class="sd">    """</span>
     <span class="n">path_coords</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">eval</span><span class="p">(</span><span class="n">point</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">])</span>
     <span class="k">return</span> <span class="n">point</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">path_coords</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="pinnjax.pathing.circle.CirclePath.offset_in_local_frame" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <span class="doc doc-object-name doc-function-name">offset_in_local_frame</span>
+
+
+<a href="#pinnjax.pathing.circle.CirclePath.offset_in_local_frame" class="headerlink" title="Permanent link">#</a></h3>
+<div class="language-python doc-signature highlight"><pre><span></span><code><span class="nf">offset_in_local_frame</span><span class="p">(</span><span class="n">u</span><span class="p">:</span> <span class="n"><span title="jax.Array">Array</span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="jax.Array">Array</span></span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Return <code>offset(u)</code> using the cached inverse rotation matrix.</p>
+
+
+            <details class="mkdocstrings-source">
+              <summary>Source code in <code>pinnjax/pathing/circle.py</code></summary>
+              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">163</span>
+<span class="normal">164</span>
+<span class="normal">165</span>
+<span class="normal">166</span>
+<span class="normal">167</span>
+<span class="normal">168</span>
+<span class="normal">169</span>
+<span class="normal">170</span>
+<span class="normal">171</span>
+<span class="normal">172</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">offset_in_local_frame</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">u</span><span class="p">:</span> <span class="n">Array</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Array</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Return ``offset(u)`` using the cached inverse rotation matrix."""</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">u</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">current_angle</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">angular_speed</span> <span class="o">*</span> <span class="n">t</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">initial_angle</span>
+    <span class="n">normalized_angle</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">mod</span><span class="p">(</span><span class="n">current_angle</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">jnp</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+    <span class="n">idx</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">jnp</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_cached_angles</span> <span class="o">-</span> <span class="n">normalized_angle</span><span class="p">))</span>
+    <span class="n">offset</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">offset</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">offset</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="n">offset</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">offset</span><span class="p">,</span> <span class="n">jnp</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">1</span><span class="p">,),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">offset</span><span class="o">.</span><span class="n">dtype</span><span class="p">)])</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cached_inv_rotation_matrices</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">@</span> <span class="n">offset</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>
@@ -11553,6 +11741,18 @@ is accepted and unused. The path uses its own waypoint times.</p>
             <td>
               <div class="doc-md-description">
                 <p>One rotation per segment, from those velocities.</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="pinnjax.pathing.complex.ComplexLinearPath.inv_rotation_matrices">inv_rotation_matrices</span></code></td>
+            <td>
+                  <code><span title="jax.Array">Array</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Inverse rotation matrices, shape
+<code>(n_segments, 3, 3)</code>, matching <code>rotations.inv().as_matrix()</code>.</p>
               </div>
             </td>
           </tr>
@@ -11925,7 +12125,21 @@ is accepted and unused. The path uses its own waypoint times.</p>
 <span class="normal">365</span>
 <span class="normal">366</span>
 <span class="normal">367</span>
-<span class="normal">368</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">ComplexLinearPath</span><span class="p">(</span><span class="n">Path</span><span class="p">,</span> <span class="n">ABC</span><span class="p">):</span>
+<span class="normal">368</span>
+<span class="normal">369</span>
+<span class="normal">370</span>
+<span class="normal">371</span>
+<span class="normal">372</span>
+<span class="normal">373</span>
+<span class="normal">374</span>
+<span class="normal">375</span>
+<span class="normal">376</span>
+<span class="normal">377</span>
+<span class="normal">378</span>
+<span class="normal">379</span>
+<span class="normal">380</span>
+<span class="normal">381</span>
+<span class="normal">382</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">ComplexLinearPath</span><span class="p">(</span><span class="n">Path</span><span class="p">,</span> <span class="n">ABC</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Piecewise-linear path through a sequence of waypoints.</span>
 
 <span class="sd">    Each segment is a [`LinearPath`][pinnjax.LinearPath]. Active segments</span>
@@ -11942,6 +12156,8 @@ is accepted and unused. The path uses its own waypoint times.</p>
 <span class="sd">        active: One flag per segment.</span>
 <span class="sd">        velocities: Unit direction times speed, one row per segment.</span>
 <span class="sd">        rotations: One rotation per segment, from those velocities.</span>
+<span class="sd">        inv_rotation_matrices: Inverse rotation matrices, shape</span>
+<span class="sd">            ``(n_segments, 3, 3)``, matching ``rotations.inv().as_matrix()``.</span>
 <span class="sd">        segments: One [`LinearPath`][pinnjax.LinearPath] per segment.</span>
 <span class="sd">        dimensions: Spatial width of the first waypoint.</span>
 
@@ -11953,6 +12169,7 @@ is accepted and unused. The path uses its own waypoint times.</p>
     <span class="n">active</span><span class="p">:</span> <span class="n">Array</span>
     <span class="n">velocities</span><span class="p">:</span> <span class="n">Array</span>
     <span class="n">rotations</span><span class="p">:</span> <span class="n">Rotation</span>
+    <span class="n">inv_rotation_matrices</span><span class="p">:</span> <span class="n">Array</span>
 
     <span class="n">segments</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">LinearPath</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span>
 
@@ -11998,6 +12215,7 @@ is accepted and unused. The path uses its own waypoint times.</p>
         <span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">rotations</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">vmap</span><span class="p">(</span><span class="n">Path</span><span class="o">.</span><span class="n">_create_rotation</span><span class="p">)(</span><span class="bp">self</span><span class="o">.</span><span class="n">velocities</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inv_rotation_matrices</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">vmap</span><span class="p">(</span><span class="k">lambda</span> <span class="n">r</span><span class="p">:</span> <span class="n">r</span><span class="o">.</span><span class="n">inv</span><span class="p">()</span><span class="o">.</span><span class="n">as_matrix</span><span class="p">())(</span><span class="bp">self</span><span class="o">.</span><span class="n">rotations</span><span class="p">)</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">_get_segment_index</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">:</span> <span class="n">Array</span> <span class="o">|</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Array</span><span class="p">:</span>
         <span class="n">idx</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">searchsorted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">cumulative_times</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">side</span><span class="o">=</span><span class="s2">"right"</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
@@ -12033,6 +12251,14 @@ is accepted and unused. The path uses its own waypoint times.</p>
         <span class="n">t</span> <span class="o">=</span> <span class="n">u</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
         <span class="n">idx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_segment_index</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">rotations</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">offset_in_local_frame</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">u</span><span class="p">:</span> <span class="n">Array</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Array</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Return ``offset(u)`` using the cached inverse rotation matrix."""</span>
+        <span class="n">offset</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">offset</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">offset</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="n">offset</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">offset</span><span class="p">,</span> <span class="n">jnp</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">1</span><span class="p">,),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">offset</span><span class="o">.</span><span class="n">dtype</span><span class="p">)])</span>
+        <span class="n">idx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_segment_index</span><span class="p">(</span><span class="n">u</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">inv_rotation_matrices</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">@</span> <span class="n">offset</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">get_active</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">u</span><span class="p">:</span> <span class="n">Array</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Array</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">"""Return the active flag for the segment containing the point's time.</span>
@@ -12174,6 +12400,8 @@ is accepted and unused. The path uses its own waypoint times.</p>
 
 
 <span class="sd">        """</span>
+        <span class="k">del</span> <span class="n">time</span>
+
         <span class="k">if</span> <span class="n">domain</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">domain</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">fig</span><span class="o">=</span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
@@ -12296,10 +12524,7 @@ is accepted and unused. The path uses its own waypoint times.</p>
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>pinnjax/pathing/complex.py</code></summary>
-              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 63</span>
-<span class="normal"> 64</span>
-<span class="normal"> 65</span>
-<span class="normal"> 66</span>
+              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 66</span>
 <span class="normal"> 67</span>
 <span class="normal"> 68</span>
 <span class="normal"> 69</span>
@@ -12337,7 +12562,11 @@ is accepted and unused. The path uses its own waypoint times.</p>
 <span class="normal">101</span>
 <span class="normal">102</span>
 <span class="normal">103</span>
-<span class="normal">104</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="n">ComplexLinearPathConfig</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="normal">104</span>
+<span class="normal">105</span>
+<span class="normal">106</span>
+<span class="normal">107</span>
+<span class="normal">108</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="n">ComplexLinearPathConfig</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""Store the segments, the velocities, and one rotation per segment."""</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">config</span> <span class="o">=</span> <span class="n">config</span>
     <span class="n">active_flags</span> <span class="o">=</span> <span class="n">cast</span><span class="p">(</span><span class="s2">"Array"</span><span class="p">,</span> <span class="n">config</span><span class="o">.</span><span class="n">active</span><span class="p">)</span>
@@ -12379,6 +12608,7 @@ is accepted and unused. The path uses its own waypoint times.</p>
     <span class="p">)</span>
 
     <span class="bp">self</span><span class="o">.</span><span class="n">rotations</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">vmap</span><span class="p">(</span><span class="n">Path</span><span class="o">.</span><span class="n">_create_rotation</span><span class="p">)(</span><span class="bp">self</span><span class="o">.</span><span class="n">velocities</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">inv_rotation_matrices</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">vmap</span><span class="p">(</span><span class="k">lambda</span> <span class="n">r</span><span class="p">:</span> <span class="n">r</span><span class="o">.</span><span class="n">inv</span><span class="p">()</span><span class="o">.</span><span class="n">as_matrix</span><span class="p">())(</span><span class="bp">self</span><span class="o">.</span><span class="n">rotations</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>
@@ -12407,7 +12637,6 @@ is accepted and unused. The path uses its own waypoint times.</p>
     <span class="n">save_location</span><span class="p">:</span> <span class="n"><span title="str">str</span></span> <span class="o">|</span> <span class="n"><span title="pathlib.Path">Path</span></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">save_name</span><span class="p">:</span> <span class="n"><span title="str">str</span></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="s2">"path.gif"</span><span class="p">,</span>
     <span class="n">n_frames</span><span class="p">:</span> <span class="n"><span title="int">int</span></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="n">interval</span><span class="p">:</span> <span class="n"><span title="int">int</span></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="mi">80</span><span class="p">,</span>
     <span class="n">fps</span><span class="p">:</span> <span class="n"><span title="int">int</span></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="mi">15</span><span class="p">,</span>
     <span class="n">dpi</span><span class="p">:</span> <span class="n"><span title="int">int</span></span> <span class="o">=</span> <span class="mi">300</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="tuple">tuple</span></span><span class="p">[</span><span class="n"><span title="matplotlib.pyplot.Figure">Figure</span></span><span class="p">,</span> <span class="n"><span title="matplotlib.pyplot.Axes">Axes</span></span><span class="p">,</span> <span class="n"><span title="matplotlib.animation.FuncAnimation">FuncAnimation</span></span><span class="p">]</span>
@@ -12629,22 +12858,6 @@ used, clamped to the range 10 through 80.</p>
           </tr>
           <tr class="doc-section-item">
             <td>
-                <code>interval</code>
-            </td>
-            <td>
-                  <code><span title="int">int</span> | None</code>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>Milliseconds between frames (for display).</p>
-              </div>
-            </td>
-            <td>
-                  <code>80</code>
-            </td>
-          </tr>
-          <tr class="doc-section-item">
-            <td>
                 <code>fps</code>
             </td>
             <td>
@@ -12747,23 +12960,7 @@ used, clamped to the range 10 through 80.</p>
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>pinnjax/pathing/base.py</code></summary>
-              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">370</span>
-<span class="normal">371</span>
-<span class="normal">372</span>
-<span class="normal">373</span>
-<span class="normal">374</span>
-<span class="normal">375</span>
-<span class="normal">376</span>
-<span class="normal">377</span>
-<span class="normal">378</span>
-<span class="normal">379</span>
-<span class="normal">380</span>
-<span class="normal">381</span>
-<span class="normal">382</span>
-<span class="normal">383</span>
-<span class="normal">384</span>
-<span class="normal">385</span>
-<span class="normal">386</span>
+              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">386</span>
 <span class="normal">387</span>
 <span class="normal">388</span>
 <span class="normal">389</span>
@@ -12994,7 +13191,22 @@ used, clamped to the range 10 through 80.</p>
 <span class="normal">614</span>
 <span class="normal">615</span>
 <span class="normal">616</span>
-<span class="normal">617</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">animate</span><span class="p">(</span>
+<span class="normal">617</span>
+<span class="normal">618</span>
+<span class="normal">619</span>
+<span class="normal">620</span>
+<span class="normal">621</span>
+<span class="normal">622</span>
+<span class="normal">623</span>
+<span class="normal">624</span>
+<span class="normal">625</span>
+<span class="normal">626</span>
+<span class="normal">627</span>
+<span class="normal">628</span>
+<span class="normal">629</span>
+<span class="normal">630</span>
+<span class="normal">631</span>
+<span class="normal">632</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">animate</span><span class="p">(</span>
     <span class="bp">self</span><span class="p">,</span>
     <span class="o">*</span><span class="p">,</span>
     <span class="n">domain</span><span class="p">:</span> <span class="n">SpatialDomain</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -13009,7 +13221,6 @@ used, clamped to the range 10 through 80.</p>
     <span class="n">save_location</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">save_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="s2">"path.gif"</span><span class="p">,</span>
     <span class="n">n_frames</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="n">interval</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="mi">80</span><span class="p">,</span>
     <span class="n">fps</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="mi">15</span><span class="p">,</span>
     <span class="n">dpi</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">300</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">Figure</span><span class="p">,</span> <span class="n">Axes</span><span class="p">,</span> <span class="n">FuncAnimation</span><span class="p">]:</span>
@@ -13035,7 +13246,6 @@ used, clamped to the range 10 through 80.</p>
 <span class="sd">        save_name: Output filename.</span>
 <span class="sd">        n_frames: Number of frames. When omitted, the time-step count is</span>
 <span class="sd">            used, clamped to the range 10 through 80.</span>
-<span class="sd">        interval: Milliseconds between frames (for display).</span>
 <span class="sd">        fps: Frames per second for saved gif.</span>
 <span class="sd">        dpi: Resolution of the saved gif.</span>
 
@@ -13218,6 +13428,8 @@ used, clamped to the range 10 through 80.</p>
         <span class="k">return</span> <span class="p">(</span><span class="n">head_scat</span><span class="p">,)</span>
 
     <span class="c1"># blit=False so the head scatter updates every frame (blit can leave it stuck)</span>
+    <span class="n">playback_fps</span> <span class="o">=</span> <span class="mi">15</span> <span class="k">if</span> <span class="n">fps</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">fps</span>
+    <span class="n">interval</span> <span class="o">=</span> <span class="mi">1000</span> <span class="o">/</span> <span class="n">playback_fps</span>
     <span class="n">anim</span> <span class="o">=</span> <span class="n">FuncAnimation</span><span class="p">(</span>
         <span class="n">fig</span><span class="p">,</span>
         <span class="n">update</span><span class="p">,</span>
@@ -13232,8 +13444,7 @@ used, clamped to the range 10 through 80.</p>
         <span class="n">out_dir</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="n">save_location</span><span class="p">)</span> <span class="k">if</span> <span class="n">save_location</span> <span class="k">else</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">()</span>
         <span class="n">out_dir</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         <span class="n">out_path</span> <span class="o">=</span> <span class="n">out_dir</span> <span class="o">/</span> <span class="p">(</span><span class="n">save_name</span> <span class="ow">or</span> <span class="s2">"path.gif"</span><span class="p">)</span>
-        <span class="n">saved_fps</span> <span class="o">=</span> <span class="mi">15</span> <span class="k">if</span> <span class="n">fps</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">fps</span>
-        <span class="n">writer</span> <span class="o">=</span> <span class="n">PillowWriter</span><span class="p">(</span><span class="n">fps</span><span class="o">=</span><span class="n">saved_fps</span><span class="p">,</span> <span class="n">bitrate</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">writer</span> <span class="o">=</span> <span class="n">PillowWriter</span><span class="p">(</span><span class="n">fps</span><span class="o">=</span><span class="n">playback_fps</span><span class="p">,</span> <span class="n">bitrate</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
         <span class="n">anim</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">out_path</span><span class="p">,</span> <span class="n">writer</span><span class="o">=</span><span class="n">writer</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="n">dpi</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="n">show</span><span class="p">:</span>
@@ -13585,19 +13796,7 @@ or if the plot has no axes.</p>
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>pinnjax/pathing/complex.py</code></summary>
-              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">201</span>
-<span class="normal">202</span>
-<span class="normal">203</span>
-<span class="normal">204</span>
-<span class="normal">205</span>
-<span class="normal">206</span>
-<span class="normal">207</span>
-<span class="normal">208</span>
-<span class="normal">209</span>
-<span class="normal">210</span>
-<span class="normal">211</span>
-<span class="normal">212</span>
-<span class="normal">213</span>
+              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">213</span>
 <span class="normal">214</span>
 <span class="normal">215</span>
 <span class="normal">216</span>
@@ -13752,7 +13951,21 @@ or if the plot has no axes.</p>
 <span class="normal">365</span>
 <span class="normal">366</span>
 <span class="normal">367</span>
-<span class="normal">368</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">draw</span><span class="p">(</span>
+<span class="normal">368</span>
+<span class="normal">369</span>
+<span class="normal">370</span>
+<span class="normal">371</span>
+<span class="normal">372</span>
+<span class="normal">373</span>
+<span class="normal">374</span>
+<span class="normal">375</span>
+<span class="normal">376</span>
+<span class="normal">377</span>
+<span class="normal">378</span>
+<span class="normal">379</span>
+<span class="normal">380</span>
+<span class="normal">381</span>
+<span class="normal">382</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">draw</span><span class="p">(</span>
     <span class="bp">self</span><span class="p">,</span>
     <span class="o">*</span><span class="p">,</span>
     <span class="n">domain</span><span class="p">:</span> <span class="n">SpatialDomain</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -13832,6 +14045,8 @@ or if the plot has no axes.</p>
 
 
 <span class="sd">    """</span>
+    <span class="k">del</span> <span class="n">time</span>
+
     <span class="k">if</span> <span class="n">domain</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">domain</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">fig</span><span class="o">=</span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
@@ -14002,19 +14217,7 @@ segment displacement times the fraction of that segment's duration.</p>
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>pinnjax/pathing/complex.py</code></summary>
-              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">155</span>
-<span class="normal">156</span>
-<span class="normal">157</span>
-<span class="normal">158</span>
-<span class="normal">159</span>
-<span class="normal">160</span>
-<span class="normal">161</span>
-<span class="normal">162</span>
-<span class="normal">163</span>
-<span class="normal">164</span>
-<span class="normal">165</span>
-<span class="normal">166</span>
-<span class="normal">167</span>
+              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">167</span>
 <span class="normal">168</span>
 <span class="normal">169</span>
 <span class="normal">170</span>
@@ -14029,7 +14232,19 @@ segment displacement times the fraction of that segment's duration.</p>
 <span class="normal">179</span>
 <span class="normal">180</span>
 <span class="normal">181</span>
-<span class="normal">182</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@jax</span><span class="o">.</span><span class="n">jit</span>
+<span class="normal">182</span>
+<span class="normal">183</span>
+<span class="normal">184</span>
+<span class="normal">185</span>
+<span class="normal">186</span>
+<span class="normal">187</span>
+<span class="normal">188</span>
+<span class="normal">189</span>
+<span class="normal">190</span>
+<span class="normal">191</span>
+<span class="normal">192</span>
+<span class="normal">193</span>
+<span class="normal">194</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@jax</span><span class="o">.</span><span class="n">jit</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">eval</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">:</span> <span class="n">Array</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Array</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""Evaluate position at time ``t`` via interpolation.</span>
 
@@ -14135,19 +14350,19 @@ segment displacement times the fraction of that segment's duration.</p>
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>pinnjax/pathing/complex.py</code></summary>
-              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">141</span>
-<span class="normal">142</span>
-<span class="normal">143</span>
-<span class="normal">144</span>
-<span class="normal">145</span>
-<span class="normal">146</span>
-<span class="normal">147</span>
-<span class="normal">148</span>
-<span class="normal">149</span>
-<span class="normal">150</span>
-<span class="normal">151</span>
-<span class="normal">152</span>
-<span class="normal">153</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">get_active</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">u</span><span class="p">:</span> <span class="n">Array</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Array</span><span class="p">:</span>
+              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">153</span>
+<span class="normal">154</span>
+<span class="normal">155</span>
+<span class="normal">156</span>
+<span class="normal">157</span>
+<span class="normal">158</span>
+<span class="normal">159</span>
+<span class="normal">160</span>
+<span class="normal">161</span>
+<span class="normal">162</span>
+<span class="normal">163</span>
+<span class="normal">164</span>
+<span class="normal">165</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">get_active</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">u</span><span class="p">:</span> <span class="n">Array</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Array</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""Return the active flag for the segment containing the point's time.</span>
 
 <span class="sd">    Args:</span>
@@ -14238,11 +14453,7 @@ segment displacement times the fraction of that segment's duration.</p>
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>pinnjax/pathing/complex.py</code></summary>
-              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">127</span>
-<span class="normal">128</span>
-<span class="normal">129</span>
-<span class="normal">130</span>
-<span class="normal">131</span>
+              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">131</span>
 <span class="normal">132</span>
 <span class="normal">133</span>
 <span class="normal">134</span>
@@ -14250,7 +14461,11 @@ segment displacement times the fraction of that segment's duration.</p>
 <span class="normal">136</span>
 <span class="normal">137</span>
 <span class="normal">138</span>
-<span class="normal">139</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">get_rotation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">u</span><span class="p">:</span> <span class="n">Array</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Rotation</span><span class="p">:</span>
+<span class="normal">139</span>
+<span class="normal">140</span>
+<span class="normal">141</span>
+<span class="normal">142</span>
+<span class="normal">143</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">get_rotation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">u</span><span class="p">:</span> <span class="n">Array</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Rotation</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""Return the rotation for the segment containing the point's time.</span>
 
 <span class="sd">    Args:</span>
@@ -14341,18 +14556,18 @@ segment displacement times the fraction of that segment's duration.</p>
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>pinnjax/pathing/complex.py</code></summary>
-              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">114</span>
-<span class="normal">115</span>
-<span class="normal">116</span>
-<span class="normal">117</span>
-<span class="normal">118</span>
+              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">118</span>
 <span class="normal">119</span>
 <span class="normal">120</span>
 <span class="normal">121</span>
 <span class="normal">122</span>
 <span class="normal">123</span>
 <span class="normal">124</span>
-<span class="normal">125</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">get_velocity</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Array</span><span class="p">:</span>
+<span class="normal">125</span>
+<span class="normal">126</span>
+<span class="normal">127</span>
+<span class="normal">128</span>
+<span class="normal">129</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">get_velocity</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Array</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""Return the constant velocity of the segment containing ``t``.</span>
 
 <span class="sd">    Args:</span>
@@ -14444,22 +14659,22 @@ of <code>point</code>.</p>
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>pinnjax/pathing/complex.py</code></summary>
-              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">184</span>
-<span class="normal">185</span>
-<span class="normal">186</span>
-<span class="normal">187</span>
-<span class="normal">188</span>
-<span class="normal">189</span>
-<span class="normal">190</span>
-<span class="normal">191</span>
-<span class="normal">192</span>
-<span class="normal">193</span>
-<span class="normal">194</span>
-<span class="normal">195</span>
-<span class="normal">196</span>
+              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">196</span>
 <span class="normal">197</span>
 <span class="normal">198</span>
-<span class="normal">199</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@jax</span><span class="o">.</span><span class="n">jit</span>
+<span class="normal">199</span>
+<span class="normal">200</span>
+<span class="normal">201</span>
+<span class="normal">202</span>
+<span class="normal">203</span>
+<span class="normal">204</span>
+<span class="normal">205</span>
+<span class="normal">206</span>
+<span class="normal">207</span>
+<span class="normal">208</span>
+<span class="normal">209</span>
+<span class="normal">210</span>
+<span class="normal">211</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@jax</span><span class="o">.</span><span class="n">jit</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">offset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">point</span><span class="p">:</span> <span class="n">Array</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Array</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""Return the displacement from the path to a point.</span>
 
@@ -14475,6 +14690,43 @@ of <code>point</code>.</p>
 <span class="sd">    """</span>
     <span class="n">p</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">point</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">get_dtype</span><span class="p">())</span>
     <span class="k">return</span> <span class="n">p</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">eval</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="pinnjax.pathing.complex.ComplexLinearPath.offset_in_local_frame" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <span class="doc doc-object-name doc-function-name">offset_in_local_frame</span>
+
+
+<a href="#pinnjax.pathing.complex.ComplexLinearPath.offset_in_local_frame" class="headerlink" title="Permanent link">#</a></h3>
+<div class="language-python doc-signature highlight"><pre><span></span><code><span class="nf">offset_in_local_frame</span><span class="p">(</span><span class="n">u</span><span class="p">:</span> <span class="n"><span title="jax.Array">Array</span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="jax.Array">Array</span></span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Return <code>offset(u)</code> using the cached inverse rotation matrix.</p>
+
+
+            <details class="mkdocstrings-source">
+              <summary>Source code in <code>pinnjax/pathing/complex.py</code></summary>
+              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">145</span>
+<span class="normal">146</span>
+<span class="normal">147</span>
+<span class="normal">148</span>
+<span class="normal">149</span>
+<span class="normal">150</span>
+<span class="normal">151</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">offset_in_local_frame</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">u</span><span class="p">:</span> <span class="n">Array</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Array</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Return ``offset(u)`` using the cached inverse rotation matrix."""</span>
+    <span class="n">offset</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">offset</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">offset</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="n">offset</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">offset</span><span class="p">,</span> <span class="n">jnp</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">1</span><span class="p">,),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">offset</span><span class="o">.</span><span class="n">dtype</span><span class="p">)])</span>
+    <span class="n">idx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_segment_index</span><span class="p">(</span><span class="n">u</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">inv_rotation_matrices</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">@</span> <span class="n">offset</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>

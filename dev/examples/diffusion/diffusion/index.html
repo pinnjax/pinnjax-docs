@@ -14,7 +14,7 @@
         <link rel="prev" href="../../..">
       
       
-        <link rel="next" href="../../../api/init_api/">
+        <link rel="next" href="../../complexpath/complexpath/">
       
       
         
@@ -25,7 +25,7 @@
     
     
       
-        <title>Diffusion - PINN-JAX</title>
+        <title>1D Diffusion - PINN-JAX</title>
       
     
     
@@ -54,6 +54,8 @@
       <link rel="stylesheet" href="../../../assets/_mkdocstrings.css">
     
       <link rel="stylesheet" href="../../../stylesheets/doc-strings.css">
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
     
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -117,7 +119,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Diffusion
+              1D Diffusion
             
           </span>
         </div>
@@ -371,6 +373,8 @@
       
         
       
+        
+      
     
     
     
@@ -442,7 +446,7 @@
   <span class="md-ellipsis">
     
   
-    Diffusion
+    1D Diffusion
   
 
     
@@ -460,7 +464,7 @@
   <span class="md-ellipsis">
     
   
-    Diffusion
+    1D Diffusion
   
 
     
@@ -595,6 +599,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../complexpath/complexpath/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Complex Pathing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -610,8 +642,6 @@
   
     
     
-      
-        
       
         
       
@@ -989,7 +1019,7 @@ u_t = D u_{xx}, \quad u(x, 0) = \sin\left(\frac{n\pi}{2}(x + 1)\right), \quad u(
 </ul>
 <div class="admonition figure figure">
 <p class="admonition-title">Figure</p>
-<p><img alt="network" src="../assets/network.png" style="display: block; margin: 0 auto; width: 65%;" /></p>
+<p><img alt="network" class="figure-image" src="../assets/network.png" style="width: 60%" /></p>
 </div>
 <p>Hence, <code class="language-python highlight"><span class="n">topology</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span></code>.</p>
 <h2 id="geometry">Geometry<a class="headerlink" href="#geometry" title="Permanent link">#</a></h2>
@@ -1033,16 +1063,14 @@ u_t = D u_{xx}, \quad u(x, 0) = \sin\left(\frac{n\pi}{2}(x + 1)\right), \quad u(
 </code></pre></div>
 <div class="admonition figure figure">
 <p class="admonition-title">Figure</p>
-<p><img alt="samples" src="../assets/geometry.png" style="display: block; margin: 0 auto;" /></p>
+<p><img alt="samples" class="figure-image medium" src="../assets/geometry.png" /></p>
 </div>
 <div class="language-python highlight"><pre><span></span><code><span class="n">geometry</span><span class="o">.</span><span class="n">print_samples</span><span class="p">()</span>
 </code></pre></div>
-<div class="language-text highlight"><pre><span></span><code>Number of Samples:
-    Shape 1 (Line): 1000 collocation points
-    Shape 2 (Dot): 20 collocation points
-    Shape 3 (Dot): 20 collocation points
-    Shape 4 (Line): 10 collocation points
-    Total Number of Collocation Points: 1050
+<div class="language-text highlight"><pre><span></span><code>Shape 1 (Line): 1000 collocation points
+Shape 2 (Dot): 20 collocation points
+Shape 3 (Dot): 20 collocation points
+Shape 4 (Line): 10 collocation points
 </code></pre></div>
 <p>The <a class="autorefs autorefs-internal" title="            SobolSampler" href="../../../api/sampling/samplers/#pinnjax.sampling.sobol.SobolSampler"><code>SobolSampler</code></a> samples from the unit-hypercube following a pseudo-random sequence in an effort to most efficiently fill the sample space. In the case of our time-dependent <a class="autorefs autorefs-internal" title="            Line" href="../../../api/geometry/primitives/#pinnjax.geometry.primitives.Line"><code>Line</code></a>, this is a 2D-hypercube. Therefore, while the visualization shows samples throughout the geometry spatially, they are also spread throughout time. This is also why we've opted to sample 20 points at each <a class="autorefs autorefs-internal" title="            Dot" href="../../../api/geometry/primitives/#pinnjax.geometry.primitives.Dot"><code>Dot</code></a> -- they aren't in the same place in time.</p>
 <p>The <a class="autorefs autorefs-internal" title="            SobolSampler" href="../../../api/sampling/samplers/#pinnjax.sampling.sobol.SobolSampler"><code>SobolSampler</code></a> has three <code>modes</code> which determine how <code>sampling_values</code> is interpreted, in order to determine how many points to sample:</p>
@@ -1250,7 +1278,7 @@ u_t = D u_{xx}, \quad u(x, 0) = \sin\left(\frac{n\pi}{2}(x + 1)\right), \quad u(
 </code></pre></div>
 <div class="admonition figure figure">
 <p class="admonition-title">Figure</p>
-<p><img alt="samples" src="../assets/loss_plot_type.png" style="display: block; margin: 0 auto; width: 90%" /></p>
+<p><img alt="samples" class="figure-image medium" src="../assets/loss_plot_type.png" /></p>
 </div>
 <p>This plot is useful, but it also allows me to visually explain some the parameters from earlier. Firstly, <code>early_stopping</code> which is why despite <code class="language-python highlight"><span class="n">epochs</span> <span class="o">=</span> <span class="mi">20000</span></code> the training stopped after 8831. This is because the model failed to improve by more than 0.01% (<code class="language-python highlight"><span class="n">rel_tolerance</span><span class="o">=</span><span class="mf">0.0001</span></code>) for more than 1000 consecutive epochs (<code class="language-python highlight"><span class="n">patience</span><span class="o">=</span><span class="mi">1000</span></code>).</p>
 <div class="language-text highlight"><pre><span></span><code>Total Time    = 46.781s
@@ -1265,7 +1293,7 @@ Final Loss:
         InitialCondition = 0
 </code></pre></div>
 <h2 id="saving">Saving<a class="headerlink" href="#saving" title="Permanent link">#</a></h2>
-<p>Both for model resuse and result tracking, it is important to both save the results and the model itself. The first function <a class="autorefs autorefs-internal" title="            save_model" href="../../../api/storage/models/#pinnjax.storage.model_io.save_model"><code>.save_model()</code></a>, saves the model weights, as its name suggests, which allows us to use <a class="autorefs autorefs-internal" title="            load_model" href="../../../api/storage/models/#pinnjax.storage.model_io.load_model"><code>.load_model()</code></a> at a later date. However, automatic model loading is only confirmed to work properly for <a class="autorefs autorefs-internal" title="            FNN" href="../../../api/model/networks/#pinnjax.model.fnn.FNN"><code>FNN</code></a> models. In order to load a model you need to reconstruct the same model, including the exact same <a class="autorefs autorefs-internal" title="            Optimization" href="../../../api/dataclass/networks/#pinnjax.dataclass.model_config.Optimization"><code>Optimization</code></a>. Thus, <a class="autorefs autorefs-internal" title="            load_model" href="../../../api/storage/models/#pinnjax.storage.model_io.load_model"><code>.load_model()</code></a> is not strictly necessary, as it is meerly attempting to read the model folder, and what was saved using <a class="autorefs autorefs-internal" title="            save_configuration" href="../../../api/storage/configuration/#pinnjax.storage.config_io.save_configuration"><code>.save_configuration()</code></a>.</p>
+<p>Both for model reuse and result tracking, it is important to both save the results and the model itself. The first function <a class="autorefs autorefs-internal" title="            save_model" href="../../../api/storage/models/#pinnjax.storage.model_io.save_model"><code>.save_model()</code></a>, saves the model weights, as its name suggests, which allows us to use <a class="autorefs autorefs-internal" title="            load_model" href="../../../api/storage/models/#pinnjax.storage.model_io.load_model"><code>.load_model()</code></a> at a later date. However, automatic model loading is only confirmed to work properly for <a class="autorefs autorefs-internal" title="            FNN" href="../../../api/model/networks/#pinnjax.model.fnn.FNN"><code>FNN</code></a> models. In order to load a model you need to reconstruct the same model, including the exact same <a class="autorefs autorefs-internal" title="            Optimization" href="../../../api/dataclass/networks/#pinnjax.dataclass.model_config.Optimization"><code>Optimization</code></a>. Thus, <a class="autorefs autorefs-internal" title="            load_model" href="../../../api/storage/models/#pinnjax.storage.model_io.load_model"><code>.load_model()</code></a> is not strictly necessary, as it is merely attempting to read the model folder, and what was saved using <a class="autorefs autorefs-internal" title="            save_configuration" href="../../../api/storage/configuration/#pinnjax.storage.config_io.save_configuration"><code>.save_configuration()</code></a>.</p>
 <div class="language-python highlight"><pre><span></span><code><span class="c1"># now we just save the model. this function will also save a .json file</span>
 <span class="c1"># which will make it much easier to use this model for predicting later.</span>
 <span class="n">model_path</span> <span class="o">=</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">save_model</span><span class="p">(</span><span class="n">updated_model</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="n">model_path</span><span class="p">,</span> <span class="n">return_path</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -1313,7 +1341,7 @@ u(x, t) = \exp\left(-\left(\frac{n\pi}{2}\right)^2 D t\right) \sin\left(\frac{n\
 </code></pre></div>
 <p>Of course, the existence of an analytical solution negates any purpose for training a surrogate, but this is a <em>simple</em> example after all.</p>
 <p>A <a class="autorefs autorefs-internal" title="            LineGrid" href="../../../api/grid/structured/#pinnjax.grid.structured.LineGrid"><code>LineGrid</code></a> is the evaluation mesh. Considering the sampled collocation points are sparsely spanning the entire spatial-temporal domain, we can instead sample uniform points exclusively for prediction.</p>
-<div class="language-python highlight"><pre><span></span><code><span class="c1"># 7. Predicting 7a. Grid Construction Rather than our Sobol points, we can use </span>
+<div class="language-python highlight"><pre><span></span><code><span class="c1"># Grid Construction Rather than our Sobol points, we can use </span>
 <span class="c1"># our model to predict using a simple grid. </span>
 <span class="c1"># </span>
 <span class="c1"># Here is a predefined LineGrid, since this is a 1D problem, you are naturally </span>
@@ -1325,9 +1353,7 @@ u(x, t) = \exp\left(-\left(\frac{n\pi}{2}\right)^2 D t\right) \sin\left(\frac{n\
 <span class="p">)</span>
 <span class="c1"># inputs should be self-explanatory.</span>
 </code></pre></div>
-<div class="language-python highlight"><pre><span></span><code><span class="c1"># prebuilt function that predicts the spatial-temporal points for the</span>
-<span class="c1"># given model and grid another option includes predict() which is for a </span>
-<span class="c1"># single timestep. predict_evolution() is a wrapper around that function </span>
+<div class="language-python highlight"><pre><span></span><code><span class="c1"># predict_evolution() is a wrapper around the function `.predict()`</span>
 <span class="c1"># which loops through the time-steps of the Grid.</span>
 <span class="n">preds</span> <span class="o">=</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">predict_evolution</span><span class="p">(</span><span class="n">_model</span><span class="p">,</span> <span class="n">_grid</span><span class="p">)</span>  
 <span class="c1"># shape: (num_times, num_points)</span>
@@ -1336,7 +1362,7 @@ u(x, t) = \exp\left(-\left(\frac{n\pi}{2}\right)^2 D t\right) \sin\left(\frac{n\
 <p>Where we can now see our visualized results.</p>
 <div class="admonition figure figure">
 <p class="admonition-title">Figure</p>
-<p><img alt="prediction" src="../assets/diffusion.gif" style="display: block; margin: 0 auto; width: 90%" /></p>
+<p><img alt="prediction" class="figure-image medium" src="../assets/diffusion.gif" /></p>
 </div>
 <p>However, this is not where the story ends, but rather the beginning.</p>
 <hr />
@@ -1357,7 +1383,7 @@ u(x, t) = \exp\left(-\left(\frac{n\pi}{2}\right)^2 D t\right) \sin\left(\frac{n\
 </code></pre></div>
 <div class="admonition figure figure">
 <p class="admonition-title">Figure</p>
-<p><img alt="prediction" src="../assets/diffusion_lbfgs.gif" style="display: block; margin: 0 auto; width: 90%" /></p>
+<p><img alt="prediction" class="figure-image medium" src="../assets/diffusion_lbfgs.gif" /></p>
 </div>
 <div class="language-text highlight"><pre><span></span><code>Total Time    = 15m: 46.685s
 Final Loss:
@@ -1396,7 +1422,7 @@ Final Loss:
 <p>Since all three of these constraints are compatible with each other they will be combined.</p>
 <div class="admonition figure figure">
 <p class="admonition-title">Figure</p>
-<p><img alt="prediction" src="../assets/diffusion_hard_constraints.gif" style="display: block; margin: 0 auto; width: 90%" /></p>
+<p><img alt="prediction" class="figure-image medium" src="../assets/diffusion_hard_constraints.gif" /></p>
 </div>
 <div class="language-text highlight"><pre><span></span><code>Total Time    = 1m: 26.793s
 Final Loss:
