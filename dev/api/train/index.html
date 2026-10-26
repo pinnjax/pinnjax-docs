@@ -373,6 +373,8 @@
       
         
       
+        
+      
     
     
     
@@ -945,6 +947,8 @@
       
         
           
+        
+      
         
       
         
@@ -2923,7 +2927,17 @@ is missing.</p>
 <span class="normal">834</span>
 <span class="normal">835</span>
 <span class="normal">836</span>
-<span class="normal">837</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">train</span><span class="p">[</span><span class="n">Model</span><span class="p">:</span> <span class="n">NeuralNetwork</span><span class="p">](</span>
+<span class="normal">837</span>
+<span class="normal">838</span>
+<span class="normal">839</span>
+<span class="normal">840</span>
+<span class="normal">841</span>
+<span class="normal">842</span>
+<span class="normal">843</span>
+<span class="normal">844</span>
+<span class="normal">845</span>
+<span class="normal">846</span>
+<span class="normal">847</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">train</span><span class="p">[</span><span class="n">Model</span><span class="p">:</span> <span class="n">NeuralNetwork</span><span class="p">](</span>
     <span class="n">model</span><span class="p">:</span> <span class="n">Model</span><span class="p">,</span>
     <span class="n">geometry</span><span class="p">:</span> <span class="n">ComplexShape</span><span class="p">,</span>
     <span class="n">training</span><span class="p">:</span> <span class="n">Training</span><span class="p">,</span>
@@ -3132,6 +3146,16 @@ is missing.</p>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">magnitude</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">n_target</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">get_dtype</span><span class="p">())</span>
 
+    <span class="k">def</span><span class="w"> </span><span class="nf">_effective_weights</span><span class="p">(</span><span class="n">_weights</span><span class="p">:</span> <span class="n">Array</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Array</span><span class="p">:</span>
+        <span class="n">eff</span> <span class="o">=</span> <span class="n">_weights</span> <span class="o">*</span> <span class="n">priority</span> <span class="o">*</span> <span class="n">magnitude</span>
+
+        <span class="k">if</span> <span class="n">training</span><span class="o">.</span><span class="n">normalize_weights</span><span class="p">:</span>
+            <span class="n">weight_sum</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">eff</span><span class="p">)</span>
+            <span class="n">denominator</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">weight_sum</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">weight_sum</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+            <span class="n">eff</span> <span class="o">=</span> <span class="n">eff</span> <span class="o">*</span> <span class="n">eff</span><span class="o">.</span><span class="n">size</span> <span class="o">/</span> <span class="n">denominator</span>
+
+        <span class="k">return</span> <span class="n">eff</span>
+
     <span class="nd">@eqx</span><span class="o">.</span><span class="n">filter_jit</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">_loss</span><span class="p">(</span>
         <span class="n">_model</span><span class="p">:</span> <span class="n">Model</span><span class="p">,</span>
@@ -3149,7 +3173,7 @@ is missing.</p>
             <span class="n">sample_targets_override</span><span class="o">=</span><span class="n">_targets_override</span><span class="p">,</span>
             <span class="n">microbatch_size</span><span class="o">=</span><span class="n">training</span><span class="o">.</span><span class="n">microbatch_size</span><span class="p">,</span>
         <span class="p">)</span>
-        <span class="n">eff</span> <span class="o">=</span> <span class="n">_weights</span> <span class="o">*</span> <span class="n">priority</span> <span class="o">*</span> <span class="n">magnitude</span>
+        <span class="n">eff</span> <span class="o">=</span> <span class="n">_effective_weights</span><span class="p">(</span><span class="n">_weights</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">training</span><span class="o">.</span><span class="n">train_mode</span> <span class="o">==</span> <span class="s2">"class"</span><span class="p">:</span>
             <span class="n">total</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">eff</span><span class="p">,</span> <span class="n">_by_class</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
@@ -3271,7 +3295,7 @@ is missing.</p>
         <span class="n">Array</span><span class="p">,</span>
     <span class="p">]:</span>
         <span class="n">_old_model</span> <span class="o">=</span> <span class="n">_model</span>
-        <span class="n">eff</span> <span class="o">=</span> <span class="n">_weights</span> <span class="o">*</span> <span class="n">priority</span> <span class="o">*</span> <span class="n">magnitude</span>
+        <span class="n">eff</span> <span class="o">=</span> <span class="n">_effective_weights</span><span class="p">(</span><span class="n">_weights</span><span class="p">)</span>
         <span class="p">(</span>
             <span class="n">_loss_val</span><span class="p">,</span>
             <span class="n">_total_raw</span><span class="p">,</span>
@@ -3325,7 +3349,7 @@ is missing.</p>
         <span class="n">Array</span><span class="p">,</span>
     <span class="p">]:</span>
         <span class="n">_old_model</span> <span class="o">=</span> <span class="n">_model</span>
-        <span class="n">eff</span> <span class="o">=</span> <span class="n">_weights</span> <span class="o">*</span> <span class="n">priority</span> <span class="o">*</span> <span class="n">magnitude</span>
+        <span class="n">eff</span> <span class="o">=</span> <span class="n">_effective_weights</span><span class="p">(</span><span class="n">_weights</span><span class="p">)</span>
         <span class="p">(</span>
             <span class="n">_loss_val</span><span class="p">,</span>
             <span class="n">_total_raw</span><span class="p">,</span>

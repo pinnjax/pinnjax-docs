@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://pinnjax.github.io/pinnjax-docs/dev/examples/complexpath/complexpath/">
       
       
-        <link rel="prev" href="../../diffusion/diffusion/">
+        <link rel="prev" href="../../mam/metaladditivemanufacturing/">
       
       
         <link rel="next" href="../../../api/init_api/">
@@ -375,6 +375,8 @@
       
         
       
+        
+      
     
     
     
@@ -437,7 +439,35 @@
   <span class="md-ellipsis">
     
   
-    1D Diffusion
+    Time-Dependent 1D (Diffusion)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mam/metaladditivemanufacturing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Time-Dependent 3D (MAM)
   
 
     
@@ -518,6 +548,17 @@
       Table of Contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#includes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Includes
+      
+    </span>
+  </a>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#domain" class="md-nav__link">
@@ -710,6 +751,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#includes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Includes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#domain" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -834,6 +886,7 @@
 
 <h1 id="complex-pathing">Complex Pathing<a class="headerlink" href="#complex-pathing" title="Permanent link">#</a></h1>
 <p>The purpose of this example is to explain the intricacies and value of the  <a class="autorefs autorefs-internal" title="            ComplexLinearPath" href="../../../api/pathing/paths/#pinnjax.pathing.complex.ComplexLinearPath"><code>ComplexLinearPath</code></a> and associated functions.</p>
+<p>The full runnable script can be found at <code>examples/public/complexpaths.py</code> on GitHub.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>It's recommended to read all the examples in order, as previously explained portions won't be as thoroughly explained in later examples, and vice-versa concerning the content provided in this example.</p>
@@ -842,6 +895,14 @@
 <p class="admonition-title">Note</p>
 <p>Some of the function calls, particularly for the visualizations have been simplified from the call which generated the image, this is to highlight only the necessary parameters for these functions.</p>
 </div>
+<h2 id="includes">Includes<a class="headerlink" href="#includes" title="Permanent link">#</a></h2>
+<ul>
+<li>3D Dimensional Problem (<a class="autorefs autorefs-internal" title="            BoundedBox" href="../../../api/geometry/bounded/#pinnjax.geometry.bounded.BoundedBox"><code>BoundedBox</code></a>)</li>
+<li>Complex Pathing (<a class="autorefs autorefs-internal" title="            ComplexLinearPath" href="../../../api/pathing/paths/#pinnjax.pathing.complex.ComplexLinearPath"><code>ComplexLinearPath</code></a>, <a class="autorefs autorefs-internal" title="            circle_waypoint_generator" href="../../../api/pathing/generators/#pinnjax.pathing.generators.circle_waypoint_generator"><code>circle_waypoint_generator()</code></a>)</li>
+<li>Uniform Grid Sampling (<a class="autorefs autorefs-internal" title="            UniformSampler" href="../../../api/sampling/samplers/#pinnjax.sampling.uniform.UniformSampler"><code>UniformSampler</code></a>)</li>
+<li>Sobol Point Sampling (<a class="autorefs autorefs-internal" title="            SobolSampler" href="../../../api/sampling/samplers/#pinnjax.sampling.sobol.SobolSampler"><code>SobolSampler</code></a>)</li>
+<li>Localized Sampling (<a class="autorefs autorefs-internal" title="            add_path_shape" href="../../../api/geometry/bounded/#pinnjax.geometry.bounded.BoundedBox.add_path_shape"><code>.add_path_shape()</code></a>)</li>
+</ul>
 <h2 id="domain">Domain<a class="headerlink" href="#domain" title="Permanent link">#</a></h2>
 <p>Starting with a 3D Domain.</p>
 <div class="language-python highlight"><pre><span></span><code><span class="n">time</span> <span class="o">=</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">Time</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">)</span>                <span class="c1"># s</span>
