@@ -588,17 +588,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#evaluation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Evaluation
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#material-parameters" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -625,6 +614,17 @@
     <span class="md-ellipsis">
       
         Residuals &amp; Losses
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#evaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Evaluation
       
     </span>
   </a>
@@ -883,17 +883,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#evaluation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Evaluation
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#material-parameters" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -920,6 +909,17 @@
     <span class="md-ellipsis">
       
         Residuals &amp; Losses
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#evaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Evaluation
       
     </span>
   </a>
@@ -1020,17 +1020,17 @@
 <p>The full runnable script can be found at <code>examples/public/metaladditivemanufacturing.py</code> on GitHub.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>It's recommended to read all the examples in order, as previously explained portions won't be as thoroughly explained in later examples, and vice-versa concerning the content provided in this example.</p>
+<p>It's recommended to read all the examples in order, as previously explained portions won't be explained as thoroughly in later examples, and vice versa for the content introduced in this example.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Some of the function calls, particularly for the visualizations have been simplified from the call which generated the image, this is to highlight only the necessary parameters for these functions.</p>
+<p>Some of the function calls, particularly for the visualizations, have been simplified from the calls used to generate the images. This is to highlight only the necessary parameters for these functions.</p>
 </div>
 <h2 id="includes">Includes<a class="headerlink" href="#includes" title="Permanent link">#</a></h2>
 <ul>
 <li>Purely Physics-Informed</li>
-<li>Time-Dependent 3D Dimensional Problem (<a class="autorefs autorefs-internal" title="            BoundedBox" href="../../../api/geometry/bounded/#pinnjax.geometry.bounded.BoundedBox"><code>BoundedBox</code></a>)</li>
-<li>Feedfoward Neural Networks (<a class="autorefs autorefs-internal" title="            FNN" href="../../../api/model/networks/#pinnjax.model.fnn.FNN"><code>FNN</code></a>)</li>
+<li>Time-Dependent Three-Dimensional Problem (<a class="autorefs autorefs-internal" title="            BoundedBox" href="../../../api/geometry/bounded/#pinnjax.geometry.bounded.BoundedBox"><code>BoundedBox</code></a>)</li>
+<li>Feedforward Neural Networks (<a class="autorefs autorefs-internal" title="            FNN" href="../../../api/model/networks/#pinnjax.model.fnn.FNN"><code>FNN</code></a>)</li>
 <li>Complex Pathing (<a class="autorefs autorefs-internal" title="            ComplexLinearPath" href="../../../api/pathing/paths/#pinnjax.pathing.complex.ComplexLinearPath"><code>ComplexLinearPath</code></a>, <a class="autorefs autorefs-internal" title="            line_waypoint_generator" href="../../../api/pathing/generators/#pinnjax.pathing.generators.line_waypoint_generator"><code>line_waypoint_generator()</code></a>)</li>
 <li>Uniform Grid Sampling (<a class="autorefs autorefs-internal" title="            UniformSampler" href="../../../api/sampling/samplers/#pinnjax.sampling.uniform.UniformSampler"><code>UniformSampler</code></a>)</li>
 <li>Localized Sampling (<a class="autorefs autorefs-internal" title="            add_path_shape" href="../../../api/geometry/bounded/#pinnjax.geometry.bounded.BoundedBox.add_path_shape"><code>.add_path_shape()</code></a>)</li>
@@ -1040,9 +1040,9 @@
 <li>Evaluation (<a class="autorefs autorefs-internal" title="            Evaluation" href="../../../api/loss/evaluation/#pinnjax.loss.evaluation.Evaluation"><code>Evaluation</code></a>, <a class="autorefs autorefs-internal" title="            SingleSpatialGridEvaluation" href="../../../api/loss/evaluation/#pinnjax.loss.evaluation.SingleSpatialGridEvaluation"><code>SingleSpatialGridEvaluation</code></a>)</li>
 </ul>
 <h2 id="problem-description">Problem Description<a class="headerlink" href="#problem-description" title="Permanent link">#</a></h2>
-<p>Wire-arc directed energy deposition is an additive manufacturing technique based on conventional welding technology, utilizing a robotic system for the layer-by-layer deposition of complex structures. However, the complex thermal dynamics inherent to the process present challenges in ensuring structural integrity and mechanical properties of fabricated components. Traditional methodologies, such as FEM, are capable of predicting thermal histories during deposition, but are prohibitively computationally expensive when dealing with the rapid, and repetitive simulations to determine optimal printing strategies.</p>
+<p>Wire-arc directed energy deposition is an additive manufacturing technique based on conventional welding technology, utilizing a robotic system for the layer-by-layer deposition of complex structures. However, the complex thermal dynamics inherent to the process present challenges in ensuring the structural integrity and mechanical properties of fabricated components. Traditional methodologies, such as FEM, are capable of predicting thermal histories during deposition, but can be prohibitively computationally expensive when performing the rapid, repetitive simulations needed to determine optimal printing strategies.</p>
 <p><img alt="samples-sobol" class="figure-image small" src="../assets/WAAM.png" /></p>
-<p>Instead, let's surrogate the process using purely-Physics-informed Neural Networks.</p>
+<p>Instead, let's surrogate the process using purely physics-informed neural networks.</p>
 <hr />
 <p>The transient heat conduction problem is governed by the following equations:</p>
 <div class="arithmatex">\[
@@ -1123,10 +1123,10 @@ Q_{\mathrm{goldak}} =
 </code></pre></div>
 <div class="admonition figure figure">
 <p class="admonition-title">Figure</p>
-<p><img alt="spatial_domain" class="figure-image" src="../assets/spatial_domain.png" /></p>
+<p><img alt="spatial_domain" class="figure-image small" src="../assets/spatial_domain.png" /></p>
 </div>
 <h2 id="pathing">Pathing<a class="headerlink" href="#pathing" title="Permanent link">#</a></h2>
-<p><em>Pathing</em> is much better explained in <a href="../../complexpath/complexpath/">Example: Complex Pathing</a>, so for more specific questions I'd recommend looking there. However, there we use <a class="autorefs autorefs-internal" title="            circle_waypoint_generator" href="../../../api/pathing/generators/#pinnjax.pathing.generators.circle_waypoint_generator"><code>circle_waypoint_generator()</code></a>, here we will use <a class="autorefs autorefs-internal" title="            line_waypoint_generator" href="../../../api/pathing/generators/#pinnjax.pathing.generators.line_waypoint_generator"><code>line_waypoint_generator()</code></a>.</p>
+<p><em>Pathing</em> is explained in much more detail in <a href="../../complexpath/complexpath/">Example: Complex Pathing</a>, so for more specific questions I'd recommend looking there. However, there we use <a class="autorefs autorefs-internal" title="            circle_waypoint_generator" href="../../../api/pathing/generators/#pinnjax.pathing.generators.circle_waypoint_generator"><code>circle_waypoint_generator()</code></a>, while here we will use <a class="autorefs autorefs-internal" title="            line_waypoint_generator" href="../../../api/pathing/generators/#pinnjax.pathing.generators.line_waypoint_generator"><code>line_waypoint_generator()</code></a>.</p>
 <div class="language-python highlight"><pre><span></span><code><span class="n">waypoints</span> <span class="o">=</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">line_waypoint_generator</span><span class="p">(</span>
     <span class="n">speed</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> 
     <span class="n">direction</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> 
@@ -1135,80 +1135,105 @@ Q_{\mathrm{goldak}} =
     <span class="n">segments</span><span class="o">=</span><span class="mi">30</span>
 <span class="p">)</span>
 </code></pre></div>
-<p>This creates a line split in <code>30</code> segments and moving in the <code>(1, 0, 0)</code> direction, or straight in the <code class="language-python highlight"><span class="s2">"x"</span></code> direction, at <code>0.01</code> <span class="arithmatex">\(m/s\)</span> starting from the coordinate <code>(0.0, 3e-3, 4e-3)</code> for the entire <a class="autorefs autorefs-internal" title="            Time" href="../../../api/dataclass/domains/#pinnjax.dataclass.time.Time"><code>Time</code></a> range.</p>
-<div class="admonition figure figure">
-<p class="admonition-title">Figure</p>
-<p><img alt="path" class="figure-image" src="../assets/path.png" /></p>
+<p>This creates a line split into <code>30</code> segments, moving in the <code>(1, 0, 0)</code> direction, or straight in the <code class="language-python highlight"><span class="s2">"x"</span></code> direction, at <code>0.01</code> <span class="arithmatex">\(m/s\)</span>, starting from the coordinate <code>(0.0, 3e-3, 4e-3)</code> for the entire <a class="autorefs autorefs-internal" title="            Time" href="../../../api/dataclass/domains/#pinnjax.dataclass.time.Time"><code>Time</code></a> range.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The temporal <code>waypoints</code> indicate where the source is at a given time; however, the <a class="autorefs autorefs-internal" title="            Path" href="../../../api/pathing/paths/#pinnjax.pathing.base.Path"><code>Path</code></a> is always moving. Therefore, if the simulation <a class="autorefs autorefs-internal" title="            Time" href="../../../api/dataclass/domains/#pinnjax.dataclass.time.Time"><code>Time</code></a> exceeds the time of the final <code>waypoint</code>, the <a class="autorefs autorefs-internal" title="            Path" href="../../../api/pathing/paths/#pinnjax.pathing.base.Path"><code>Path</code></a> will continue until the end of the simulation, even if the final <code>waypoint</code> was intended to be the stopping point.</p>
 </div>
+<p>Then, we can validate our <a class="autorefs autorefs-internal" title="            Path" href="../../../api/pathing/paths/#pinnjax.pathing.base.Path"><code>Path</code></a>.</p>
+<div class="language-python highlight"><pre><span></span><code><span class="n">path</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">domain</span><span class="p">)</span>
+</code></pre></div>
+<p>In continuation of the note above, this <em>validation</em> would fail when provided a sufficiently large temporal <a class="autorefs autorefs-internal" title="            SpatialDomain" href="../../../api/dataclass/domains/#pinnjax.dataclass.domain.SpatialDomain"><code>SpatialDomain</code></a>, such that the <a class="autorefs autorefs-internal" title="            Path" href="../../../api/pathing/paths/#pinnjax.pathing.base.Path"><code>Path</code></a> continues off the edge after the final <code>waypoint</code>.</p>
+<p>And visual validation,</p>
+<div class="language-python highlight"><pre><span></span><code><span class="n">path</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">domain</span><span class="p">)</span>
+</code></pre></div>
 <div class="admonition figure figure">
 <p class="admonition-title">Figure</p>
-<p><img alt="path-gif" class="figure-image" src="../assets/path.gif" /></p>
+<p><img alt="path" class="figure-image medium" src="../assets/path.png" /></p>
+</div>
+<p>Or as an animation,</p>
+<div class="language-python highlight"><pre><span></span><code><span class="n">path</span><span class="o">.</span><span class="n">animate</span><span class="p">(</span><span class="n">domain</span><span class="p">)</span>
+</code></pre></div>
+<div class="admonition figure figure">
+<p class="admonition-title">Figure</p>
+<p><img alt="path-gif" class="figure-image medium" src="../assets/path.gif" /></p>
 </div>
 <h2 id="geometry">Geometry<a class="headerlink" href="#geometry" title="Permanent link">#</a></h2>
+<p>Now, to create the geometry, or <a class="autorefs autorefs-internal" title="            ComplexShape" href="../../../api/geometry/composites/#pinnjax.geometry.complex.ComplexShape"><code>ComplexShape</code></a>. A <a class="autorefs autorefs-internal" title="            ComplexShape" href="../../../api/geometry/composites/#pinnjax.geometry.complex.ComplexShape"><code>ComplexShape</code></a> is named as such because it is constructed from a combination of simple primitives, or <a class="autorefs autorefs-internal" title="            Shape" href="../../../api/geometry/primitives/#pinnjax.geometry.base.Shape"><code>Shapes</code></a>. In the case of <a class="autorefs autorefs-internal" title="            BoundedBox" href="../../../api/geometry/bounded/#pinnjax.geometry.bounded.BoundedBox"><code>BoundedBox</code></a>, this consists of 7 shapes:</p>
+<ul>
+<li>A <a class="autorefs autorefs-internal" title="            Box" href="../../../api/geometry/primitives/#pinnjax.geometry.primitives.Box"><code>Box</code></a>, and</li>
+<li>6 <a class="autorefs autorefs-internal" title="            Rectangle" href="../../../api/geometry/primitives/#pinnjax.geometry.primitives.Rectangle"><code>Rectangles</code></a> on each face.</li>
+</ul>
+<p>We could set <code class="language-python highlight"><span class="n">initial</span> <span class="o">=</span> <span class="kc">True</span></code>, but we are going to hard constrain that later. In that case, we would have 8 shapes.</p>
+<div class="language-python highlight"><pre><span></span><code><span class="n">obb</span> <span class="o">=</span> <span class="n">domain</span><span class="o">.</span><span class="n">to_obb</span><span class="p">()</span>
+<span class="n">geometry</span> <span class="o">=</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">BoundedBox</span><span class="p">(</span><span class="o">*</span><span class="n">obb</span><span class="p">,</span> <span class="n">times</span><span class="o">=</span><span class="n">time</span><span class="p">)</span>
+</code></pre></div>
+<p>A <a class="autorefs autorefs-internal" title="            BoundedBox" href="../../../api/geometry/bounded/#pinnjax.geometry.bounded.BoundedBox"><code>BoundedBox</code></a> can be created by supplying the <code>origin</code>, <code>edge1</code>, <code>edge2</code>, and <code>edge3</code>, in that order. <code class="language-python highlight"><span class="n">obb</span> <span class="o">=</span> <span class="n">domain</span><span class="o">.</span><span class="n">to_obb</span><span class="p">()</span></code> simplifies this by returning these variables directly from our <a class="autorefs autorefs-internal" title="            SpatialDomain" href="../../../api/dataclass/domains/#pinnjax.dataclass.domain.SpatialDomain"><code>SpatialDomain</code></a>, and most importantly, in the correct order given the expected normal directions. If you didn't know, in Python, <code>*</code> unpacks a tuple, thus <code>*obb -&gt; origin, edge, edge, edge.</code></p>
+<p>As with the other example cases, this newly created <a class="autorefs autorefs-internal" title="            ComplexShape" href="../../../api/geometry/composites/#pinnjax.geometry.complex.ComplexShape"><code>ComplexShape</code></a> can be visualized with <code class="language-python highlight"><span class="n">geometry</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span></code>.</p>
+<p>Since the order of the internal <a class="autorefs autorefs-internal" title="            Shape" href="../../../api/geometry/primitives/#pinnjax.geometry.base.Shape"><code>Shapes</code></a> is important for later steps, such as sampling and assigning residuals, this is the internal order:</p>
+<div class="language-python highlight"><pre><span></span><code><span class="n">shapes</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Shape</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">interior</span><span class="p">,</span>
+    <span class="n">left_face</span><span class="p">,</span>      <span class="c1"># -X</span>
+    <span class="n">right_face</span><span class="p">,</span>     <span class="c1"># +X</span>
+    <span class="n">front_face</span><span class="p">,</span>     <span class="c1"># -Y</span>
+    <span class="n">back_face</span><span class="p">,</span>      <span class="c1"># +Y</span>
+    <span class="n">bottom_face</span><span class="p">,</span>    <span class="c1"># -Z</span>
+    <span class="n">top_face</span><span class="p">,</span>       <span class="c1"># +Z</span>
+<span class="p">]</span>
+</code></pre></div>
+<p>But what does that even <em>mean</em>? Luckily, we can visualize this as follows:</p>
+<div class="language-python highlight"><pre><span></span><code><span class="n">geometry</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">colored_walls</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div>
 <div class="admonition figure figure">
 <p class="admonition-title">Figure</p>
-<p><img alt="sides" class="figure-image" src="../assets/sides.png" /></p>
+<p><img alt="sides" class="figure-image medium" src="../assets/sides.png" /></p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The static plots seen throughout this example are actually interactive <span class="arithmatex">\(\texttt{matplotlib}\)</span> figures saved as .pngs to fit the medium, but it's recommended to run this script to get a full understanding of the output of these functions.</p>
 </div>
 <h2 id="sampling">Sampling<a class="headerlink" href="#sampling" title="Permanent link">#</a></h2>
+<p>Another example, <a href="../../complexpath/complexpath/">Complex Pathing</a>, gives a better overview of sampling-related functions, in particular a brief comparison between the two existing <a class="autorefs autorefs-internal" title="            SamplingMethod" href="../../../api/sampling/method/#pinnjax.sampling.base.SamplingMethod"><code>SamplingMethods</code></a>: <a class="autorefs autorefs-internal" title="            UniformSampler" href="../../../api/sampling/samplers/#pinnjax.sampling.uniform.UniformSampler"><code>UniformSampler</code></a> and <a class="autorefs autorefs-internal" title="            SobolSampler" href="../../../api/sampling/samplers/#pinnjax.sampling.sobol.SobolSampler"><code>SobolSampler</code></a>. Here we will use <a class="autorefs autorefs-internal" title="            UniformSampler" href="../../../api/sampling/samplers/#pinnjax.sampling.uniform.UniformSampler"><code>UniformSampler</code></a>, but keep in mind that the same steps could've been done with <a class="autorefs autorefs-internal" title="            SobolSampler" href="../../../api/sampling/samplers/#pinnjax.sampling.sobol.SobolSampler"><code>SobolSampler</code></a>, perhaps with improved results.</p>
+<div class="language-python highlight"><pre><span></span><code><span class="n">method</span> <span class="o">=</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">UniformSampler</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="s2">"grid_resolution"</span><span class="p">)</span>
+<span class="n">resolutions</span> <span class="o">=</span> <span class="p">[</span><span class="mf">2e-3</span><span class="p">,</span> <span class="mf">2e-3</span><span class="p">,</span> <span class="mf">2e-3</span><span class="p">,</span> <span class="mf">2e-3</span><span class="p">,</span> <span class="mf">2e-3</span><span class="p">,</span> <span class="mf">1e-1</span><span class="p">,</span> <span class="mf">1e-3</span><span class="p">]</span>
+</code></pre></div>
+<p>While this won't always be the case, with our heat source we can estimate the general location of the most important points: directly surrounding the heat source as it travels, where the temperatures and gradients are expected to be largest. Thus, we can utilize this expert knowledge to improve our training, first by generating additional <a class="autorefs autorefs-internal" title="            Shape" href="../../../api/geometry/primitives/#pinnjax.geometry.base.Shape"><code>Shapes</code></a>.</p>
+<div class="language-python highlight"><pre><span></span><code><span class="n">geometry</span><span class="o">.</span><span class="n">add_path_shape</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">radius</span><span class="o">=</span><span class="p">[</span><span class="mf">2e-3</span><span class="p">,</span> <span class="mf">2e-3</span><span class="p">,</span> <span class="mf">4e-3</span><span class="p">])</span>
+</code></pre></div>
+<p>The <code>radius</code> refers to a border surrounding each <code>waypoint</code>; thus, depending on the segment length, they may or may not overlap. Additionally, using more <code>segments</code> during generation will result in more <a class="autorefs autorefs-internal" title="            Shape" href="../../../api/geometry/primitives/#pinnjax.geometry.base.Shape"><code>Shapes</code></a> being created during this step.</p>
+<p>As the number of values in <code>resolutions</code> is expected to match the internal <a class="autorefs autorefs-internal" title="            Shape" href="../../../api/geometry/primitives/#pinnjax.geometry.base.Shape"><code>Shapes</code></a>, both in order and amount, we need to add two more resolutions for our 'path shapes'.</p>
+<div class="language-python highlight"><pre><span></span><code><span class="n">resolutions</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="mf">8.5e-4</span><span class="p">,</span> <span class="mf">8.5e-4</span><span class="p">])</span>
+</code></pre></div>
+<p>Here the resolutions are provided as a list because we wish to vary the resolution based on the perceived importance of each internal <a class="autorefs autorefs-internal" title="            Shape" href="../../../api/geometry/primitives/#pinnjax.geometry.base.Shape"><code>Shape</code></a>. However, if all <code>resolutions</code> should be the same, <code class="language-python highlight"><span class="n">resolutions</span> <span class="o">=</span> <span class="mf">2e-3</span></code> is equivalent to a full list of identical entries.</p>
+<p>Now let's sample.</p>
+<div class="language-python highlight"><pre><span></span><code><span class="n">geometry</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="n">resolutions</span><span class="p">)</span> 
+</code></pre></div>
+<p>If you plot following this step using <code class="language-python highlight"><span class="n">geometry</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">show_samples</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></code>, you'll see something rather cluttered given the additional 61 <a class="autorefs autorefs-internal" title="            Shape" href="../../../api/geometry/primitives/#pinnjax.geometry.base.Shape"><code>Shapes</code></a>, so let's clean that up a bit.</p>
+<div class="language-python highlight"><pre><span></span><code><span class="n">geometry</span><span class="o">.</span><span class="n">unpack</span><span class="p">(</span><span class="n">flatten</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div>
+<p>It's not only important to <em>unpack</em> and <em>flatten</em> for <em>cleanliness</em>, but also for computational reasons. <code>.unpack()</code> opens the new internal <a class="autorefs autorefs-internal" title="            ComplexShape" href="../../../api/geometry/composites/#pinnjax.geometry.complex.ComplexShape"><code>ComplexShape</code></a> from our <a class="autorefs autorefs-internal" title="            ComplexShape" href="../../../api/geometry/composites/#pinnjax.geometry.complex.ComplexShape"><code>ComplexShape</code></a>. <em>Inception</em>.</p>
+<p>Then, <code>.flatten()</code> replaces all compatible shapes with one all-encompassing <a class="autorefs autorefs-internal" title="            Shape" href="../../../api/geometry/primitives/#pinnjax.geometry.base.Shape"><code>Shape</code></a>. A 'compatible' <a class="autorefs autorefs-internal" title="            Shape" href="../../../api/geometry/primitives/#pinnjax.geometry.base.Shape"><code>Shape</code></a> in this case means that all the children have the same <a class="autorefs autorefs-internal" title="            Shape" href="../../../api/geometry/primitives/#pinnjax.geometry.base.Shape"><code>Shape</code></a>, <a class="autorefs autorefs-internal" title="            Residual" href="../../../api/loss/residuals/#pinnjax.loss.residuals.Residual"><code>Residual</code></a>, and <a class="autorefs autorefs-internal" title="            Loss" href="../../../api/loss/metrics/#pinnjax.loss.metrics.Loss"><code>Loss</code></a>.</p>
+<p>This is computationally important for many reasons, but one primary reason is <span class="arithmatex">\(\texttt{JAX}\)</span>. Just-in-Time compilation constructs machine code <em>just-in-time</em> for each <code>Array</code> shape, so each additional <code>Array</code> shape encountered during runtime triggers an additional, potentially time-consuming compilation.</p>
+<p>Here we can see the sampled points through time, where it is clear to see the additionally sampled points under the heat source as it travels.</p>
+<div class="language-python highlight"><pre><span></span><code><span class="n">geometry</span><span class="o">.</span><span class="n">animate</span><span class="p">(</span><span class="n">show_samples</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">show_path</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div>
 <div class="admonition figure figure">
 <p class="admonition-title">Figure</p>
 <p><img alt="sampled-path-gif" class="figure-image" src="../assets/sampled_path.gif" /></p>
 </div>
+<p>Or the cumulative collocation points through time.</p>
+<div class="language-python highlight"><pre><span></span><code><span class="n">geometry</span><span class="o">.</span><span class="n">animate</span><span class="p">(</span><span class="n">show_samples</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">show_path</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">additive</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div>
 <div class="admonition figure figure">
 <p class="admonition-title">Figure</p>
 <p><img alt="sampled-path-additive-gif" class="figure-image" src="../assets/sampled_path_additive.gif" /></p>
 </div>
+<p>And, finally, as a still image.</p>
+<div class="language-python highlight"><pre><span></span><code><span class="n">geometry</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">show_path</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">show_samples</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div>
 <div class="admonition figure figure">
 <p class="admonition-title">Figure</p>
 <p><img alt="samples" class="figure-image" src="../assets/with_path_shapes_and_samples_flattened.png" /></p>
-</div>
-<h2 id="evaluation">Evaluation<a class="headerlink" href="#evaluation" title="Permanent link">#</a></h2>
-<p>If you play around with the parameters a bit and watch the losses during training you will come to realize that it can be difficult to know for certain how low the losses have to get to achieve 'decent' results. This is because the Residuals, at least the ones used here, are not normalized and thus the difference between the expected physics is absolute, not relative. By, simply modifying the material parameters will increase or decrease the loss. In the case of this example here losses as high as 1e18 are rather good. Therefore, it is useful to be able to compare our current predictions at runtime to something other than physics to get a better idea of how well our model is currently performing.</p>
-<div class="language-python highlight"><pre><span></span><code><span class="n">ground_truth</span> <span class="o">=</span> <span class="p">(</span>
-    <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span><span class="o">.</span><span class="n">parent</span> <span class="o">/</span> 
-                            <span class="s2">"_ground_truth"</span> <span class="o">/</span> 
-                            <span class="n">PROJECT_NAME</span> <span class="o">/</span> 
-                            <span class="s2">"FEM_FC_3s.csv"</span>
-<span class="p">)</span>
-<span class="n">evaluation</span> <span class="o">=</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">SingleSpatialGridEvaluation</span><span class="o">.</span><span class="n">from_csv_file</span><span class="p">(</span>
-    <span class="n">ground_truth_path</span><span class="o">=</span><span class="n">ground_truth</span><span class="p">,</span>
-    <span class="c1"># the model contains the `SpatialDomain`, </span>
-    <span class="c1"># but the `domain` can be provided instead.</span>
-    <span class="c1"># if the `model` is provide we can evaluate the model </span>
-    <span class="c1"># against the `Evaluation` easier.</span>
-    <span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span>  
-    <span class="n">comparison_time</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span>  <span class="c1"># s</span>
-    <span class="n">csv_coordinate_column_order</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>  <span class="c1"># to match [x, y, z, t]</span>
-    <span class="n">csv_truth_column</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span>
-    <span class="n">regularity</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
-<span class="p">)</span>
-</code></pre></div>
-<p>For this we have the 'true' solution, generated using traditional FEM methods, and saved to a .csv file. In this case, the columns are (t, x, y, z, T), so we use <code>csv_coordinate_column_order</code> to restructure the <code>.csv</code>. Then the rows span the entire spatial and temporal domain we are using here. It has also used the same the thermal material and goldak parameters, thus, if you modify those, the comparison will get worse, but that doesn't mean the model is training worse, just that its being compared to the wrong thing.</p>
-<p>This particular <a class="autorefs autorefs-internal" title="            Evaluation" href="../../../api/loss/evaluation/#pinnjax.loss.evaluation.Evaluation"><code>Evaluation</code></a> calculates <code>RMSE</code>, <code>Relative L2</code>, and <code>R2</code>, but we could change this by writing a child <a class="autorefs autorefs-internal" title="            SingleSpatialGridEvaluation" href="../../../api/loss/evaluation/#pinnjax.loss.evaluation.SingleSpatialGridEvaluation"><code>SingleSpatialGridEvaluation</code></a>, a new <code>evaluate()</code> method, and updating the <code>FORMAT</code>, <code>DICTIONARY</code>, and <code>METRIC_DIRECTION</code> class variables.</p>
-<p>The <code>__call__()</code> just calls <code>evaluate()</code>. Or, perhaps, a different, or entirely custom <a class="autorefs autorefs-internal" title="            Evaluation" href="../../../api/loss/evaluation/#pinnjax.loss.evaluation.Evaluation"><code>Evaluation</code></a> is necessary for your purposes.</p>
-<hr />
-<p><a class="autorefs autorefs-internal" title="            SingleSpatialGridEvaluation" href="../../../api/loss/evaluation/#pinnjax.loss.evaluation.SingleSpatialGridEvaluation"><code>SingleSpatialGridEvaluation</code></a> also includes a number of methods for plotting and slicing.</p>
-<p>First, we could simply plot our evaluation at the provided <code>comparison_time</code>,</p>
-<div class="language-python highlight"><pre><span></span><code><span class="n">evaluation</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
-</code></pre></div>
-<div class="admonition figure figure">
-<p class="admonition-title">Figure</p>
-<p><img alt="evaluation-3d" class="figure-image" src="../assets/evaluation-3d.png" /></p>
-</div>
-<p>Or, instead just a slice.</p>
-<div class="language-python highlight"><pre><span></span><code><span class="n">evaluation</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fixed_coordinates</span><span class="o">=</span><span class="p">{</span><span class="s2">"z"</span><span class="p">:</span> <span class="n">domain</span><span class="o">.</span><span class="n">max</span><span class="p">[</span><span class="mi">2</span><span class="p">]})</span>
-</code></pre></div>
-<div class="admonition figure figure">
-<p class="admonition-title">Figure</p>
-<p><img alt="evaluation" class="figure-image" src="../assets/evaluation-z.png" /></p>
-</div>
-<p>Perhaps, we decide after the creation of <code>evaluation</code> that we would rather look at a different moment in time.</p>
-<div class="language-python highlight"><pre><span></span><code><span class="n">evaluation</span><span class="o">.</span><span class="n">update_truth_at</span><span class="p">(</span><span class="n">comparison_time</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
-<span class="n">evaluation</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fixed_coordinates</span><span class="o">=</span><span class="p">{</span><span class="s2">"z"</span><span class="p">:</span> <span class="n">domain</span><span class="o">.</span><span class="n">max</span><span class="p">[</span><span class="mi">2</span><span class="p">]})</span>
-</code></pre></div>
-<div class="admonition figure figure">
-<p class="admonition-title">Figure</p>
-<p><img alt="evaluation-1s" class="figure-image" src="../assets/evaluation-z-comparison_time-1s.png" /></p>
 </div>
 <h2 id="material-parameters">Material Parameters<a class="headerlink" href="#material-parameters" title="Permanent link">#</a></h2>
 <p>Enough visualization for now.</p>
@@ -1255,12 +1280,12 @@ Q_{\mathrm{goldak}} =
     <span class="p">),</span>
 <span class="p">)</span>
 </code></pre></div>
-<p>The HardConstraints are explained in detail in the <a href="../../diffusion/diffusion.md">1D Diffusion example</a>, but the <a class="autorefs autorefs-internal" title="            ExpectedOutputRangeSoftplus" href="../../../api/model/transforms/#pinnjax.model.transforms.ExpectedOutputRangeSoftplus"><code>ExpectedOutputRangeSoftplus</code></a> (<a class="autorefs autorefs-internal" title="            OutputTransformation" href="../../../api/model/transforms/#pinnjax.model.transforms.OutputTransformation"><code>OutputTransformation</code></a>) is new, so let's briefly explain it.</p>
-<p>Neural Networks have been known to work best when the numbers, and therefore gradients remain smaller. This is part of the reason for the normalization of the inputs. However, in the case of WAAM, the expect temperature, range is much larger. Therefore, to take normalized inputs between -1 and 1 and output a temperature in the thousands, the weights have to be very large. To mitigate this, we try and scale our output towards the expected range. In the case of <a class="autorefs autorefs-internal" title="            ExpectedOutputRangeSoftplus" href="../../../api/model/transforms/#pinnjax.model.transforms.ExpectedOutputRangeSoftplus"><code>ExpectedOutputRangeSoftplus</code></a> this transformation is:</p>
+<p>The HardConstraints are explained in detail in the <a href="../../diffusion/diffusion/">1D Diffusion example</a>, but the <a class="autorefs autorefs-internal" title="            ExpectedOutputRangeSoftplus" href="../../../api/model/transforms/#pinnjax.model.transforms.ExpectedOutputRangeSoftplus"><code>ExpectedOutputRangeSoftplus</code></a> (<a class="autorefs autorefs-internal" title="            OutputTransformation" href="../../../api/model/transforms/#pinnjax.model.transforms.OutputTransformation"><code>OutputTransformation</code></a>) is new, so let's briefly explain it.</p>
+<p>Neural Networks are generally easier to train when the numerical values, and therefore the gradients, remain smaller. This is part of the reason for normalizing the inputs. However, in the case of WAAM, the expected temperature range is much larger. Therefore, to take normalized inputs between -1 and 1 and output a temperature in the thousands, the weights may need to become very large. To mitigate this, we scale the output toward the expected range. In the case of <a class="autorefs autorefs-internal" title="            ExpectedOutputRangeSoftplus" href="../../../api/model/transforms/#pinnjax.model.transforms.ExpectedOutputRangeSoftplus"><code>ExpectedOutputRangeSoftplus</code></a>, this transformation is:</p>
 <ul>
 <li>transformed_output = lower_bound + scale * softplus(outputs).</li>
 </ul>
-<p>The purpose of hyperparameter optimization is to modify the numerous parameters and factors involved in the training, such that the model reaches the global minimum, ideally, as fast as possible. However, in addition to 'going faster', it's also possible to reach your final destination faster by 'starting closer'.</p>
+<p>The purpose of hyperparameter optimization is to modify the numerous parameters and factors involved in training such that the model reaches the global minimum, ideally as quickly as possible. However, in addition to 'going faster', it's also possible to reach your final destination faster by 'starting closer'.</p>
 <p>This is the theory behind 'Weight Initialization'.</p>
 <div class="language-python highlight"><pre><span></span><code><span class="n">initialization</span> <span class="o">=</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">Initialization</span><span class="p">(</span>
     <span class="n">weights</span><span class="o">=</span><span class="n">jinit</span><span class="o">.</span><span class="n">variance_scaling</span><span class="p">(</span>
@@ -1271,7 +1296,7 @@ Q_{\mathrm{goldak}} =
     <span class="n">bias</span><span class="o">=</span><span class="n">jinit</span><span class="o">.</span><span class="n">zeros</span><span class="p">,</span>
 <span class="p">)</span>
 </code></pre></div>
-<p>The <a class="autorefs autorefs-internal" title="            Initialization" href="../../../api/dataclass/networks/#pinnjax.dataclass.model_config.Initialization"><code>pinnjax.Initialization</code></a>, like some of the other attrs is just a container around the <a href="https://docs.jax.dev/en/latest/jax.nn.initializers.html">'jax.nn.initializers'</a>, so you should look there for possible options and tips for choosing the ideal initialization. Here, as the note says, we use a variance-scaled version of the Kaiming Initialization, because it's been shown to work best with the Activation function we will use in a moment, <code>GELU</code>.</p>
+<p>The <a class="autorefs autorefs-internal" title="            Initialization" href="../../../api/dataclass/networks/#pinnjax.dataclass.model_config.Initialization"><code>pinnjax.Initialization</code></a>, like some of the other attrs, is just a container around the <a href="https://docs.jax.dev/en/latest/jax.nn.initializers.html">'jax.nn.initializers'</a>, so you should look there for possible options and tips for choosing the ideal initialization. Here, as the note says, we use a variance-scaled version of the Kaiming Initialization because it has been shown to work well with the Activation function we will use in a moment, <code>GELU</code>.</p>
 <div class="language-python highlight"><pre><span></span><code><span class="n">topology</span> <span class="o">=</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># depth: 4 - width: 64</span>
 </code></pre></div>
 <div class="admonition figure figure">
@@ -1280,7 +1305,7 @@ Q_{\mathrm{goldak}} =
 </div>
 <div class="language-python highlight"><pre><span></span><code><span class="n">activation</span> <span class="o">=</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">Activation</span><span class="p">(</span><span class="n">jax</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">gelu</span><span class="p">,</span> <span class="n">kwargs</span><span class="o">=</span><span class="p">{</span><span class="s2">"approximate"</span><span class="p">:</span> <span class="kc">False</span><span class="p">})</span>
 </code></pre></div>
-<p>Part of the reason we are using GELU, is because of the residuals we plan to solve in a moment. These residuals involve second-order derivatives of our output prediction. Therefore, it is important that our activation function is at least C2- smooth, and thus has continuous first- and second-order derivatives. That isn't to say that we must use GELU in these cases, but rather why we aren't using <code>RELU</code>, as was the case in the <a href="(../../diffusion/diffusion.md)">diffusion example</a>.</p>
+<p>Part of the reason we are using <code>GELU</code> is because of the residuals we plan to solve in a moment. These residuals involve second-order derivatives of our output prediction. Therefore, it is important that our activation function is at least C2-smooth, and thus has continuous first- and second-order derivatives. That isn't to say that we must use <code>GELU</code> in these cases, but rather explains why we aren't using <code>RELU</code>, as was the case in the <a href="../../diffusion/diffusion/">diffusion example</a>.</p>
 <p>And, once again, we use a <a class="autorefs autorefs-internal" title="            FNN" href="../../../api/model/networks/#pinnjax.model.fnn.FNN"><code>FNN</code></a>, and piece it all together.</p>
 <div class="language-python highlight"><pre><span></span><code><span class="n">model</span> <span class="o">=</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">FNN</span><span class="p">(</span>
     <span class="n">domain</span><span class="p">,</span>
@@ -1291,12 +1316,22 @@ Q_{\mathrm{goldak}} =
 <span class="p">)</span>
 </code></pre></div>
 <h2 id="residuals-losses">Residuals &amp; Losses<a class="headerlink" href="#residuals-losses" title="Permanent link">#</a></h2>
-<p>The residuals used in this example are actually all currently included in <code>PINN-JAX</code>, however, it's unlikely you'll find personal use with them other than [<code>DirichletBoundaryCondition</code>][pinnjax.DirchletBoundaryCondition], which works as you'd expect.</p>
+<p>The residuals used in this example are all currently included in <span class="arithmatex">\(\texttt{PINN-JAX}\)</span>; however, it's unlikely you'll find much personal use for them other than <a class="autorefs autorefs-internal" title="            DirichletBoundaryCondition" href="../../../api/loss/residuals/#pinnjax.loss.boundary_conditions.DirichletBoundaryCondition"><code>DirichletBoundaryCondition</code></a>, which works as you'd expect.</p>
 <p>If you'd like to know more about the inner workings of these classes, check the relevant documentation. However, it should be clear from the problem set up what physics each of these residuals are referring to.</p>
+<p>For easier access,</p>
+<ul>
+<li><a class="autorefs autorefs-internal" title="            GoldakHeatFlux" href="../../../api/loss/residuals/#pinnjax.loss.pde.GoldakHeatFlux"><code>GoldakHeatFlux</code></a> - (<a class="autorefs autorefs-internal" title="            PartialDifferentialEquation" href="../../../api/loss/residuals/#pinnjax.loss.pde.PartialDifferentialEquation"><code>PartialDifferentialEquation</code></a>)</li>
+<li><a class="autorefs autorefs-internal" title="            RobinHeatFlux" href="../../../api/loss/residuals/#pinnjax.loss.boundary_conditions.RobinHeatFlux"><code>RobinHeatFlux</code></a> - (<a class="autorefs autorefs-internal" title="            BoundaryCondition" href="../../../api/loss/residuals/#pinnjax.loss.boundary_conditions.BoundaryCondition"><code>BoundaryCondition</code></a>)</li>
+<li><a class="autorefs autorefs-internal" title="            DirichletBoundaryCondition" href="../../../api/loss/residuals/#pinnjax.loss.boundary_conditions.DirichletBoundaryCondition"><code>DirichletBoundaryCondition</code></a> - (<a class="autorefs autorefs-internal" title="            BoundaryCondition" href="../../../api/loss/residuals/#pinnjax.loss.boundary_conditions.BoundaryCondition"><code>BoundaryCondition</code></a>)</li>
+</ul>
+<div class="admonition reminder">
+<p class="admonition-title">Reminder</p>
+<p><a class="autorefs autorefs-internal" title="            PartialDifferentialEquation" href="../../../api/loss/residuals/#pinnjax.loss.pde.PartialDifferentialEquation"><code>PartialDifferentialEquation</code></a>, <a class="autorefs autorefs-internal" title="            BoundaryCondition" href="../../../api/loss/residuals/#pinnjax.loss.boundary_conditions.BoundaryCondition"><code>BoundaryCondition</code></a>, and <a class="autorefs autorefs-internal" title="            InitialCondition" href="../../../api/loss/residuals/#pinnjax.loss.initial_conditions.InitialCondition"><code>InitialCondition</code></a> are functionally identical except in the cases of <code class="language-python highlight"><span class="s2">"class"</span></code>-based training and plotting.</p>
+</div>
 <div class="language-python highlight"><pre><span></span><code><span class="n">pde</span> <span class="o">=</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">GoldakHeatFlux</span><span class="p">(</span><span class="n">thermal_material</span><span class="p">,</span> <span class="n">goldak</span><span class="p">,</span> <span class="n">path</span><span class="p">)</span>
 <span class="n">robin</span> <span class="o">=</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">RobinHeatFlux</span><span class="p">(</span><span class="n">thermal_material</span><span class="p">)</span>
 <span class="n">dirichlet</span> <span class="o">=</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">DirichletBoundaryCondition</span><span class="p">(</span>
-        <span class="n">condition</span><span class="o">=</span><span class="n">thermal_material</span><span class="o">.</span><span class="n">ambient_temperature</span>
+        <span class="n">condition</span><span class="o">=</span><span class="n">thermal_material</span><span class="o">.</span><span class="n">ambient_temperature</span> <span class="c1"># 298 K </span>
     <span class="p">)</span>
 </code></pre></div>
 <p>The physical residuals are constructed from the governing equations detailed in the <a href="#problem-description">Problem Description</a> by rearranging each equation into residual form such that the resulting expression is equal to zero.</p>
@@ -1319,13 +1354,7 @@ R_{PDE}\left(x_{PDE}^{i}, t_{PDE}^{i}\right)
 R_{BC}\left(x_{BC}^{i}, t_{BC}^{i}\right)
 \right|^{2}
 \]</div>
-<div class="language-python highlight"><pre><span></span><code><span class="n">pde</span> <span class="o">=</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">GoldakHeatFlux</span><span class="p">(</span><span class="n">thermal_material</span><span class="p">,</span> <span class="n">goldak</span><span class="p">,</span> <span class="n">path</span><span class="p">)</span>
-<span class="n">robin</span> <span class="o">=</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">RobinHeatFlux</span><span class="p">(</span><span class="n">thermal_material</span><span class="p">)</span>
-<span class="n">dirichlet</span> <span class="o">=</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">DirichletBoundaryCondition</span><span class="p">(</span>
-        <span class="n">condition</span><span class="o">=</span><span class="n">thermal_material</span><span class="o">.</span><span class="n">ambient_temperature</span>
-    <span class="p">)</span>
-</code></pre></div>
-<p>The losses are then weighted and normalized, such that the mean is 1 as to avoid changing the overall loss scale:</p>
+<p>The losses are then weighted, with the weights normalized such that their mean is 1, so as to avoid changing the overall loss scale:</p>
 <div class="arithmatex">\[
 \begin{aligned}
 \mathcal{L}
@@ -1343,6 +1372,7 @@ w_{\mathrm{BC}} + w_{\mathrm{PDE}}
 &amp;\text{where } N \text{ is the number of weights.}
 \end{aligned}
 \]</div>
+<p>Those residuals are then assigned to the geometry in the same order as the internal, primitive <a class="autorefs autorefs-internal" title="            Shape" href="../../../api/geometry/primitives/#pinnjax.geometry.base.Shape"><code>Shapes</code></a> like previously seen in other examples.</p>
 <div class="language-python highlight"><pre><span></span><code><span class="n">residual_functions</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">pinnjax</span><span class="o">.</span><span class="n">Residual</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
     <span class="n">pde</span><span class="p">,</span>
     <span class="n">robin</span><span class="p">,</span>
@@ -1351,24 +1381,117 @@ w_{\mathrm{BC}} + w_{\mathrm{PDE}}
     <span class="n">robin</span><span class="p">,</span>
     <span class="n">dirichlet</span><span class="p">,</span>
     <span class="n">robin</span><span class="p">,</span>
-    <span class="n">pde</span><span class="p">,</span>  <span class="c1"># added path residual -  `Box`</span>
+    <span class="n">pde</span><span class="p">,</span>    <span class="c1"># added path residual - `Box`</span>
     <span class="n">robin</span><span class="p">,</span>  <span class="c1"># added path residual - `Rectangle`</span>
 <span class="p">]</span>
-
 <span class="n">geometry</span><span class="o">.</span><span class="n">assign_residuals</span><span class="p">(</span><span class="n">residual_functions</span><span class="p">)</span>
 <span class="n">geometry</span><span class="o">.</span><span class="n">assign_loss</span><span class="p">(</span><span class="n">pinnjax</span><span class="o">.</span><span class="n">ResidualMSError</span><span class="p">())</span>
 </code></pre></div>
+<p>As evident from <code class="language-python highlight"><span class="o">.</span><span class="n">assign_loss</span><span class="p">()</span></code>, providing a single <a class="autorefs autorefs-internal" title="            Loss" href="../../../api/loss/metrics/#pinnjax.loss.metrics.Loss"><code>Loss</code></a> or <a class="autorefs autorefs-internal" title="            Residual" href="../../../api/loss/residuals/#pinnjax.loss.residuals.Residual"><code>Residual</code></a>, rather than a list, will assign it to all internal <a class="autorefs autorefs-internal" title="            Shape" href="../../../api/geometry/primitives/#pinnjax.geometry.base.Shape"><code>Shapes</code></a>.</p>
+<h2 id="evaluation">Evaluation<a class="headerlink" href="#evaluation" title="Permanent link">#</a></h2>
+<p>If you play around with the parameters a bit and watch the losses during training, you will come to realize that it can be difficult to know for certain how low the losses have to get to achieve 'decent' results. This is because the Residuals, at least the ones used here, are not normalized, and thus the differences from the expected physics are absolute rather than relative. Simply modifying the material parameters can therefore increase or decrease the loss. In this example, losses can be as high as 1e18 and still be rather "good". Therefore, it is useful to compare our current predictions at runtime to something other than physics to get a better idea of how well our model is currently performing.</p>
+<div class="language-python highlight"><pre><span></span><code><span class="n">ground_truth</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span><span class="o">.</span><span class="n">parent</span> <span class="o">/</span> 
+                            <span class="s2">"_ground_truth"</span> <span class="o">/</span> 
+                            <span class="n">PROJECT_NAME</span> <span class="o">/</span> 
+                            <span class="s2">"FEM_FC_3s.csv"</span>
+<span class="p">)</span>
+<span class="n">evaluation</span> <span class="o">=</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">SingleSpatialGridEvaluation</span><span class="o">.</span><span class="n">from_csv_file</span><span class="p">(</span>
+    <span class="n">ground_truth_path</span><span class="o">=</span><span class="n">ground_truth</span><span class="p">,</span>
+    <span class="c1"># the model contains the `SpatialDomain`, </span>
+    <span class="c1"># but the `domain` can be provided instead.</span>
+    <span class="c1"># if the `model` is provided we can evaluate the model </span>
+    <span class="c1"># against the `Evaluation` easier.</span>
+    <span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span>  
+    <span class="n">comparison_time</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span>  <span class="c1"># s</span>
+    <span class="n">csv_coordinate_column_order</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>  <span class="c1"># to match [x, y, z, t]</span>
+    <span class="n">csv_truth_column</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">regularity</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+<span class="p">)</span>
+</code></pre></div>
+<p>For this we have the 'true' solution, generated using traditional FEM methods and saved to a .csv file. In this case, the columns are (t, x, y, z, T), so we use <code>csv_coordinate_column_order</code> to restructure the <code>.csv</code>. The rows then span the entire spatial and temporal domain used here. It also uses the same thermal material and Goldak parameters; thus, if you modify those, the comparison will get worse. That doesn't mean the model is training worse, only that it's being compared to the wrong thing.</p>
+<p>This particular <a class="autorefs autorefs-internal" title="            Evaluation" href="../../../api/loss/evaluation/#pinnjax.loss.evaluation.Evaluation"><code>Evaluation</code></a> calculates <code>RMSE</code>, <code>Relative L2</code>, and <code>R2</code>, but we could change this by writing a child <a class="autorefs autorefs-internal" title="            SingleSpatialGridEvaluation" href="../../../api/loss/evaluation/#pinnjax.loss.evaluation.SingleSpatialGridEvaluation"><code>SingleSpatialGridEvaluation</code></a> with a new <code>evaluate()</code> method and updating the <code>FORMAT</code>, <code>DICTIONARY</code>, and <code>METRIC_DIRECTION</code> class variables.</p>
+<p>The <code>__call__()</code> method simply calls <code>evaluate()</code>. Or perhaps a different, or entirely custom, <a class="autorefs autorefs-internal" title="            Evaluation" href="../../../api/loss/evaluation/#pinnjax.loss.evaluation.Evaluation"><code>Evaluation</code></a> is necessary for your purposes.</p>
+<hr />
+<p><a class="autorefs autorefs-internal" title="            SingleSpatialGridEvaluation" href="../../../api/loss/evaluation/#pinnjax.loss.evaluation.SingleSpatialGridEvaluation"><code>SingleSpatialGridEvaluation</code></a> also includes a number of methods for plotting and slicing.</p>
+<p>First, we could simply plot our evaluation at the provided <code>comparison_time</code>,</p>
+<div class="language-python highlight"><pre><span></span><code><span class="n">evaluation</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</code></pre></div>
+<div class="admonition figure figure">
+<p class="admonition-title">Figure</p>
+<p><img alt="evaluation-3d" class="figure-image" src="../assets/evaluation-3d.png" /></p>
+</div>
+<p>Or, instead just a slice.</p>
+<div class="language-python highlight"><pre><span></span><code><span class="n">evaluation</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fixed_coordinates</span><span class="o">=</span><span class="p">{</span><span class="s2">"z"</span><span class="p">:</span> <span class="n">domain</span><span class="o">.</span><span class="n">max</span><span class="p">[</span><span class="mi">2</span><span class="p">]})</span>
+</code></pre></div>
+<div class="admonition figure figure">
+<p class="admonition-title">Figure</p>
+<p><img alt="evaluation" class="figure-image" src="../assets/evaluation-z.png" /></p>
+</div>
+<p>Perhaps, we decide after the creation of <code>evaluation</code> that we would rather look at a different moment in time.</p>
+<div class="language-python highlight"><pre><span></span><code><span class="n">evaluation</span><span class="o">.</span><span class="n">update_truth_at</span><span class="p">(</span><span class="n">comparison_time</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+<span class="n">evaluation</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fixed_coordinates</span><span class="o">=</span><span class="p">{</span><span class="s2">"z"</span><span class="p">:</span> <span class="n">domain</span><span class="o">.</span><span class="n">max</span><span class="p">[</span><span class="mi">2</span><span class="p">]})</span>
+</code></pre></div>
+<div class="admonition figure figure">
+<p class="admonition-title">Figure</p>
+<p><img alt="evaluation-1s" class="figure-image" src="../assets/evaluation-z-comparison_time-1s.png" /></p>
+</div>
 <h2 id="training">Training<a class="headerlink" href="#training" title="Permanent link">#</a></h2>
+<p>Let's now set up the training parameters.</p>
+<div class="language-python highlight"><pre><span></span><code><span class="n">scheduler</span> <span class="o">=</span> <span class="n">optax</span><span class="o">.</span><span class="n">exponential_decay</span><span class="p">(</span>
+    <span class="n">init_value</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span> 
+    <span class="n">transition_steps</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> 
+    <span class="n">decay_rate</span><span class="o">=</span><span class="mf">0.96</span>
+<span class="p">)</span>
+</code></pre></div>
+<p>Using <a href="https://optax.readthedocs.io/en/latest/"><code>optax</code></a> means utilizing more than just the schedulers and optimizers used previously. We can also use <a href="https://optax.readthedocs.io/en/latest/"><code>optax</code></a> tools to combine optimizers.</p>
+<div class="language-python highlight"><pre><span></span><code><span class="n">chain</span> <span class="o">=</span> <span class="n">optax</span><span class="o">.</span><span class="n">chain</span><span class="p">(</span>
+    <span class="n">optax</span><span class="o">.</span><span class="n">clip_by_global_norm</span><span class="p">(</span><span class="mf">1.0</span><span class="p">),</span>
+    <span class="n">optax</span><span class="o">.</span><span class="n">adabelief</span><span class="p">(</span><span class="n">learning_rate</span><span class="o">=</span><span class="n">scheduler</span><span class="p">,</span> <span class="n">b1</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span> <span class="n">b2</span><span class="o">=</span><span class="mf">0.999</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">1e-16</span><span class="p">),</span>
+<span class="p">)</span>
+</code></pre></div>
+<p>You'll notice a different construction for the <a class="autorefs autorefs-internal" title="            Optimizer" href="../../../api/dataclass/training/#pinnjax.dataclass.training_config.Optimizer"><code>pinnjax.Optimizer</code></a> than in the case of the previous examples. This is due to the <code>.chain()</code> used in the previous step. If you also wish to <em>chain</em> optimizers, then just copy the construction below, and everything should work as expected.</p>
+<div class="language-python highlight"><pre><span></span><code><span class="n">optimizer</span> <span class="o">=</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">Optimizer</span><span class="p">(</span><span class="n">opt_</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="n">chain</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">[],</span> <span class="n">kwargs</span><span class="o">=</span><span class="p">{})</span>
+</code></pre></div>
+<div class="language-python highlight"><pre><span></span><code><span class="n">training</span> <span class="o">=</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">Training</span><span class="p">(</span>
+    <span class="n">optimizer</span><span class="p">,</span>
+    <span class="n">epochs</span><span class="o">=</span><span class="mi">5_000</span><span class="p">,</span>
+    <span class="n">train_mode</span><span class="o">=</span><span class="s2">"type"</span><span class="p">,</span>
+    <span class="n">early_stopping</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">patience</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span>
+    <span class="n">rel_tolerance</span><span class="o">=</span><span class="mf">0.001</span><span class="p">,</span>
+<span class="p">)</span>
+</code></pre></div>
+<p>As a reminder, <code class="language-python highlight"><span class="n">train_mode</span><span class="o">=</span><span class="s2">"type"</span></code> means that losses are weighted by <em>type</em> [PDE, BC, IC], as opposed to <code class="language-python highlight"><span class="n">train_mode</span><span class="o">=</span><span class="s2">"class"</span></code>, where the same losses might be weighted as [GoldakHeatFlux, RobinHeatFlux, DirichletBoundaryCondition, InitialCondition]. This has implications in this example because RobinHeatFlux and DirichletBoundaryCondition are both BoundaryConditions. Therefore, if <code class="language-python highlight"><span class="n">train_mode</span><span class="o">=</span><span class="s2">"type"</span></code>, those losses would be summed together and share a weight <span class="arithmatex">\(\omega_{BC}\)</span>.</p>
+<hr />
+<p>While not used here, it is important to note that, with the introduction of <a class="autorefs autorefs-internal" title="            Evaluation" href="../../../api/loss/evaluation/#pinnjax.loss.evaluation.Evaluation"><code>Evaluation</code></a>, we can change the <code class="language-python highlight"><span class="n">selection_criteria</span></code> between <code class="language-python highlight"><span class="s2">"loss"</span></code> and <code class="language-python highlight"><span class="s2">"evaluate"</span></code>. This affects both <code>early_stopping</code> and the final returned <code>best_model</code>, as each is determined using either the loss metrics or the evaluation metrics.</p>
+<p>When <code class="language-python highlight"><span class="n">selection_criteria</span> <span class="o">=</span> <span class="s2">"evaluate"</span></code> is used, the current <code>metric_key</code> is used as the selection basis. This can either be set when constructing <a class="autorefs autorefs-internal" title="            Evaluation" href="../../../api/loss/evaluation/#pinnjax.loss.evaluation.Evaluation"><code>Evaluation</code></a> or changed using the <a class="autorefs autorefs-internal" title="            select_metric_key" href="../../../api/loss/evaluation/#pinnjax.loss.evaluation.Evaluation.select_metric_key"><code>.select_metric_key</code></a> method, where <code>key</code> is the <code>str</code> name of the selected metric in the <code>DICTIONARY</code>. This is also where the <code>metric_direction</code> becomes important, since for some metrics a higher value is considered <em>better</em>.</p>
+<hr />
+<p>And now we train.</p>
+<div class="language-python highlight"><pre><span></span><code><span class="n">updated_model</span> <span class="o">=</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">train</span><span class="p">(</span>
+    <span class="n">model</span><span class="p">,</span>
+    <span class="n">geometry</span><span class="p">,</span>
+    <span class="n">training</span><span class="p">,</span>
+    <span class="n">evaluation</span><span class="o">=</span><span class="n">evaluation</span><span class="p">,</span>
+    <span class="n">verbosity</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span>
+<span class="p">)</span>
+</code></pre></div>
+<p>Afterwards, we can plot the results: both the change in loss across epochs and the change in our evaluation, using <a class="autorefs autorefs-internal" title="            plot_loss" href="../../../api/plot/training/#pinnjax.plot.evaluation.plot_loss"><code>.plot_loss()</code></a> and <a class="autorefs autorefs-internal" title="            plot_evaluation" href="../../../api/plot/training/#pinnjax.plot.evaluation.plot_evaluation"><code>.plot_evaluation()</code></a>, respectively.</p>
+<div class="language-python highlight"><pre><span></span><code><span class="n">geometry</span><span class="o">.</span><span class="n">plot_loss</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="s2">"class"</span><span class="p">,</span> <span class="n">show_best_epoch</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div>
 <div class="admonition figure figure">
 <p class="admonition-title">Figure</p>
 <p><img alt="loss" class="figure-image" src="../assets/loss.png" /></p>
 </div>
+<div class="language-python highlight"><pre><span></span><code><span class="n">geometry</span><span class="o">.</span><span class="n">plot_evaluation</span><span class="p">(</span><span class="n">scale</span><span class="o">=</span><span class="s2">"linear"</span><span class="p">,</span> <span class="n">normalize</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">show_best_epoch</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div>
+<p>With <a class="autorefs autorefs-internal" title="            plot_evaluation" href="../../../api/plot/training/#pinnjax.plot.evaluation.plot_evaluation"><code>.plot_evaluation()</code></a>, the <code>scale</code> can be either <code class="language-python highlight"><span class="s2">"linear"</span></code>, <code class="language-python highlight"><span class="s2">"semilogy"</span></code>, <code class="language-python highlight"><span class="s2">"semilogx"</span></code>, or <code class="language-python highlight"><span class="s2">"loglog"</span></code>.</p>
 <div class="admonition figure figure">
 <p class="admonition-title">Figure</p>
 <p><img alt="evaluation-plot" class="figure-image" src="../assets/evaluation_plot.png" /></p>
 </div>
 <h2 id="prediction">Prediction<a class="headerlink" href="#prediction" title="Permanent link">#</a></h2>
-<p>Since this is a 3D domain, we could of course compare against a 3D grid, however, we also can compare against a 2D domain, and take internal slices, which could be more informative than the pure 3D version</p>
+<p>Since this is a 3D domain, we could of course compare against a 3D grid. However, we can also compare against a 2D domain and take internal slices, which may be more informative than the pure 3D version.</p>
 <div class="language-python highlight"><pre><span></span><code><span class="n">grid_2D</span> <span class="o">=</span> <span class="n">pinnjax</span><span class="o">.</span><span class="n">RectangularGrid2D</span><span class="p">(</span>
     <span class="n">domain</span><span class="o">=</span><span class="n">updated_model</span><span class="o">.</span><span class="n">domain</span><span class="p">,</span>
     <span class="n">fixed_coordinates</span><span class="o">=</span><span class="p">{</span><span class="s2">"z"</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">domain</span><span class="o">.</span><span class="n">max</span><span class="p">[</span><span class="mi">2</span><span class="p">])},</span> 
@@ -1378,17 +1501,17 @@ w_{\mathrm{BC}} + w_{\mathrm{PDE}}
 <span class="p">)</span>
 </code></pre></div>
 <p>To explain each of the parameters, we provide the whole 3D domain, but then fix
-one of the coordinates, similar to when we use <code>.center()</code>, this results in a
-2D slide. We then want 200 points in the x direction, and 100 in the y direction.
-for 20.000 spatial points, and then 100 timesteps for a grand total
-of 2.000.000 spatial-temporal points, and thus model predictions.</p>
-<p>Now simply just input the updated model and the <a class="autorefs autorefs-internal" title="            Grid" href="../../../api/grid/bases/#pinnjax.grid.base.Grid"><code>Grid</code></a> into <a class="autorefs autorefs-internal" title="            predict_evolution" href="../../../api/predict/fields/#pinnjax.predict.evolution.predict_evolution"><code>predict_evolution()</code></a>.</p>
-<div class="language-text highlight"><pre><span></span><code>predictions = pinnjax.predict_evolution(model_cpu, grid_2D)
+one of the coordinates. Similar to when we use <code>.center()</code>, this results in a
+2D slice. We then want 200 points in the x direction and 100 in the y direction,
+for 20,000 spatial points, and then 100 timesteps for a grand total
+of 2,000,000 spatial-temporal points, and thus model predictions.</p>
+<p>Now simply input the updated model and the <a class="autorefs autorefs-internal" title="            Grid" href="../../../api/grid/bases/#pinnjax.grid.base.Grid"><code>Grid</code></a> into <a class="autorefs autorefs-internal" title="            predict_evolution" href="../../../api/predict/fields/#pinnjax.predict.evolution.predict_evolution"><code>predict_evolution()</code></a>.</p>
+<div class="language-text highlight"><pre><span></span><code>predictions = pinnjax.predict_evolution(updated_model, grid_2D)
 </code></pre></div>
 <p>And then plot the results.</p>
 <div class="language-text highlight"><pre><span></span><code>pinnjax.plot_prediction_evolution(predictions, grid_2D)
 </code></pre></div>
-<p>We could also predict a single point using <a class="autorefs autorefs-internal" title="            predict" href="../../../api/predict/fields/#pinnjax.predict.base.predict"><code>pinnjax.predict()</code></a> and <a class="autorefs autorefs-internal" title="            plot_prediction" href="../../../api/plot/fields/#pinnjax.plot.prediction.plot_prediction"><code>pinnjax.plot_prediction()</code></a>. In that case, the <a class="autorefs autorefs-internal" title="            Grid" href="../../../api/grid/bases/#pinnjax.grid.base.Grid"><code>Grid</code></a> constructed wouldn't have needed its own temporal points, and instead a time scalar could be given to <a class="autorefs autorefs-internal" title="            predict" href="../../../api/predict/fields/#pinnjax.predict.base.predict"><code>pinnjax.predict()</code></a>.</p>
+<p>We could also predict a single point using <a class="autorefs autorefs-internal" title="            predict" href="../../../api/predict/fields/#pinnjax.predict.base.predict"><code>pinnjax.predict()</code></a> and <a class="autorefs autorefs-internal" title="            plot_prediction" href="../../../api/plot/fields/#pinnjax.plot.prediction.plot_prediction"><code>pinnjax.plot_prediction()</code></a>. In that case, the <a class="autorefs autorefs-internal" title="            Grid" href="../../../api/grid/bases/#pinnjax.grid.base.Grid"><code>Grid</code></a> constructed wouldn't need its own temporal points, and instead a time scalar could be given to <a class="autorefs autorefs-internal" title="            predict" href="../../../api/predict/fields/#pinnjax.predict.base.predict"><code>pinnjax.predict()</code></a>.</p>
 <div class="admonition figure figure">
 <p class="admonition-title">Figure</p>
 <p><img alt="prediction" class="figure-image" src="../assets/prediction.gif" /></p>
@@ -1429,8 +1552,8 @@ of 2.000.000 spatial-temporal points, and thus model predictions.</p>
 <p class="admonition-title">Figure</p>
 <p><img alt="representative-points" class="figure-image" src="../assets/representative_point_locations_x-y.png" /></p>
 </div>
-<p>Or instead of at particular points, but particular times. Looking instead at
-the whole <a class="autorefs autorefs-internal" title="            Path" href="../../../api/pathing/paths/#pinnjax.pathing.base.Path"><code>Path</code></a> at those <code>time_instances</code>.</p>
+<p>Or, instead of looking at particular points, we can look at particular times,
+evaluating the whole <a class="autorefs autorefs-internal" title="            Path" href="../../../api/pathing/paths/#pinnjax.pathing.base.Path"><code>Path</code></a> at those <code>time_instances</code>.</p>
 <div class="language-python highlight"><pre><span></span><code><span class="n">time_instances</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.6</span><span class="p">,</span> <span class="mf">1.3</span><span class="p">,</span> <span class="mf">2.2</span><span class="p">]</span>  <span class="c1"># s</span>
 </code></pre></div>
 <div class="language-python highlight"><pre><span></span><code><span class="n">pinnjax</span><span class="o">.</span><span class="n">value_along_path_plot</span><span class="p">(</span>
