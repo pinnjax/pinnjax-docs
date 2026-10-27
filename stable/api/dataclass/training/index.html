@@ -55,6 +55,8 @@
     
       <link rel="stylesheet" href="../../../stylesheets/doc-strings.css">
     
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -369,6 +371,10 @@
       
         
       
+        
+      
+        
+      
     
     
     
@@ -423,8 +429,6 @@
   
     
     
-      
-        
       
         
       
@@ -544,66 +548,6 @@
                 
   
   
-  
-  
-    
-    
-      
-        
-          
-        
-      
-        
-      
-    
-    
-    
-      
-      
-    
-    
-      
-        
-        
-      
-    
-    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-      
-        
-  
-  
-  
-    <a href="../../experiment/" class="md-nav__link">
-      
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Experiment
-  
-
-    
-  </span>
-  
-  
-
-      
-        <span class="md-nav__icon md-icon"></span>
-      
-    </a>
-  
-
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
     
   
   
@@ -638,7 +582,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
         
           
           <div class="md-nav__link md-nav__container">
@@ -660,14 +604,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_3_3">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_2">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -1251,6 +1195,8 @@
       
         
           
+        
+      
         
       
         
@@ -2287,6 +2233,19 @@ Must be a tuple of equal length to the number of losses.</p>
             </td>
           </tr>
           <tr class="doc-section-item">
+            <td><code><span title="pinnjax.dataclass.training_config.Training.normalize_weights">normalize_weights</span></code></td>
+            <td>
+                  <code><span title="bool">bool</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Normalize the effective loss weights to have a mean of one.
+This preserves their relative weighting without changing
+the overall loss scale.</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
             <td><code><span title="pinnjax.dataclass.training_config.Training.use_adaptive_weights">use_adaptive_weights</span></code></td>
             <td>
                   <code><span title="bool">bool</span></code>
@@ -2627,7 +2586,12 @@ each epoch (requires <code>evaluation</code>).</p>
 <span class="normal">244</span>
 <span class="normal">245</span>
 <span class="normal">246</span>
-<span class="normal">247</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@frozen</span>
+<span class="normal">247</span>
+<span class="normal">248</span>
+<span class="normal">249</span>
+<span class="normal">250</span>
+<span class="normal">251</span>
+<span class="normal">252</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@frozen</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">Training</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""Container for the network training parameters.</span>
 
@@ -2640,6 +2604,9 @@ each epoch (requires <code>evaluation</code>).</p>
 <span class="sd">        loss_scale: Multiplies the loss -- useful for avoiding overflow errors.</span>
 <span class="sd">        priority: Sets the priority of each of the losses.</span>
 <span class="sd">            Must be a tuple of equal length to the number of losses.</span>
+<span class="sd">        normalize_weights: Normalize the effective loss weights to have a mean of one.</span>
+<span class="sd">            This preserves their relative weighting without changing</span>
+<span class="sd">            the overall loss scale.</span>
 
 <span class="sd">        use_adaptive_weights: Adaptively update the weights at</span>
 <span class="sd">            given intervals using a gradient-based approach</span>
@@ -2696,6 +2663,7 @@ each epoch (requires <code>evaluation</code>).</p>
 
     <span class="n">loss_scale</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.0</span>
     <span class="n">priority</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span> <span class="o">|</span> <span class="nb">float</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">normalize_weights</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
 
     <span class="c1"># Adaptive Weights</span>
     <span class="n">use_adaptive_weights</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
@@ -2749,6 +2717,7 @@ each epoch (requires <code>evaluation</code>).</p>
 <span class="sd">              selection_criterion: 'loss'</span>
 <span class="sd">              loss_scale: 1</span>
 <span class="sd">              priority: None</span>
+<span class="sd">              normalize_weights: True</span>
 <span class="sd">              use_adaptive_weights: False</span>
 <span class="sd">              adaptive_alpha: 0.9</span>
 <span class="sd">              update_weights_every: 100</span>
@@ -2854,6 +2823,7 @@ Default: 0.</p>
 <span class="go">  selection_criterion: 'loss'</span>
 <span class="go">  loss_scale: 1</span>
 <span class="go">  priority: None</span>
+<span class="go">  normalize_weights: True</span>
 <span class="go">  use_adaptive_weights: False</span>
 <span class="go">  adaptive_alpha: 0.9</span>
 <span class="go">  update_weights_every: 100</span>
@@ -2873,11 +2843,7 @@ Default: 0.</p>
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>pinnjax/dataclass/training_config.py</code></summary>
-              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">200</span>
-<span class="normal">201</span>
-<span class="normal">202</span>
-<span class="normal">203</span>
-<span class="normal">204</span>
+              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">204</span>
 <span class="normal">205</span>
 <span class="normal">206</span>
 <span class="normal">207</span>
@@ -2917,7 +2883,12 @@ Default: 0.</p>
 <span class="normal">241</span>
 <span class="normal">242</span>
 <span class="normal">243</span>
-<span class="normal">244</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">to_string</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">indent</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="normal">244</span>
+<span class="normal">245</span>
+<span class="normal">246</span>
+<span class="normal">247</span>
+<span class="normal">248</span>
+<span class="normal">249</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">to_string</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">indent</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""Return a string of the [`Training`][pinnjax.Training] object.</span>
 
 <span class="sd">    Args:</span>
@@ -2945,6 +2916,7 @@ Default: 0.</p>
 <span class="sd">          selection_criterion: 'loss'</span>
 <span class="sd">          loss_scale: 1</span>
 <span class="sd">          priority: None</span>
+<span class="sd">          normalize_weights: True</span>
 <span class="sd">          use_adaptive_weights: False</span>
 <span class="sd">          adaptive_alpha: 0.9</span>
 <span class="sd">          update_weights_every: 100</span>
@@ -3631,12 +3603,7 @@ values are the corresponding metric values as floats.</p>
 
               <details class="mkdocstrings-source">
                 <summary>Source code in <code>pinnjax/dataclass/training_config.py</code></summary>
-                <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">250</span>
-<span class="normal">251</span>
-<span class="normal">252</span>
-<span class="normal">253</span>
-<span class="normal">254</span>
-<span class="normal">255</span>
+                <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">255</span>
 <span class="normal">256</span>
 <span class="normal">257</span>
 <span class="normal">258</span>
@@ -3712,7 +3679,12 @@ values are the corresponding metric values as floats.</p>
 <span class="normal">328</span>
 <span class="normal">329</span>
 <span class="normal">330</span>
-<span class="normal">331</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@frozen</span>
+<span class="normal">331</span>
+<span class="normal">332</span>
+<span class="normal">333</span>
+<span class="normal">334</span>
+<span class="normal">335</span>
+<span class="normal">336</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@frozen</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">EvaluationResults</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""Container for evaluation metrics comparing model predictions to ground truth.</span>
 
@@ -3883,12 +3855,7 @@ as metric names and Array values (typically 0-dimensional scalars).</p>
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>pinnjax/dataclass/training_config.py</code></summary>
-              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">268</span>
-<span class="normal">269</span>
-<span class="normal">270</span>
-<span class="normal">271</span>
-<span class="normal">272</span>
-<span class="normal">273</span>
+              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">273</span>
 <span class="normal">274</span>
 <span class="normal">275</span>
 <span class="normal">276</span>
@@ -3904,7 +3871,12 @@ as metric names and Array values (typically 0-dimensional scalars).</p>
 <span class="normal">286</span>
 <span class="normal">287</span>
 <span class="normal">288</span>
-<span class="normal">289</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@classmethod</span>
+<span class="normal">289</span>
+<span class="normal">290</span>
+<span class="normal">291</span>
+<span class="normal">292</span>
+<span class="normal">293</span>
+<span class="normal">294</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@classmethod</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">from_dict</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">eval_dict</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Array</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">EvaluationResults</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""Create EvaluationResults from evaluation.evaluate() output.</span>
 
@@ -4003,12 +3975,7 @@ Default: 0.</p>
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>pinnjax/dataclass/training_config.py</code></summary>
-              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">291</span>
-<span class="normal">292</span>
-<span class="normal">293</span>
-<span class="normal">294</span>
-<span class="normal">295</span>
-<span class="normal">296</span>
+              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">296</span>
 <span class="normal">297</span>
 <span class="normal">298</span>
 <span class="normal">299</span>
@@ -4040,7 +4007,12 @@ Default: 0.</p>
 <span class="normal">325</span>
 <span class="normal">326</span>
 <span class="normal">327</span>
-<span class="normal">328</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">to_string</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">indent</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="normal">328</span>
+<span class="normal">329</span>
+<span class="normal">330</span>
+<span class="normal">331</span>
+<span class="normal">332</span>
+<span class="normal">333</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">to_string</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">indent</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""Return a string representation of the EvaluationResults object.</span>
 
 <span class="sd">    Args:</span>

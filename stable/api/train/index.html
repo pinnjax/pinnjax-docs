@@ -55,6 +55,8 @@
     
       <link rel="stylesheet" href="../../stylesheets/doc-strings.css">
     
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -369,6 +371,10 @@
       
         
       
+        
+      
+        
+      
     
     
     
@@ -423,8 +429,6 @@
   
     
     
-      
-        
       
         
       
@@ -535,66 +539,6 @@
   
 
       </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-        
-      
-    
-    
-    
-      
-      
-    
-    
-      
-        
-        
-      
-    
-    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-      
-        
-  
-  
-  
-    <a href="../experiment/" class="md-nav__link">
-      
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Experiment
-  
-
-    
-  </span>
-  
-  
-
-      
-        <span class="md-nav__icon md-icon"></span>
-      
-    </a>
-  
-
-      
     </li>
   
 
@@ -1013,6 +957,8 @@
       
         
       
+        
+      
     
     
     
@@ -1214,7 +1160,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_12" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_11" checked>
         
           
           <div class="md-nav__link md-nav__container">
@@ -1237,8 +1183,8 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_12_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_3_12">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_11_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_11">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -1919,10 +1865,6 @@
 <p><code>train</code> can mini-batch the collocation points, reweight losses from their
 gradient norms, and stop early. Pass an <code>Evaluation</code> to compare the network
 with stored truth during the run.</p>
-<p><u>Contents:</u></p>
-<ul>
-<li><code>train</code>: <code>train</code>.</li>
-</ul>
 
 
 
@@ -1987,9 +1929,9 @@ whether to continue without adaptive weights or to stop.</p>
 <p>A linesearch optimizer found on GPU is moved to CPU for the run. Any
 other optimizer moves to GPU when a GPU is available and
 <code>pinnjax.config.get_FORCE_CPU</code> is false.</p>
-<p>Loss histories are appended to <code>geometry.loss_dictionary</code>. With
-<code>evaluation</code> set, metric histories are appended to
-<code>geometry.evaluation_dictionary</code>.</p>
+<p>Per-epoch class/type losses stay on device during the run and are written
+into <code>geometry.loss_dictionary</code> once at the end. With <code>evaluation</code> set,
+metric histories are appended to <code>geometry.evaluation_dictionary</code>.</p>
 
 
 <p><span class="doc-section-title">Parameters:</span></p>
@@ -2979,7 +2921,19 @@ is missing.</p>
 <span class="normal">832</span>
 <span class="normal">833</span>
 <span class="normal">834</span>
-<span class="normal">835</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">train</span><span class="p">[</span><span class="n">Model</span><span class="p">:</span> <span class="n">NeuralNetwork</span><span class="p">](</span>
+<span class="normal">835</span>
+<span class="normal">836</span>
+<span class="normal">837</span>
+<span class="normal">838</span>
+<span class="normal">839</span>
+<span class="normal">840</span>
+<span class="normal">841</span>
+<span class="normal">842</span>
+<span class="normal">843</span>
+<span class="normal">844</span>
+<span class="normal">845</span>
+<span class="normal">846</span>
+<span class="normal">847</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">train</span><span class="p">[</span><span class="n">Model</span><span class="p">:</span> <span class="n">NeuralNetwork</span><span class="p">](</span>
     <span class="n">model</span><span class="p">:</span> <span class="n">Model</span><span class="p">,</span>
     <span class="n">geometry</span><span class="p">:</span> <span class="n">ComplexShape</span><span class="p">,</span>
     <span class="n">training</span><span class="p">:</span> <span class="n">Training</span><span class="p">,</span>
@@ -3019,9 +2973,9 @@ is missing.</p>
 <span class="sd">    other optimizer moves to GPU when a GPU is available and</span>
 <span class="sd">    ``pinnjax.config.get_FORCE_CPU`` is false.</span>
 
-<span class="sd">    Loss histories are appended to ``geometry.loss_dictionary``. With</span>
-<span class="sd">    ``evaluation`` set, metric histories are appended to</span>
-<span class="sd">    ``geometry.evaluation_dictionary``.</span>
+<span class="sd">    Per-epoch class/type losses stay on device during the run and are written</span>
+<span class="sd">    into ``geometry.loss_dictionary`` once at the end. With ``evaluation`` set,</span>
+<span class="sd">    metric histories are appended to ``geometry.evaluation_dictionary``.</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        model: [`NeuralNetwork`][pinnjax.NeuralNetwork] to train.</span>
@@ -3075,7 +3029,15 @@ is missing.</p>
         <span class="n">config</span><span class="o">.</span><span class="n">LOGGER</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
 
-    <span class="n">is_optax</span> <span class="o">=</span> <span class="n">training</span><span class="o">.</span><span class="n">optimizer</span><span class="o">.</span><span class="n">opt_</span><span class="o">.</span><span class="vm">__module__</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">"optax"</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">opt</span> <span class="o">=</span> <span class="n">training</span><span class="o">.</span><span class="n">optimizer</span><span class="o">.</span><span class="n">opt_</span><span class="p">(</span>
+            <span class="o">*</span><span class="n">training</span><span class="o">.</span><span class="n">optimizer</span><span class="o">.</span><span class="n">args</span><span class="p">,</span>
+            <span class="o">**</span><span class="n">training</span><span class="o">.</span><span class="n">optimizer</span><span class="o">.</span><span class="n">kwargs</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">is_optax</span> <span class="o">=</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">opt</span><span class="p">,</span> <span class="s2">"init"</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">opt</span><span class="p">,</span> <span class="s2">"update"</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+        <span class="n">opt</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">is_optax</span> <span class="o">=</span> <span class="kc">False</span>
 
     <span class="k">if</span> <span class="n">training</span><span class="o">.</span><span class="n">microbatch_size</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">training</span><span class="o">.</span><span class="n">microbatch_size</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
@@ -3180,6 +3142,16 @@ is missing.</p>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">magnitude</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">n_target</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">get_dtype</span><span class="p">())</span>
 
+    <span class="k">def</span><span class="w"> </span><span class="nf">_effective_weights</span><span class="p">(</span><span class="n">_weights</span><span class="p">:</span> <span class="n">Array</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Array</span><span class="p">:</span>
+        <span class="n">eff</span> <span class="o">=</span> <span class="n">_weights</span> <span class="o">*</span> <span class="n">priority</span> <span class="o">*</span> <span class="n">magnitude</span>
+
+        <span class="k">if</span> <span class="n">training</span><span class="o">.</span><span class="n">normalize_weights</span><span class="p">:</span>
+            <span class="n">weight_sum</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">eff</span><span class="p">)</span>
+            <span class="n">denominator</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">weight_sum</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">weight_sum</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+            <span class="n">eff</span> <span class="o">=</span> <span class="n">eff</span> <span class="o">*</span> <span class="n">eff</span><span class="o">.</span><span class="n">size</span> <span class="o">/</span> <span class="n">denominator</span>
+
+        <span class="k">return</span> <span class="n">eff</span>
+
     <span class="nd">@eqx</span><span class="o">.</span><span class="n">filter_jit</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">_loss</span><span class="p">(</span>
         <span class="n">_model</span><span class="p">:</span> <span class="n">Model</span><span class="p">,</span>
@@ -3197,7 +3169,7 @@ is missing.</p>
             <span class="n">sample_targets_override</span><span class="o">=</span><span class="n">_targets_override</span><span class="p">,</span>
             <span class="n">microbatch_size</span><span class="o">=</span><span class="n">training</span><span class="o">.</span><span class="n">microbatch_size</span><span class="p">,</span>
         <span class="p">)</span>
-        <span class="n">eff</span> <span class="o">=</span> <span class="n">_weights</span> <span class="o">*</span> <span class="n">priority</span> <span class="o">*</span> <span class="n">magnitude</span>
+        <span class="n">eff</span> <span class="o">=</span> <span class="n">_effective_weights</span><span class="p">(</span><span class="n">_weights</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">training</span><span class="o">.</span><span class="n">train_mode</span> <span class="o">==</span> <span class="s2">"class"</span><span class="p">:</span>
             <span class="n">total</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">eff</span><span class="p">,</span> <span class="n">_by_class</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
@@ -3205,11 +3177,7 @@ is missing.</p>
         <span class="k">return</span> <span class="n">total</span> <span class="o">*</span> <span class="n">training</span><span class="o">.</span><span class="n">loss_scale</span><span class="p">,</span> <span class="p">(</span><span class="n">_total_raw</span><span class="p">,</span> <span class="n">_by_class</span><span class="p">,</span> <span class="n">_by_type</span><span class="p">)</span>
 
     <span class="n">params_filter</span> <span class="o">=</span> <span class="n">eqx</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">eqx</span><span class="o">.</span><span class="n">is_inexact_array</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">is_optax</span><span class="p">:</span>
-        <span class="n">opt</span> <span class="o">=</span> <span class="n">training</span><span class="o">.</span><span class="n">optimizer</span><span class="o">.</span><span class="n">opt_</span><span class="p">(</span>
-            <span class="o">*</span><span class="n">training</span><span class="o">.</span><span class="n">optimizer</span><span class="o">.</span><span class="n">args</span><span class="p">,</span>
-            <span class="o">**</span><span class="n">training</span><span class="o">.</span><span class="n">optimizer</span><span class="o">.</span><span class="n">kwargs</span><span class="p">,</span>
-        <span class="p">)</span>
+    <span class="k">if</span> <span class="n">is_optax</span> <span class="ow">and</span> <span class="n">opt</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">opt_state</span> <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">params_filter</span><span class="p">)</span>
 
         <span class="n">uses_legacy_run</span> <span class="o">=</span> <span class="kc">False</span>
@@ -3323,7 +3291,7 @@ is missing.</p>
         <span class="n">Array</span><span class="p">,</span>
     <span class="p">]:</span>
         <span class="n">_old_model</span> <span class="o">=</span> <span class="n">_model</span>
-        <span class="n">eff</span> <span class="o">=</span> <span class="n">_weights</span> <span class="o">*</span> <span class="n">priority</span> <span class="o">*</span> <span class="n">magnitude</span>
+        <span class="n">eff</span> <span class="o">=</span> <span class="n">_effective_weights</span><span class="p">(</span><span class="n">_weights</span><span class="p">)</span>
         <span class="p">(</span>
             <span class="n">_loss_val</span><span class="p">,</span>
             <span class="n">_total_raw</span><span class="p">,</span>
@@ -3377,7 +3345,7 @@ is missing.</p>
         <span class="n">Array</span><span class="p">,</span>
     <span class="p">]:</span>
         <span class="n">_old_model</span> <span class="o">=</span> <span class="n">_model</span>
-        <span class="n">eff</span> <span class="o">=</span> <span class="n">_weights</span> <span class="o">*</span> <span class="n">priority</span> <span class="o">*</span> <span class="n">magnitude</span>
+        <span class="n">eff</span> <span class="o">=</span> <span class="n">_effective_weights</span><span class="p">(</span><span class="n">_weights</span><span class="p">)</span>
         <span class="p">(</span>
             <span class="n">_loss_val</span><span class="p">,</span>
             <span class="n">_total_raw</span><span class="p">,</span>
@@ -3423,11 +3391,12 @@ is missing.</p>
     <span class="n">best_epoch</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="n">last_epoch</span> <span class="o">=</span> <span class="n">training</span><span class="o">.</span><span class="n">epochs</span>
     <span class="n">epochs_since_improvement</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">class_rows</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Array</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">type_rows</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Array</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
 
     <span class="n">test_arr</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">get_dtype</span><span class="p">())</span>
     <span class="n">current_device</span> <span class="o">=</span> <span class="n">test_arr</span><span class="o">.</span><span class="n">device</span>
     <span class="n">on_gpu</span> <span class="o">=</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">current_device</span><span class="p">,</span> <span class="n">Sharding</span><span class="p">)</span> <span class="ow">and</span> <span class="n">current_device</span><span class="o">.</span><span class="n">platform</span> <span class="o">==</span> <span class="s2">"gpu"</span>
-
     <span class="k">if</span> <span class="n">uses_linesearch_opt</span> <span class="ow">and</span> <span class="n">on_gpu</span><span class="p">:</span>
         <span class="c1"># Linesearch optimizers are slower and memory-heavy on GPU, switch to CPU</span>
         <span class="k">if</span> <span class="n">verbosity</span><span class="p">:</span>
@@ -3455,7 +3424,6 @@ is missing.</p>
                 <span class="n">config</span><span class="o">.</span><span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">" - SWITCHING TO GPU - "</span><span class="p">)</span>
             <span class="c1"># Switch JAX to use GPU</span>
             <span class="n">jax</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s2">"jax_default_device"</span><span class="p">,</span> <span class="s2">"gpu"</span><span class="p">)</span>
-
             <span class="c1"># Auto-move JAX arrays to GPU</span>
             <span class="n">geometry</span> <span class="o">=</span> <span class="n">_move_geometry_to_device</span><span class="p">(</span><span class="n">geometry</span><span class="p">,</span> <span class="n">gpu_device</span><span class="p">)</span>
             <span class="n">model</span> <span class="o">=</span> <span class="n">_move_model_to_device</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">gpu_device</span><span class="p">)</span>
@@ -3666,23 +3634,9 @@ is missing.</p>
                             <span class="p">)</span>
                         <span class="k">break</span>
 
-        <span class="c1"># assign losses to loss_dictionary:</span>
-        <span class="n">by_class_list</span> <span class="o">=</span> <span class="n">by_class</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
-        <span class="n">by_type_list</span> <span class="o">=</span> <span class="n">by_type</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
-
-        <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span>
-            <span class="n">geometry</span><span class="o">.</span><span class="n">loss_dictionary</span><span class="p">[</span><span class="s2">"class"</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">(),</span>
-            <span class="n">by_class_list</span><span class="p">,</span>
-            <span class="n">strict</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-        <span class="p">):</span>
-            <span class="n">geometry</span><span class="o">.</span><span class="n">loss_dictionary</span><span class="p">[</span><span class="s2">"class"</span><span class="p">][</span><span class="n">key</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
-
-        <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span>
-            <span class="n">geometry</span><span class="o">.</span><span class="n">loss_dictionary</span><span class="p">[</span><span class="s2">"type"</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">(),</span>
-            <span class="n">by_type_list</span><span class="p">,</span>
-            <span class="n">strict</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-        <span class="p">):</span>
-            <span class="n">geometry</span><span class="o">.</span><span class="n">loss_dictionary</span><span class="p">[</span><span class="s2">"type"</span><span class="p">][</span><span class="n">key</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
+        <span class="c1"># Keep per-epoch losses on device; materialize loss_dictionary after training.</span>
+        <span class="n">class_rows</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">by_class</span><span class="p">)</span>
+        <span class="n">type_rows</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">by_type</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="n">verbosity</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="p">(</span>
             <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">verbosity</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">i</span> <span class="o">==</span> <span class="n">training</span><span class="o">.</span><span class="n">epochs</span> <span class="o">-</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span>
@@ -3734,6 +3688,18 @@ is missing.</p>
             <span class="p">]:</span>
                 <span class="n">metrics</span> <span class="o">=</span> <span class="n">evaluation</span><span class="o">.</span><span class="n">log_metrics</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
                 <span class="n">config</span><span class="o">.</span><span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"Epoch: </span><span class="si">%d</span><span class="s2"> | </span><span class="si">%s</span><span class="s2">"</span><span class="p">,</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">metrics</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">verbosity</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">config</span><span class="o">.</span><span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"Saving Loss Dictionaries..."</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">class_rows</span><span class="p">:</span>
+        <span class="n">class_mat</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">device_get</span><span class="p">(</span><span class="n">jnp</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">class_rows</span><span class="p">))</span>
+        <span class="n">type_mat</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">device_get</span><span class="p">(</span><span class="n">jnp</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">type_rows</span><span class="p">))</span>
+        <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">key</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">geometry</span><span class="o">.</span><span class="n">loss_dictionary</span><span class="p">[</span><span class="s2">"class"</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
+            <span class="n">geometry</span><span class="o">.</span><span class="n">loss_dictionary</span><span class="p">[</span><span class="s2">"class"</span><span class="p">][</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">class_mat</span><span class="p">[:,</span> <span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">key</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">geometry</span><span class="o">.</span><span class="n">loss_dictionary</span><span class="p">[</span><span class="s2">"type"</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
+            <span class="n">geometry</span><span class="o">.</span><span class="n">loss_dictionary</span><span class="p">[</span><span class="s2">"type"</span><span class="p">][</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">type_mat</span><span class="p">[:,</span> <span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">verbosity</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">config</span><span class="o">.</span><span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"Loss Dictionaries Saved."</span><span class="p">)</span>
 
     <span class="c1"># Wrap-Up</span>
     <span class="p">(</span><span class="n">loss_val</span><span class="p">,</span> <span class="p">(</span><span class="n">total_raw</span><span class="p">,</span> <span class="n">by_class</span><span class="p">,</span> <span class="n">by_type</span><span class="p">))</span> <span class="o">=</span> <span class="n">_loss</span><span class="p">(</span>

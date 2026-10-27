@@ -55,6 +55,8 @@
     
       <link rel="stylesheet" href="../../../stylesheets/doc-strings.css">
     
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -369,6 +371,10 @@
       
         
       
+        
+      
+        
+      
     
     
     
@@ -423,8 +429,6 @@
   
     
     
-      
-        
       
         
       
@@ -535,66 +539,6 @@
   
 
       </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-        
-      
-    
-    
-    
-      
-      
-    
-    
-      
-        
-        
-      
-    
-    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-      
-        
-  
-  
-  
-    <a href="../../experiment/" class="md-nav__link">
-      
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Experiment
-  
-
-    
-  </span>
-  
-  
-
-      
-        <span class="md-nav__icon md-icon"></span>
-      
-    </a>
-  
-
-      
     </li>
   
 
@@ -1003,6 +947,8 @@
       
         
           
+        
+      
         
       
         
@@ -1474,7 +1420,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_16" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_15" checked>
         
           
           <div class="md-nav__link md-nav__container">
@@ -1496,14 +1442,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_3_16" id="__nav_3_16_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_3_15" id="__nav_3_15_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_16_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_3_16">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_15_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_15">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -2672,7 +2618,8 @@ unset for a 3D figure.</p>
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>pinnjax/plot/prediction.py</code></summary>
-              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">194</span>
+              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">193</span>
+<span class="normal">194</span>
 <span class="normal">195</span>
 <span class="normal">196</span>
 <span class="normal">197</span>
@@ -2934,8 +2881,7 @@ unset for a 3D figure.</p>
 <span class="normal">453</span>
 <span class="normal">454</span>
 <span class="normal">455</span>
-<span class="normal">456</span>
-<span class="normal">457</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">plot_prediction</span><span class="p">(</span>
+<span class="normal">456</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">plot_prediction</span><span class="p">(</span>
     <span class="n">prediction</span><span class="p">:</span> <span class="n">jnp</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
     <span class="n">grid</span><span class="p">:</span> <span class="n">SpatialGrid</span><span class="p">,</span>
     <span class="o">*</span><span class="p">,</span>
@@ -3230,6 +3176,7 @@ unset for a 3D figure.</p>
     <span class="n">y_label</span><span class="p">:</span> <span class="n"><span title="str">str</span></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">cbar_label</span><span class="p">:</span> <span class="n"><span title="str">str</span></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">cmap</span><span class="p">:</span> <span class="n"><span title="str">str</span></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="s2">"turbo"</span><span class="p">,</span>
+    <span class="n">dpi</span><span class="p">:</span> <span class="n"><span title="int">int</span></span> <span class="o">=</span> <span class="mi">300</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="tuple">tuple</span></span><span class="p">[</span><span class="n"><span title="matplotlib.pyplot.Figure">Figure</span></span><span class="p">,</span> <span class="n"><span title="matplotlib.pyplot.Axes">Axes</span></span><span class="p">,</span> <span class="n"><span title="matplotlib.animation.FuncAnimation">FuncAnimation</span></span><span class="p">]</span>
 </code></pre></div>
 
@@ -3495,6 +3442,22 @@ directory.</p>
                   <code>&#39;turbo&#39;</code>
             </td>
           </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>dpi</code>
+            </td>
+            <td>
+                  <code><span title="int">int</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Resolution used when saving.</p>
+              </div>
+            </td>
+            <td>
+                  <code>300</code>
+            </td>
+          </tr>
       </tbody>
     </table>
 
@@ -3547,7 +3510,8 @@ directory.</p>
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>pinnjax/plot/prediction.py</code></summary>
-              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">460</span>
+              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">459</span>
+<span class="normal">460</span>
 <span class="normal">461</span>
 <span class="normal">462</span>
 <span class="normal">463</span>
@@ -3728,7 +3692,8 @@ directory.</p>
 <span class="normal">638</span>
 <span class="normal">639</span>
 <span class="normal">640</span>
-<span class="normal">641</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">plot_prediction_evolution</span><span class="p">(</span>
+<span class="normal">641</span>
+<span class="normal">642</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">plot_prediction_evolution</span><span class="p">(</span>
     <span class="n">evolution</span><span class="p">:</span> <span class="n">Array</span><span class="p">,</span>
     <span class="n">grid</span><span class="p">:</span> <span class="n">SpatialGrid</span><span class="p">,</span>
     <span class="o">*</span><span class="p">,</span>
@@ -3745,6 +3710,7 @@ directory.</p>
     <span class="n">y_label</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">cbar_label</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">cmap</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="s2">"turbo"</span><span class="p">,</span>
+    <span class="n">dpi</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">300</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">Figure</span><span class="p">,</span> <span class="n">Axes</span><span class="p">,</span> <span class="n">FuncAnimation</span><span class="p">]:</span>
 <span class="w">    </span><span class="sd">"""Animate a predicted field over time.</span>
 
@@ -3771,6 +3737,7 @@ directory.</p>
 <span class="sd">        y_label: Vertical axis label. When omitted, the axis name and ``[m]``.</span>
 <span class="sd">        cbar_label: Colorbar label.</span>
 <span class="sd">        cmap: Colormap name.</span>
+<span class="sd">        dpi: Resolution used when saving.</span>
 
 <span class="sd">    Returns:</span>
 <span class="sd">        The Matplotlib figure, axes, and animation.</span>
@@ -3835,7 +3802,7 @@ directory.</p>
         <span class="n">im</span><span class="p">,</span>
         <span class="n">label</span><span class="o">=</span><span class="n">cbar_label</span><span class="p">,</span>
         <span class="n">orientation</span><span class="o">=</span><span class="s2">"horizontal"</span><span class="p">,</span>
-        <span class="n">pad</span><span class="o">=</span><span class="mf">0.14</span><span class="p">,</span>
+        <span class="n">pad</span><span class="o">=</span><span class="mf">0.04</span><span class="p">,</span>
         <span class="n">fraction</span><span class="o">=</span><span class="mf">0.24</span><span class="p">,</span>
         <span class="n">ticks</span><span class="o">=</span><span class="n">ticks</span><span class="p">,</span>
     <span class="p">)</span>
@@ -3876,7 +3843,7 @@ directory.</p>
         <span class="n">fig</span><span class="p">,</span>
         <span class="n">animate</span><span class="p">,</span>
         <span class="n">frames</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">evolution</span><span class="p">),</span>
-        <span class="n">interval</span><span class="o">=</span><span class="mi">1000</span> <span class="o">//</span> <span class="n">fps</span><span class="p">,</span>
+        <span class="n">interval</span><span class="o">=</span><span class="mi">1000</span> <span class="o">/</span> <span class="n">fps</span><span class="p">,</span>
         <span class="n">blit</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
         <span class="n">repeat</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
     <span class="p">)</span>
@@ -3897,10 +3864,10 @@ directory.</p>
         <span class="n">ext</span> <span class="o">=</span> <span class="n">out_path</span><span class="o">.</span><span class="n">suffix</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
         <span class="k">if</span> <span class="n">ext</span> <span class="o">==</span> <span class="s2">".gif"</span><span class="p">:</span>
             <span class="n">writer</span> <span class="o">=</span> <span class="n">PillowWriter</span><span class="p">(</span><span class="n">fps</span><span class="o">=</span><span class="n">fps</span><span class="p">,</span> <span class="n">bitrate</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
-            <span class="n">anim</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">out_path</span><span class="p">,</span> <span class="n">writer</span><span class="o">=</span><span class="n">writer</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="nb">min</span><span class="p">(</span><span class="mi">150</span><span class="p">,</span> <span class="n">_SAVE_DPI</span><span class="p">))</span>
+            <span class="n">anim</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">out_path</span><span class="p">,</span> <span class="n">writer</span><span class="o">=</span><span class="n">writer</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="nb">min</span><span class="p">(</span><span class="mi">150</span><span class="p">,</span> <span class="n">dpi</span><span class="p">))</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">writer</span> <span class="o">=</span> <span class="n">FFMpegWriter</span><span class="p">(</span><span class="n">fps</span><span class="o">=</span><span class="n">fps</span><span class="p">,</span> <span class="n">extra_args</span><span class="o">=</span><span class="p">[</span><span class="s2">"-vcodec"</span><span class="p">,</span> <span class="s2">"libx264"</span><span class="p">])</span>
-            <span class="n">anim</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">out_path</span><span class="p">,</span> <span class="n">writer</span><span class="o">=</span><span class="n">writer</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="n">_SAVE_DPI</span><span class="p">)</span>
+            <span class="n">anim</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">out_path</span><span class="p">,</span> <span class="n">writer</span><span class="o">=</span><span class="n">writer</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="n">dpi</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="n">show</span><span class="p">:</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -4340,8 +4307,7 @@ function created.</p>
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>pinnjax/plot/prediction.py</code></summary>
-              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">644</span>
-<span class="normal">645</span>
+              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">645</span>
 <span class="normal">646</span>
 <span class="normal">647</span>
 <span class="normal">648</span>
@@ -4494,7 +4460,8 @@ function created.</p>
 <span class="normal">795</span>
 <span class="normal">796</span>
 <span class="normal">797</span>
-<span class="normal">798</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">plot_field</span><span class="p">(</span>
+<span class="normal">798</span>
+<span class="normal">799</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">plot_field</span><span class="p">(</span>
     <span class="n">field</span><span class="p">:</span> <span class="n">jnp</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
     <span class="o">*</span><span class="p">,</span>
     <span class="n">extent</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -4609,7 +4576,7 @@ function created.</p>
             <span class="n">cax</span><span class="o">=</span><span class="n">cbar_ax</span><span class="p">,</span>
             <span class="n">label</span><span class="o">=</span><span class="n">cbar_label</span><span class="p">,</span>
             <span class="n">orientation</span><span class="o">=</span><span class="s2">"horizontal"</span><span class="p">,</span>
-            <span class="n">pad</span><span class="o">=</span><span class="mf">0.14</span><span class="p">,</span>
+            <span class="n">pad</span><span class="o">=</span><span class="mf">0.04</span><span class="p">,</span>
             <span class="n">fraction</span><span class="o">=</span><span class="mf">0.24</span><span class="p">,</span>
             <span class="n">ticks</span><span class="o">=</span><span class="n">cbar_ticks</span><span class="p">,</span>
         <span class="p">)</span>
@@ -5181,7 +5148,8 @@ the field is selected.</p>
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>pinnjax/plot/prediction.py</code></summary>
-              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 41</span>
+              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 40</span>
+<span class="normal"> 41</span>
 <span class="normal"> 42</span>
 <span class="normal"> 43</span>
 <span class="normal"> 44</span>
@@ -5330,8 +5298,7 @@ the field is selected.</p>
 <span class="normal">187</span>
 <span class="normal">188</span>
 <span class="normal">189</span>
-<span class="normal">190</span>
-<span class="normal">191</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">plot_model_prediction</span><span class="p">(</span>
+<span class="normal">190</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">plot_model_prediction</span><span class="p">(</span>
     <span class="n">model</span><span class="p">,</span>
     <span class="n">inputs</span><span class="p">:</span> <span class="n">Array</span><span class="p">,</span>
     <span class="o">*</span><span class="p">,</span>

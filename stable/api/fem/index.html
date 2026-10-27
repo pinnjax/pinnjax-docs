@@ -55,6 +55,8 @@
     
       <link rel="stylesheet" href="../../stylesheets/doc-strings.css">
     
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -364,6 +366,10 @@
       
         
       
+        
+      
+        
+      
     
     
     
@@ -418,8 +424,6 @@
   
     
     
-      
-        
       
         
       
@@ -530,66 +534,6 @@
   
 
       </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-        
-      
-    
-    
-    
-      
-      
-    
-    
-      
-        
-        
-      
-    
-    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-      
-        
-  
-  
-  
-    <a href="../experiment/" class="md-nav__link">
-      
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Experiment
-  
-
-    
-  </span>
-  
-  
-
-      
-        <span class="md-nav__icon md-icon"></span>
-      
-    </a>
-  
-
-      
     </li>
   
 
@@ -833,7 +777,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" checked>
         
           
           <div class="md-nav__link md-nav__container">
@@ -855,14 +799,14 @@
             </a>
             
               
-              <label class="md-nav__link md-nav__link--active" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
+              <label class="md-nav__link md-nav__link--active" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_3_6">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_5">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -1129,6 +1073,8 @@
       
         
           
+        
+      
         
       
         
@@ -2011,21 +1957,6 @@
         <p>Finite-element solvers, mesh generators, and mechanical boundary conditions.</p>
 <p>Solvers read a Tatva mesh. A height-map solver builds that mesh from a scan.
 Box and dogbone generators build a tetrahedral mesh from a specification.</p>
-<p><u>Contents:</u></p>
-<ul>
-<li><code>bases</code>: <code>FEMBase</code>, <code>MeshFEMBase</code>, and <code>HeightMapFEMBase</code>.</li>
-<li><code>elasticity</code>: <code>ElasticityFEMMixin</code>, <code>ElasticityMeshFEMSolver</code>, and
-  <code>ElasticityHeightMapFEMSolver</code>.</li>
-<li><code>elements</code>: <code>Line2Manifold</code>, <code>Tri3Manifold</code>, and <code>Quad4Manifold</code>.</li>
-<li><code>conditions</code>: <code>MechanicalCondition</code>, <code>BoundaryCondition</code>, <code>Dirichlet</code>,
-  <code>Neumann</code>, <code>Traction</code>, <code>Clamp</code>, and <code>BodyForce</code>.</li>
-<li><code>generation</code>: <code>Generator</code>, <code>Box</code>, <code>BoxSpec</code>, <code>Dogbone</code>, and
-  <code>DogboneSpec</code>.</li>
-<li><code>grid</code>: <code>get_pyvista_grid</code> builds a PyVista grid from a Tatva mesh.</li>
-<li><code>plotting</code>: <code>plot_mesh</code>, <code>plot_stress</code>, <code>plot_mechanical_conditions</code>,
-  and <code>plot_sides</code>.</li>
-<li><code>types</code>: <code>Location</code>, <code>Side</code>, <code>CellType</code>, and <code>Tetrahedralizer</code>.</li>
-</ul>
 
 
 

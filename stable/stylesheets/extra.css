@@ -1,0 +1,17 @@
+.figure-image {
+    display: block;
+    margin: 1.5rem auto;
+    width: 100%;
+    max-width: 750px;
+    height: auto;
+    border: 1px solid rgba(127, 127, 127, 0.25);
+    border-radius: 0.4rem;
+}
+
+.small {
+    width: 75%;
+}
+
+.medium {
+    width: 90%;
+}

@@ -55,6 +55,8 @@
     
       <link rel="stylesheet" href="../../../stylesheets/doc-strings.css">
     
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -369,6 +371,10 @@
       
         
       
+        
+      
+        
+      
     
     
     
@@ -423,8 +429,6 @@
   
     
     
-      
-        
       
         
       
@@ -535,66 +539,6 @@
   
 
       </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-        
-      
-    
-    
-    
-      
-      
-    
-    
-      
-        
-        
-      
-    
-    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-      
-        
-  
-  
-  
-    <a href="../../experiment/" class="md-nav__link">
-      
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Experiment
-  
-
-    
-  </span>
-  
-  
-
-      
-        <span class="md-nav__icon md-icon"></span>
-      
-    </a>
-  
-
-      
     </li>
   
 
@@ -1003,6 +947,8 @@
       
         
           
+        
+      
         
       
         
@@ -1474,7 +1420,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_16" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_15" checked>
         
           
           <div class="md-nav__link md-nav__container">
@@ -1496,14 +1442,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_3_16" id="__nav_3_16_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_3_15" id="__nav_3_15_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_16_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_3_16">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_15_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_15">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -2669,7 +2615,8 @@ or <code>error_type</code> is not one of the three names.</p>
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>pinnjax/plot/comparison.py</code></summary>
-              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 38</span>
+              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 37</span>
+<span class="normal"> 38</span>
 <span class="normal"> 39</span>
 <span class="normal"> 40</span>
 <span class="normal"> 41</span>
@@ -2918,8 +2865,7 @@ or <code>error_type</code> is not one of the three names.</p>
 <span class="normal">284</span>
 <span class="normal">285</span>
 <span class="normal">286</span>
-<span class="normal">287</span>
-<span class="normal">288</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">plot_comparison</span><span class="p">(</span>
+<span class="normal">287</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">plot_comparison</span><span class="p">(</span>
     <span class="n">prediction</span><span class="p">:</span> <span class="n">jnp</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
     <span class="n">truth</span><span class="p">:</span> <span class="n">jnp</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
     <span class="n">grid</span><span class="p">:</span> <span class="n">SpatialGrid</span><span class="p">,</span>
@@ -3088,7 +3034,7 @@ or <code>error_type</code> is not one of the three names.</p>
                 <span class="n">cax</span><span class="o">=</span><span class="n">cbar_ax</span><span class="p">,</span>
                 <span class="n">label</span><span class="o">=</span><span class="n">cbar_label</span><span class="p">,</span>
                 <span class="n">orientation</span><span class="o">=</span><span class="s2">"horizontal"</span><span class="p">,</span>
-                <span class="n">pad</span><span class="o">=</span><span class="mf">0.14</span><span class="p">,</span>
+                <span class="n">pad</span><span class="o">=</span><span class="mf">0.04</span><span class="p">,</span>
                 <span class="n">fraction</span><span class="o">=</span><span class="mf">0.24</span><span class="p">,</span>
                 <span class="n">ticks</span><span class="o">=</span><span class="n">ticks</span><span class="p">,</span>
             <span class="p">)</span>
@@ -3204,6 +3150,7 @@ or <code>error_type</code> is not one of the three names.</p>
     <span class="n">y_label</span><span class="p">:</span> <span class="n"><span title="str">str</span></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">cbar_label</span><span class="p">:</span> <span class="n"><span title="str">str</span></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">cmap</span><span class="p">:</span> <span class="n"><span title="str">str</span></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">dpi</span><span class="p">:</span> <span class="n"><span title="int">int</span></span> <span class="o">=</span> <span class="mi">300</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="tuple">tuple</span></span><span class="p">[</span><span class="n"><span title="matplotlib.pyplot.Figure">Figure</span></span><span class="p">,</span> <span class="n"><span title="matplotlib.pyplot.Axes">Axes</span></span><span class="p">,</span> <span class="n"><span title="matplotlib.animation.FuncAnimation">FuncAnimation</span></span><span class="p">]</span>
 </code></pre></div>
 
@@ -3520,6 +3467,22 @@ directory.</p>
                   <code>None</code>
             </td>
           </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>dpi</code>
+            </td>
+            <td>
+                  <code><span title="int">int</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Resolution used when saving.</p>
+              </div>
+            </td>
+            <td>
+                  <code>300</code>
+            </td>
+          </tr>
       </tbody>
     </table>
 
@@ -3603,7 +3566,8 @@ do not match the grid.</p>
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>pinnjax/plot/comparison.py</code></summary>
-              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">291</span>
+              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">290</span>
+<span class="normal">291</span>
 <span class="normal">292</span>
 <span class="normal">293</span>
 <span class="normal">294</span>
@@ -3836,7 +3800,8 @@ do not match the grid.</p>
 <span class="normal">521</span>
 <span class="normal">522</span>
 <span class="normal">523</span>
-<span class="normal">524</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">plot_comparison_evolution</span><span class="p">(</span>
+<span class="normal">524</span>
+<span class="normal">525</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">plot_comparison_evolution</span><span class="p">(</span>
     <span class="n">prediction_evolution</span><span class="p">:</span> <span class="n">Array</span><span class="p">,</span>
     <span class="n">truth_evolution</span><span class="p">:</span> <span class="n">Array</span><span class="p">,</span>
     <span class="n">grid</span><span class="p">:</span> <span class="n">SpatialGrid</span><span class="p">,</span>
@@ -3856,6 +3821,7 @@ do not match the grid.</p>
     <span class="n">y_label</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">cbar_label</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">cmap</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">dpi</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">300</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">Figure</span><span class="p">,</span> <span class="n">Axes</span><span class="p">,</span> <span class="n">FuncAnimation</span><span class="p">]:</span>
 <span class="w">    </span><span class="sd">"""Animate comparison error over time for 2D spatial grids.</span>
 
@@ -3888,6 +3854,7 @@ do not match the grid.</p>
 <span class="sd">        y_label: Vertical axis label. When omitted, the axis name and ``[m]``.</span>
 <span class="sd">        cbar_label: Colorbar label. When omitted, the label for ``error_type``.</span>
 <span class="sd">        cmap: Colormap name. When omitted, the colormap for ``error_type``.</span>
+<span class="sd">        dpi: Resolution used when saving.</span>
 
 <span class="sd">    Returns:</span>
 <span class="sd">        The Matplotlib figure, axes, and animation.</span>
@@ -4006,7 +3973,7 @@ do not match the grid.</p>
         <span class="n">im</span><span class="p">,</span>
         <span class="n">label</span><span class="o">=</span><span class="n">cbar_use</span><span class="p">,</span>
         <span class="n">orientation</span><span class="o">=</span><span class="s2">"horizontal"</span><span class="p">,</span>
-        <span class="n">pad</span><span class="o">=</span><span class="mf">0.14</span><span class="p">,</span>
+        <span class="n">pad</span><span class="o">=</span><span class="mf">0.04</span><span class="p">,</span>
         <span class="n">fraction</span><span class="o">=</span><span class="mf">0.24</span><span class="p">,</span>
         <span class="n">ticks</span><span class="o">=</span><span class="n">ticks</span><span class="p">,</span>
     <span class="p">)</span>
@@ -4059,10 +4026,10 @@ do not match the grid.</p>
         <span class="n">ext</span> <span class="o">=</span> <span class="n">out_path</span><span class="o">.</span><span class="n">suffix</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
         <span class="k">if</span> <span class="n">ext</span> <span class="o">==</span> <span class="s2">".gif"</span><span class="p">:</span>
             <span class="n">writer</span> <span class="o">=</span> <span class="n">PillowWriter</span><span class="p">(</span><span class="n">fps</span><span class="o">=</span><span class="n">fps</span><span class="p">,</span> <span class="n">bitrate</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
-            <span class="n">anim</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">out_path</span><span class="p">,</span> <span class="n">writer</span><span class="o">=</span><span class="n">writer</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="nb">min</span><span class="p">(</span><span class="mi">150</span><span class="p">,</span> <span class="n">_SAVE_DPI</span><span class="p">))</span>
+            <span class="n">anim</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">out_path</span><span class="p">,</span> <span class="n">writer</span><span class="o">=</span><span class="n">writer</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="nb">min</span><span class="p">(</span><span class="mi">150</span><span class="p">,</span> <span class="n">dpi</span><span class="p">))</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">writer</span> <span class="o">=</span> <span class="n">FFMpegWriter</span><span class="p">(</span><span class="n">fps</span><span class="o">=</span><span class="n">fps</span><span class="p">,</span> <span class="n">extra_args</span><span class="o">=</span><span class="p">[</span><span class="s2">"-vcodec"</span><span class="p">,</span> <span class="s2">"libx264"</span><span class="p">])</span>
-            <span class="n">anim</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">out_path</span><span class="p">,</span> <span class="n">writer</span><span class="o">=</span><span class="n">writer</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="n">_SAVE_DPI</span><span class="p">)</span>
+            <span class="n">anim</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">out_path</span><span class="p">,</span> <span class="n">writer</span><span class="o">=</span><span class="n">writer</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="n">dpi</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="n">show</span><span class="p">:</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
