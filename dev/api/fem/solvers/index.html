@@ -375,6 +375,8 @@
       
         
       
+        
+      
     
     
     
@@ -1615,8 +1617,6 @@
       
         
           
-        
-      
         
       
         
@@ -4260,7 +4260,7 @@ millimetres to metres.</p>
         <span class="p">)</span>
 
         <span class="c1"># the mesh is in mm, but the physics happens in m.</span>
-        <span class="n">points</span> <span class="o">=</span> <span class="n">points</span> <span class="o">*</span> <span class="n">scale_factor</span>
+        <span class="n">points</span> <span class="o">=</span> <span class="n">points</span> <span class="o">*</span> <span class="p">(</span><span class="n">scale_factor</span> <span class="ow">or</span> <span class="mi">1</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">_set_tetrahedral_mesh</span><span class="p">(</span><span class="n">points</span><span class="p">,</span> <span class="n">elements</span><span class="p">)</span>
 
@@ -6353,7 +6353,7 @@ unknown.</p>
     <span class="p">)</span>
 
     <span class="c1"># the mesh is in mm, but the physics happens in m.</span>
-    <span class="n">points</span> <span class="o">=</span> <span class="n">points</span> <span class="o">*</span> <span class="n">scale_factor</span>
+    <span class="n">points</span> <span class="o">=</span> <span class="n">points</span> <span class="o">*</span> <span class="p">(</span><span class="n">scale_factor</span> <span class="ow">or</span> <span class="mi">1</span><span class="p">)</span>
 
     <span class="bp">self</span><span class="o">.</span><span class="n">_set_tetrahedral_mesh</span><span class="p">(</span><span class="n">points</span><span class="p">,</span> <span class="n">elements</span><span class="p">)</span>
 
@@ -14369,7 +14369,7 @@ unknown.</p>
     <span class="p">)</span>
 
     <span class="c1"># the mesh is in mm, but the physics happens in m.</span>
-    <span class="n">points</span> <span class="o">=</span> <span class="n">points</span> <span class="o">*</span> <span class="n">scale_factor</span>
+    <span class="n">points</span> <span class="o">=</span> <span class="n">points</span> <span class="o">*</span> <span class="p">(</span><span class="n">scale_factor</span> <span class="ow">or</span> <span class="mi">1</span><span class="p">)</span>
 
     <span class="bp">self</span><span class="o">.</span><span class="n">_set_tetrahedral_mesh</span><span class="p">(</span><span class="n">points</span><span class="p">,</span> <span class="n">elements</span><span class="p">)</span>
 

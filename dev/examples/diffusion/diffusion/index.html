@@ -14,7 +14,7 @@
         <link rel="prev" href="../../..">
       
       
-        <link rel="next" href="../../mam/metaladditivemanufacturing/">
+        <link rel="next" href="../../complexpath/complexpath/">
       
       
         
@@ -377,6 +377,8 @@
       
         
       
+        
+      
     
     
     
@@ -630,6 +632,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../complexpath/complexpath/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Complex Pathing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../mam/metaladditivemanufacturing/" class="md-nav__link">
         
   
@@ -658,14 +688,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../complexpath/complexpath/" class="md-nav__link">
+      <a href="../../droplet/droplet/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Complex Pathing
+    Time-Dependent 2D (Droplet) [WIP]
   
 
     
@@ -994,8 +1024,8 @@
   
 
 
-<h1 id="1d-diffusion">1D Diffusion<a class="headerlink" href="#1d-diffusion" title="Permanent link">#</a></h1>
-<p>The full runnable script can be found at <code>examples/public/diffusion.py</code> on GitHub.</p>
+<h1 id="1d-diffusion">1D : Diffusion<a class="headerlink" href="#1d-diffusion" title="Permanent link">#</a></h1>
+<p>The full runnable script can be found at <code>examples/public/diffusion.py</code> on <a href="https://github.com/pinnjax/PINN-JAX">GitHub</a>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>It's recommended to read all the examples in order, as previously explained portions won't be explained as thoroughly in later examples, and vice versa for the content introduced in this example.</p>
@@ -1173,7 +1203,7 @@ Shape 4 (Line): 10 collocation points
 <p>For both <code>"grid_resolution"</code> and <code>"density"</code>, the calculated values are spatial. The temporal component is taken into account using the <code>step</code> parameter set in an earlier <a href="#domain">section</a> as part of <a class="autorefs autorefs-internal" title="            Time" href="../../../api/dataclass/domains/#pinnjax.dataclass.time.Time"><code>Time</code></a>. They simply multiply the calculated value by the number of discrete time steps.</p>
 <p>Since we've used <code>"point_count"</code>, this isn't factored in at all.</p>
 <h2 id="residuals">Residuals<a class="headerlink" href="#residuals" title="Permanent link">#</a></h2>
-<p>Now to put the <strong>PINN</strong> in <strong>PINN-JAX</strong>.</p>
+<p>Now to put the <strong>PINN</strong> in <span class="arithmatex">\(\texttt{PINN-JAX}\)</span>.</p>
 <p>We need to define the <a class="autorefs autorefs-internal" title="            Residual" href="../../../api/loss/residuals/#pinnjax.loss.residuals.Residual"><code>Residuals</code></a> for our model. In a data-driven network, a residual can simply be the difference between the predicted value <span class="arithmatex">\(\hat{u}\)</span> and the "truth" contained in a dataset. For physics-informed neural networks, however, the residual is constructed from the governing equations and evaluated using the current point and prediction. Slightly more complex.</p>
 <p>In this case,</p>
 <ul>

@@ -375,6 +375,8 @@
       
         
       
+        
+      
     
     
     
@@ -1550,8 +1552,6 @@
       
         
       
-        
-      
     
     
     
@@ -2131,7 +2131,7 @@ used by the loss history.</p>
           <tr class="doc-section-item">
             <td><code><span title="pinnjax.geometry.complex.ComplexShape.times">times</span></code></td>
             <td>
-                  <code><a class="autorefs autorefs-internal" title="            Time (pinnjax.dataclass.time.Time)" href="../../dataclass/domains/#pinnjax.dataclass.time.Time">Time</a> | None</code>
+                  <code><a class="autorefs autorefs-internal" title="            Time (pinnjax.dataclass.time.Time)" href="../../dataclass/domains/#pinnjax.dataclass.time.Time">Time</a> | <span title="float">float</span> | None</code>
             </td>
             <td>
               <div class="doc-md-description">
@@ -3314,7 +3314,15 @@ evaluation.</p>
 <span class="normal">1428</span>
 <span class="normal">1429</span>
 <span class="normal">1430</span>
-<span class="normal">1431</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">ComplexShape</span><span class="p">(</span><span class="n">Shape</span><span class="p">,</span> <span class="n">ABC</span><span class="p">):</span>
+<span class="normal">1431</span>
+<span class="normal">1432</span>
+<span class="normal">1433</span>
+<span class="normal">1434</span>
+<span class="normal">1435</span>
+<span class="normal">1436</span>
+<span class="normal">1437</span>
+<span class="normal">1438</span>
+<span class="normal">1439</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">ComplexShape</span><span class="p">(</span><span class="n">Shape</span><span class="p">,</span> <span class="n">ABC</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""A group of shapes sampled, residual-bound, and drawn together.</span>
 
 <span class="sd">    Child shapes stay in ``shapes``. Residuals and losses can be one object for</span>
@@ -3347,7 +3355,12 @@ evaluation.</p>
 
     <span class="n">times</span><span class="p">:</span> <span class="n">Time</span> <span class="o">|</span> <span class="kc">None</span>
 
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">shapes</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Shape</span><span class="p">],</span> <span class="o">*</span><span class="p">,</span> <span class="n">times</span><span class="p">:</span> <span class="n">Time</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">shapes</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Shape</span><span class="p">],</span>
+        <span class="o">*</span><span class="p">,</span>
+        <span class="n">times</span><span class="p">:</span> <span class="n">Time</span> <span class="o">|</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">"""Store the child shapes and the optional time range.</span>
 
 <span class="sd">        A non-list ``shapes`` value is copied into a list. Loss maps and histories</span>
@@ -3363,7 +3376,7 @@ evaluation.</p>
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">shapes</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
             <span class="n">shapes</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">shapes</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">shapes</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Shape</span><span class="p">]</span> <span class="o">=</span> <span class="n">shapes</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">times</span><span class="p">:</span> <span class="n">Time</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="n">times</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">times</span><span class="p">:</span> <span class="n">Time</span> <span class="o">|</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="n">times</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">:</span> <span class="n">Path</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">class_map</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">type_map</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="p">{}</span>
@@ -3383,14 +3396,14 @@ evaluation.</p>
         <span class="bp">self</span><span class="o">.</span><span class="n">_term_shape_indices</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_term_residual_functions</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">Residual</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_term_loss_functions</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">Loss</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_loss_spec</span><span class="p">:</span> <span class="n">Loss</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="n">Loss</span><span class="p">]</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="n">Loss</span><span class="p">]]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_loss_spec</span><span class="p">:</span> <span class="n">Loss</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">Loss</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">Loss</span><span class="p">]]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">n_class</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">n_type</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">assign_residuals</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
-        <span class="n">residuals</span><span class="p">:</span> <span class="n">Residual</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="n">Residual</span><span class="p">]</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="n">Residual</span><span class="p">]],</span>
+        <span class="n">residuals</span><span class="p">:</span> <span class="n">Residual</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">Residual</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">Residual</span><span class="p">]],</span>
         <span class="o">*</span><span class="p">,</span>
         <span class="n">class_map</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">type_map</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -3544,7 +3557,7 @@ evaluation.</p>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">assign_loss</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
-        <span class="n">loss</span><span class="p">:</span> <span class="n">Loss</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="n">Loss</span><span class="p">]</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="n">Loss</span><span class="p">]],</span>
+        <span class="n">loss</span><span class="p">:</span> <span class="n">Loss</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">Loss</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">Loss</span><span class="p">]],</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">"""Attach a loss to every child, or one loss to every residual term.</span>
 
@@ -4011,7 +4024,7 @@ evaluation.</p>
         <span class="n">show_best_epoch</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
         <span class="n">show_grid</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
         <span class="n">show</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
-        <span class="n">save</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="n">save</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
         <span class="n">save_location</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">save_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="s2">"evaluation_plot"</span><span class="p">,</span>
         <span class="n">save_format</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"pdf"</span><span class="p">,</span>
@@ -4143,6 +4156,9 @@ evaluation.</p>
 <span class="sd">        """</span>
         <span class="n">mins</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="n">maxs</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">times</span><span class="p">,</span> <span class="nb">float</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">"Cannot create a SpatialDomain from a ComplexShape at a single time."</span><span class="p">)</span>
 
         <span class="k">for</span> <span class="n">shape</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">shapes</span><span class="p">:</span>
             <span class="n">bmin</span><span class="p">,</span> <span class="n">bmax</span> <span class="o">=</span> <span class="n">shape</span><span class="o">.</span><span class="n">bounds</span><span class="p">()</span>
@@ -4339,7 +4355,9 @@ evaluation.</p>
 
 <a href="#pinnjax.geometry.complex.ComplexShape.__init__" class="headerlink" title="Permanent link">#</a></h3>
 <div class="language-python doc-signature highlight"><pre><span></span><code><span class="nf">__init__</span><span class="p">(</span>
-    <span class="n">shapes</span><span class="p">:</span> <span class="n"><span title="list">list</span></span><span class="p">[</span><span class="n"><a class="autorefs autorefs-internal" title="            Shape (pinnjax.geometry.base.Shape)" href="../primitives/#pinnjax.geometry.base.Shape">Shape</a></span><span class="p">],</span> <span class="o">*</span><span class="p">,</span> <span class="n">times</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-internal" title="            Time (pinnjax.dataclass.time.Time)" href="../../dataclass/domains/#pinnjax.dataclass.time.Time">Time</a></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">shapes</span><span class="p">:</span> <span class="n"><span title="list">list</span></span><span class="p">[</span><span class="n"><a class="autorefs autorefs-internal" title="            Shape (pinnjax.geometry.base.Shape)" href="../primitives/#pinnjax.geometry.base.Shape">Shape</a></span><span class="p">],</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">times</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-internal" title="            Time (pinnjax.dataclass.time.Time)" href="../../dataclass/domains/#pinnjax.dataclass.time.Time">Time</a></span> <span class="o">|</span> <span class="n"><span title="float">float</span></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
 </code></pre></div>
 
@@ -4383,7 +4401,7 @@ evaluating a loss.</p>
                 <code>times</code>
             </td>
             <td>
-                  <code><a class="autorefs autorefs-internal" title="            Time (pinnjax.dataclass.time.Time)" href="../../dataclass/domains/#pinnjax.dataclass.time.Time">Time</a> | None</code>
+                  <code><a class="autorefs autorefs-internal" title="            Time (pinnjax.dataclass.time.Time)" href="../../dataclass/domains/#pinnjax.dataclass.time.Time">Time</a> | <span title="float">float</span> | None</code>
             </td>
             <td>
               <div class="doc-md-description">
@@ -4439,7 +4457,17 @@ evaluating a loss.</p>
 <span class="normal">501</span>
 <span class="normal">502</span>
 <span class="normal">503</span>
-<span class="normal">504</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">shapes</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Shape</span><span class="p">],</span> <span class="o">*</span><span class="p">,</span> <span class="n">times</span><span class="p">:</span> <span class="n">Time</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="normal">504</span>
+<span class="normal">505</span>
+<span class="normal">506</span>
+<span class="normal">507</span>
+<span class="normal">508</span>
+<span class="normal">509</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+    <span class="bp">self</span><span class="p">,</span>
+    <span class="n">shapes</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Shape</span><span class="p">],</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">times</span><span class="p">:</span> <span class="n">Time</span> <span class="o">|</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""Store the child shapes and the optional time range.</span>
 
 <span class="sd">    A non-list ``shapes`` value is copied into a list. Loss maps and histories</span>
@@ -4455,7 +4483,7 @@ evaluating a loss.</p>
     <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">shapes</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
         <span class="n">shapes</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">shapes</span><span class="p">)</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">shapes</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Shape</span><span class="p">]</span> <span class="o">=</span> <span class="n">shapes</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">times</span><span class="p">:</span> <span class="n">Time</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="n">times</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">times</span><span class="p">:</span> <span class="n">Time</span> <span class="o">|</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="n">times</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">:</span> <span class="n">Path</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">class_map</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="p">{}</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">type_map</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="p">{}</span>
@@ -4475,7 +4503,7 @@ evaluating a loss.</p>
     <span class="bp">self</span><span class="o">.</span><span class="n">_term_shape_indices</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="p">()</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">_term_residual_functions</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">Residual</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="p">()</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">_term_loss_functions</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">Loss</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="p">()</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">_loss_spec</span><span class="p">:</span> <span class="n">Loss</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="n">Loss</span><span class="p">]</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="n">Loss</span><span class="p">]]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_loss_spec</span><span class="p">:</span> <span class="n">Loss</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">Loss</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">Loss</span><span class="p">]]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
 
     <span class="bp">self</span><span class="o">.</span><span class="n">n_class</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">n_type</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>
@@ -4527,17 +4555,17 @@ evaluating a loss.</p>
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>pinnjax/geometry/complex.py</code></summary>
-              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">726</span>
-<span class="normal">727</span>
-<span class="normal">728</span>
-<span class="normal">729</span>
-<span class="normal">730</span>
-<span class="normal">731</span>
+              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">731</span>
 <span class="normal">732</span>
 <span class="normal">733</span>
 <span class="normal">734</span>
 <span class="normal">735</span>
-<span class="normal">736</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">add_initial</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="normal">736</span>
+<span class="normal">737</span>
+<span class="normal">738</span>
+<span class="normal">739</span>
+<span class="normal">740</span>
+<span class="normal">741</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">add_initial</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""Append the geometry at the first instant of the time range.</span>
 
 <span class="sd">    Subclasses replace this. This base method does not change ``shapes``.</span>
@@ -4645,12 +4673,7 @@ Default: <code>1</code>.</p>
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>pinnjax/geometry/complex.py</code></summary>
-              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">738</span>
-<span class="normal">739</span>
-<span class="normal">740</span>
-<span class="normal">741</span>
-<span class="normal">742</span>
-<span class="normal">743</span>
+              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">743</span>
 <span class="normal">744</span>
 <span class="normal">745</span>
 <span class="normal">746</span>
@@ -4662,7 +4685,12 @@ Default: <code>1</code>.</p>
 <span class="normal">752</span>
 <span class="normal">753</span>
 <span class="normal">754</span>
-<span class="normal">755</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">add_path_shape</span><span class="p">(</span>
+<span class="normal">755</span>
+<span class="normal">756</span>
+<span class="normal">757</span>
+<span class="normal">758</span>
+<span class="normal">759</span>
+<span class="normal">760</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">add_path_shape</span><span class="p">(</span>
     <span class="bp">self</span><span class="p">,</span>
     <span class="n">path</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span>
     <span class="n">radius</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="n">Iterable</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span>
@@ -4758,12 +4786,7 @@ Default: <code>1</code>.</p>
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>pinnjax/geometry/complex.py</code></summary>
-              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">757</span>
-<span class="normal">758</span>
-<span class="normal">759</span>
-<span class="normal">760</span>
-<span class="normal">761</span>
-<span class="normal">762</span>
+              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">762</span>
 <span class="normal">763</span>
 <span class="normal">764</span>
 <span class="normal">765</span>
@@ -4773,7 +4796,12 @@ Default: <code>1</code>.</p>
 <span class="normal">769</span>
 <span class="normal">770</span>
 <span class="normal">771</span>
-<span class="normal">772</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">append_shape</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">shape</span><span class="p">:</span> <span class="n">Shape</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="normal">772</span>
+<span class="normal">773</span>
+<span class="normal">774</span>
+<span class="normal">775</span>
+<span class="normal">776</span>
+<span class="normal">777</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">append_shape</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">shape</span><span class="p">:</span> <span class="n">Shape</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""Append one child shape.</span>
 
 <span class="sd">    Args:</span>
@@ -4804,7 +4832,7 @@ Default: <code>1</code>.</p>
 
 <a href="#pinnjax.geometry.complex.ComplexShape.assign_loss" class="headerlink" title="Permanent link">#</a></h3>
 <div class="language-python doc-signature highlight"><pre><span></span><code><span class="nf">assign_loss</span><span class="p">(</span>
-    <span class="n">loss</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-internal" title="            Loss (pinnjax.loss.metrics.Loss)" href="../../loss/metrics/#pinnjax.loss.metrics.Loss">Loss</a></span> <span class="o">|</span> <span class="n"><span title="list">list</span></span><span class="p">[</span><span class="n"><a class="autorefs autorefs-internal" title="            Loss (pinnjax.loss.metrics.Loss)" href="../../loss/metrics/#pinnjax.loss.metrics.Loss">Loss</a></span><span class="p">]</span> <span class="o">|</span> <span class="n"><span title="list">list</span></span><span class="p">[</span><span class="n"><span title="list">list</span></span><span class="p">[</span><span class="n"><a class="autorefs autorefs-internal" title="            Loss (pinnjax.loss.metrics.Loss)" href="../../loss/metrics/#pinnjax.loss.metrics.Loss">Loss</a></span><span class="p">]],</span>
+    <span class="n">loss</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-internal" title="            Loss (pinnjax.loss.metrics.Loss)" href="../../loss/metrics/#pinnjax.loss.metrics.Loss">Loss</a></span> <span class="o">|</span> <span class="n"><span title="collections.abc.Sequence">Sequence</span></span><span class="p">[</span><span class="n"><a class="autorefs autorefs-internal" title="            Loss (pinnjax.loss.metrics.Loss)" href="../../loss/metrics/#pinnjax.loss.metrics.Loss">Loss</a></span> <span class="o">|</span> <span class="n"><span title="collections.abc.Sequence">Sequence</span></span><span class="p">[</span><span class="n"><a class="autorefs autorefs-internal" title="            Loss (pinnjax.loss.metrics.Loss)" href="../../loss/metrics/#pinnjax.loss.metrics.Loss">Loss</a></span><span class="p">]],</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
 </code></pre></div>
 
@@ -4839,7 +4867,7 @@ Each child then stores <code>loss_functions</code> and keeps the first loss as
                 <code>loss</code>
             </td>
             <td>
-                  <code><a class="autorefs autorefs-internal" title="            Loss (pinnjax.loss.metrics.Loss)" href="../../loss/metrics/#pinnjax.loss.metrics.Loss">Loss</a> | <span title="list">list</span>[<a class="autorefs autorefs-internal" title="            Loss (pinnjax.loss.metrics.Loss)" href="../../loss/metrics/#pinnjax.loss.metrics.Loss">Loss</a>] | <span title="list">list</span>[<span title="list">list</span>[<a class="autorefs autorefs-internal" title="            Loss (pinnjax.loss.metrics.Loss)" href="../../loss/metrics/#pinnjax.loss.metrics.Loss">Loss</a>]]</code>
+                  <code><a class="autorefs autorefs-internal" title="            Loss (pinnjax.loss.metrics.Loss)" href="../../loss/metrics/#pinnjax.loss.metrics.Loss">Loss</a> | <span title="collections.abc.Sequence">Sequence</span>[<a class="autorefs autorefs-internal" title="            Loss (pinnjax.loss.metrics.Loss)" href="../../loss/metrics/#pinnjax.loss.metrics.Loss">Loss</a> | <span title="collections.abc.Sequence">Sequence</span>[<a class="autorefs autorefs-internal" title="            Loss (pinnjax.loss.metrics.Loss)" href="../../loss/metrics/#pinnjax.loss.metrics.Loss">Loss</a>]]</code>
             </td>
             <td>
               <div class="doc-md-description">
@@ -4891,12 +4919,7 @@ are assigned.</p>
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>pinnjax/geometry/complex.py</code></summary>
-              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">660</span>
-<span class="normal">661</span>
-<span class="normal">662</span>
-<span class="normal">663</span>
-<span class="normal">664</span>
-<span class="normal">665</span>
+              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">665</span>
 <span class="normal">666</span>
 <span class="normal">667</span>
 <span class="normal">668</span>
@@ -4955,9 +4978,14 @@ are assigned.</p>
 <span class="normal">721</span>
 <span class="normal">722</span>
 <span class="normal">723</span>
-<span class="normal">724</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">assign_loss</span><span class="p">(</span>
+<span class="normal">724</span>
+<span class="normal">725</span>
+<span class="normal">726</span>
+<span class="normal">727</span>
+<span class="normal">728</span>
+<span class="normal">729</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">assign_loss</span><span class="p">(</span>
     <span class="bp">self</span><span class="p">,</span>
-    <span class="n">loss</span><span class="p">:</span> <span class="n">Loss</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="n">Loss</span><span class="p">]</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="n">Loss</span><span class="p">]],</span>
+    <span class="n">loss</span><span class="p">:</span> <span class="n">Loss</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">Loss</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">Loss</span><span class="p">]],</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""Attach a loss to every child, or one loss to every residual term.</span>
 
@@ -5036,8 +5064,7 @@ are assigned.</p>
 <a href="#pinnjax.geometry.complex.ComplexShape.assign_residuals" class="headerlink" title="Permanent link">#</a></h3>
 <div class="language-python doc-signature highlight"><pre><span></span><code><span class="nf">assign_residuals</span><span class="p">(</span>
     <span class="n">residuals</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-internal" title="            Residual (pinnjax.loss.residuals.Residual)" href="../../loss/residuals/#pinnjax.loss.residuals.Residual">Residual</a></span>
-    <span class="o">|</span> <span class="n"><span title="list">list</span></span><span class="p">[</span><span class="n"><a class="autorefs autorefs-internal" title="            Residual (pinnjax.loss.residuals.Residual)" href="../../loss/residuals/#pinnjax.loss.residuals.Residual">Residual</a></span><span class="p">]</span>
-    <span class="o">|</span> <span class="n"><span title="list">list</span></span><span class="p">[</span><span class="n"><span title="list">list</span></span><span class="p">[</span><span class="n"><a class="autorefs autorefs-internal" title="            Residual (pinnjax.loss.residuals.Residual)" href="../../loss/residuals/#pinnjax.loss.residuals.Residual">Residual</a></span><span class="p">]],</span>
+    <span class="o">|</span> <span class="n"><span title="collections.abc.Sequence">Sequence</span></span><span class="p">[</span><span class="n"><a class="autorefs autorefs-internal" title="            Residual (pinnjax.loss.residuals.Residual)" href="../../loss/residuals/#pinnjax.loss.residuals.Residual">Residual</a></span> <span class="o">|</span> <span class="n"><span title="collections.abc.Sequence">Sequence</span></span><span class="p">[</span><span class="n"><a class="autorefs autorefs-internal" title="            Residual (pinnjax.loss.residuals.Residual)" href="../../loss/residuals/#pinnjax.loss.residuals.Residual">Residual</a></span><span class="p">]],</span>
     <span class="o">*</span><span class="p">,</span>
     <span class="n">class_map</span><span class="p">:</span> <span class="n"><span title="dict">dict</span></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">type_map</span><span class="p">:</span> <span class="n"><span title="dict">dict</span></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -5079,7 +5106,7 @@ stored before the residuals, <code>assign_loss()</code> runs again at the end.</
                 <code>residuals</code>
             </td>
             <td>
-                  <code><a class="autorefs autorefs-internal" title="            Residual (pinnjax.loss.residuals.Residual)" href="../../loss/residuals/#pinnjax.loss.residuals.Residual">Residual</a> | <span title="list">list</span>[<a class="autorefs autorefs-internal" title="            Residual (pinnjax.loss.residuals.Residual)" href="../../loss/residuals/#pinnjax.loss.residuals.Residual">Residual</a>] | <span title="list">list</span>[<span title="list">list</span>[<a class="autorefs autorefs-internal" title="            Residual (pinnjax.loss.residuals.Residual)" href="../../loss/residuals/#pinnjax.loss.residuals.Residual">Residual</a>]]</code>
+                  <code><a class="autorefs autorefs-internal" title="            Residual (pinnjax.loss.residuals.Residual)" href="../../loss/residuals/#pinnjax.loss.residuals.Residual">Residual</a> | <span title="collections.abc.Sequence">Sequence</span>[<a class="autorefs autorefs-internal" title="            Residual (pinnjax.loss.residuals.Residual)" href="../../loss/residuals/#pinnjax.loss.residuals.Residual">Residual</a> | <span title="collections.abc.Sequence">Sequence</span>[<a class="autorefs autorefs-internal" title="            Residual (pinnjax.loss.residuals.Residual)" href="../../loss/residuals/#pinnjax.loss.residuals.Residual">Residual</a>]]</code>
             </td>
             <td>
               <div class="doc-md-description">
@@ -5226,12 +5253,7 @@ term group is empty, or a child is itself a <code>ComplexShape</code>.</p>
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>pinnjax/geometry/complex.py</code></summary>
-              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">506</span>
-<span class="normal">507</span>
-<span class="normal">508</span>
-<span class="normal">509</span>
-<span class="normal">510</span>
-<span class="normal">511</span>
+              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">511</span>
 <span class="normal">512</span>
 <span class="normal">513</span>
 <span class="normal">514</span>
@@ -5335,9 +5357,14 @@ term group is empty, or a child is itself a <code>ComplexShape</code>.</p>
 <span class="normal">612</span>
 <span class="normal">613</span>
 <span class="normal">614</span>
-<span class="normal">615</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">assign_residuals</span><span class="p">(</span>
+<span class="normal">615</span>
+<span class="normal">616</span>
+<span class="normal">617</span>
+<span class="normal">618</span>
+<span class="normal">619</span>
+<span class="normal">620</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">assign_residuals</span><span class="p">(</span>
     <span class="bp">self</span><span class="p">,</span>
-    <span class="n">residuals</span><span class="p">:</span> <span class="n">Residual</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="n">Residual</span><span class="p">]</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="n">Residual</span><span class="p">]],</span>
+    <span class="n">residuals</span><span class="p">:</span> <span class="n">Residual</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">Residual</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">Residual</span><span class="p">]],</span>
     <span class="o">*</span><span class="p">,</span>
     <span class="n">class_map</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">type_map</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -5703,15 +5730,7 @@ children were plotted.</p>
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>pinnjax/geometry/complex.py</code></summary>
-              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1318</span>
-<span class="normal">1319</span>
-<span class="normal">1320</span>
-<span class="normal">1321</span>
-<span class="normal">1322</span>
-<span class="normal">1323</span>
-<span class="normal">1324</span>
-<span class="normal">1325</span>
-<span class="normal">1326</span>
+              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1326</span>
 <span class="normal">1327</span>
 <span class="normal">1328</span>
 <span class="normal">1329</span>
@@ -5816,7 +5835,15 @@ children were plotted.</p>
 <span class="normal">1428</span>
 <span class="normal">1429</span>
 <span class="normal">1430</span>
-<span class="normal">1431</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">draw</span><span class="p">(</span>
+<span class="normal">1431</span>
+<span class="normal">1432</span>
+<span class="normal">1433</span>
+<span class="normal">1434</span>
+<span class="normal">1435</span>
+<span class="normal">1436</span>
+<span class="normal">1437</span>
+<span class="normal">1438</span>
+<span class="normal">1439</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">draw</span><span class="p">(</span>
     <span class="bp">self</span><span class="p">,</span>
     <span class="o">*</span><span class="p">,</span>
     <span class="n">show_normals</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
@@ -5981,12 +6008,7 @@ time and <code>times</code> is reused. Otherwise, the last bound coordinate beco
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>pinnjax/geometry/complex.py</code></summary>
-              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1247</span>
-<span class="normal">1248</span>
-<span class="normal">1249</span>
-<span class="normal">1250</span>
-<span class="normal">1251</span>
-<span class="normal">1252</span>
+              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1252</span>
 <span class="normal">1253</span>
 <span class="normal">1254</span>
 <span class="normal">1255</span>
@@ -6014,7 +6036,15 @@ time and <code>times</code> is reused. Otherwise, the last bound coordinate beco
 <span class="normal">1277</span>
 <span class="normal">1278</span>
 <span class="normal">1279</span>
-<span class="normal">1280</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">encompassing_domain</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">SpatialDomain</span><span class="p">:</span>
+<span class="normal">1280</span>
+<span class="normal">1281</span>
+<span class="normal">1282</span>
+<span class="normal">1283</span>
+<span class="normal">1284</span>
+<span class="normal">1285</span>
+<span class="normal">1286</span>
+<span class="normal">1287</span>
+<span class="normal">1288</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">encompassing_domain</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">SpatialDomain</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""Return a domain that contains every child.</span>
 
 <span class="sd">    The spatial bounds are the lowest and highest coordinates reported by</span>
@@ -6028,6 +6058,9 @@ time and <code>times</code> is reused. Otherwise, the last bound coordinate beco
 <span class="sd">    """</span>
     <span class="n">mins</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="n">maxs</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">times</span><span class="p">,</span> <span class="nb">float</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">"Cannot create a SpatialDomain from a ComplexShape at a single time."</span><span class="p">)</span>
 
     <span class="k">for</span> <span class="n">shape</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">shapes</span><span class="p">:</span>
         <span class="n">bmin</span><span class="p">,</span> <span class="n">bmax</span> <span class="o">=</span> <span class="n">shape</span><span class="o">.</span><span class="n">bounds</span><span class="p">()</span>
@@ -6254,12 +6287,7 @@ Default: <code>False</code>.</p>
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>pinnjax/geometry/complex.py</code></summary>
-              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">630</span>
-<span class="normal">631</span>
-<span class="normal">632</span>
-<span class="normal">633</span>
-<span class="normal">634</span>
-<span class="normal">635</span>
+              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">635</span>
 <span class="normal">636</span>
 <span class="normal">637</span>
 <span class="normal">638</span>
@@ -6282,7 +6310,12 @@ Default: <code>False</code>.</p>
 <span class="normal">655</span>
 <span class="normal">656</span>
 <span class="normal">657</span>
-<span class="normal">658</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">final_loss</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">overwrite</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span class="normal">658</span>
+<span class="normal">659</span>
+<span class="normal">660</span>
+<span class="normal">661</span>
+<span class="normal">662</span>
+<span class="normal">663</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">final_loss</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">overwrite</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""Return the last value of every series in the loss history.</span>
 
 <span class="sd">    The result keeps the ``"class"`` and ``"type"`` keys. Each label maps to the</span>
@@ -6809,7 +6842,7 @@ A point returns zero.</p>
     <span class="n">show_best_epoch</span><span class="p">:</span> <span class="n"><span title="bool">bool</span></span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
     <span class="n">show_grid</span><span class="p">:</span> <span class="n"><span title="bool">bool</span></span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
     <span class="n">show</span><span class="p">:</span> <span class="n"><span title="bool">bool</span></span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
-    <span class="n">save</span><span class="p">:</span> <span class="n"><span title="bool">bool</span></span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="n">save</span><span class="p">:</span> <span class="n"><span title="bool">bool</span></span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
     <span class="n">save_location</span><span class="p">:</span> <span class="n"><span title="str">str</span></span> <span class="o">|</span> <span class="n"><span title="pathlib.Path">Path</span></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">save_name</span><span class="p">:</span> <span class="n"><span title="str">str</span></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="s2">"evaluation_plot"</span><span class="p">,</span>
     <span class="n">save_format</span><span class="p">:</span> <span class="n"><span title="str">str</span></span> <span class="o">=</span> <span class="s2">"pdf"</span><span class="p">,</span>
@@ -6947,7 +6980,7 @@ Default: <code>"linear"</code>.</p>
               </div>
             </td>
             <td>
-                  <code>True</code>
+                  <code>False</code>
             </td>
           </tr>
           <tr class="doc-section-item">
@@ -7067,12 +7100,7 @@ other than <code>"Epochs"</code>.</p>
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>pinnjax/geometry/complex.py</code></summary>
-              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1120</span>
-<span class="normal">1121</span>
-<span class="normal">1122</span>
-<span class="normal">1123</span>
-<span class="normal">1124</span>
-<span class="normal">1125</span>
+              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1125</span>
 <span class="normal">1126</span>
 <span class="normal">1127</span>
 <span class="normal">1128</span>
@@ -7131,7 +7159,12 @@ other than <code>"Epochs"</code>.</p>
 <span class="normal">1181</span>
 <span class="normal">1182</span>
 <span class="normal">1183</span>
-<span class="normal">1184</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">plot_evaluation</span><span class="p">(</span>
+<span class="normal">1184</span>
+<span class="normal">1185</span>
+<span class="normal">1186</span>
+<span class="normal">1187</span>
+<span class="normal">1188</span>
+<span class="normal">1189</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">plot_evaluation</span><span class="p">(</span>
     <span class="bp">self</span><span class="p">,</span>
     <span class="o">*</span><span class="p">,</span>
     <span class="n">normalize</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
@@ -7140,7 +7173,7 @@ other than <code>"Epochs"</code>.</p>
     <span class="n">show_best_epoch</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
     <span class="n">show_grid</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
     <span class="n">show</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
-    <span class="n">save</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="n">save</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
     <span class="n">save_location</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">save_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="s2">"evaluation_plot"</span><span class="p">,</span>
     <span class="n">save_format</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"pdf"</span><span class="p">,</span>
@@ -7457,12 +7490,7 @@ history has not been filled.</p>
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>pinnjax/geometry/complex.py</code></summary>
-              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1064</span>
-<span class="normal">1065</span>
-<span class="normal">1066</span>
-<span class="normal">1067</span>
-<span class="normal">1068</span>
-<span class="normal">1069</span>
+              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1069</span>
 <span class="normal">1070</span>
 <span class="normal">1071</span>
 <span class="normal">1072</span>
@@ -7511,7 +7539,12 @@ history has not been filled.</p>
 <span class="normal">1115</span>
 <span class="normal">1116</span>
 <span class="normal">1117</span>
-<span class="normal">1118</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">plot_loss</span><span class="p">(</span>
+<span class="normal">1118</span>
+<span class="normal">1119</span>
+<span class="normal">1120</span>
+<span class="normal">1121</span>
+<span class="normal">1122</span>
+<span class="normal">1123</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">plot_loss</span><span class="p">(</span>
     <span class="bp">self</span><span class="p">,</span>
     <span class="o">*</span><span class="p">,</span>
     <span class="n">mode</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"class"</span><span class="p">,</span>
@@ -7591,18 +7624,18 @@ history has not been filled.</p>
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>pinnjax/geometry/complex.py</code></summary>
-              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">617</span>
-<span class="normal">618</span>
-<span class="normal">619</span>
-<span class="normal">620</span>
-<span class="normal">621</span>
-<span class="normal">622</span>
+              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">622</span>
 <span class="normal">623</span>
 <span class="normal">624</span>
 <span class="normal">625</span>
 <span class="normal">626</span>
 <span class="normal">627</span>
-<span class="normal">628</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">print_samples</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="normal">628</span>
+<span class="normal">629</span>
+<span class="normal">630</span>
+<span class="normal">631</span>
+<span class="normal">632</span>
+<span class="normal">633</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">print_samples</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""Log the collocation-point count of each child.</span>
 
 <span class="sd">    The message is the one-based index, the child class name, and ``n_points``.</span>
@@ -7852,12 +7885,7 @@ match the number of children.</p>
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>pinnjax/geometry/complex.py</code></summary>
-              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">841</span>
-<span class="normal">842</span>
-<span class="normal">843</span>
-<span class="normal">844</span>
-<span class="normal">845</span>
-<span class="normal">846</span>
+              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">846</span>
 <span class="normal">847</span>
 <span class="normal">848</span>
 <span class="normal">849</span>
@@ -7957,7 +7985,12 @@ match the number of children.</p>
 <span class="normal">943</span>
 <span class="normal">944</span>
 <span class="normal">945</span>
-<span class="normal">946</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">residual_and_losses</span><span class="p">(</span>
+<span class="normal">946</span>
+<span class="normal">947</span>
+<span class="normal">948</span>
+<span class="normal">949</span>
+<span class="normal">950</span>
+<span class="normal">951</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">residual_and_losses</span><span class="p">(</span>
     <span class="bp">self</span><span class="p">,</span>
     <span class="n">model</span><span class="p">:</span> <span class="n">NeuralNetwork</span><span class="p">,</span>
     <span class="n">ops</span><span class="p">:</span> <span class="n">DifferentialOperators</span><span class="p">,</span>
@@ -8357,12 +8390,7 @@ match the number of children.</p>
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>pinnjax/geometry/complex.py</code></summary>
-              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 948</span>
-<span class="normal"> 949</span>
-<span class="normal"> 950</span>
-<span class="normal"> 951</span>
-<span class="normal"> 952</span>
-<span class="normal"> 953</span>
+              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 953</span>
 <span class="normal"> 954</span>
 <span class="normal"> 955</span>
 <span class="normal"> 956</span>
@@ -8471,7 +8499,12 @@ match the number of children.</p>
 <span class="normal">1059</span>
 <span class="normal">1060</span>
 <span class="normal">1061</span>
-<span class="normal">1062</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">residual_losses_and_grads</span><span class="p">(</span>
+<span class="normal">1062</span>
+<span class="normal">1063</span>
+<span class="normal">1064</span>
+<span class="normal">1065</span>
+<span class="normal">1066</span>
+<span class="normal">1067</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">residual_losses_and_grads</span><span class="p">(</span>
     <span class="bp">self</span><span class="p">,</span>
     <span class="n">model</span><span class="p">:</span> <span class="n">NeuralNetwork</span><span class="p">,</span>
     <span class="o">*</span><span class="p">,</span>
@@ -8942,12 +8975,7 @@ per child.</p>
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>pinnjax/geometry/complex.py</code></summary>
-              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">774</span>
-<span class="normal">775</span>
-<span class="normal">776</span>
-<span class="normal">777</span>
-<span class="normal">778</span>
-<span class="normal">779</span>
+              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">779</span>
 <span class="normal">780</span>
 <span class="normal">781</span>
 <span class="normal">782</span>
@@ -9007,7 +9035,12 @@ per child.</p>
 <span class="normal">836</span>
 <span class="normal">837</span>
 <span class="normal">838</span>
-<span class="normal">839</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">sample</span><span class="p">(</span>
+<span class="normal">839</span>
+<span class="normal">840</span>
+<span class="normal">841</span>
+<span class="normal">842</span>
+<span class="normal">843</span>
+<span class="normal">844</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">sample</span><span class="p">(</span>
     <span class="bp">self</span><span class="p">,</span>
     <span class="n">method</span><span class="p">:</span> <span class="n">SamplingMethod</span><span class="p">,</span>
     <span class="n">sampling_values</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">float</span> <span class="o">|</span> <span class="nb">int</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -9372,12 +9405,7 @@ a warning is logged. Its children are not inserted.</p>
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>pinnjax/geometry/complex.py</code></summary>
-              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1186</span>
-<span class="normal">1187</span>
-<span class="normal">1188</span>
-<span class="normal">1189</span>
-<span class="normal">1190</span>
-<span class="normal">1191</span>
+              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1191</span>
 <span class="normal">1192</span>
 <span class="normal">1193</span>
 <span class="normal">1194</span>
@@ -9431,7 +9459,12 @@ a warning is logged. Its children are not inserted.</p>
 <span class="normal">1242</span>
 <span class="normal">1243</span>
 <span class="normal">1244</span>
-<span class="normal">1245</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">unpack</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">flatten</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="normal">1245</span>
+<span class="normal">1246</span>
+<span class="normal">1247</span>
+<span class="normal">1248</span>
+<span class="normal">1249</span>
+<span class="normal">1250</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">unpack</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">flatten</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""Replace nested composites with simpler children.</span>
 
 <span class="sd">    The walk uses the children present at the start of the call. Shapes appended</span>
@@ -9595,15 +9628,7 @@ Default: <code>False</code>.</p>
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>pinnjax/geometry/complex.py</code></summary>
-              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1282</span>
-<span class="normal">1283</span>
-<span class="normal">1284</span>
-<span class="normal">1285</span>
-<span class="normal">1286</span>
-<span class="normal">1287</span>
-<span class="normal">1288</span>
-<span class="normal">1289</span>
-<span class="normal">1290</span>
+              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1290</span>
 <span class="normal">1291</span>
 <span class="normal">1292</span>
 <span class="normal">1293</span>
@@ -9629,7 +9654,15 @@ Default: <code>False</code>.</p>
 <span class="normal">1313</span>
 <span class="normal">1314</span>
 <span class="normal">1315</span>
-<span class="normal">1316</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">verify_repetition</span><span class="p">(</span>
+<span class="normal">1316</span>
+<span class="normal">1317</span>
+<span class="normal">1318</span>
+<span class="normal">1319</span>
+<span class="normal">1320</span>
+<span class="normal">1321</span>
+<span class="normal">1322</span>
+<span class="normal">1323</span>
+<span class="normal">1324</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">verify_repetition</span><span class="p">(</span>
     <span class="bp">self</span><span class="p">,</span>
     <span class="o">*</span><span class="p">,</span>
     <span class="n">set_return</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
