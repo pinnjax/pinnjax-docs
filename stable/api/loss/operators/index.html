@@ -375,6 +375,8 @@
       
         
       
+        
+      
     
     
     
@@ -1522,8 +1524,6 @@
       
         
       
-        
-      
     
     
     
@@ -2475,7 +2475,12 @@ if applicable, i.e., <code>[x, y, z, t] -&gt; -1</code>. <code>None</code> when 
 <span class="normal">307</span>
 <span class="normal">308</span>
 <span class="normal">309</span>
-<span class="normal">310</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">DifferentialOperators</span><span class="p">(</span><span class="n">eqx</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+<span class="normal">310</span>
+<span class="normal">311</span>
+<span class="normal">312</span>
+<span class="normal">313</span>
+<span class="normal">314</span>
+<span class="normal">315</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">DifferentialOperators</span><span class="p">(</span><span class="n">eqx</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Pre-built Differential Operators, for convenience, which are `jax.jit` and `jax.vmap` compliant.</span>
 
 <span class="sd">    Takes a single point input, since that is required by `jax.vmap`.</span>
@@ -2713,9 +2718,9 @@ if applicable, i.e., <code>[x, y, z, t] -&gt; -1</code>. <code>None</code> when 
 <span class="w">        </span><span class="sd">"""Calculate the vector Laplacian and the gradient of the divergence.</span>
 
 <span class="sd">        One model output is required for each entry in `differential_axes`.</span>
-<span class="sd">        The spatial Hessian is the block of [`vector_hessian`][pinnjax.loss.operators.DifferentialOperators.vector_hessian]</span>
-<span class="sd">        on those axes. The vector Laplacian is the trace of that block for each output.</span>
-<span class="sd">        The divergence gradient sums `spatial_hessian[i, i, j]` over `i`.</span>
+<span class="sd">        The Jacobian is differentiated only along those spatial axes. The vector</span>
+<span class="sd">        Laplacian is the trace of that spatial block for each output. The</span>
+<span class="sd">        divergence gradient sums `spatial_hessian[i, i, j]` over `i`.</span>
 
 <span class="sd">        Args:</span>
 <span class="sd">            u: coordinates of a single point.</span>
@@ -2725,36 +2730,41 @@ if applicable, i.e., <code>[x, y, z, t] -&gt; -1</code>. <code>None</code> when 
 <span class="sd">            divergence_gradient: Gradient of the divergence.</span>
 
 <span class="sd">        Raises:</span>
-<span class="sd">            ValueError: If the number of outputs is not the number of differential axes.</span>
+<span class="sd">            ValueError: If `differential_axes` is unset, or the number of outputs</span>
+<span class="sd">                is not the number of differential axes.</span>
 
 <span class="sd">        """</span>
-        <span class="n">hessian</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">vector_hessian</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
-
         <span class="n">axes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">differential_axes</span>
         <span class="k">if</span> <span class="n">axes</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">msg</span> <span class="o">=</span> <span class="s2">"This operator requires model.differential_axes to be set."</span>
             <span class="n">config</span><span class="o">.</span><span class="n">LOGGER</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
-        <span class="n">spatial_dimension</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">axes</span><span class="p">)</span>
 
-        <span class="k">if</span> <span class="n">hessian</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="n">spatial_dimension</span><span class="p">:</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">jacobian</span><span class="p">(</span><span class="n">point</span><span class="p">:</span> <span class="n">Array</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Array</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">jax</span><span class="o">.</span><span class="n">jacrev</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">vector_prediction</span><span class="p">)(</span><span class="n">point</span><span class="p">)</span>
+
+        <span class="n">directional</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">axis</span> <span class="ow">in</span> <span class="n">axes</span><span class="p">:</span>
+            <span class="n">tangent</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">u</span><span class="p">)</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">axis</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>
+            <span class="n">_</span><span class="p">,</span> <span class="n">column</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">jvp</span><span class="p">(</span><span class="n">jacobian</span><span class="p">,</span> <span class="p">(</span><span class="n">u</span><span class="p">,),</span> <span class="p">(</span><span class="n">tangent</span><span class="p">,))</span>
+            <span class="n">directional</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
+
+        <span class="c1"># column[k, b] = ∂²u_k / (∂input_b ∂input_axis)</span>
+        <span class="n">stacked</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">directional</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">spatial_dimension</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">axes</span><span class="p">)</span>
+        <span class="n">n_outputs</span> <span class="o">=</span> <span class="n">stacked</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">n_outputs</span> <span class="o">!=</span> <span class="n">spatial_dimension</span><span class="p">:</span>
             <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span>
                 <span class="s2">"Vector differential operators require one model output "</span>
                 <span class="s2">"for each differential axis. "</span>
-                <span class="sa">f</span><span class="s2">"Received </span><span class="si">{</span><span class="n">hessian</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2"> outputs for "</span>
+                <span class="sa">f</span><span class="s2">"Received </span><span class="si">{</span><span class="n">n_outputs</span><span class="si">}</span><span class="s2"> outputs for "</span>
                 <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">spatial_dimension</span><span class="si">}</span><span class="s2"> differential axes."</span>
             <span class="p">)</span>
             <span class="n">config</span><span class="o">.</span><span class="n">LOGGER</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
 
-        <span class="n">axes</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">axes</span><span class="p">)</span>
-
-        <span class="n">spatial_hessian</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="n">hessian</span><span class="p">,</span> <span class="n">axes</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-        <span class="n">spatial_hessian</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">take</span><span class="p">(</span>
-            <span class="n">spatial_hessian</span><span class="p">,</span>
-            <span class="n">axes</span><span class="p">,</span>
-            <span class="n">axis</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
-        <span class="p">)</span>
+        <span class="n">spatial_index</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">axes</span><span class="p">)</span>
+        <span class="n">spatial_hessian</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="n">stacked</span><span class="p">,</span> <span class="n">spatial_index</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
         <span class="n">vector_laplacian</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">trace</span><span class="p">(</span>
             <span class="n">spatial_hessian</span><span class="p">,</span>
@@ -3877,9 +3887,9 @@ For a 3D spatial model this is</p>
 
         <p>Calculate the vector Laplacian and the gradient of the divergence.</p>
 <p>One model output is required for each entry in <code>differential_axes</code>.
-The spatial Hessian is the block of <a class="autorefs autorefs-internal" title="            vector_hessian" href="#pinnjax.loss.operators.DifferentialOperators.vector_hessian"><code>vector_hessian</code></a>
-on those axes. The vector Laplacian is the trace of that block for each output.
-The divergence gradient sums <code>spatial_hessian[i, i, j]</code> over <code>i</code>.</p>
+The Jacobian is differentiated only along those spatial axes. The vector
+Laplacian is the trace of that spatial block for each output. The
+divergence gradient sums <code>spatial_hessian[i, i, j]</code> over <code>i</code>.</p>
 
 
 <p><span class="doc-section-title">Parameters:</span></p>
@@ -3961,7 +3971,8 @@ The divergence gradient sums <code>spatial_hessian[i, i, j]</code> over <code>i<
             </td>
             <td>
               <div class="doc-md-description">
-                <p>If the number of outputs is not the number of differential axes.</p>
+                <p>If <code>differential_axes</code> is unset, or the number of outputs
+is not the number of differential axes.</p>
               </div>
             </td>
           </tr>
@@ -4032,16 +4043,21 @@ The divergence gradient sums <code>spatial_hessian[i, i, j]</code> over <code>i<
 <span class="normal">307</span>
 <span class="normal">308</span>
 <span class="normal">309</span>
-<span class="normal">310</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">vector_laplacian_and_divergence_gradient</span><span class="p">(</span>
+<span class="normal">310</span>
+<span class="normal">311</span>
+<span class="normal">312</span>
+<span class="normal">313</span>
+<span class="normal">314</span>
+<span class="normal">315</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">vector_laplacian_and_divergence_gradient</span><span class="p">(</span>
     <span class="bp">self</span><span class="p">,</span>
     <span class="n">u</span><span class="p">:</span> <span class="n">Array</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">Array</span><span class="p">,</span> <span class="n">Array</span><span class="p">]:</span>
 <span class="w">    </span><span class="sd">"""Calculate the vector Laplacian and the gradient of the divergence.</span>
 
 <span class="sd">    One model output is required for each entry in `differential_axes`.</span>
-<span class="sd">    The spatial Hessian is the block of [`vector_hessian`][pinnjax.loss.operators.DifferentialOperators.vector_hessian]</span>
-<span class="sd">    on those axes. The vector Laplacian is the trace of that block for each output.</span>
-<span class="sd">    The divergence gradient sums `spatial_hessian[i, i, j]` over `i`.</span>
+<span class="sd">    The Jacobian is differentiated only along those spatial axes. The vector</span>
+<span class="sd">    Laplacian is the trace of that spatial block for each output. The</span>
+<span class="sd">    divergence gradient sums `spatial_hessian[i, i, j]` over `i`.</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        u: coordinates of a single point.</span>
@@ -4051,36 +4067,41 @@ The divergence gradient sums <code>spatial_hessian[i, i, j]</code> over <code>i<
 <span class="sd">        divergence_gradient: Gradient of the divergence.</span>
 
 <span class="sd">    Raises:</span>
-<span class="sd">        ValueError: If the number of outputs is not the number of differential axes.</span>
+<span class="sd">        ValueError: If `differential_axes` is unset, or the number of outputs</span>
+<span class="sd">            is not the number of differential axes.</span>
 
 <span class="sd">    """</span>
-    <span class="n">hessian</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">vector_hessian</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
-
     <span class="n">axes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">differential_axes</span>
     <span class="k">if</span> <span class="n">axes</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">msg</span> <span class="o">=</span> <span class="s2">"This operator requires model.differential_axes to be set."</span>
         <span class="n">config</span><span class="o">.</span><span class="n">LOGGER</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
-    <span class="n">spatial_dimension</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">axes</span><span class="p">)</span>
 
-    <span class="k">if</span> <span class="n">hessian</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="n">spatial_dimension</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">jacobian</span><span class="p">(</span><span class="n">point</span><span class="p">:</span> <span class="n">Array</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Array</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">jax</span><span class="o">.</span><span class="n">jacrev</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">vector_prediction</span><span class="p">)(</span><span class="n">point</span><span class="p">)</span>
+
+    <span class="n">directional</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">axis</span> <span class="ow">in</span> <span class="n">axes</span><span class="p">:</span>
+        <span class="n">tangent</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">u</span><span class="p">)</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">axis</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>
+        <span class="n">_</span><span class="p">,</span> <span class="n">column</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">jvp</span><span class="p">(</span><span class="n">jacobian</span><span class="p">,</span> <span class="p">(</span><span class="n">u</span><span class="p">,),</span> <span class="p">(</span><span class="n">tangent</span><span class="p">,))</span>
+        <span class="n">directional</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
+
+    <span class="c1"># column[k, b] = ∂²u_k / (∂input_b ∂input_axis)</span>
+    <span class="n">stacked</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">directional</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">spatial_dimension</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">axes</span><span class="p">)</span>
+    <span class="n">n_outputs</span> <span class="o">=</span> <span class="n">stacked</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">n_outputs</span> <span class="o">!=</span> <span class="n">spatial_dimension</span><span class="p">:</span>
         <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span>
             <span class="s2">"Vector differential operators require one model output "</span>
             <span class="s2">"for each differential axis. "</span>
-            <span class="sa">f</span><span class="s2">"Received </span><span class="si">{</span><span class="n">hessian</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2"> outputs for "</span>
+            <span class="sa">f</span><span class="s2">"Received </span><span class="si">{</span><span class="n">n_outputs</span><span class="si">}</span><span class="s2"> outputs for "</span>
             <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">spatial_dimension</span><span class="si">}</span><span class="s2"> differential axes."</span>
         <span class="p">)</span>
         <span class="n">config</span><span class="o">.</span><span class="n">LOGGER</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
 
-    <span class="n">axes</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">axes</span><span class="p">)</span>
-
-    <span class="n">spatial_hessian</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="n">hessian</span><span class="p">,</span> <span class="n">axes</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">spatial_hessian</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">take</span><span class="p">(</span>
-        <span class="n">spatial_hessian</span><span class="p">,</span>
-        <span class="n">axes</span><span class="p">,</span>
-        <span class="n">axis</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
-    <span class="p">)</span>
+    <span class="n">spatial_index</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">axes</span><span class="p">)</span>
+    <span class="n">spatial_hessian</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="n">stacked</span><span class="p">,</span> <span class="n">spatial_index</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
     <span class="n">vector_laplacian</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">trace</span><span class="p">(</span>
         <span class="n">spatial_hessian</span><span class="p">,</span>

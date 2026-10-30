@@ -14,7 +14,7 @@
         <link rel="prev" href="../fields/">
       
       
-        <link rel="next" href="../defaults/">
+        <link rel="next" href="../../plot/">
       
       
         
@@ -368,6 +368,8 @@
   
     
     
+      
+        
       
         
       
@@ -1337,8 +1339,6 @@
       
         
       
-        
-      
     
     
     
@@ -1522,34 +1522,6 @@
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../defaults/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Defaults
-  
-
-    
-  </span>
-  
-  
-
-      </a>
     </li>
   
 
@@ -2085,8 +2057,10 @@
     <span class="n">domain</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-internal" title="            SpatialDomain (pinnjax.dataclass.domain.SpatialDomain)" href="../../dataclass/domains/#pinnjax.dataclass.domain.SpatialDomain">SpatialDomain</a></span><span class="p">,</span>
     <span class="o">*</span><span class="p">,</span>
     <span class="n">fixed_coordinates</span><span class="p">:</span> <span class="n"><span title="dict">dict</span></span><span class="p">[</span><span class="n"><span title="str">str</span></span><span class="p">,</span> <span class="n"><span title="float">float</span></span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="n">num_points</span><span class="p">:</span> <span class="n"><span title="tuple">tuple</span></span><span class="p">[</span><span class="n"><span title="int">int</span></span><span class="p">,</span> <span class="n"><span title="int">int</span></span><span class="p">]</span> <span class="o">=</span> <span class="n"><a class="autorefs autorefs-internal" title="            DEFAULT_GRID_NUM_POINTS (pinnjax.predict.defaults.DEFAULT_GRID_NUM_POINTS)" href="../defaults/#pinnjax.predict.defaults.DEFAULT_GRID_NUM_POINTS">DEFAULT_GRID_NUM_POINTS</a></span><span class="p">,</span>
-    <span class="n">num_times</span><span class="p">:</span> <span class="n"><span title="int">int</span></span> <span class="o">=</span> <span class="n"><a class="autorefs autorefs-internal" title="            DEFAULT_GRID_NUM_TIMES (pinnjax.predict.defaults.DEFAULT_GRID_NUM_TIMES)" href="../defaults/#pinnjax.predict.defaults.DEFAULT_GRID_NUM_TIMES">DEFAULT_GRID_NUM_TIMES</a></span><span class="p">,</span>
+    <span class="n">num_points</span><span class="p">:</span> <span class="n"><span title="tuple">tuple</span></span><span class="p">[</span><span class="n"><span title="int">int</span></span><span class="p">,</span> <span class="n"><span title="int">int</span></span><span class="p">]</span> <span class="o">=</span> <span class="n"><span title="pinnjax.predict._defaults.DEFAULT_GRID_NUM_POINTS">DEFAULT_GRID_NUM_POINTS</span></span><span class="p">,</span>
+    <span class="n">num_times</span><span class="p">:</span> <span class="n"><span title="int">int</span></span> <span class="o">=</span> <span class="n"><span title="pinnjax.predict._defaults.DEFAULT_GRID_NUM_TIMES">DEFAULT_GRID_NUM_TIMES</span></span><span class="p">,</span>
+    <span class="n">output_index</span><span class="p">:</span> <span class="n"><span title="int">int</span></span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="n">descriptor</span><span class="p">:</span> <span class="n"><span title="jax.typing.ArrayLike">ArrayLike</span></span> <span class="o">|</span> <span class="n"><span title="collections.abc.Sequence">Sequence</span></span><span class="p">[</span><span class="n"><span title="float">float</span></span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="tuple">tuple</span></span><span class="p">[</span><span class="n"><span title="jax.Array">Array</span></span><span class="p">,</span> <span class="n"><a class="autorefs autorefs-internal" title="            RectangularGrid2D (pinnjax.grid.structured.RectangularGrid2D)" href="../../grid/structured/#pinnjax.grid.structured.RectangularGrid2D">RectangularGrid2D</a></span><span class="p">]</span>
 </code></pre></div>
 
@@ -2174,7 +2148,7 @@ range.</p>
               </div>
             </td>
             <td>
-                  <code><a class="autorefs autorefs-internal" title="            DEFAULT_GRID_NUM_POINTS (pinnjax.predict.defaults.DEFAULT_GRID_NUM_POINTS)" href="../defaults/#pinnjax.predict.defaults.DEFAULT_GRID_NUM_POINTS">DEFAULT_GRID_NUM_POINTS</a></code>
+                  <code><span title="pinnjax.predict._defaults.DEFAULT_GRID_NUM_POINTS">DEFAULT_GRID_NUM_POINTS</span></code>
             </td>
           </tr>
           <tr class="doc-section-item">
@@ -2190,7 +2164,41 @@ range.</p>
               </div>
             </td>
             <td>
-                  <code><a class="autorefs autorefs-internal" title="            DEFAULT_GRID_NUM_TIMES (pinnjax.predict.defaults.DEFAULT_GRID_NUM_TIMES)" href="../defaults/#pinnjax.predict.defaults.DEFAULT_GRID_NUM_TIMES">DEFAULT_GRID_NUM_TIMES</a></code>
+                  <code><span title="pinnjax.predict._defaults.DEFAULT_GRID_NUM_TIMES">DEFAULT_GRID_NUM_TIMES</span></code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>output_index</code>
+            </td>
+            <td>
+                  <code><span title="int">int</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Column kept when the network returns more than one
+value per point. Default: <code>0</code>.</p>
+              </div>
+            </td>
+            <td>
+                  <code>0</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>descriptor</code>
+            </td>
+            <td>
+                  <code><span title="jax.typing.ArrayLike">ArrayLike</span> | <span title="collections.abc.Sequence">Sequence</span>[<span title="float">float</span>] | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Used in parametric networks where the inputs are not only
+the spatial and temporal indices.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
             </td>
           </tr>
       </tbody>
@@ -2267,10 +2275,7 @@ positive.</p>
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>pinnjax/predict/_helpers.py</code></summary>
-              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span>
+              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">29</span>
 <span class="normal">30</span>
 <span class="normal">31</span>
 <span class="normal">32</span>
@@ -2327,13 +2332,24 @@ positive.</p>
 <span class="normal">83</span>
 <span class="normal">84</span>
 <span class="normal">85</span>
-<span class="normal">86</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">run_prediction</span><span class="p">(</span>
+<span class="normal">86</span>
+<span class="normal">87</span>
+<span class="normal">88</span>
+<span class="normal">89</span>
+<span class="normal">90</span>
+<span class="normal">91</span>
+<span class="normal">92</span>
+<span class="normal">93</span>
+<span class="normal">94</span>
+<span class="normal">95</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">run_prediction</span><span class="p">(</span>
     <span class="n">model</span><span class="p">:</span> <span class="n">NeuralNetwork</span><span class="p">,</span>
     <span class="n">domain</span><span class="p">:</span> <span class="n">SpatialDomain</span><span class="p">,</span>
     <span class="o">*</span><span class="p">,</span>
     <span class="n">fixed_coordinates</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">num_points</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">DEFAULT_GRID_NUM_POINTS</span><span class="p">,</span>
     <span class="n">num_times</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">DEFAULT_GRID_NUM_TIMES</span><span class="p">,</span>
+    <span class="n">output_index</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="n">descriptor</span><span class="p">:</span> <span class="n">ArrayLike</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">Array</span><span class="p">,</span> <span class="n">RectangularGrid2D</span><span class="p">]:</span>
 <span class="w">    </span><span class="sd">"""Run an evolution prediction on a 2D slice.</span>
 
@@ -2351,6 +2367,10 @@ positive.</p>
 <span class="sd">            ``z`` is held at ``domain.max[2]``.</span>
 <span class="sd">        num_points: Sample counts ``(nx, ny)`` for the free axes.</span>
 <span class="sd">        num_times: Number of times, including both ends.</span>
+<span class="sd">        output_index: Column kept when the network returns more than one</span>
+<span class="sd">            value per point. Default: ``0``.</span>
+<span class="sd">        descriptor: Used in parametric networks where the inputs are not only</span>
+<span class="sd">            the spatial and temporal indices.</span>
 
 <span class="sd">    Returns:</span>
 <span class="sd">        The predictions, shaped ``(num_times, ny, nx)``, and the grid.</span>
@@ -2386,7 +2406,7 @@ positive.</p>
         <span class="n">time_range</span><span class="o">=</span><span class="n">time_range</span><span class="p">,</span>
         <span class="n">num_times</span><span class="o">=</span><span class="n">num_times</span><span class="p">,</span>
     <span class="p">)</span>
-    <span class="n">predictions</span> <span class="o">=</span> <span class="n">predict_evolution</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">grid</span><span class="p">)</span>
+    <span class="n">predictions</span> <span class="o">=</span> <span class="n">predict_evolution</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">grid</span><span class="p">,</span> <span class="n">output_index</span><span class="o">=</span><span class="n">output_index</span><span class="p">,</span> <span class="n">descriptor</span><span class="o">=</span><span class="n">descriptor</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">predictions</span><span class="p">,</span> <span class="n">grid</span>
 </code></pre></div></td></tr></table></div>
             </details>
@@ -2408,7 +2428,9 @@ positive.</p>
     <span class="n">time</span><span class="p">:</span> <span class="n"><span title="float">float</span></span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span>
     <span class="o">*</span><span class="p">,</span>
     <span class="n">fixed_coordinates</span><span class="p">:</span> <span class="n"><span title="dict">dict</span></span><span class="p">[</span><span class="n"><span title="str">str</span></span><span class="p">,</span> <span class="n"><span title="float">float</span></span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="n">num_points</span><span class="p">:</span> <span class="n"><span title="tuple">tuple</span></span><span class="p">[</span><span class="n"><span title="int">int</span></span><span class="p">,</span> <span class="n"><span title="int">int</span></span><span class="p">]</span> <span class="o">=</span> <span class="n"><a class="autorefs autorefs-internal" title="            DEFAULT_GRID_NUM_POINTS (pinnjax.predict.defaults.DEFAULT_GRID_NUM_POINTS)" href="../defaults/#pinnjax.predict.defaults.DEFAULT_GRID_NUM_POINTS">DEFAULT_GRID_NUM_POINTS</a></span><span class="p">,</span>
+    <span class="n">num_points</span><span class="p">:</span> <span class="n"><span title="tuple">tuple</span></span><span class="p">[</span><span class="n"><span title="int">int</span></span><span class="p">,</span> <span class="n"><span title="int">int</span></span><span class="p">]</span> <span class="o">=</span> <span class="n"><span title="pinnjax.predict._defaults.DEFAULT_GRID_NUM_POINTS">DEFAULT_GRID_NUM_POINTS</span></span><span class="p">,</span>
+    <span class="n">output_index</span><span class="p">:</span> <span class="n"><span title="int">int</span></span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="n">descriptor</span><span class="p">:</span> <span class="n"><span title="jax.typing.ArrayLike">ArrayLike</span></span> <span class="o">|</span> <span class="n"><span title="collections.abc.Sequence">Sequence</span></span><span class="p">[</span><span class="n"><span title="float">float</span></span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="tuple">tuple</span></span><span class="p">[</span><span class="n"><span title="jax.Array">Array</span></span><span class="p">,</span> <span class="n"><a class="autorefs autorefs-internal" title="            RectangularGrid2D (pinnjax.grid.structured.RectangularGrid2D)" href="../../grid/structured/#pinnjax.grid.structured.RectangularGrid2D">RectangularGrid2D</a></span><span class="p">]</span>
 </code></pre></div>
 
@@ -2511,7 +2533,41 @@ An omitted slice holds <code>z</code> at the domain maximum. <code>num_points</c
               </div>
             </td>
             <td>
-                  <code><a class="autorefs autorefs-internal" title="            DEFAULT_GRID_NUM_POINTS (pinnjax.predict.defaults.DEFAULT_GRID_NUM_POINTS)" href="../defaults/#pinnjax.predict.defaults.DEFAULT_GRID_NUM_POINTS">DEFAULT_GRID_NUM_POINTS</a></code>
+                  <code><span title="pinnjax.predict._defaults.DEFAULT_GRID_NUM_POINTS">DEFAULT_GRID_NUM_POINTS</span></code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>output_index</code>
+            </td>
+            <td>
+                  <code><span title="int">int</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Column kept when the network returns more than one
+value per point. Default: <code>0</code>.</p>
+              </div>
+            </td>
+            <td>
+                  <code>0</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>descriptor</code>
+            </td>
+            <td>
+                  <code><span title="jax.typing.ArrayLike">ArrayLike</span> | <span title="collections.abc.Sequence">Sequence</span>[<span title="float">float</span>] | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Used in parametric networks where the inputs are not only
+the spatial and temporal indices.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
             </td>
           </tr>
       </tbody>
@@ -2567,16 +2623,7 @@ domain is not a <a class="autorefs autorefs-internal" title="            Spatial
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>pinnjax/predict/_helpers.py</code></summary>
-              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 89</span>
-<span class="normal"> 90</span>
-<span class="normal"> 91</span>
-<span class="normal"> 92</span>
-<span class="normal"> 93</span>
-<span class="normal"> 94</span>
-<span class="normal"> 95</span>
-<span class="normal"> 96</span>
-<span class="normal"> 97</span>
-<span class="normal"> 98</span>
+              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 98</span>
 <span class="normal"> 99</span>
 <span class="normal">100</span>
 <span class="normal">101</span>
@@ -2613,13 +2660,32 @@ domain is not a <a class="autorefs autorefs-internal" title="            Spatial
 <span class="normal">132</span>
 <span class="normal">133</span>
 <span class="normal">134</span>
-<span class="normal">135</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">run_prediction_at_time</span><span class="p">(</span>
+<span class="normal">135</span>
+<span class="normal">136</span>
+<span class="normal">137</span>
+<span class="normal">138</span>
+<span class="normal">139</span>
+<span class="normal">140</span>
+<span class="normal">141</span>
+<span class="normal">142</span>
+<span class="normal">143</span>
+<span class="normal">144</span>
+<span class="normal">145</span>
+<span class="normal">146</span>
+<span class="normal">147</span>
+<span class="normal">148</span>
+<span class="normal">149</span>
+<span class="normal">150</span>
+<span class="normal">151</span>
+<span class="normal">152</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">run_prediction_at_time</span><span class="p">(</span>
     <span class="n">model</span><span class="p">:</span> <span class="n">NeuralNetwork</span><span class="p">,</span>
     <span class="n">domain</span><span class="p">:</span> <span class="n">SpatialDomain</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">time</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span>
     <span class="o">*</span><span class="p">,</span>
     <span class="n">fixed_coordinates</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">num_points</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">DEFAULT_GRID_NUM_POINTS</span><span class="p">,</span>
+    <span class="n">output_index</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="n">descriptor</span><span class="p">:</span> <span class="n">ArrayLike</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">Array</span><span class="p">,</span> <span class="n">RectangularGrid2D</span><span class="p">]:</span>
 <span class="w">    </span><span class="sd">"""Predict a 2D slice at one time.</span>
 
@@ -2636,6 +2702,10 @@ domain is not a <a class="autorefs autorefs-internal" title="            Spatial
 <span class="sd">        fixed_coordinates: Axis name to the constant value. When omitted,</span>
 <span class="sd">            ``z`` is held at ``domain.max[2]``.</span>
 <span class="sd">        num_points: Sample counts ``(nx, ny)`` for the free axes.</span>
+<span class="sd">        output_index: Column kept when the network returns more than one</span>
+<span class="sd">            value per point. Default: ``0``.</span>
+<span class="sd">        descriptor: Used in parametric networks where the inputs are not only</span>
+<span class="sd">            the spatial and temporal indices.</span>
 
 <span class="sd">    Returns:</span>
 <span class="sd">        The prediction, shaped ``(ny, nx)``, and the spatial grid.</span>
@@ -2658,7 +2728,9 @@ domain is not a <a class="autorefs autorefs-internal" title="            Spatial
         <span class="n">fixed_coordinates</span><span class="o">=</span><span class="n">fixed_coordinates</span><span class="p">,</span>
         <span class="n">num_points</span><span class="o">=</span><span class="n">num_points</span><span class="p">,</span>
     <span class="p">)</span>
-    <span class="n">prediction</span> <span class="o">=</span> <span class="n">predict</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">grid</span><span class="p">,</span> <span class="n">time</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="n">time</span><span class="p">))</span>
+    <span class="n">prediction</span> <span class="o">=</span> <span class="n">predict</span><span class="p">(</span>
+        <span class="n">model</span><span class="p">,</span> <span class="n">grid</span><span class="p">,</span> <span class="n">time</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="n">time</span><span class="p">),</span> <span class="n">output_index</span><span class="o">=</span><span class="n">output_index</span><span class="p">,</span> <span class="n">descriptor</span><span class="o">=</span><span class="n">descriptor</span>
+    <span class="p">)</span>
     <span class="k">return</span> <span class="n">prediction</span><span class="p">,</span> <span class="n">grid</span>
 </code></pre></div></td></tr></table></div>
             </details>
@@ -2677,10 +2749,12 @@ domain is not a <a class="autorefs autorefs-internal" title="            Spatial
 <div class="language-python doc-signature highlight"><pre><span></span><code><span class="nf">run_prediction_at_times</span><span class="p">(</span>
     <span class="n">model</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-internal" title="            NeuralNetwork (pinnjax.model.base.NeuralNetwork)" href="../../model/networks/#pinnjax.model.base.NeuralNetwork">NeuralNetwork</a></span><span class="p">,</span>
     <span class="n">domain</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-internal" title="            SpatialDomain (pinnjax.dataclass.domain.SpatialDomain)" href="../../dataclass/domains/#pinnjax.dataclass.domain.SpatialDomain">SpatialDomain</a></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="n">times</span><span class="p">:</span> <span class="n"><span title="jax.Array">Array</span></span> <span class="o">|</span> <span class="n"><span title="list">list</span></span><span class="p">[</span><span class="n"><span title="float">float</span></span><span class="p">]</span> <span class="o">|</span> <span class="n"><span title="tuple">tuple</span></span><span class="p">[</span><span class="n"><span title="float">float</span></span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="p">(),</span>
+    <span class="n">times</span><span class="p">:</span> <span class="n"><span title="jax.typing.ArrayLike">ArrayLike</span></span> <span class="o">|</span> <span class="n"><span title="collections.abc.Sequence">Sequence</span></span><span class="p">[</span><span class="n"><span title="float">float</span></span><span class="p">]</span> <span class="o">=</span> <span class="p">(),</span>
     <span class="o">*</span><span class="p">,</span>
     <span class="n">fixed_coordinates</span><span class="p">:</span> <span class="n"><span title="dict">dict</span></span><span class="p">[</span><span class="n"><span title="str">str</span></span><span class="p">,</span> <span class="n"><span title="float">float</span></span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="n">num_points</span><span class="p">:</span> <span class="n"><span title="tuple">tuple</span></span><span class="p">[</span><span class="n"><span title="int">int</span></span><span class="p">,</span> <span class="n"><span title="int">int</span></span><span class="p">]</span> <span class="o">=</span> <span class="n"><a class="autorefs autorefs-internal" title="            DEFAULT_GRID_NUM_POINTS (pinnjax.predict.defaults.DEFAULT_GRID_NUM_POINTS)" href="../defaults/#pinnjax.predict.defaults.DEFAULT_GRID_NUM_POINTS">DEFAULT_GRID_NUM_POINTS</a></span><span class="p">,</span>
+    <span class="n">num_points</span><span class="p">:</span> <span class="n"><span title="tuple">tuple</span></span><span class="p">[</span><span class="n"><span title="int">int</span></span><span class="p">,</span> <span class="n"><span title="int">int</span></span><span class="p">]</span> <span class="o">=</span> <span class="n"><span title="pinnjax.predict._defaults.DEFAULT_GRID_NUM_POINTS">DEFAULT_GRID_NUM_POINTS</span></span><span class="p">,</span>
+    <span class="n">output_index</span><span class="p">:</span> <span class="n"><span title="int">int</span></span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="n">descriptor</span><span class="p">:</span> <span class="n"><span title="jax.typing.ArrayLike">ArrayLike</span></span> <span class="o">|</span> <span class="n"><span title="collections.abc.Sequence">Sequence</span></span><span class="p">[</span><span class="n"><span title="float">float</span></span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="tuple">tuple</span></span><span class="p">[</span><span class="n"><span title="jax.Array">Array</span></span><span class="p">,</span> <span class="n"><a class="autorefs autorefs-internal" title="            RectangularGrid2D (pinnjax.grid.structured.RectangularGrid2D)" href="../../grid/structured/#pinnjax.grid.structured.RectangularGrid2D">RectangularGrid2D</a></span><span class="p">]</span>
 </code></pre></div>
 
@@ -2743,7 +2817,7 @@ shape <code>(n_times, ny, nx)</code>.</p>
                 <code>times</code>
             </td>
             <td>
-                  <code><span title="jax.Array">Array</span> | <span title="list">list</span>[<span title="float">float</span>] | <span title="tuple">tuple</span>[<span title="float">float</span>, ...]</code>
+                  <code><span title="jax.typing.ArrayLike">ArrayLike</span> | <span title="collections.abc.Sequence">Sequence</span>[<span title="float">float</span>]</code>
             </td>
             <td>
               <div class="doc-md-description">
@@ -2784,7 +2858,41 @@ shape <code>(n_times, ny, nx)</code>.</p>
               </div>
             </td>
             <td>
-                  <code><a class="autorefs autorefs-internal" title="            DEFAULT_GRID_NUM_POINTS (pinnjax.predict.defaults.DEFAULT_GRID_NUM_POINTS)" href="../defaults/#pinnjax.predict.defaults.DEFAULT_GRID_NUM_POINTS">DEFAULT_GRID_NUM_POINTS</a></code>
+                  <code><span title="pinnjax.predict._defaults.DEFAULT_GRID_NUM_POINTS">DEFAULT_GRID_NUM_POINTS</span></code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>output_index</code>
+            </td>
+            <td>
+                  <code><span title="int">int</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Column kept when the network returns more than one
+value per point. Default: <code>0</code>.</p>
+              </div>
+            </td>
+            <td>
+                  <code>0</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>descriptor</code>
+            </td>
+            <td>
+                  <code><span title="jax.typing.ArrayLike">ArrayLike</span> | <span title="collections.abc.Sequence">Sequence</span>[<span title="float">float</span>] | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Used in parametric networks where the inputs are not only
+the spatial and temporal indices.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
             </td>
           </tr>
       </tbody>
@@ -2840,24 +2948,7 @@ domain is not a <a class="autorefs autorefs-internal" title="            Spatial
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>pinnjax/predict/_helpers.py</code></summary>
-              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">138</span>
-<span class="normal">139</span>
-<span class="normal">140</span>
-<span class="normal">141</span>
-<span class="normal">142</span>
-<span class="normal">143</span>
-<span class="normal">144</span>
-<span class="normal">145</span>
-<span class="normal">146</span>
-<span class="normal">147</span>
-<span class="normal">148</span>
-<span class="normal">149</span>
-<span class="normal">150</span>
-<span class="normal">151</span>
-<span class="normal">152</span>
-<span class="normal">153</span>
-<span class="normal">154</span>
-<span class="normal">155</span>
+              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">155</span>
 <span class="normal">156</span>
 <span class="normal">157</span>
 <span class="normal">158</span>
@@ -2888,13 +2979,40 @@ domain is not a <a class="autorefs autorefs-internal" title="            Spatial
 <span class="normal">183</span>
 <span class="normal">184</span>
 <span class="normal">185</span>
-<span class="normal">186</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">run_prediction_at_times</span><span class="p">(</span>
+<span class="normal">186</span>
+<span class="normal">187</span>
+<span class="normal">188</span>
+<span class="normal">189</span>
+<span class="normal">190</span>
+<span class="normal">191</span>
+<span class="normal">192</span>
+<span class="normal">193</span>
+<span class="normal">194</span>
+<span class="normal">195</span>
+<span class="normal">196</span>
+<span class="normal">197</span>
+<span class="normal">198</span>
+<span class="normal">199</span>
+<span class="normal">200</span>
+<span class="normal">201</span>
+<span class="normal">202</span>
+<span class="normal">203</span>
+<span class="normal">204</span>
+<span class="normal">205</span>
+<span class="normal">206</span>
+<span class="normal">207</span>
+<span class="normal">208</span>
+<span class="normal">209</span>
+<span class="normal">210</span>
+<span class="normal">211</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">run_prediction_at_times</span><span class="p">(</span>
     <span class="n">model</span><span class="p">:</span> <span class="n">NeuralNetwork</span><span class="p">,</span>
     <span class="n">domain</span><span class="p">:</span> <span class="n">SpatialDomain</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="n">times</span><span class="p">:</span> <span class="n">Array</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">|</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="p">(),</span>
+    <span class="n">times</span><span class="p">:</span> <span class="n">ArrayLike</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="p">(),</span>
     <span class="o">*</span><span class="p">,</span>
     <span class="n">fixed_coordinates</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">num_points</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">DEFAULT_GRID_NUM_POINTS</span><span class="p">,</span>
+    <span class="n">output_index</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="n">descriptor</span><span class="p">:</span> <span class="n">ArrayLike</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">Array</span><span class="p">,</span> <span class="n">RectangularGrid2D</span><span class="p">]:</span>
 <span class="w">    </span><span class="sd">"""Predict a 2D slice at several times.</span>
 
@@ -2912,6 +3030,10 @@ domain is not a <a class="autorefs autorefs-internal" title="            Spatial
 <span class="sd">        fixed_coordinates: Axis name to the constant value. When omitted,</span>
 <span class="sd">            ``z`` is held at ``domain.max[2]``.</span>
 <span class="sd">        num_points: Sample counts ``(nx, ny)`` for the free axes.</span>
+<span class="sd">        output_index: Column kept when the network returns more than one</span>
+<span class="sd">            value per point. Default: ``0``.</span>
+<span class="sd">        descriptor: Used in parametric networks where the inputs are not only</span>
+<span class="sd">            the spatial and temporal indices.</span>
 
 <span class="sd">    Returns:</span>
 <span class="sd">        Predictions of shape ``(n_times, ny, nx)``, and the spatial grid.</span>
@@ -2935,7 +3057,9 @@ domain is not a <a class="autorefs autorefs-internal" title="            Spatial
         <span class="n">num_points</span><span class="o">=</span><span class="n">num_points</span><span class="p">,</span>
     <span class="p">)</span>
     <span class="n">times_arr</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">times</span><span class="p">)</span>
-    <span class="n">predictions</span> <span class="o">=</span> <span class="n">predict_at_times</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">grid</span><span class="p">,</span> <span class="n">times_arr</span><span class="p">)</span>
+    <span class="n">predictions</span> <span class="o">=</span> <span class="n">predict_at_times</span><span class="p">(</span>
+        <span class="n">model</span><span class="p">,</span> <span class="n">grid</span><span class="p">,</span> <span class="n">times_arr</span><span class="p">,</span> <span class="n">output_index</span><span class="o">=</span><span class="n">output_index</span><span class="p">,</span> <span class="n">descriptor</span><span class="o">=</span><span class="n">descriptor</span>
+    <span class="p">)</span>
     <span class="k">return</span> <span class="n">predictions</span><span class="p">,</span> <span class="n">grid</span>
 </code></pre></div></td></tr></table></div>
             </details>
